@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "state": "Published source and static demo with reviewed EN/ES reading translations; final LabLab submission confirmed with R05 video, R08 PDF and R08 cover",
+  "state": "R09 UX source and static build; historical confirmed LabLab submission remains R05 video/R08 PDF and cover until separately updated",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -9,10 +9,13 @@
     "PUBLIC-ALLOWLIST.json",
     "README.md",
     "app/ai-contract.mjs",
+    "app/calendar-client.mjs",
+    "app/calendar.mjs",
     "app/client.mjs",
     "app/engine.mjs",
     "app/evidence-client.mjs",
     "app/evidence.mjs",
+    "app/favicon.svg",
     "app/i18n.mjs",
     "app/index.html",
     "app/model-client.mjs",
@@ -24,6 +27,7 @@
     "app/source-translations.mjs",
     "app/styles.css",
     "app/tests/ai-contract.test.mjs",
+    "app/tests/calendar.test.mjs",
     "app/tests/engine.test.mjs",
     "app/tests/evidence-server.test.mjs",
     "app/tests/evidence.test.mjs",
@@ -33,6 +37,9 @@
     "app/tests/recorded-amd.test.mjs",
     "app/tests/server.test.mjs",
     "app/tests/source-reading.test.mjs",
+    "app/tests/theme.test.mjs",
+    "app/theme-init.js",
+    "app/theme.mjs",
     "assets/ACT-III-20261012/BRAND-FIGUEIRA/PROVENANCE.md",
     "assets/ACT-III-20261012/BRAND-FIGUEIRA/figueira-wordmark.png",
     "assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md",
@@ -51,6 +58,7 @@
     "docs/ACT-III-20261012/ROTEIRO-DEMO-5-MIN.md",
     "docs/ACT-III-20261012/SUBMISSION-COPY-R03.json",
     "docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md",
+    "docs/ACT-III-20261012/UX-R09.md",
     "public-demo/browser-api.mjs",
     "public-demo/tests/browser-api.test.mjs",
     "public-demo/tests/recorded-amd-integration.test.mjs",
@@ -387,7 +395,7 @@
     "mustInspectActualGeneratedFiles": true,
     "containsLocalProgress": false,
     "liveInference": false,
-    "generatedFiles": 17,
+    "generatedFiles": 22,
     "deploymentMarker": ".nojekyll",
     "testFilesIncluded": false
   },
@@ -474,10 +482,31 @@
     "observedAtScope": "Historical unauthenticated verification of the 18 static files at the recorded staticCommit; not the latest source or submission timestamp"
   },
   "verifiedLocalTests": {
-    "files": 13,
-    "pass": 179,
+    "files": 15,
+    "pass": 195,
     "fail": 0,
     "skipped": 0,
-    "validation": "SOURCE-READING-TRANSLATION-VALIDATION-20261012.json"
+    "validation": "R09 exact publication checkout test and build verification; production verification recorded separately"
+  },
+  "sourceFilesBase": "release/github",
+  "localCleanup": {
+    "at": "2026-10-12T19:54:27.268096+00:00",
+    "sourceFilesMeaning": "Exact source publication snapshot relative to sourceFilesBase; some earlier published docs/assets were removed only from the local working root.",
+    "sourceSnapshotPreserved": true,
+    "currentFinalInventory": "ENTREGA-FINAL/MANIFEST-CLEAN-FINAL-20261012.json",
+    "publicEvidenceMeaning": "The 80 immutable proofs still resolve relative to the project root and remain unchanged.",
+    "noRemotePublicationChanged": true
+  },
+  "uxRevision": {
+    "revision": "R09",
+    "features": [
+      "persistent light and dark appearance",
+      "read-only fictional doctor calendar",
+      "EN/PT/ES calendar and navigation",
+      "case links retain current records"
+    ],
+    "doesNotStartGPU": true,
+    "calendarNotProductionScheduling": true,
+    "publicationState": "Prepared for authorized update; production verification recorded separately"
   }
 }

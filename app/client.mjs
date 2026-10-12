@@ -1,6 +1,8 @@
 import { ui, getLanguage, setLanguage, stamp, localizeTree, searchText, errorText } from './i18n.mjs';
 import { evidenceView, mountEvidencePanel } from './evidence-client.mjs';
 import { sourceReadingView } from './source-reading.mjs';
+import { mountTheme } from './theme.mjs';
+import { mountCalendar } from './calendar-client.mjs';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const owners = ['SEC-SIM-A','SEC-SIM-B','SEC-SIM-C','COORD-SIM-A','MED-SIM-A','MED-SIM-B'];
@@ -20,6 +22,40 @@ const displayNext = item => {
 };
 let state, currentId, currentTab = 'summary', filter = 'open', search = '', busy = false, noticeTimer, pendingAction;
 const edits = new Map();
+const refreshTheme = mountTheme($('#theme-toggle'),getLanguage);
+let currentView = 'queue';
+const navigationAvailable = () => {
+  if (busy || $('#case-panel')?.getAttribute('aria-busy') === 'true') {
+    notify('Aguarde a consulta ou o salvamento antes de mudar a visualização.');
+    return false;
+  }
+  return true;
+};
+const refreshCalendar = mountCalendar($('#calendar-view'),{
+  language:getLanguage, canNavigate:navigationAvailable,
+  openCase: id => {
+    if (!state) return;
+    filter='all';search='';$('#filter').value=filter;$('#search').value='';
+    currentId=id;currentTab='summary';render();changeView('queue');
+    $('#detail').focus({preventScroll:true});$('#detail').scrollIntoView({block:'start',behavior:'instant'});
+  },
+});
+function changeView(view, updateHash = true) {
+  if (!navigationAvailable()) return false;
+  currentView=view==='calendar' ? 'calendar' : 'queue';
+  $('#queue-view').hidden=currentView!=='queue';$('#calendar-view').hidden=currentView!=='calendar';
+  $('.intro').hidden=currentView==='calendar';
+  $('.skip').href=currentView==='calendar' ? '#calendar-view' : '#detail';
+  document.querySelectorAll('[data-view]').forEach(link=>{
+    if(link.dataset.view===currentView)link.setAttribute('aria-current','page');
+    else link.removeAttribute('aria-current');
+  });
+  if(updateHash)history.replaceState(null,'',`#${currentView}`);
+  return true;
+}
+document.querySelectorAll('[data-view]').forEach(link=>link.onclick=event=>{event.preventDefault();changeView(link.dataset.view);});
+window.addEventListener('hashchange',()=>{if(!changeView(location.hash==='#calendar'?'calendar':'queue',false))history.replaceState(null,'',`#${currentView}`);});
+changeView(location.hash==='#calendar'?'calendar':'queue',false);
 
 
 function notify(message, error = false) {
@@ -214,6 +250,7 @@ $('#language').addEventListener('change',event => {
   const ownerSelection=$('#owner')?.value;
   setLanguage(event.target.value);
   if (state) render(); else localizeTree(document.body);
+  refreshTheme();refreshCalendar();
   if (ownerSelection !== undefined && $('#owner')) $('#owner').value=ownerSelection;
   $('#detail').scrollTop=detailScroll;$('#cases').scrollTop=queueScroll;$('#language').focus({preventScroll:true});
 });

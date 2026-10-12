@@ -3,6 +3,10 @@ export const LANGUAGES = Object.freeze({ en:'English', pt:'Português', es:'Espa
 const LOCALES = { en:'en', pt:'pt-BR', es:'es' };
 const STORAGE_KEY = 'patientkeeper-retorno-language';
 export const catalog = [
+  ['Pular para o conteúdo','Skip to content','Saltar al contenido'],
+  ['Aguarde a consulta ou o salvamento antes de mudar a visualização.','Wait for the query or save before changing views.','Espere a que termine la consulta o el guardado antes de cambiar de vista.'],
+  ['Navegação do trabalho','Workspace navigation','Navegación del trabajo'],
+  ['Agenda médica','Doctor calendar','Agenda médica'],
   ['PatientKeeper — Retorno | Conferir com fontes','PatientKeeper — Retorno | Check the sources','PatientKeeper — Retorno | Revisar las fuentes'],
   ['Idioma','Language','Idioma'],
   ['Pular para a pendência','Skip to the pending case','Saltar al caso pendiente'],

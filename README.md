@@ -4,7 +4,9 @@ A source. A reviewer. A next step.
 
 PatientKeeper Retorno is an administrative prototype for clinic reception and coordination. It keeps a canceled follow-up visible while a person checks current records, assigns responsibility and prepares a cited review card. All eight cases are fictional. It does not diagnose, recommend treatment, contact patients or change real appointments.
 
-**ACT-III-R03-20261012 — source, static demo and LabLab submission confirmed.** The public demo has eight fictional cases, EN/PT/ES selection and a recorded/GPU-off footer. At 18:42:56 UTC on October 12, public HTTPS checks matched all 18 deployed files to the exact `gh-pages` commit. LabLab confirmed submission at 19:27:49 UTC, with the R05 video and R08 PDF visible on the published project page in the existing Chrome session. [Open the submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno).
+**Current experience revision: UX R09.** The eight fictional cases now have a persistent light/dark button, direct Queue/Calendar navigation and a read-only example doctor calendar. Its two fictional doctors and ten agenda items link to existing cases; they do not create appointments or change records. EN/PT/ES labels and date controls remain available. [Open the demo](https://athosfif.github.io/patientkeeper-retorno-act-iii/) · [Calendar](https://athosfif.github.io/patientkeeper-retorno-act-iii/#calendar) · [R09 scope](docs/ACT-III-20261012/UX-R09.md).
+
+The original ACT-III-R03 source evidence and recorded AMD execution are preserved. LabLab confirmed the earlier R05 video/R08 PDF submission at 19:27:49 UTC on October 12; this source update does not itself prove that newer presentation media were submitted. [Open the submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno).
 
 ## Product workflow
 
@@ -13,6 +15,7 @@ PatientKeeper Retorno is an administrative prototype for clinic reception and co
 3. Explicitly select checked sources and confirm before preparing a cited card.
 4. Inspect a known conflict or a clinical question: these require human handoff. The card cannot resolve the conflict automatically.
 5. Switch EN/PT/ES. English is the initial navigation language. Records have reviewed reading translations; open the Portuguese original to inspect the unchanged evidence.
+6. Open Calendar, filter a fictional doctor, choose a day and open its linked case. Switching views retains an unsaved draft. Toggle the light/dark button; its independent appearance preference does not alter case progress.
 
 Reviewed EN/ES reading translations are separate display aids. The complete Portuguese original remains available and unchanged. Translation requires both a recognized source ID and an exact full Portuguese literal; unknown or altered records keep the original. Model answers and abstention reasons are original recorded outputs and are not translated. Evidence digests, inputs, citations and saved receipts retain the original Portuguese text.
 
@@ -51,7 +54,7 @@ node --test app/tests/*.test.mjs public-demo/tests/*.test.mjs
 
 Open `http://127.0.0.1:8769/`. The server deliberately accepts local access only. Opening the HTML file directly does not supply APIs. A clean source copy creates progress under `app/data/`, which is excluded from Git. Reset the fictional cases to begin a fresh demonstration. Review-card receipts remain separate from administrative progress exports.
 
-The exact source publication checkout passed **179/179** tests in 13 files, with zero failures or skipped tests. Its static build also passed. This includes source-reading gates, the browser adapter, recorded-run and model-contract checks, and server regression. These checks do not establish model accuracy, clinical safety, user benefit or contest eligibility. Public browser QA is recorded separately.
+The exact R09 source publication checkout passed **195/195** tests in 15 files, with zero failures or skipped tests. Its static build also passed. This includes calendar date arithmetic and immutable example fixtures, appearance preference handling, source-reading gates, the browser adapter, recorded-run and model-contract checks, and server regression. These checks do not establish model accuracy, clinical safety, user benefit or contest eligibility. Public browser QA is recorded separately.
 
 ## Public static demo and GitHub Pages
 
@@ -63,7 +66,7 @@ node scripts/build-public-demo.mjs
 
 The build requires the exact allowlisted synthetic R03 input/result files and the checked browser adapter. The server application and static output are separate artifacts. Deployment uses the **root of the `gh-pages` branch** on GitHub Pages; it does not deploy `app/` as a working remote API.
 
-[Public source repository](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [Open the published demo](https://athosfif.github.io/patientkeeper-retorno-act-iii/). The initial source publication is commit [05391ea](https://github.com/athosfif/patientkeeper-retorno-act-iii/commit/05391eadb16d7fb1da9a527b21534f143733fd92); documentation and the conceptual cover are synchronized in a subsequent source-only commit. The source-reading update is [gh-pages commit f1b4d91](https://github.com/athosfif/patientkeeper-retorno-act-iii/tree/f1b4d91dbb288ba3ae38b20d069eaf14151eb24d). All 18 public files returned HTTP 200 and matched their SHA-256 at 2026-10-12T18:42:56.144Z, without credentials. This verifies deployed bytes; it does not replace the browser interaction checks. GitHub Pages does not apply the Netlify-style `_headers` file; no custom response-header enforcement is claimed. No Netlify deployment is claimed.
+[Public source repository](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [Open the published demo](https://athosfif.github.io/patientkeeper-retorno-act-iii/). The initial source publication is commit [05391ea](https://github.com/athosfif/patientkeeper-retorno-act-iii/commit/05391eadb16d7fb1da9a527b21534f143733fd92); documentation and the conceptual cover are synchronized in a subsequent source-only commit. The earlier source-reading update is [gh-pages commit f1b4d91](https://github.com/athosfif/patientkeeper-retorno-act-iii/tree/f1b4d91dbb288ba3ae38b20d069eaf14151eb24d). Those 18 historical public files returned HTTP 200 and matched their SHA-256 at 2026-10-12T18:42:56.144Z, without credentials. R09 generates 22 static files plus the Pages `.nojekyll` marker. New production byte verification and browser interaction checks are recorded separately in the local publication receipt. GitHub Pages does not apply the Netlify-style `_headers` file; no custom response-header enforcement is claimed. No Netlify deployment is claimed.
 
 ## Origin, licenses and limits
 
@@ -71,7 +74,7 @@ The build requires the exact allowlisted synthetic R03 input/result files and th
 
 Own code uses [MIT](LICENSE). Qwen is Apache-2.0, with its exact model license retained in the pilot evidence. Model weights, credentials, private cloud URLs, sessions and `app/data/` are excluded. Literal outputs and failures are retained only from fictional input records.
 
-Chrome R02 verified 320/390/768 widths, keyboard navigation, context preservation and saved-card recovery. The published R03 app loaded with eight cases, language selection and the truthful recorded-execution footer; its detailed browser and mobile checks are a separate release record. No target-user study, complete WCAG audit, clinical validation or measured operational savings is asserted.
+R09 isolated Chrome verification covered 390/760/1024/1440 widths, appearance persistence, calendar filtering, date keyboard navigation, case links, EN/PT/ES, unsaved draft preservation and human review/confirmation surfaces. Chrome R02 previously verified 320/390/768 widths, keyboard navigation, context preservation and saved-card recovery. The published R03 app loaded with eight cases, language selection and the truthful recorded-execution footer; its detailed browser and mobile checks are a separate release record. No target-user study, complete WCAG audit, clinical validation or measured operational savings is asserted.
 
 [Requirements and evidence](docs/ACT-III-20261012/REQUISITOS-E-EVIDENCIAS.md) · [Submission copy](docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md) · [Release plan](docs/ACT-III-20261012/RELEASE-PLAN.md). Final submission is supported by the observed LabLab success message and matching delivered media; it does not establish a judging result.
 

@@ -52,7 +52,7 @@ We prepared the administrative queue, ownership, history and storage on October 
 
 Our intended value is a clearer handoff: reception can see the pending issue and inspect the record behind the next check. We still need to measure task time, citation support and handoff quality. We do not claim clinical outcomes or invented savings.
 
-The public repository contains source code, reproducible fictional inputs and exported AMD evidence. The working demo is published on GitHub Pages. Final submission is tracked separately from public access.
+The public repository contains source code, reproducible fictional inputs and exported AMD evidence. The working demo is published on GitHub Pages. Final submission was confirmed separately by the LabLab success UI; judging remains a distinct state.
 
 Thank you.
 
@@ -60,12 +60,20 @@ Thank you.
 
 Slide 5 uses the exported input/output, hardware/runtime, model revision, dtype, timing and validation records. Distinguish format validation from semantic review and useful integrated AMD behavior. Replay integration is visible in the R03 case 04 and case 07 captures. Slide 6 identifies the publicly verified demo at https://athosfif.github.io/patientkeeper-retorno-act-iii/. The public repository is https://github.com/athosfif/patientkeeper-retorno-act-iii. If something remains incomplete, keep the limitation audible and visible.
 
-Product evidence: R02 build (preserved in the private local archive), R02 browser checks (preserved in the private local archive), prior AMD pilot (preserved in the private local archive), [exported FP32 attempts](../../evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/) and [baseline disclosure](../../BASE-PREEXISTENTE.md). The nine exported result files all report `semanticApproved=false`.
+Product evidence: R02 build (private historical record), R02 browser checks (private historical record), prior AMD pilot (private historical record), [exported FP32 attempts](../../evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/) and [baseline disclosure](../../BASE-PREEXISTENTE.md). The nine exported result files all report `semanticApproved=false`.
 
 Rules: [ACT III official page](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii), [submission guidelines](https://lablab.ai/ai-articles/hackathon-guidelines) and [general guide](https://lablab.ai/guide/ai-hackathons). Meaningful AMD use must be part of the product shown to judges. A prerecorded output or schema-valid JSON alone does not establish completed eligibility.
 
-## Final release media
+## Submitted release media
 
-Use the [R07 PDF](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_s8ti4ljdnamb6r2irwpyf4g9.pdf) and [R04 edited video](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_txz5067gbk15l9axy434dkbh.mp4). The 263.1-second video uses disclosed macOS Samantha narration and captured fictional product screens; this human rehearsal script does not imply that Athos recorded its voice. Both artifacts were saved in the LabLab draft and have accessible public URLs; that is distinct from final submission.
+This document is a human rehearsal draft. The actual R05 synthetic narration uses a different 456-word script, recorded in [the final narration document](PRESENTATION-VIDEO-NARRATION-EN.md); it does not imply that Athos recorded the voice.
 
-The current demo also supplies reviewed EN/ES reading translations of recognized source records, with the unchanged Portuguese original accessible. These display translations are distinct from literal citations, digests and saved receipts. Recorded model answers and reasons remain in their original language, without translation. The edited video retains the earlier source captures.
+Submission was confirmed on October 12, 2026 at 19:27:49 UTC / 16:27:49 Brasília by the LabLab success message: “You have successfully submitted your project for the AMD Developer Hackathon: ACT III event!” The existing Chrome session then displayed the published project with the exact R05 video and R08 PDF. Judging was shown as in progress; no evaluation, award or eligibility result is claimed.
+
+[Submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno) · [Presentation PDF R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_nif3ozbuwn7a1lqs7vdgg5vt.pdf) · [Narrated video R05](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_yxmp2jbaeshptu64v71cswcn.mp4) · [Delivered cover R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/image/image_qwij0iodrs5swlszu3ere2r7.jpg)
+
+The delivered MP4 is **186.271 seconds (3 minutes 6.271 seconds)**, with synthetic English narration supplied by Athos through Envato, synchronized English subtitles and edited captures of the fictional product. It is neither Athos speaking nor a continuous screen recording. The R08 cover composition uses the R02 conceptual AI illustration and the unchanged official FIGUEIRA wordmark. Reading translations are separate from original Portuguese evidence and recorded model answers.
+
+Unauthenticated full-byte HTTPS checks returned **HTTP 200** for the PDF, video and delivered JPEG cover. Their SHA-256 values match the final media receipt: PDF `968b38f3aa74b53240fc72135051b2cbe55343edf43cff166ecf40762052ce70` (4,694,100 bytes), video `ea2cb3b7e82102f22b0b1b155e2abc1c3f6fd046bca1857d2e8ae96887030347` (7,235,091 bytes), and cover `a536d51bb75626d3d49650fa3b7197da01e86f8030001d8cd7991d36217e4c6a` (227,489 bytes). LabLab converted the uploaded PNG to JPEG, so the delivered cover has its own hash.
+
+The project page was verified in the existing Chrome session. A direct unauthenticated HTTP request returned **403**; anonymous access to the project page itself is not confirmed. The public media and GitHub Pages demo were checked separately. Full video decode, 14 sampled final frames and comparison of local ASR with the supplied script were recorded; no integral human listening review is claimed.

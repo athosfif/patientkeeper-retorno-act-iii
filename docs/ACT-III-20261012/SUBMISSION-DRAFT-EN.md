@@ -1,6 +1,6 @@
 # PatientKeeper Retorno — R03 submission copy
 
-**Prepared exact copy, not a submission receipt.** October 12, 2026. The copy reflects original AMD records and the implemented recorded-run panel. Final judge access, media and the actual platform fields must be verified before sending.
+**Copy checked against the confirmed submission.** October 12, 2026. The original prepared-copy JSON remains an immutable preparation snapshot, not a receipt. A separate final LabLab success observation confirmed the submitted fields and delivered R05/R08 media at 19:27:49 UTC.
 
 ## Title
 
@@ -43,9 +43,9 @@ Length: 1466 characters; 209 words. Observed limits: 600–2,000 characters and 
 |---|---|
 | Repository | Public source pushed: https://github.com/athosfif/patientkeeper-retorno-act-iii . Initial code commit 05391ea; documentation/cover synchronization has a separate final Git receipt. |
 | Demo | Published at https://athosfif.github.io/patientkeeper-retorno-act-iii/ . UI loaded with eight cases/languages/footer; 18/18 public files matched gh-pages f1b4d91 by HTTPS/SHA-256 at 18:42:56 UTC on October 12. No live AMD service. |
-| Cover | Local cover candidate exists. Verify accepted file type and uploaded preview. |
-| Video and slides | Final ≤5-minute demonstration and PDF must match the delivered version and be checked after export/upload. |
-| Submission | Not confirmed by this document. Saved draft, pasted fields or upload do not prove submission. |
+| Cover | R08 composition with R02 conceptual AI illustration persisted after reload. Delivered JPEG returned HTTP 200 with matching full bytes. |
+| Video and slides | R05 MP4: 186.271 seconds; Envato synthetic narration supplied by Athos. PDF R08. Both persisted in LabLab and matched final uploaded bytes. |
+| Submission | Official success message observed at 19:27:49 UTC. [Published project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno) displayed the exact R05/R08 media in the existing Chrome session. Direct anonymous HTTP access returned 403. |
 
 ## Rules and remaining checks
 
@@ -53,12 +53,30 @@ The [official ACT III page](https://lablab.ai/ai-hackathons/amd-developer-hackat
 
 The pre-event [October 5 scaffold](../../BASE-PREEXISTENTE.md) is declared. The new model contract, review flow and replay were added on October 12. No user study, quantified savings or clinical validation has been completed.
 
-The [general submission guide](https://lablab.ai/ai-articles/hackathon-guidelines) and the kickoff describe a presentation of at most five minutes, a public repository and accessible demo. Confirm the real Steps 2/3 and 3/3 for final accepted media formats.
+The [general submission guide](https://lablab.ai/ai-articles/hackathon-guidelines) and the kickoff describe a presentation of at most five minutes, a public repository and accessible demo. Final media persisted after reload and the official success state was observed; uploads alone were not treated as submission.
 
 The coordinator observed a deadline conflict: October 18 at 07:00 Brasília in the main authenticated schedule, versus 12:00 Brasília in earlier /live evidence. Keep October 17 evening as the internal preparation target; it is not an official deadline. [Requirements](REQUISITOS-E-EVIDENCIAS.md) · [Release plan](RELEASE-PLAN.md).
 
-## Uploaded final media, saved draft
+## Submitted final media
 
-[Presentation PDF R07](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_s8ti4ljdnamb6r2irwpyf4g9.pdf) · [Narrated video R04](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_txz5067gbk15l9axy434dkbh.mp4). LabLab displayed both saved files on October 12 at 18:28:42 UTC; the public media links returned HTTP 200 to unauthenticated HEAD requests. The video is 263.1 seconds. These observations confirm uploaded media and saved draft state, not final submission.
+Submission was confirmed on October 12, 2026 at 19:27:49 UTC / 16:27:49 Brasília by the LabLab success message: “You have successfully submitted your project for the AMD Developer Hackathon: ACT III event!” The existing Chrome session then displayed the published project with the exact R05 video and R08 PDF. Judging was shown as in progress; no evaluation, award or eligibility result is claimed.
+
+[Submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno) · [Presentation PDF R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_nif3ozbuwn7a1lqs7vdgg5vt.pdf) · [Narrated video R05](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_yxmp2jbaeshptu64v71cswcn.mp4) · [Delivered cover R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/image/image_qwij0iodrs5swlszu3ere2r7.jpg)
+
+The delivered MP4 is **186.271 seconds (3 minutes 6.271 seconds)**, with synthetic English narration supplied by Athos through Envato, synchronized English subtitles and edited captures of the fictional product. It is neither Athos speaking nor a continuous screen recording. The R08 cover composition uses the R02 conceptual AI illustration and the unchanged official FIGUEIRA wordmark. Reading translations are separate from original Portuguese evidence and recorded model answers.
+
+Unauthenticated full-byte HTTPS checks returned **HTTP 200** for the PDF, video and delivered JPEG cover. Their SHA-256 values match the final media receipt: PDF `968b38f3aa74b53240fc72135051b2cbe55343edf43cff166ecf40762052ce70` (4,694,100 bytes), video `ea2cb3b7e82102f22b0b1b155e2abc1c3f6fd046bca1857d2e8ae96887030347` (7,235,091 bytes), and cover `a536d51bb75626d3d49650fa3b7197da01e86f8030001d8cd7991d36217e4c6a` (227,489 bytes). LabLab converted the uploaded PNG to JPEG, so the delivered cover has its own hash.
+
+The project page was verified in the existing Chrome session. A direct unauthenticated HTTP request returned **403**; anonymous access to the project page itself is not confirmed. The public media and GitHub Pages demo were checked separately. Full video decode, 14 sampled final frames and comparison of local ASR with the supplied script were recorded; no integral human listening review is claimed.
 
 The current demo adds reviewed EN/ES reading translations of recognized full source literals. Original Portuguese evidence remains accessible; model answers/reasons, hashes and cited receipts are unchanged.
+
+## Additional information checked against the submitted fields
+
+Demo hosting: GitHub Pages. No login, API key or active GPU is needed. All cases are fictional and changes stay in the visitor’s browser.
+
+Suggested walkthrough: select Case 04, open Review, choose Contact preference and Check sources. Inspect the cited excerpt and the separately labeled recorded AMD panel. Case 07 demonstrates conflicting records and a blocked card. The original Portuguese source and model output remain preserved; reading translations are separate.
+
+The repository includes the pinned model revision, seven baseline inputs, all nine attempts, rejected outputs and a separate GPU shutdown receipt. Two of seven baseline outputs passed format checks; this does not establish semantic accuracy.
+
+The revised video is 3 minutes 6.271 seconds, with synthetic English narration supplied by Athos through Envato and synchronized English subtitles. It is an edited presentation of actual fictional interface captures, not a continuous screen recording. PDF R08 and the revised conceptual AI cover use the official FIGUEIRA wordmark. October 5 pre-event scaffolding is disclosed; October 12 additions and their evidence are identified.

@@ -1,6 +1,6 @@
 # PatientKeeper Retorno — publicação e entrega R03
 
-Atualizado em **12/10/2026** para ACT-III-R03. Código público e demo GitHub Pages estão publicados; upload de mídia e submissão continuam estados separados. A arquitetura é **GitHub Pages**, branch `gh-pages`, diretório raiz, com saída estática separada do servidor local. Não há afirmação de publicação Netlify.
+Atualizado em **12/10/2026** para ACT-III-R03. Código e demo GitHub Pages estão publicados; a LabLab confirmou a submissão final com vídeo R05 e PDF R08 às 19:27:49 UTC. Publicação, upload, submissão e avaliação são estados separados. A arquitetura é **GitHub Pages**, branch `gh-pages`, diretório raiz, com saída estática separada do servidor local. Não há afirmação de publicação Netlify.
 
 ## Estado real
 
@@ -38,7 +38,7 @@ Código e bytes públicos estão conferidos. Registrar separadamente o QA de int
 
 ## Texto e mídias
 
-[Cópia final R03 preparada](SUBMISSION-COPY-R03.json): título21, resumo193, descrição1466 caracteres/209 palavras. Limites autenticados: título5–50, resumo50–255, descrição600–2.000 e mínimo100 palavras. Recontar após qualquer edição.
+[Cópia R03 preservada](SUBMISSION-COPY-R03.json), conferida com a submissão final: título21, resumo193, descrição1466 caracteres/209 palavras. Limites autenticados: título5–50, resumo50–255, descrição600–2.000 e mínimo100 palavras. Recontar após qualquer edição.
 
 | Material | Conferência necessária |
 |---|---|
@@ -55,10 +55,18 @@ Código e bytes públicos estão conferidos. Registrar separadamente o QA de int
 
 Observações anteriores divergem: 18/10 às 07h Brasília no schedule autenticado e 12h Brasília no /live. Adotar 17/10 à noite como preparação interna; não como prazo oficial. O kickoff não foi identificado como obrigação de submissão imediata. [Matriz](REQUISITOS-E-EVIDENCIAS.md).
 
-Preparação → commit → publicação → upload → submissão são estados separados. Finalizar a entrega somente quando o produto e a mídia correspondentes estiverem acessíveis e a LabLab confirmar o estado. Replay verdadeiro e JSON com citações não garantem elegibilidade, prêmio, pontos ou benefício clínico.
+Preparação → commit → publicação → upload → submissão são estados separados. O produto e as três mídias têm acesso público conferido; a UI LabLab confirmou o envio. A página do projeto foi observada na sessão Chrome, sem confirmação de acesso HTTP anônimo. Replay verdadeiro e JSON com citações não garantem elegibilidade, prêmio, pontos ou benefício clínico.
 
-## Mídia final salva no draft
+## Entrega final confirmada
 
-[Slides R07 em PDF](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_s8ti4ljdnamb6r2irwpyf4g9.pdf) e [vídeo narrado R04](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_txz5067gbk15l9axy434dkbh.mp4) foram enviados e salvos no draft LabLab em **12/10 às 18:28:42 UTC / 15:28:42 Brasília**. A UI mostrou os dois arquivos e o draft completo. Os links públicos responderam HEAD 200 sem credenciais. O MP4 tem **263,1 segundos**, abaixo de cinco minutos; usa voz Samantha do macOS identificada, telas fictícias capturadas e capa conceitual IA. Os hashes locais conferem com o recibo de upload. Upload/draft não comprova Submission Updated/Submitted; a confirmação final continua pendente.
+A submissão foi confirmada em **12/10/2026 às 19:27:49 UTC / 16:27:49 Brasília** pela mensagem oficial de sucesso da LabLab. A sessão Chrome existente exibiu a página publicada com o vídeo R05 e o PDF R08 exatos. A UI indicou avaliação em andamento; isso não é resultado, prêmio ou aprovação de elegibilidade.
 
-O vídeo usa capturas R03; as traduções de leitura adicionadas depois não reescrevem as fontes nem a saída AMD mostrada nessas capturas. O wordmark FIGUEIRA é o asset oficial intacto, com [proveniência](../../assets/ACT-III-20261012/BRAND-FIGUEIRA/PROVENANCE.md).
+[Submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno) · [Presentation PDF R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_nif3ozbuwn7a1lqs7vdgg5vt.pdf) · [Narrated video R05](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_yxmp2jbaeshptu64v71cswcn.mp4) · [Delivered cover R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/image/image_qwij0iodrs5swlszu3ere2r7.jpg)
+
+O MP4 final tem **186,271 segundos (3 minutos e 6,271 segundos)**, voz sintética inglesa fornecida por Athos via Envato, legendas inglesas sincronizadas e montagem de capturas reais dos casos fictícios. Não é Athos falando nem uma gravação contínua da interação. A capa diagramada R08 usa a ilustração conceitual IA R02 e o wordmark oficial FIGUEIRA intacto. Traduções de leitura, original PT e saídas AMD continuam distintos.
+
+Os três URLs de mídia retornaram **HTTPS 200 sem autenticação**, com todos os bytes e hashes conferidos: PDF `968b38f3aa74b53240fc72135051b2cbe55343edf43cff166ecf40762052ce70` (4,694,100 bytes), MP4 `ea2cb3b7e82102f22b0b1b155e2abc1c3f6fd046bca1857d2e8ae96887030347` (7,235,091 bytes), JPEG da capa `a536d51bb75626d3d49650fa3b7197da01e86f8030001d8cd7991d36217e4c6a` (227,489 bytes). A conversão do PNG para JPEG pela LabLab explica o hash distinto da capa publicada.
+
+A página do projeto foi conferida na sessão Chrome existente. A consulta HTTP direta sem autenticação retornou **403**, sem contorno; acesso anônimo à página LabLab não foi confirmado. Mídias públicas e demo GitHub Pages têm conferências próprias. O vídeo teve decodificação completa, 14 quadros finais amostrados e ASR local comparado ao roteiro; não se afirma escuta humana integral.
+
+O wordmark FIGUEIRA mantém sua [proveniência](../../assets/ACT-III-20261012/BRAND-FIGUEIRA/PROVENANCE.md). Recibos de drafts R04/R07 e demais versões históricas permanecem preservados; não descrevem a mídia final enviada.

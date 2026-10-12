@@ -24,8 +24,8 @@ Atualizado em **12/10/2026**. Equipe FIGUEIRA AI; participação online; trilha 
 | Código e licença | Código próprio MIT; Qwen Apache-2.0, revisão imutável e licença preservadas. | Baseline de 05/10 declarado; reutilização específica e elegibilidade são decisões separadas. |
 | Idiomas e UX | EN inicial; PT/ES selecionáveis; citações originais preservadas. Chrome R02 verificou 320/390/768, teclado e contexto. | A versão publicada R03 precisa conferência própria; não há estudo de usuários nem auditoria WCAG integral. |
 | Repositório público | Código publicado em athosfif/patientkeeper-retorno-act-iii; commit inicial de código 05391ea. | Atualização de docs/capa tem recibo Git separado; origem anterior continua declarada. |
-| Demo / mídia | GitHub Pages publicado, gh-pages f1b4d91; 18/18 arquivos HTTP 200 com hashes exatos em 12/10 às 18:42:56 UTC. Saída estática separada do servidor. | Vídeo ≤5min, slides, capa e previews no formulário continuam conferências separadas; submissão não é inferida do deploy. |
-| Submissão | Não comprovada por esta matriz. | Exigir mensagem oficial, URL e recarga; draft ou upload não equivalem a envio. |
+| Demo / mídia | GitHub Pages f1b4d91: 18/18 arquivos HTTP 200 e SHA exato às 18:42:56 UTC. Vídeo R05 de 186,271s, PDF R08 e capa R08 persistiram na LabLab e seus URLs retornaram 200 com bytes conferidos. | Saída estática, mídias e submissão têm provas separadas; não há serviço AMD ao vivo. |
+| Submissão | Sucesso Submitted observado em 12/10 às 19:27:49 UTC; [página do projeto](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno) aberta na sessão Chrome com R05/R08 exatos. | Consulta HTTP anônima retornou 403; a confirmação UI e os URLs de mídia 200 são provas distintas. Avaliação em andamento não é prêmio. |
 
 ## Piloto real R03
 
@@ -50,7 +50,7 @@ O ZIP original final tem **93.993 bytes**, SHA-256 `fdceb4c2af55d15a2418b814226d
 
 `human_handoff` no motor atual impede toda resposta gravada, inclusive abstenção, deixando somente recibo allowlisted. O painel conta 3/9 e 2/7 como formatos aceitos e declara ausência de aprovação semântica. Não cria cartão ou muda caso/contato/agenda.
 
-Validação dedicada: **28/28** (12 replay +16 contrato); regressão do servidor: **19/19**. A suíte completa R03 terá recibo próprio após a integração final. A suíte R02 de 131/131 permanece histórica; nenhum desses testes é validação clínica ou estudo de impacto.
+Validação dedicada: **28/28** (12 replay +16 contrato); regressão do servidor: **19/19**. A cópia exata publicada passou 179/179 testes em 13 arquivos, sem falhas ou skips; o build também passou. A suíte R02 de 131/131 permanece histórica; nenhum desses testes é validação clínica ou estudo de impacto.
 
 ## Origem e histórico
 
@@ -62,10 +62,18 @@ R02 preserva a falha float16: 1.024 caracteres !, 30,687s, zero candidatos aceit
 
 Observação autenticada anterior: 18/10 às 07h Brasília no calendário principal, versus 12h Brasília no /live. O conflito permanece declarado até confirmação autoritativa. **17/10 à noite é alvo interno**, não prazo oficial. O kickoff não exige entrega imediata.
 
-Concluir exige fonte/commit público coerente, demo publicada testada, mídia final acessível e recibo observável de submissão. [Plano](RELEASE-PLAN.md) · [Cópia exata preparada](SUBMISSION-COPY-R03.json). Pontos ADP, XP, seleção e premiação permanecem estados distintos.
+A entrega final tem código e demo publicados, mídia final com bytes conferidos e confirmação observável de submissão. O envio não resolve o conflito histórico de horário nem prova aprovação de regras pelo júri. [Plano](RELEASE-PLAN.md) · [Cópia exata preparada](SUBMISSION-COPY-R03.json). Pontos ADP, XP, seleção e premiação permanecem estados distintos.
 
-## Atualização de leitura e mídia final
+## Atualização de leitura e entrega final
 
 EN/ES apresentam traduções de leitura revisadas, reconhecidas somente por ID e literal PT completo. O original português permanece acessível, sem mudar contexto, digest, citações, recibos ou respostas/motivos AMD. Textos não reconhecidos conservam o original; isso não é tradução livre por modelo.
 
-[PDF R07](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_s8ti4ljdnamb6r2irwpyf4g9.pdf) e [MP4 R04](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_txz5067gbk15l9axy434dkbh.mp4) foram enviados e salvos no draft LabLab em 12/10 às 18:28:42 UTC. A UI mostrou ambos; os links públicos responderam HEAD 200. MP4 de 263,1 segundos. O draft completo e os uploads não comprovam submissão final.
+A submissão foi confirmada em **12/10/2026 às 19:27:49 UTC / 16:27:49 Brasília** pela mensagem oficial de sucesso da LabLab. A sessão Chrome existente exibiu a página publicada com o vídeo R05 e o PDF R08 exatos. A UI indicou avaliação em andamento; isso não é resultado, prêmio ou aprovação de elegibilidade.
+
+[Submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno) · [Presentation PDF R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_nif3ozbuwn7a1lqs7vdgg5vt.pdf) · [Narrated video R05](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_yxmp2jbaeshptu64v71cswcn.mp4) · [Delivered cover R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/image/image_qwij0iodrs5swlszu3ere2r7.jpg)
+
+O MP4 final tem **186,271 segundos (3 minutos e 6,271 segundos)**, voz sintética inglesa fornecida por Athos via Envato, legendas inglesas sincronizadas e montagem de capturas reais dos casos fictícios. Não é Athos falando nem uma gravação contínua da interação. A capa diagramada R08 usa a ilustração conceitual IA R02 e o wordmark oficial FIGUEIRA intacto. Traduções de leitura, original PT e saídas AMD continuam distintos.
+
+Os três URLs de mídia retornaram **HTTPS 200 sem autenticação**, com todos os bytes e hashes conferidos: PDF `968b38f3aa74b53240fc72135051b2cbe55343edf43cff166ecf40762052ce70` (4,694,100 bytes), MP4 `ea2cb3b7e82102f22b0b1b155e2abc1c3f6fd046bca1857d2e8ae96887030347` (7,235,091 bytes), JPEG da capa `a536d51bb75626d3d49650fa3b7197da01e86f8030001d8cd7991d36217e4c6a` (227,489 bytes). A conversão do PNG para JPEG pela LabLab explica o hash distinto da capa publicada.
+
+A página do projeto foi conferida na sessão Chrome existente. A consulta HTTP direta sem autenticação retornou **403**, sem contorno; acesso anônimo à página LabLab não foi confirmado. Mídias públicas e demo GitHub Pages têm conferências próprias. O vídeo teve decodificação completa, 14 quadros finais amostrados e ASR local comparado ao roteiro; não se afirma escuta humana integral.

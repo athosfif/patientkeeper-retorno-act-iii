@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "state": "Published source and static demo with reviewed EN/ES reading translations; uploaded R07 PDF/R04 video are saved in the LabLab draft, not final submission",
+  "state": "Published source and static demo with reviewed EN/ES reading translations; final LabLab submission confirmed with R05 video, R08 PDF and R08 cover",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -418,10 +418,56 @@
     "publicURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
     "publicFilesHTTPAndSHA256Matched": 18,
     "liveInference": false,
-    "labLabSubmitted": false,
+    "labLabSubmitted": true,
     "sourceReadingPublished": true,
-    "mediaState": "R07 PDF and R04 video saved in LabLab draft; final submission unconfirmed",
-    "readingTranslationLimit": "Display aids only. Full original PT sources and AMD answer/reason are unchanged."
+    "mediaState": "Submitted R05 video, R08 PDF and R08 composition with R02 conceptual AI illustration",
+    "readingTranslationLimit": "Display aids only. Full original PT sources and AMD answer/reason are unchanged.",
+    "submission": {
+      "observedAt": "2026-10-12T19:27:49.777140+00:00",
+      "url": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
+      "confirmedBy": "Official LabLab success UI and final project page in the existing Chrome session",
+      "unauthenticatedPageHTTPStatus": 403,
+      "unauthenticatedPageAccessConfirmed": false,
+      "judging": "In progress; no result or eligibility approval claimed"
+    },
+    "finalMedia": {
+      "observedAt": "2026-10-12T19:27:49.777140+00:00",
+      "videoRevision": "R05",
+      "pdfRevision": "R08",
+      "coverRevision": "R08 diagrammed, R02 conceptual AI photo",
+      "videoDurationSeconds": 186.271,
+      "narration": "Synthetic English narration supplied by Athos via Envato; files1 through5 in order; no speed-up.",
+      "humanIntegralListening": false,
+      "assets": {
+        "pdf": {
+          "url": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_nif3ozbuwn7a1lqs7vdgg5vt.pdf",
+          "status": 200,
+          "contentType": "application/pdf",
+          "bytes": 4694100,
+          "sha256": "968b38f3aa74b53240fc72135051b2cbe55343edf43cff166ecf40762052ce70",
+          "unauthenticated": true,
+          "fullBytesReadInMemory": true
+        },
+        "cover": {
+          "url": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/image/image_qwij0iodrs5swlszu3ere2r7.jpg",
+          "status": 200,
+          "contentType": "image/jpeg",
+          "bytes": 227489,
+          "sha256": "a536d51bb75626d3d49650fa3b7197da01e86f8030001d8cd7991d36217e4c6a",
+          "unauthenticated": true,
+          "fullBytesReadInMemory": true
+        },
+        "video": {
+          "url": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_yxmp2jbaeshptu64v71cswcn.mp4",
+          "status": 200,
+          "contentType": "video/mp4",
+          "bytes": 7235091,
+          "sha256": "ea2cb3b7e82102f22b0b1b155e2abc1c3f6fd046bca1857d2e8ae96887030347",
+          "unauthenticated": true,
+          "fullBytesReadInMemory": true
+        }
+      }
+    }
   },
   "verifiedLocalTests": {
     "files": 13,

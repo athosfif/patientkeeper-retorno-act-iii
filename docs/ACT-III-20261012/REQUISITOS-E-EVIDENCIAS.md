@@ -17,14 +17,14 @@ Atualizado em **12/10/2026**. Equipe FIGUEIRA AI; participação online; trilha 
 | Inscrição e equipe | Enrolled/Approved e equipe FIGUEIRA AI observados pelo coordenador; um membro. | Página admite 1–6; canal Discord privado com exigência distinta não invalida participação solo. |
 | Trilhas | Health and Wellbeing proposta. | Confirmar a opção exata no envio. |
 | Uso AMD | Qwen em float32 executado realmente na Radeon Pro W7900D com os contextos positivos do produto. Sete baselinecases: 2 formatos aceitos, 5 rejeitados. Nove tentativas totais: 3 aceitas por formato. | Há carga real e painel de replay vinculado às fontes; suficiência do replay para uso significativo na premiação não confirmada. |
-| Produto funcional | Fila, atribuição, fontes, conferência, cartão e bloqueios locais implementados; variante estática isolada por navegador preparada. | Acesso e versão final em GitHub Pages exigem prova de navegação publicada. |
+| Produto funcional | Fila, atribuição, fontes, conferência, cartão e bloqueios locais implementados; demo Pages pública abriu com oito casos, idiomas e rodapé verdadeiro. | QA detalhado da interação pública permanece registro separado; não há validação com usuários. |
 | Revisão e incerteza | Fonte histórica separada, stale context rejeitado, conflito conhecido e pergunta clínica encaminhados à equipe. Replay de handoff mostra só metadados. | Não detecta todos os conflitos ou todas as perguntas clínicas. Formato e trechos exatos não aprovam significado. |
 | Escopo clínico | Somente operações administrativas fictícias; sem diagnóstico, tratamento, janela clínica ou envio real. | Nenhuma validação clínica ou identidade de profissional autenticado. |
 | Google / Evolus | Opcionais; não implementados. | Prêmios próprios têm condições adicionais; não usar tags como se ativados. vLLM não foi usado. |
 | Código e licença | Código próprio MIT; Qwen Apache-2.0, revisão imutável e licença preservadas. | Baseline de 05/10 declarado; reutilização específica e elegibilidade são decisões separadas. |
 | Idiomas e UX | EN inicial; PT/ES selecionáveis; citações originais preservadas. Chrome R02 verificou 320/390/768, teclado e contexto. | A versão publicada R03 precisa conferência própria; não há estudo de usuários nem auditoria WCAG integral. |
-| Repositório público | Public repository criado em athosfif/patientkeeper-retorno-act-iii. | Conteúdo, commit e acesso sem login ainda precisam recibo final. |
-| Demo / mídia | GitHub Pages `gh-pages` é o destino; saída estática separada do app servidor. Descrições preparadas; mídia final em produção. | Conferir URL, vídeo ≤5min, slides, capa e previews reais no formulário. |
+| Repositório público | Código publicado em athosfif/patientkeeper-retorno-act-iii; commit inicial de código 05391ea. | Atualização de docs/capa tem recibo Git separado; origem anterior continua declarada. |
+| Demo / mídia | GitHub Pages publicado, gh-pages b7af3b2; 16/16 arquivos HTTP 200 com hashes exatos em 12/10 às 18:08:22 UTC. Saída estática separada do servidor. | Vídeo ≤5min, slides, capa e previews no formulário continuam conferências separadas; submissão não é inferida do deploy. |
 | Submissão | Não comprovada por esta matriz. | Exigir mensagem oficial, URL e recarga; draft ou upload não equivalem a envio. |
 
 ## Piloto real R03

@@ -4,7 +4,7 @@ A source. A reviewer. A next step.
 
 PatientKeeper Retorno is an administrative prototype for clinic reception and coordination. It keeps a canceled follow-up visible while a person checks current records, assigns responsibility and prepares a cited review card. All eight cases are fictional. It does not diagnose, recommend treatment, contact patients or change real appointments.
 
-**ACT-III-R03-20261012 — release candidate.** The source, the public static demo, media uploads and the LabLab submission have separate receipts. This README describes the implemented code and downloaded AMD evidence; it is not a publication or submission receipt.
+**ACT-III-R03-20261012 — source and static demo published.** On October 12, the public demo loaded with eight fictional cases, EN/PT/ES selection and the recorded/GPU-off footer. At 18:08:22 UTC, public HTTPS checks matched all 16 deployed files to the exact `gh-pages` commit. Media uploads and the LabLab submission remain separate states; no final submission is claimed.
 
 ## Product workflow
 
@@ -48,7 +48,7 @@ node --test app/tests/*.test.mjs
 
 Open `http://127.0.0.1:8769/`. The server deliberately accepts local access only. Opening the HTML file directly does not supply APIs. A clean source copy creates progress under `app/data/`, which is excluded from Git. Reset the fictional cases to begin a fresh demonstration. Review-card receipts remain separate from administrative progress exports.
 
-The dedicated recorded-run and model-contract checks passed **28/28**; server regression passed **19/19**. The earlier R02 full suite recorded 131/131. Consult the final R03 release receipt for the full-suite count after all agents finish; these local checks do not establish model accuracy, clinical safety, user benefit or contest eligibility.
+The source publication checkout passed **143/143** app tests, with zero failures or skipped tests. Its static build also passed. This includes the dedicated recorded-run and model-contract checks and server regression. These checks do not establish model accuracy, clinical safety, user benefit or contest eligibility. Public browser QA is recorded separately.
 
 ## Public static demo and GitHub Pages
 
@@ -60,7 +60,7 @@ node scripts/build-public-demo.mjs
 
 The build requires the exact allowlisted synthetic R03 input/result files and the checked browser adapter. The server application and static output are separate artifacts. Deployment uses the **root of the `gh-pages` branch** on GitHub Pages; it does not deploy `app/` as a working remote API.
 
-[Repository target](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [GitHub Pages target](https://athosfif.github.io/patientkeeper-retorno-act-iii/). The repository was created as Public; file publication, the deployed version and judge access require their own final receipts. No Netlify deployment is claimed.
+[Public source repository](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [Open the published demo](https://athosfif.github.io/patientkeeper-retorno-act-iii/). The initial source publication is commit [05391ea](https://github.com/athosfif/patientkeeper-retorno-act-iii/commit/05391eadb16d7fb1da9a527b21534f143733fd92); documentation and the conceptual cover are synchronized in a subsequent source-only commit. The demo is the unchanged [gh-pages commit b7af3b2](https://github.com/athosfif/patientkeeper-retorno-act-iii/tree/b7af3b29cb8342b3d73f66ed07d745f6767cbc71). All 16 public files returned HTTP 200 and matched their SHA-256 at 2026-10-12T18:08:22.622Z, without credentials. This verifies deployed bytes; it does not replace the browser interaction checks. GitHub Pages does not apply the Netlify-style `_headers` file; no custom response-header enforcement is claimed. No Netlify deployment is claimed.
 
 ## Origin, licenses and limits
 
@@ -68,6 +68,8 @@ The build requires the exact allowlisted synthetic R03 input/result files and th
 
 Own code uses [MIT](LICENSE). Qwen is Apache-2.0, with its exact model license retained in the pilot evidence. Model weights, credentials, private cloud URLs, sessions and `app/data/` are excluded. Literal outputs and failures are retained only from fictional input records.
 
-Chrome R02 verified 320/390/768 widths, keyboard navigation, context preservation and saved-card recovery. The published R03 variant needs its own final browser checks. No target-user study, complete WCAG audit, clinical validation or measured operational savings is asserted.
+Chrome R02 verified 320/390/768 widths, keyboard navigation, context preservation and saved-card recovery. The published R03 app loaded with eight cases, language selection and the truthful recorded-execution footer; its detailed browser and mobile checks are a separate release record. No target-user study, complete WCAG audit, clinical validation or measured operational savings is asserted.
 
 [Requirements and evidence](docs/ACT-III-20261012/REQUISITOS-E-EVIDENCIAS.md) · [Submission copy](docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md) · [Release plan](docs/ACT-III-20261012/RELEASE-PLAN.md). Public media and an observable LabLab Submission Updated/Submitted state are required before claiming delivery.
+
+The [project cover](assets/ACT-III-20261012/COVER-IA-R01/PATIENTKEEPER-RETORNO-COVER-IA-R01.png) is a conceptual AI-generated illustration, not a product screenshot or patient photograph. [Generation record](assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md).

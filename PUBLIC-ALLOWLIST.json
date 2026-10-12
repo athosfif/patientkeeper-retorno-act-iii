@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "state": "Prepared source/evidence allowlist; final commit, generated static output and media have separate manifests",
+  "state": "Source and demo published; documentation/cover synchronized in a source-only follow-up commit; media uploads and LabLab submission are separate",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -30,6 +30,8 @@
     "app/tests/model-transport.test.mjs",
     "app/tests/recorded-amd.test.mjs",
     "app/tests/server.test.mjs",
+    "assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md",
+    "assets/ACT-III-20261012/COVER-IA-R01/PATIENTKEEPER-RETORNO-COVER-IA-R01.png",
     "docs/ACT-III-20261012/AMD-PILOT-DIAGNOSTIC.md",
     "docs/ACT-III-20261012/AMD-PILOT-R03-RESULTS.md",
     "docs/ACT-III-20261012/CONTRATO-MODELO-IMPLEMENTADO.md",
@@ -392,7 +394,17 @@
     "knownRealEmailOrCredentialOrPrivateAuthURLMatches": 0,
     "rawOutputs": "Fictional input outputs retained as exact attempt evidence; failed text is never shown as an accepted answer",
     "sourceAdapter": "public-demo/browser-api.mjs audited: same-origin bounded read-only archive fetch; browser-local synthetic state only; no credentials or private endpoints.",
-    "publicMarkdown": "Absolute machine paths and links to non-public local receipts are sanitized in the publication checkout; local originals are preserved."
+    "publicMarkdown": "Absolute machine paths and links to non-public local receipts are sanitized in the publication checkout; local originals are preserved.",
+    "cover": "Conceptual imagegen illustration; visual audit found no identifiable patient, patient records, credentials or outcome claims; exact PNG identity verified."
   },
-  "finalPublicationConfirmed": false
+  "finalPublicationConfirmed": true,
+  "publication": {
+    "observedAt": "2026-10-12T18:08:22.622Z",
+    "sourceCodeCommit": "05391eadb16d7fb1da9a527b21534f143733fd92",
+    "staticCommit": "b7af3b29cb8342b3d73f66ed07d745f6767cbc71",
+    "publicURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
+    "publicFilesHTTPAndSHA256Matched": 16,
+    "liveInference": false,
+    "labLabSubmitted": false
+  }
 }

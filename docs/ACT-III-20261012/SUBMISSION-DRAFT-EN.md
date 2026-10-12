@@ -41,8 +41,8 @@ Length: 1466 characters; 209 words. Observed limits: 600–2,000 characters and 
 
 | Field | Current documented state |
 |---|---|
-| Repository | Public repository created: https://github.com/athosfif/patientkeeper-retorno-act-iii . Actual source commit and anonymous access still need the coordinator’s receipt. |
-| Demo | Separate static browser build prepared for GitHub Pages, `gh-pages` root. Judge access and deployed version must be observed. No live AMD service. |
+| Repository | Public source pushed: https://github.com/athosfif/patientkeeper-retorno-act-iii . Initial code commit 05391ea; documentation/cover synchronization has a separate final Git receipt. |
+| Demo | Published at https://athosfif.github.io/patientkeeper-retorno-act-iii/ . UI loaded with eight cases/languages/footer; 16/16 public files matched gh-pages b7af3b2 by HTTPS/SHA-256 at 18:08:22 UTC on October 12. No live AMD service. |
 | Cover | Local cover candidate exists. Verify accepted file type and uploaded preview. |
 | Video and slides | Final ≤5-minute demonstration and PDF must match the delivered version and be checked after export/upload. |
 | Submission | Not confirmed by this document. Saved draft, pasted fields or upload do not prove submission. |

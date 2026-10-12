@@ -1,6 +1,6 @@
 # PatientKeeper Retorno — publicação e entrega R03
 
-Atualizado em **12/10/2026** para ACT-III-R03. Este plano não é recibo de deploy, upload ou submissão. A arquitetura escolhida é **GitHub Pages**, branch `gh-pages`, diretório raiz, com saída estática separada do servidor local. Não há afirmação de publicação Netlify.
+Atualizado em **12/10/2026** para ACT-III-R03. Código público e demo GitHub Pages estão publicados; upload de mídia e submissão continuam estados separados. A arquitetura é **GitHub Pages**, branch `gh-pages`, diretório raiz, com saída estática separada do servidor local. Não há afirmação de publicação Netlify.
 
 ## Estado real
 
@@ -16,7 +16,7 @@ ADMIN-R01 de 05/10 é scaffold anterior; os novos contratos/revisão/replay fora
 
 ## Repositório e pacote
 
-1. Repositório Public criado em [athosfif/patientkeeper-retorno-act-iii](https://github.com/athosfif/patientkeeper-retorno-act-iii). Conferir commit e arquivos após publicação; criar o repositório não comprova conteúdo enviado.
+1. Repositório Public com código enviado em [athosfif/patientkeeper-retorno-act-iii](https://github.com/athosfif/patientkeeper-retorno-act-iii). Publicação inicial: commit `05391eadb16d7fb1da9a527b21534f143733fd92`, preservando o commit inicial do repositório. A atualização de docs/capa acrescenta dois arquivos e mantém a allowlist final de 128 arquivos; seu hash final é registrado no recibo Git separado.
 2. Source branch contém fonte Node/browser, oito casos sintéticos, testes, LICENSE, docs atuais e os insumos R03 sanitizados necessários ao build. `.gitignore` libera somente JSON/TXT em AMD-PILOT-FINAL e os dois recibos R03 nomeados; os demais diretórios evidence ficam privados.
 3. `app/data/`, `.env*`, credenciais, cookies, URLs privadas da nuvem, modelos/pesos, caches e ZIPs locais não entram no pacote. Conferir a lista efetiva; ignore não remove um arquivo já rastreado.
 4. Os arquivos permitidos foram pesquisados por e-mail real conhecido, Gmail, credenciais/token/Bearer/cookies/senha e URLs de autenticação; nenhum match foi encontrado. A revisão é sobre esse conjunto exato, não sobre toda a pasta local.
@@ -32,9 +32,9 @@ node scripts/build-public-demo.mjs
 
 O servidor é loopback-only. O build gera `public-demo/` a partir de insumos sintéticos exatos e do adapter revisado. A saída gerada mantém o progresso somente no navegador do visitante; não depende de `app/data/` nem de um serviço GPU.
 
-Publicar somente a saída estática verificada no **root da branch `gh-pages`**. O caminho do projeto Pages é `/patientkeeper-retorno-act-iii/`, portanto links, módulos e JSON devem funcionar nesse subdiretório. O alvo é [GitHub Pages](https://athosfif.github.io/patientkeeper-retorno-act-iii/); sua disponibilidade e versão precisam ser observadas, não presumidas.
+A saída estática está publicada no **root da branch `gh-pages`**, commit `b7af3b29cb8342b3d73f66ed07d745f6767cbc71`. O app foi aberto na UI pública com oito casos, EN/PT/ES e rodapé verdadeiro. Em **12/10 às 18:08:22 UTC / 15:08:22 Brasília**, os 16 arquivos públicos retornaram HTTP 200 e seus SHA-256 corresponderam exatamente ao checkout desse commit, incluindo JSON e módulos. [Demo publicada](https://athosfif.github.io/patientkeeper-retorno-act-iii/). A conferência foi pública, sem credenciais; o recibo completo permanece no arquivo local de release. `_headers` é um arquivo estático e não comprova que GitHub Pages aplique cabeçalhos Netlify.
 
-Conferir no site final: fluxo administrativo, cartão persistido, refresh, reset, 320/390/768/desktop, EN/PT/ES, teclado, preferência, fonte histórica, clínica, conflito, mismatch de fontes e falhas AMD. Capturar versão/hash e URLs. Não anunciar experiência perfeita, teste com usuários ou auditoria WCAG completa.
+Código e bytes públicos estão conferidos. Registrar separadamente o QA de interação no site publicado: fluxo administrativo, cartão persistido, refresh, reset, 320/390/768/desktop, EN/PT/ES, teclado, preferência, fonte histórica, clínica, conflito, mismatch de fontes e falhas AMD. Não anunciar experiência perfeita, teste com usuários ou auditoria WCAG completa.
 
 ## Texto e mídias
 

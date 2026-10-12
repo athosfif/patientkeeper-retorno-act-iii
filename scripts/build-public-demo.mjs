@@ -7,7 +7,7 @@ import { readRecordedAMDArchive, recordedContextMatches } from '../app/recorded-
 
 // Positive allowlist: no app/data, credentials, remote transport or test oracle.
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const COPY = ['styles.css', 'evidence-client.mjs', 'model-client.mjs', 'engine.mjs', 'recorded-amd-client.mjs', 'recorded-amd.mjs', 'ai-contract.mjs'];
+const COPY = ['styles.css', 'evidence-client.mjs', 'model-client.mjs', 'engine.mjs', 'recorded-amd-client.mjs', 'recorded-amd.mjs', 'ai-contract.mjs', 'source-reading.mjs', 'source-translations.mjs'];
 const SOURCE_KEYS = ['id', 'trecho', 'versao', 'vigente', 'substituida_por'];
 const pick = (value, keys) => Object.fromEntries(keys.filter(key => Object.hasOwn(value, key)).map(key => [key, value[key]]));
 function replaceOnce(source, needle, value) {

@@ -1,6 +1,6 @@
 # PatientKeeper Retorno — six-slide spoken pitch
 
-**Human rehearsal script, October 12, 2026, R03.** Use the six-slide deck with actual screen interaction if Athos records his own version. The delivered edited-video script is separate in PRESENTATION-VIDEO-NARRATION-EN.md. The AMD paragraph reflects exported FP32 evidence and observed replay integration. Update the public-access ending after public access is tested. The text does not claim final submission, semantic approval or answer accuracy.
+**Human rehearsal script, October 12, 2026, R03.** Use the six-slide deck with actual screen interaction if Athos records his own version. The delivered edited-video script is separate in PRESENTATION-VIDEO-NARRATION-EN.md. The AMD paragraph reflects exported FP32 evidence and observed replay integration. Public GitHub Pages access has now been checked; actual submission remains a separate state. The text does not claim final submission, semantic approval or answer accuracy.
 
 Target: approximately **4 minutes 30 seconds**, including a short product interaction. Rehearse and measure the actual recording. Speak at a natural pace instead of promising a duration from word count alone.
 
@@ -52,14 +52,20 @@ We prepared the administrative queue, ownership, history and storage on October 
 
 Our intended value is a clearer handoff: reception can see the pending issue and inspect the record behind the next check. We still need to measure task time, citation support and handoff quality. We do not claim clinical outcomes or invented savings.
 
-Public judge access and the final submission remain pending in this recording draft. The final delivery will include the exact source revision, reproducible instructions and the observed AMD evidence.
+The public repository contains source code, reproducible fictional inputs and exported AMD evidence. The working demo is published on GitHub Pages. Final submission is tracked separately from public access.
 
 Thank you.
 
 ## Recording updates and sources
 
-Slide 5 uses the exported input/output, hardware/runtime, model revision, dtype, timing and validation records. Distinguish format validation from semantic review and useful integrated AMD behavior. Replay integration is visible in the R03 case 04 and case 07 captures. Update Slide 6 with actual public URLs and tested access only after publication. If something remains incomplete, keep the limitation audible and visible.
+Slide 5 uses the exported input/output, hardware/runtime, model revision, dtype, timing and validation records. Distinguish format validation from semantic review and useful integrated AMD behavior. Replay integration is visible in the R03 case 04 and case 07 captures. Slide 6 identifies the publicly verified demo at https://athosfif.github.io/patientkeeper-retorno-act-iii/. The public repository is https://github.com/athosfif/patientkeeper-retorno-act-iii. If something remains incomplete, keep the limitation audible and visible.
 
 Product evidence: [R02 build](../../evidence/ACT-III-R02-20261012/BUILD-RECEIPT.json), [R02 browser checks](../../evidence/ACT-III-R02-20261012/BROWSER-CHECKS.json), [prior AMD pilot](../../evidence/ACT-III-R02-20261012/AMD-PILOT-RECEIPT.json), [exported FP32 attempts](../../evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/) and [baseline disclosure](../../BASE-PREEXISTENTE.md). The nine exported result files all report `semanticApproved=false`.
 
 Rules: [ACT III official page](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii), [submission guidelines](https://lablab.ai/ai-articles/hackathon-guidelines) and [general guide](https://lablab.ai/guide/ai-hackathons). Meaningful AMD use must be part of the product shown to judges. A prerecorded output or schema-valid JSON alone does not establish completed eligibility.
+
+## Final release media
+
+Use the [R07 PDF](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_s8ti4ljdnamb6r2irwpyf4g9.pdf) and [R04 edited video](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_txz5067gbk15l9axy434dkbh.mp4). The 263.1-second video uses disclosed macOS Samantha narration and captured fictional product screens; this human rehearsal script does not imply that Athos recorded its voice. Both artifacts were saved in the LabLab draft and have accessible public URLs; that is distinct from final submission.
+
+The current demo also supplies reviewed EN/ES reading translations of recognized source records, with the unchanged Portuguese original accessible. These display translations are distinct from literal citations, digests and saved receipts. Recorded model answers and reasons remain in their original language, without translation. The edited video retains the earlier source captures.

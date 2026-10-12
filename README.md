@@ -4,7 +4,7 @@ A source. A reviewer. A next step.
 
 PatientKeeper Retorno is an administrative prototype for clinic reception and coordination. It keeps a canceled follow-up visible while a person checks current records, assigns responsibility and prepares a cited review card. All eight cases are fictional. It does not diagnose, recommend treatment, contact patients or change real appointments.
 
-**ACT-III-R03-20261012 — source and static demo published.** On October 12, the public demo loaded with eight fictional cases, EN/PT/ES selection and the recorded/GPU-off footer. At 18:08:22 UTC, public HTTPS checks matched all 16 deployed files to the exact `gh-pages` commit. Media uploads and the LabLab submission remain separate states; no final submission is claimed.
+**ACT-III-R03-20261012 — source and static demo published.** On October 12, the public demo loaded with eight fictional cases, EN/PT/ES selection and the recorded/GPU-off footer. At 18:42:56 UTC, public HTTPS checks matched all 18 deployed files to the exact `gh-pages` commit. Media uploads and the LabLab submission remain separate states; no final submission is claimed.
 
 ## Product workflow
 
@@ -12,7 +12,9 @@ PatientKeeper Retorno is an administrative prototype for clinic reception and co
 2. Open Review. Read current literal excerpts; historical records remain separate.
 3. Explicitly select checked sources and confirm before preparing a cited card.
 4. Inspect a known conflict or a clinical question: these require human handoff. The card cannot resolve the conflict automatically.
-5. Switch EN/PT/ES. English is the initial navigation language; original Portuguese source excerpts remain literal.
+5. Switch EN/PT/ES. English is the initial navigation language. Records have reviewed reading translations; open the Portuguese original to inspect the unchanged evidence.
+
+Reviewed EN/ES reading translations are separate display aids. The complete Portuguese original remains available and unchanged. Translation requires both a recognized source ID and an exact full Portuguese literal; unknown or altered records keep the original. Model answers and abstention reasons are original recorded outputs and are not translated. Evidence digests, inputs, citations and saved receipts retain the original Portuguese text.
 
 A reviewed card records an interaction, not an authenticated clinical approval. It changes neither contact, appointment nor administrative closure. Source lookup is lexical; no match is a search limitation, not proof that information does not exist. Suggested questions map to the original administrative language.
 
@@ -43,12 +45,13 @@ Node.js v24.19.0 was observed. The local server uses Node built-ins; no dependen
 
 ```sh
 node app/server.mjs
-node --test app/tests/*.test.mjs
+node scripts/build-public-demo.mjs
+node --test app/tests/*.test.mjs public-demo/tests/*.test.mjs
 ```
 
 Open `http://127.0.0.1:8769/`. The server deliberately accepts local access only. Opening the HTML file directly does not supply APIs. A clean source copy creates progress under `app/data/`, which is excluded from Git. Reset the fictional cases to begin a fresh demonstration. Review-card receipts remain separate from administrative progress exports.
 
-The source publication checkout passed **143/143** app tests, with zero failures or skipped tests. Its static build also passed. This includes the dedicated recorded-run and model-contract checks and server regression. These checks do not establish model accuracy, clinical safety, user benefit or contest eligibility. Public browser QA is recorded separately.
+The exact source publication checkout passed **179/179** tests in 13 files, with zero failures or skipped tests. Its static build also passed. This includes source-reading gates, the browser adapter, recorded-run and model-contract checks, and server regression. These checks do not establish model accuracy, clinical safety, user benefit or contest eligibility. Public browser QA is recorded separately.
 
 ## Public static demo and GitHub Pages
 
@@ -60,7 +63,7 @@ node scripts/build-public-demo.mjs
 
 The build requires the exact allowlisted synthetic R03 input/result files and the checked browser adapter. The server application and static output are separate artifacts. Deployment uses the **root of the `gh-pages` branch** on GitHub Pages; it does not deploy `app/` as a working remote API.
 
-[Public source repository](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [Open the published demo](https://athosfif.github.io/patientkeeper-retorno-act-iii/). The initial source publication is commit [05391ea](https://github.com/athosfif/patientkeeper-retorno-act-iii/commit/05391eadb16d7fb1da9a527b21534f143733fd92); documentation and the conceptual cover are synchronized in a subsequent source-only commit. The demo is the unchanged [gh-pages commit b7af3b2](https://github.com/athosfif/patientkeeper-retorno-act-iii/tree/b7af3b29cb8342b3d73f66ed07d745f6767cbc71). All 16 public files returned HTTP 200 and matched their SHA-256 at 2026-10-12T18:08:22.622Z, without credentials. This verifies deployed bytes; it does not replace the browser interaction checks. GitHub Pages does not apply the Netlify-style `_headers` file; no custom response-header enforcement is claimed. No Netlify deployment is claimed.
+[Public source repository](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [Open the published demo](https://athosfif.github.io/patientkeeper-retorno-act-iii/). The initial source publication is commit [05391ea](https://github.com/athosfif/patientkeeper-retorno-act-iii/commit/05391eadb16d7fb1da9a527b21534f143733fd92); documentation and the conceptual cover are synchronized in a subsequent source-only commit. The source-reading update is [gh-pages commit f1b4d91](https://github.com/athosfif/patientkeeper-retorno-act-iii/tree/f1b4d91dbb288ba3ae38b20d069eaf14151eb24d). All 18 public files returned HTTP 200 and matched their SHA-256 at 2026-10-12T18:42:56.144Z, without credentials. This verifies deployed bytes; it does not replace the browser interaction checks. GitHub Pages does not apply the Netlify-style `_headers` file; no custom response-header enforcement is claimed. No Netlify deployment is claimed.
 
 ## Origin, licenses and limits
 
@@ -73,3 +76,9 @@ Chrome R02 verified 320/390/768 widths, keyboard navigation, context preservatio
 [Requirements and evidence](docs/ACT-III-20261012/REQUISITOS-E-EVIDENCIAS.md) · [Submission copy](docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md) · [Release plan](docs/ACT-III-20261012/RELEASE-PLAN.md). Public media and an observable LabLab Submission Updated/Submitted state are required before claiming delivery.
 
 The [project cover](assets/ACT-III-20261012/COVER-IA-R01/PATIENTKEEPER-RETORNO-COVER-IA-R01.png) is a conceptual AI-generated illustration, not a product screenshot or patient photograph. [Generation record](assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md).
+
+## Final presentation media
+
+The [R07 presentation PDF](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_s8ti4ljdnamb6r2irwpyf4g9.pdf) and [R04 narrated video](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_txz5067gbk15l9axy434dkbh.mp4) were uploaded and saved in the LabLab draft on October 12 at 18:28:42 UTC. Both public media URLs returned HTTP 200 to an unauthenticated HEAD check. The final video is **263.1 seconds (4 minutes 23.1 seconds)**. It uses disclosed macOS Samantha narration, fictional captured screens and the conceptual AI cover; it does not represent Athos speaking or a continuous product recording. The PDF and video hashes are `e1839460c7632a6dbdbe5de7ef2c6f12f5030a25b9895dd31c00ffd1d586046b` and `93596200c46fed7042bfaee327e933c50694a38d78c1e283624eae28600cdf9c`.
+
+The edited media uses R03 captures. The current demo adds separate EN/ES reading translations while retaining the same original sources; captured model outputs are preserved. Uploaded media and a complete saved draft do not establish a final LabLab submission. The [official FIGUEIRA wordmark provenance](assets/ACT-III-20261012/BRAND-FIGUEIRA/PROVENANCE.md) accompanies the unchanged brand asset.

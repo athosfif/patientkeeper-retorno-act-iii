@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "state": "Source and demo published; documentation/cover synchronized in a source-only follow-up commit; media uploads and LabLab submission are separate",
+  "state": "Published source and static demo with reviewed EN/ES reading translations; uploaded R07 PDF/R04 video are saved in the LabLab draft, not final submission",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -20,6 +20,8 @@
     "app/recorded-amd-client.mjs",
     "app/recorded-amd.mjs",
     "app/server.mjs",
+    "app/source-reading.mjs",
+    "app/source-translations.mjs",
     "app/styles.css",
     "app/tests/ai-contract.test.mjs",
     "app/tests/engine.test.mjs",
@@ -30,6 +32,9 @@
     "app/tests/model-transport.test.mjs",
     "app/tests/recorded-amd.test.mjs",
     "app/tests/server.test.mjs",
+    "app/tests/source-reading.test.mjs",
+    "assets/ACT-III-20261012/BRAND-FIGUEIRA/PROVENANCE.md",
+    "assets/ACT-III-20261012/BRAND-FIGUEIRA/figueira-wordmark.png",
     "assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md",
     "assets/ACT-III-20261012/COVER-IA-R01/PATIENTKEEPER-RETORNO-COVER-IA-R01.png",
     "docs/ACT-III-20261012/AMD-PILOT-DIAGNOSTIC.md",
@@ -47,6 +52,9 @@
     "docs/ACT-III-20261012/SUBMISSION-COPY-R03.json",
     "docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md",
     "public-demo/browser-api.mjs",
+    "public-demo/tests/browser-api.test.mjs",
+    "public-demo/tests/recorded-amd-integration.test.mjs",
+    "public-demo/tests/source-reading.test.mjs",
     "scripts/amd-pilot-inputs.json",
     "scripts/amd-pilot.py",
     "scripts/build-public-demo.mjs"
@@ -378,7 +386,10 @@
     "publishTo": "GitHub Pages gh-pages branch root",
     "mustInspectActualGeneratedFiles": true,
     "containsLocalProgress": false,
-    "liveInference": false
+    "liveInference": false,
+    "generatedFiles": 17,
+    "deploymentMarker": ".nojekyll",
+    "testFilesIncluded": false
   },
   "excluded": [
     "app/data/**",
@@ -395,16 +406,28 @@
     "rawOutputs": "Fictional input outputs retained as exact attempt evidence; failed text is never shown as an accepted answer",
     "sourceAdapter": "public-demo/browser-api.mjs audited: same-origin bounded read-only archive fetch; browser-local synthetic state only; no credentials or private endpoints.",
     "publicMarkdown": "Absolute machine paths and links to non-public local receipts are sanitized in the publication checkout; local originals are preserved.",
-    "cover": "Conceptual imagegen illustration; visual audit found no identifiable patient, patient records, credentials or outcome claims; exact PNG identity verified."
+    "cover": "Conceptual imagegen illustration; visual audit found no identifiable patient, patient records, credentials or outcome claims; exact PNG identity verified.",
+    "sourceReading": "Exact source ID and full Portuguese literal gate reviewed EN/ES display translations. Original evidence, model output and saved receipts are unchanged.",
+    "brand": "Only the unchanged official FIGUEIRA wordmark and its named provenance are included; no other brand or media folder is copied."
   },
   "finalPublicationConfirmed": true,
   "publication": {
-    "observedAt": "2026-10-12T18:08:22.622Z",
+    "observedAt": "2026-10-12T18:42:56.144Z",
     "sourceCodeCommit": "05391eadb16d7fb1da9a527b21534f143733fd92",
-    "staticCommit": "b7af3b29cb8342b3d73f66ed07d745f6767cbc71",
+    "staticCommit": "f1b4d91dbb288ba3ae38b20d069eaf14151eb24d",
     "publicURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
-    "publicFilesHTTPAndSHA256Matched": 16,
+    "publicFilesHTTPAndSHA256Matched": 18,
     "liveInference": false,
-    "labLabSubmitted": false
+    "labLabSubmitted": false,
+    "sourceReadingPublished": true,
+    "mediaState": "R07 PDF and R04 video saved in LabLab draft; final submission unconfirmed",
+    "readingTranslationLimit": "Display aids only. Full original PT sources and AMD answer/reason are unchanged."
+  },
+  "verifiedLocalTests": {
+    "files": 13,
+    "pass": 179,
+    "fail": 0,
+    "skipped": 0,
+    "validation": "SOURCE-READING-TRANSLATION-VALIDATION-20261012.json"
   }
 }

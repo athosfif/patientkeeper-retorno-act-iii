@@ -1,3 +1,4 @@
+import { sourceReadingView } from './source-reading.mjs';
 // Optional model path. Mounting checks configuration; it never starts inference.
 // Candidate text is never saved as a clinical decision or administrative action.
 const sessions = new WeakMap();
@@ -77,7 +78,7 @@ export async function mountModelPanel(container, { item, revision, request, noti
         result.innerHTML = `<h4 tabindex="-1">${strings.abstention}</h4><p data-original lang="en">${esc(output.candidate.reason)}</p><p class="caption">${strings.english}</p>`;
       } else {
         const candidate = output.candidate;
-        result.innerHTML = `<h4 tabindex="-1">${strings.english}</h4><p class="callout" data-original lang="en">${esc(candidate.answer)}</p><p class="caption">${strings.format}</p>${candidate.citations.map(source=>`<article class="source"><strong>${esc(source.sourceId)}</strong><blockquote data-original lang="pt-BR">${esc(source.trecho)}</blockquote><span class="caption">${strings.source}</span></article>`).join('')}<label class="check"><input type="checkbox" data-model-reviewed><span>${strings.review}</span></label><button type="button" data-model-save disabled>${strings.save}</button>`;
+        result.innerHTML = `<h4 tabindex="-1">${strings.english}</h4><p class="callout" data-original lang="en">${esc(candidate.answer)}</p><p class="caption">${strings.format}</p>${candidate.citations.map(source=>`<article class="source"><strong>${esc(source.sourceId)}</strong>${sourceReadingView(source, { originalTag:'blockquote' })}</article>`).join('')}<label class="check"><input type="checkbox" data-model-reviewed><span>${strings.review}</span></label><button type="button" data-model-save disabled>${strings.save}</button>`;
         const confirm = result.querySelector('[data-model-reviewed]');
         const save = result.querySelector('[data-model-save]');
         confirm.addEventListener('change',()=> { save.disabled = !confirm.checked; });

@@ -42,7 +42,7 @@ Length: 1466 characters; 209 words. Observed limits: 600–2,000 characters and 
 | Field | Current documented state |
 |---|---|
 | Repository | Public source pushed: https://github.com/athosfif/patientkeeper-retorno-act-iii . Initial code commit 05391ea; documentation/cover synchronization has a separate final Git receipt. |
-| Demo | Published at https://athosfif.github.io/patientkeeper-retorno-act-iii/ . UI loaded with eight cases/languages/footer; 16/16 public files matched gh-pages b7af3b2 by HTTPS/SHA-256 at 18:08:22 UTC on October 12. No live AMD service. |
+| Demo | Published at https://athosfif.github.io/patientkeeper-retorno-act-iii/ . UI loaded with eight cases/languages/footer; 18/18 public files matched gh-pages f1b4d91 by HTTPS/SHA-256 at 18:42:56 UTC on October 12. No live AMD service. |
 | Cover | Local cover candidate exists. Verify accepted file type and uploaded preview. |
 | Video and slides | Final ≤5-minute demonstration and PDF must match the delivered version and be checked after export/upload. |
 | Submission | Not confirmed by this document. Saved draft, pasted fields or upload do not prove submission. |
@@ -56,3 +56,9 @@ The pre-event [October 5 scaffold](../../BASE-PREEXISTENTE.md) is declared. The 
 The [general submission guide](https://lablab.ai/ai-articles/hackathon-guidelines) and the kickoff describe a presentation of at most five minutes, a public repository and accessible demo. Confirm the real Steps 2/3 and 3/3 for final accepted media formats.
 
 The coordinator observed a deadline conflict: October 18 at 07:00 Brasília in the main authenticated schedule, versus 12:00 Brasília in earlier /live evidence. Keep October 17 evening as the internal preparation target; it is not an official deadline. [Requirements](REQUISITOS-E-EVIDENCIAS.md) · [Release plan](RELEASE-PLAN.md).
+
+## Uploaded final media, saved draft
+
+[Presentation PDF R07](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_s8ti4ljdnamb6r2irwpyf4g9.pdf) · [Narrated video R04](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_txz5067gbk15l9axy434dkbh.mp4). LabLab displayed both saved files on October 12 at 18:28:42 UTC; the public media links returned HTTP 200 to unauthenticated HEAD requests. The video is 263.1 seconds. These observations confirm uploaded media and saved draft state, not final submission.
+
+The current demo adds reviewed EN/ES reading translations of recognized full source literals. Original Portuguese evidence remains accessible; model answers/reasons, hashes and cited receipts are unchanged.

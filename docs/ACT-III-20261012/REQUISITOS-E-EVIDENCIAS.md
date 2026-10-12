@@ -24,7 +24,7 @@ Atualizado em **12/10/2026**. Equipe FIGUEIRA AI; participação online; trilha 
 | Código e licença | Código próprio MIT; Qwen Apache-2.0, revisão imutável e licença preservadas. | Baseline de 05/10 declarado; reutilização específica e elegibilidade são decisões separadas. |
 | Idiomas e UX | EN inicial; PT/ES selecionáveis; citações originais preservadas. Chrome R02 verificou 320/390/768, teclado e contexto. | A versão publicada R03 precisa conferência própria; não há estudo de usuários nem auditoria WCAG integral. |
 | Repositório público | Código publicado em athosfif/patientkeeper-retorno-act-iii; commit inicial de código 05391ea. | Atualização de docs/capa tem recibo Git separado; origem anterior continua declarada. |
-| Demo / mídia | GitHub Pages publicado, gh-pages b7af3b2; 16/16 arquivos HTTP 200 com hashes exatos em 12/10 às 18:08:22 UTC. Saída estática separada do servidor. | Vídeo ≤5min, slides, capa e previews no formulário continuam conferências separadas; submissão não é inferida do deploy. |
+| Demo / mídia | GitHub Pages publicado, gh-pages f1b4d91; 18/18 arquivos HTTP 200 com hashes exatos em 12/10 às 18:42:56 UTC. Saída estática separada do servidor. | Vídeo ≤5min, slides, capa e previews no formulário continuam conferências separadas; submissão não é inferida do deploy. |
 | Submissão | Não comprovada por esta matriz. | Exigir mensagem oficial, URL e recarga; draft ou upload não equivalem a envio. |
 
 ## Piloto real R03
@@ -63,3 +63,9 @@ R02 preserva a falha float16: 1.024 caracteres !, 30,687s, zero candidatos aceit
 Observação autenticada anterior: 18/10 às 07h Brasília no calendário principal, versus 12h Brasília no /live. O conflito permanece declarado até confirmação autoritativa. **17/10 à noite é alvo interno**, não prazo oficial. O kickoff não exige entrega imediata.
 
 Concluir exige fonte/commit público coerente, demo publicada testada, mídia final acessível e recibo observável de submissão. [Plano](RELEASE-PLAN.md) · [Cópia exata preparada](SUBMISSION-COPY-R03.json). Pontos ADP, XP, seleção e premiação permanecem estados distintos.
+
+## Atualização de leitura e mídia final
+
+EN/ES apresentam traduções de leitura revisadas, reconhecidas somente por ID e literal PT completo. O original português permanece acessível, sem mudar contexto, digest, citações, recibos ou respostas/motivos AMD. Textos não reconhecidos conservam o original; isso não é tradução livre por modelo.
+
+[PDF R07](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_s8ti4ljdnamb6r2irwpyf4g9.pdf) e [MP4 R04](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_txz5067gbk15l9axy434dkbh.mp4) foram enviados e salvos no draft LabLab em 12/10 às 18:28:42 UTC. A UI mostrou ambos; os links públicos responderam HEAD 200. MP4 de 263,1 segundos. O draft completo e os uploads não comprovam submissão final.

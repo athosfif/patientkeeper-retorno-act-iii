@@ -19,6 +19,8 @@ const STATIC_FILES = new Map([
   ['/client.mjs', ['client.mjs', 'text/javascript; charset=utf-8']],
   ['/evidence-client.mjs', ['evidence-client.mjs', 'text/javascript; charset=utf-8']],
   ['/i18n.mjs', ['i18n.mjs', 'text/javascript; charset=utf-8']],
+  ['/source-reading.mjs', ['source-reading.mjs', 'text/javascript; charset=utf-8']],
+  ['/source-translations.mjs', ['source-translations.mjs', 'text/javascript; charset=utf-8']],
   ['/model-client.mjs', ['model-client.mjs', 'text/javascript; charset=utf-8']],
 ]);
 const API_METHODS = new Map([

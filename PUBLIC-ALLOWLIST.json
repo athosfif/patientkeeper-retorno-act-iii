@@ -413,7 +413,7 @@
   "finalPublicationConfirmed": true,
   "publication": {
     "observedAt": "2026-10-12T18:42:56.144Z",
-    "sourceCodeCommit": "05391eadb16d7fb1da9a527b21534f143733fd92",
+    "sourceCodeCommit": "947329ee80248f13d1318601486e6c4cdfe41310",
     "staticCommit": "f1b4d91dbb288ba3ae38b20d069eaf14151eb24d",
     "publicURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
     "publicFilesHTTPAndSHA256Matched": 18,
@@ -467,7 +467,11 @@
           "fullBytesReadInMemory": true
         }
       }
-    }
+    },
+    "initialSourceCommit": "05391eadb16d7fb1da9a527b21534f143733fd92",
+    "mediaDocumentationCommit": "3aecac2f3099c6e0b811e07955f565fb530aa36d",
+    "currentStateObservedAt": "2026-10-12T19:27:49.777140+00:00",
+    "observedAtScope": "Historical unauthenticated verification of the 18 static files at the recorded staticCommit; not the latest source or submission timestamp"
   },
   "verifiedLocalTests": {
     "files": 13,

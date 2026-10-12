@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "state": "R09 UX source and static build; historical confirmed LabLab submission remains R05 video/R08 PDF and cover until separately updated",
+  "state": "Published UX R09 with persistent appearance and fictional doctor calendar. The R05/R08 LabLab/media receipt remains a separately timestamped historical submission.",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -420,11 +420,11 @@
   },
   "finalPublicationConfirmed": true,
   "publication": {
-    "observedAt": "2026-10-12T18:42:56.144Z",
-    "sourceCodeCommit": "947329ee80248f13d1318601486e6c4cdfe41310",
-    "staticCommit": "f1b4d91dbb288ba3ae38b20d069eaf14151eb24d",
+    "observedAt": "2026-10-12T22:36:07.673239+00:00",
+    "sourceCodeCommit": "54e3d3630ac996d4aebf9aa216a448425758cc8b",
+    "staticCommit": "d14fd101caff1759894227ee3f5c34068e99692c",
     "publicURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
-    "publicFilesHTTPAndSHA256Matched": 18,
+    "publicFilesHTTPAndSHA256Matched": 23,
     "liveInference": false,
     "labLabSubmitted": true,
     "sourceReadingPublished": true,
@@ -479,7 +479,30 @@
     "initialSourceCommit": "05391eadb16d7fb1da9a527b21534f143733fd92",
     "mediaDocumentationCommit": "3aecac2f3099c6e0b811e07955f565fb530aa36d",
     "currentStateObservedAt": "2026-10-12T19:27:49.777140+00:00",
-    "observedAtScope": "Historical unauthenticated verification of the 18 static files at the recorded staticCommit; not the latest source or submission timestamp"
+    "observedAtScope": "Unauthenticated R09 static files verified against d14fd10; historical LabLab submission and media receipts retain their own timestamps.",
+    "previousStaticVerification": {
+      "observedAt": "2026-10-12T18:42:56.144Z",
+      "sourceCodeCommit": "947329ee80248f13d1318601486e6c4cdfe41310",
+      "staticCommit": "f1b4d91dbb288ba3ae38b20d069eaf14151eb24d",
+      "publicFilesHTTPAndSHA256Matched": 18,
+      "observedAtScope": "Historical unauthenticated verification of the 18 static files at the recorded staticCommit; not the latest source or submission timestamp"
+    },
+    "uxUpdate": {
+      "revision": "R09",
+      "verifiedAt": "2026-10-12T22:36:10.680Z",
+      "publishedFeatureSourceCommit": "54e3d3630ac996d4aebf9aa216a448425758cc8b",
+      "staticCommit": "d14fd101caff1759894227ee3f5c34068e99692c",
+      "publicURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
+      "calendarURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/#calendar",
+      "http200AndSha256Matched": 23,
+      "browserChecksPassed": 7,
+      "browserErrors": 0,
+      "externalServiceRequests": 0,
+      "pagesWorkflowURL": "https://github.com/athosfif/patientkeeper-retorno-act-iii/actions/runs/38317423478",
+      "pagesWorkflowConclusion": "success",
+      "mediaUpdateConfirmedByThisReceipt": false,
+      "newGpuExecution": false
+    }
   },
   "verifiedLocalTests": {
     "files": 15,
@@ -507,6 +530,6 @@
     ],
     "doesNotStartGPU": true,
     "calendarNotProductionScheduling": true,
-    "publicationState": "Prepared for authorized update; production verification recorded separately"
+    "publicationState": "Published and publicly verified; this source update does not confirm presentation-media or LabLab changes."
   }
 }

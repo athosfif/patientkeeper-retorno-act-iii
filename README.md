@@ -6,7 +6,7 @@ PatientKeeper Retorno is an administrative prototype for clinic reception and co
 
 **Current experience revision: UX R09.** The eight fictional cases now have a persistent light/dark button, direct Queue/Calendar navigation and a read-only example doctor calendar. Its two fictional doctors and ten agenda items link to existing cases; they do not create appointments or change records. EN/PT/ES labels and date controls remain available. [Open the demo](https://athosfif.github.io/patientkeeper-retorno-act-iii/) · [Calendar](https://athosfif.github.io/patientkeeper-retorno-act-iii/#calendar) · [R09 scope](docs/ACT-III-20261012/UX-R09.md).
 
-The original ACT-III-R03 source evidence and recorded AMD execution are preserved. LabLab confirmed the earlier R05 video/R08 PDF submission at 19:27:49 UTC on October 12; this source update does not itself prove that newer presentation media were submitted. [Open the submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno).
+The original ACT-III-R03 source evidence and recorded AMD execution are preserved. LabLab confirmed the updated submission at **22:49:28 UTC / 19:49:28 Brasília on October 12**, showing “Submission Updated!”. The project page displayed the R06 narrated video, R11 PDF and R10 desk-calendar cover; the PDF and MP4 public bytes matched the new final files. Earlier R05/R08 delivery remains historical evidence. [Open the submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno).
 
 ## Product workflow
 
@@ -70,17 +70,32 @@ The build requires the exact allowlisted synthetic R03 input/result files and th
 
 ## Origin, licenses and limits
 
-**ADMIN-R01-20261005 is pre-event scaffolding**: queue, assignment, history and local persistence. October 12 increments add source review, cited receipts, conflict guards, EN/PT/ES navigation, the closed model contract, bounded optional transport, real AMD tests and recorded replay. [Baseline declaration](BASE-PREEXISTENTE.md). Reuse must be disclosed; specific contest eligibility remains a separate determination.
+**ADMIN-R01-20261005 is pre-event scaffolding**: queue, assignment, history and local persistence. October 12 increments add source review, cited receipts, conflict guards, EN/PT/ES navigation, light/dark appearance, the read-only fictional calendar, the closed model contract, bounded optional transport, real AMD tests and recorded replay. [Baseline declaration](BASE-PREEXISTENTE.md). Reuse must be disclosed; specific contest eligibility remains a separate determination.
 
 Own code uses [MIT](LICENSE). Qwen is Apache-2.0, with its exact model license retained in the pilot evidence. Model weights, credentials, private cloud URLs, sessions and `app/data/` are excluded. Literal outputs and failures are retained only from fictional input records.
 
 R09 isolated Chrome verification covered 390/760/1024/1440 widths, appearance persistence, calendar filtering, date keyboard navigation, case links, EN/PT/ES, unsaved draft preservation and human review/confirmation surfaces. Chrome R02 previously verified 320/390/768 widths, keyboard navigation, context preservation and saved-card recovery. The published R03 app loaded with eight cases, language selection and the truthful recorded-execution footer; its detailed browser and mobile checks are a separate release record. No target-user study, complete WCAG audit, clinical validation or measured operational savings is asserted.
 
-[Requirements and evidence](docs/ACT-III-20261012/REQUISITOS-E-EVIDENCIAS.md) · [Submission copy](docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md) · [Release plan](docs/ACT-III-20261012/RELEASE-PLAN.md). Final submission is supported by the observed LabLab success message and matching delivered media; it does not establish a judging result.
+[Requirements and evidence](docs/ACT-III-20261012/REQUISITOS-E-EVIDENCIAS.md) · [Current submission text snapshot R11](docs/ACT-III-20261012/SUBMISSION-COPY-R11.json) · [Release plan](docs/ACT-III-20261012/RELEASE-PLAN.md). Final submission is supported by the observed LabLab success message and matching delivered media; it does not establish a judging result.
 
-The source archive retains an [earlier conceptual cover R01](assets/ACT-III-20261012/COVER-IA-R01/PATIENTKEEPER-RETORNO-COVER-IA-R01.png) and its [generation record](assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md). It is not the delivered R08 cover. The delivered cover uses a revised R02 AI illustration, not a product screenshot or patient photograph.
+The source archive retains an [earlier conceptual cover R01](assets/ACT-III-20261012/COVER-IA-R01/PATIENTKEEPER-RETORNO-COVER-IA-R01.png) and its [generation record](assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md). It is not the current R10 cover. The updated R10 cover is a conceptual AI desk calendar with native typography and the unchanged official FIGUEIRA wordmark, not a product screenshot or patient photograph.
 
-## Submitted presentation media
+## Current submitted presentation media
+
+The existing authenticated Chrome session showed **“Submission Updated!”** at 22:49:28 UTC / 19:49:28 Brasília on October 12, 2026. The refreshed project page at 22:50:07 UTC displayed the updated calendar description, the public GitHub Pages demo, the R11 presentation link, the R06 video and the R10 cover as its video poster. This confirms an updated submission; it does not establish judging results, prize or eligibility approval.
+
+[Submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno) · [Presentation PDF R11](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_w7zl0umzsh50uxv8ny3rxokt.pdf) · [Narrated video R06](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_fg9l23xrghhhn7ihwyhcyb4e.mp4) · [Delivered cover R10](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/image/image_d082tis4nr4f21dmszmgt4bv.jpg)
+
+The updated MP4 is about **3 minutes 6 seconds** (186.27 seconds observed in the player), using the same synthetic English Envato narration supplied by Athos, synchronized subtitles and edited captures of the real fictional-case interface, including the R09 calendar and day/night modes. It is neither Athos speaking nor a continuous screen recording. R11 PDF and R10 cover use the official FIGUEIRA wordmark and cream, dark and neon-green identity. The conceptual desk-calendar cover uses Sequel typography, with RETORNO in bold italic. Original Portuguese evidence and recorded model outputs remain unchanged; reviewed reading translations are separate display aids.
+
+Unauthenticated full-byte HTTPS checks with TLS verification returned **HTTP 200** for all three new media URLs. The PDF is 3,741,035 bytes, SHA-256 `84eeb974bd30f0e596ec67b48065fe81c386b4bbd86ae617e34dfc818c91f102`; the video is 11,434,603 bytes, SHA-256 `f68abe3ef16dd3ef0423273d632dd913b21be7dea4bb3340c89faea774124a4d`. Both match the corresponding local final file exactly. The delivered JPEG cover is 221,382 bytes, SHA-256 `03322387548bbeead201520eee39182d48649ebe8c9a98128a6117d85def5c2c`, with delivered dimensions 1913 × 1076. LabLab cropped and converted the uploaded PNG to JPEG; its delivered hash is therefore separate, and its composition was checked in the page UI.
+
+The [R11 text snapshot](docs/ACT-III-20261012/SUBMISSION-COPY-R11.json) preserves the prepared copy verbatim. Its preparation metadata deliberately says it is not a submission receipt; update confirmation comes from the later observed LabLab UI and matching delivered media above. No private UI receipt, original screenshot, media file or Sequel font file is copied into this source repository.
+
+## Earlier confirmed presentation media — historical R05/R08
+
+The links and checks below document the earlier delivery, which the R06/R11/R10 update supersedes.
+
 
 Submission was confirmed on October 12, 2026 at 19:27:49 UTC / 16:27:49 Brasília by the LabLab success message: “You have successfully submitted your project for the AMD Developer Hackathon: ACT III event!” The existing Chrome session then displayed the published project with the exact R05 video and R08 PDF. Judging was shown as in progress; no evaluation, award or eligibility result is claimed.
 

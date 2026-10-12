@@ -10,4 +10,4 @@ The exact publication checkout passed 195 tests in 15 files, with no failures or
 
 The AMD archive retains seven original baseline cases (2/7 format-valid) and all nine attempts (3/9 format-valid). Format acceptance is not semantic approval or model accuracy. GPU remains off; the calendar and theme require no inference. No target-user study or complete accessibility audit is claimed.
 
-Presentation media and LabLab uploads are separate from this source revision. The earlier confirmed R05/R08 submission remains historical evidence until a newer upload is independently confirmed.
+Presentation media and LabLab uploads are separate from this source revision. A later LabLab update was confirmed on October 12 at 22:49:28 UTC: narrated video R06, presentation PDF R11 and conceptual desk-calendar cover R10. The refreshed project page displayed the new links and poster; MP4 and PDF public bytes matched their local final files. The earlier confirmed R05/R08 submission remains historical evidence. See the source README for current media and verification details.

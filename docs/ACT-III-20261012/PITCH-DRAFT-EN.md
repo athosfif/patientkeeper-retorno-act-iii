@@ -52,11 +52,11 @@ The distinctive idea is the connection between information and responsibility: a
 
 ## Separate AMD pilot evidence
 
-The authorized session was requested on October 12 at **13:41:45 Brasília** and observed officially **OFF at 14:01:13** by the coordinator. [Later shutdown UI evidence](../../evidence/ACT-III-R02-20261012/AMD-SHUTDOWN.png). The worker does not verify cloud shutdown, so its own `cloudShutdownVerified:false` flag is not a contradiction of that later UI observation.
+The authorized session was requested on October 12 at **13:41:45 Brasília** and observed officially **OFF at 14:01:13** by the coordinator. Later shutdown UI evidence (preserved in the private local archive). The worker does not verify cloud shutdown, so its own `cloudShutdownVerified:false` flag is not a contradiction of that later UI observation.
 
-Model: **Qwen/Qwen2.5-1.5B-Instruct**, revision `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`, float16. Hardware: **AMD Radeon Pro W7900D**. One SIM-RET-02 generation: **30.687 seconds**, **654 input / 1,024 output tokens**, exclamation-mark output, **zero accepted candidates**, no semantic approval. [Environment](../../evidence/ACT-III-R02-20261012/AMD-PILOT/RUN-20261012T165324Z-c7ffd7c2/environment.json) · [Result](../../evidence/ACT-III-R02-20261012/AMD-PILOT/RUN-20261012T165324Z-c7ffd7c2/result-01.json) · [Worker receipt](../../evidence/ACT-III-R02-20261012/AMD-PILOT/RUN-20261012T165324Z-c7ffd7c2/worker-receipt.json).
+Model: **Qwen/Qwen2.5-1.5B-Instruct**, revision `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`, float16. Hardware: **AMD Radeon Pro W7900D**. One SIM-RET-02 generation: **30.687 seconds**, **654 input / 1,024 output tokens**, exclamation-mark output, **zero accepted candidates**, no semantic approval. Environment (preserved in the private local archive) · Result (preserved in the private local archive) · Worker receipt (preserved in the private local archive).
 
-The current local suite records [131/131 passes](../../evidence/ACT-III-R02-20261012/TEST-RESULTS.txt); controlled local tests do not establish real model quality or clinical benefit. The app has no configured model endpoint and has not run inference. Public GitHub, public demo, final video, slides and submission are still pending.
+The current local suite records 131/131 passes (preserved in the private local archive); controlled local tests do not establish real model quality or clinical benefit. The app has no configured model endpoint and has not run inference. Public GitHub, public demo, final video, slides and submission are still pending.
 
 ## Timing and final-version gate
 
@@ -71,7 +71,7 @@ Before final recording:
 - Measure any claimed gain and state the sample size, task, method and limitation. If unmeasured, retain the hypothesis wording.
 - Finish the R02 PT/EN/ES navigation, keyboard and responsive checks. The selector is implemented; do not imply a completed user study or full accessibility conformity.
 - Add the verified public demo/repository URLs to the closing slide, without exposing secrets or private records.
-- Declare **ADMIN-R01-20261005** as prior work and the ACT III changes as new work. Source: [baseline declaration](../../BASE-PREEXISTENTE.md) and [local build receipt](../../evidence/ACT-III-R01-20261012/BUILD-RECEIPT.json).
+- Declare **ADMIN-R01-20261005** as prior work and the ACT III changes as new work. Source: [baseline declaration](../../BASE-PREEXISTENTE.md) and local build receipt (preserved in the private local archive).
 - Export the final video and slides, inspect every external link and retain the submission receipt. A pitch draft or localhost demo is not submission.
 
 The literal source quotations and reviewed-card receipt are demonstration evidence; the UI confirmation does not authenticate a professional reviewer’s identity. All cases are fictional. No clinical outcome, real patient use, performance saving, prize eligibility or completed AMD requirement is claimed by this draft.

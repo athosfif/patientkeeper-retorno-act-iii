@@ -1,6 +1,6 @@
 # Base preexistente e origem das entregas
 
-Registro em 05/10/2026 para distinguir aprendizado anterior, preparação atual e trabalho que será produzido no ACT III. Elegibilidade de reutilização não está confirmada. Ver [fontes e regras](FONTES-E-REGRAS.md).
+Registro em 05/10/2026 para distinguir aprendizado anterior, preparação atual e trabalho que será produzido no ACT III. Elegibilidade de reutilização não está confirmada. Ver fontes e regras (preserved in the private local archive).
 
 ## PatientKeeper anterior — baseline de 26/09
 

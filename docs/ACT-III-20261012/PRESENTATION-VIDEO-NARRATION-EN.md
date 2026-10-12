@@ -222,7 +222,7 @@ Visual: `assets/ACT-III-20261012/PRESENTATION-SLIDE-06-R07.png` (slide).
 
 Seven distinct baseline FP32 cases yielded two candidates accepted by local format/literal-reference checks and five blocked candidates. Two extra diagnostics are preserved separately, giving nine FP32 attempts. The exported evidence records three format-valid outputs overall; all nine records still report `semanticApproved=false`. This is not a measure of accuracy, clinical safety, efficiency or benefit.
 
-[Exported inputs, outputs, environment and worker records](../../evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/). The earlier float16 failure remains [documented](../../evidence/ACT-III-R02-20261012/AMD-PILOT-RECEIPT.json). [Pre-event baseline](../../BASE-PREEXISTENTE.md).
+[Exported inputs, outputs, environment and worker records](../../evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/). The earlier float16 failure remains documented (preserved in the private local archive). [Pre-event baseline](../../BASE-PREEXISTENTE.md).
 
 The video uses unchanged source captures fitted into editorial frames. It does not simulate pointer movement, represent a continuous interaction recording, or claim that the AI narration is Athos speaking. Captions use measured segment boundaries, with literal technical spelling in scene 23; they are not word-level ASR. Full listening review by Athos remains pending.
 

@@ -1,3 +1,4 @@
+import { sourceReadingView } from './source-reading.mjs';
 import { evaluateRecordedAMDRecord, findRecordedAMDRecord, readRecordedAMDStatistics } from './recorded-amd.mjs';
 
 const sessions = new WeakMap();
@@ -134,7 +135,7 @@ export async function mountRecordedAMDPanel(container, { item, revision, request
     if (!checked.available) { unavailable(checked.code, checked); return; }
     status.innerHTML = `<span class="tag">${strings.badge}</span>`;
     const { candidate } = checked;
-    result.innerHTML = `<p>${strings.intro}</p>${statisticsHTML()}<p class="caption">${strings.question}</p><p data-original lang="en">${esc(checked.question)}</p><h4>${candidate.abstention ? strings.abstention : strings.answer}</h4><p class="callout" data-original>${esc(candidate.abstention ? candidate.reason : candidate.answer)}</p><p class="caption">${strings.review}</p>${candidate.citations.map(source => `<article class="evidence-excerpt"><strong>${esc(source.sourceId)}</strong><p class="original-label">${strings.source}</p><blockquote data-original lang="pt-BR">${esc(source.trecho)}</blockquote></article>`).join('')}${receiptHTML(checked)}<p class="caption evidence-limit">${strings.noAction}</p>`;
+    result.innerHTML = `<p>${strings.intro}</p>${statisticsHTML()}<p class="caption">${strings.question}</p><p data-original lang="en">${esc(checked.question)}</p><h4>${candidate.abstention ? strings.abstention : strings.answer}</h4><p class="callout" data-original>${esc(candidate.abstention ? candidate.reason : candidate.answer)}</p><p class="caption">${strings.review}</p>${candidate.citations.map(source => `<article class="evidence-excerpt"><strong>${esc(source.sourceId)}</strong>${sourceReadingView(source, { originalTag:'blockquote' })}</article>`).join('')}${receiptHTML(checked)}<p class="caption evidence-limit">${strings.noAction}</p>`;
   } catch (error) {
     if (!alive()) return;
     unavailable(error.status === 409 ? 'CONTEXT_CHANGED' : 'LOAD_FAILED');

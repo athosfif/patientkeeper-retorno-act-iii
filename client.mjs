@@ -1,6 +1,7 @@
 import { request } from './browser-api.mjs';
 import { ui, getLanguage, setLanguage, stamp, localizeTree, searchText, errorText } from './i18n.mjs';
 import { evidenceView, mountEvidencePanel } from './evidence-client.mjs';
+import { sourceReadingView } from './source-reading.mjs';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const owners = ['SEC-SIM-A','SEC-SIM-B','SEC-SIM-C','COORD-SIM-A','MED-SIM-A','MED-SIM-B'];
@@ -68,7 +69,7 @@ function summaryView(item) {
     </section>` : ''}`;
 }
 function sourcesView(item) {
-  return `<section class="section"><h3>Registros da etapa atual</h3><p>Confira a origem de cada informação. Os registros de evolução aparecem somente depois da ação humana correspondente.</p>${item.activeSources.map(source => `<article class="source ${source.vigente === false ? 'historical' : ''}"><div class="source-head"><strong>${esc(source.id)}</strong><span class="tag ${source.vigente === false ? 'warn' : ''}">${source.vigente === false ? 'Regra histórica' : source.vigente === true ? 'Regra vigente' : 'Registro fictício'}</span></div><p class="caption original-label">Fonte original · Português</p><p data-original lang="pt-BR">${esc(source.trecho)}</p>${source.substituida_por ? `<p class="caption">Substituída por ${esc(source.substituida_por)}.</p>` : ''}</article>`).join('')}<p class="caption">A aba Conferência consulta estes trechos localmente. A execução AMD gravada é apresentada separadamente; fontes históricas ficam separadas da ação atual.</p></section>`;
+  return `<section class="section"><h3>Registros da etapa atual</h3><p>Confira a origem de cada informação. Os registros de evolução aparecem somente depois da ação humana correspondente.</p>${item.activeSources.map(source => `<article class="source ${source.vigente === false ? 'historical' : ''}"><div class="source-head"><strong>${esc(source.id)}</strong><span class="tag ${source.vigente === false ? 'warn' : ''}">${source.vigente === false ? 'Regra histórica' : source.vigente === true ? 'Regra vigente' : 'Registro fictício'}</span></div>${sourceReadingView(source)}${source.substituida_por ? `<p class="caption">Substituída por ${esc(source.substituida_por)}.</p>` : ''}</article>`).join('')}<p class="caption">A aba Conferência consulta estes trechos localmente. A execução AMD gravada é apresentada separadamente; fontes históricas ficam separadas da ação atual.</p></section>`;
 }
 function historyView(item) {
   return `<section class="section"><h3>Histórico do caso fictício</h3><p>Atribuições e etapas são salvas somente neste navegador, com registro de data e hora.</p>${item.history.length ? `<p class="caption original-label">Histórico original · Português</p><ol class="timeline">${item.history.map(event => `<li><div><p data-original lang="pt-BR">${esc(event.text)}</p><time datetime="${esc(event.at)}">${esc(stamp(event.at))}</time></div></li>`).join('')}</ol>` : '<div class="empty-state"><p>Nenhuma alteração humana registrada neste caso. Os registros iniciais estão na aba Registros.</p></div>'}</section>`;

@@ -342,7 +342,7 @@ export function localizeTree(root = document.body) {
   while ((node = walker.nextNode())) nodes.push(node);
   for (const textNode of nodes) {
     const parent = textNode.parentElement;
-    if (!parent || parent.closest('[data-original],textarea,script,style,[data-language-option]')) continue;
+    if (!parent || parent.closest('[data-original],[data-source-reading],textarea,script,style,[data-language-option]')) continue;
     const previous = remembered.get(textNode);
     const canonical = previous && textNode.nodeValue === previous.last ? previous.canonical : textNode.nodeValue;
     const trim = canonical.trim(); if (!trim) continue;
@@ -350,7 +350,7 @@ export function localizeTree(root = document.body) {
     textNode.nodeValue = next; remembered.set(textNode,{canonical,last:next});
   }
   for (const element of [root,...root.querySelectorAll('[aria-label],[placeholder],[title]')]) {
-    if (element.closest?.('[data-original]')) continue;
+    if (element.closest?.('[data-original],[data-source-reading]')) continue;
     for (const name of ['aria-label','placeholder','title']) if (element.hasAttribute?.(name)) {
       let values = rememberedAttributes.get(element);
       if (!values) { values = new Map(); rememberedAttributes.set(element,values); }

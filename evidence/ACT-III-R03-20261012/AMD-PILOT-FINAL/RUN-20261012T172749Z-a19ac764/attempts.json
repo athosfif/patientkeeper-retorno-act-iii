@@ -1,0 +1,92 @@
+[
+  {
+    "runId": "RUN-20261012T172749Z-a19ac764",
+    "index": 1,
+    "caseId": "SIM-RET-01",
+    "startedAt": "2026-10-12T17:27:59.652574+00:00",
+    "status": "candidate",
+    "requiresSemanticHumanReview": true,
+    "logitsMetrics": {
+      "totalLogits": 151936,
+      "nonfiniteCount": 0,
+      "std": 3.3113394205175037,
+      "topTokenId": 515,
+      "forwardSeconds": 2.058,
+      "runId": "RUN-20261012T172749Z-a19ac764",
+      "caseId": "SIM-RET-01",
+      "dtype": "float32",
+      "gpuModelForwardExecuted": true,
+      "generationExecuted": false
+    },
+    "inputTokens": 720,
+    "gpuModelForwardExecuted": true,
+    "gpuInferenceExecuted": true,
+    "semanticApproved": false,
+    "finishedAt": "2026-10-12T17:28:08.536498+00:00",
+    "latencySeconds": 6.81,
+    "outputTokens": 133,
+    "stopReason": "model_stop",
+    "repetition": null,
+    "validation": {
+      "formatValid": true,
+      "requiresSemanticHumanReview": true,
+      "candidate": {
+        "answer": "The cancellation was recorded as the patient's follow-up has been canceled.",
+        "citations": [
+          {
+            "sourceId": "SIM01-AGENDA",
+            "trecho": "O retorno foi cancelado. Nao ha reposicao confirmada na agenda."
+          },
+          {
+            "sourceId": "SIM01-TAREFA",
+            "trecho": "A pendencia de reposicao esta aberta e atribuida a SEC-SIM-A."
+          }
+        ],
+        "abstention": false,
+        "reason": null,
+        "humanReviewRequired": true
+      },
+      "errors": []
+    }
+  },
+  {
+    "runId": "RUN-20261012T172749Z-a19ac764",
+    "index": 2,
+    "caseId": "SIM-RET-02",
+    "startedAt": "2026-10-12T17:28:08.539115+00:00",
+    "status": "invalid_candidate",
+    "requiresSemanticHumanReview": true,
+    "logitsMetrics": {
+      "totalLogits": 151936,
+      "nonfiniteCount": 0,
+      "std": 3.351734144798027,
+      "topTokenId": 515,
+      "forwardSeconds": 0.53,
+      "runId": "RUN-20261012T172749Z-a19ac764",
+      "caseId": "SIM-RET-02",
+      "dtype": "float32",
+      "gpuModelForwardExecuted": true,
+      "generationExecuted": false
+    },
+    "inputTokens": 566,
+    "gpuModelForwardExecuted": true,
+    "gpuInferenceExecuted": true,
+    "semanticApproved": false,
+    "finishedAt": "2026-10-12T17:28:15.621445+00:00",
+    "latencySeconds": 6.544,
+    "outputTokens": 138,
+    "stopReason": "model_stop",
+    "repetition": null,
+    "validation": {
+      "formatValid": false,
+      "requiresSemanticHumanReview": true,
+      "candidate": null,
+      "errors": [
+        {
+          "code": "INVALID_CANDIDATE",
+          "message": "Candidate failed the local format or literal-reference check."
+        }
+      ]
+    }
+  }
+]

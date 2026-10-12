@@ -1,0 +1,42 @@
+[
+  {
+    "runId": "RUN-20261012T173042Z-356bd353",
+    "index": 1,
+    "caseId": "SIM-RET-05",
+    "startedAt": "2026-10-12T17:30:47.978697+00:00",
+    "status": "invalid_candidate",
+    "requiresSemanticHumanReview": true,
+    "logitsMetrics": {
+      "totalLogits": 151936,
+      "nonfiniteCount": 0,
+      "std": 3.3106904980656227,
+      "topTokenId": 515,
+      "forwardSeconds": 1.846,
+      "runId": "RUN-20261012T173042Z-356bd353",
+      "caseId": "SIM-RET-05",
+      "dtype": "float32",
+      "gpuModelForwardExecuted": true,
+      "generationExecuted": false
+    },
+    "inputTokens": 583,
+    "gpuModelForwardExecuted": true,
+    "gpuInferenceExecuted": true,
+    "semanticApproved": false,
+    "finishedAt": "2026-10-12T17:30:56.436312+00:00",
+    "latencySeconds": 6.595,
+    "outputTokens": 133,
+    "stopReason": "model_stop",
+    "repetition": null,
+    "validation": {
+      "formatValid": false,
+      "requiresSemanticHumanReview": true,
+      "candidate": null,
+      "errors": [
+        {
+          "code": "INVALID_CANDIDATE",
+          "message": "Candidate failed the local format or literal-reference check."
+        }
+      ]
+    }
+  }
+]

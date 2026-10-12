@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "state": "Prepared source/evidence allowlist; final commit, generated static output and media have separate manifests",
+  "sourceFiles": [
+    ".gitignore",
+    "BASE-PREEXISTENTE.md",
+    "CASOS-SINTETICOS.json",
+    "LICENSE",
+    "PUBLIC-ALLOWLIST.json",
+    "README.md",
+    "app/ai-contract.mjs",
+    "app/client.mjs",
+    "app/engine.mjs",
+    "app/evidence-client.mjs",
+    "app/evidence.mjs",
+    "app/i18n.mjs",
+    "app/index.html",
+    "app/model-client.mjs",
+    "app/model-transport.mjs",
+    "app/recorded-amd-client.mjs",
+    "app/recorded-amd.mjs",
+    "app/server.mjs",
+    "app/styles.css",
+    "app/tests/ai-contract.test.mjs",
+    "app/tests/engine.test.mjs",
+    "app/tests/evidence-server.test.mjs",
+    "app/tests/evidence.test.mjs",
+    "app/tests/i18n.test.mjs",
+    "app/tests/model-server.test.mjs",
+    "app/tests/model-transport.test.mjs",
+    "app/tests/recorded-amd.test.mjs",
+    "app/tests/server.test.mjs",
+    "docs/ACT-III-20261012/AMD-PILOT-DIAGNOSTIC.md",
+    "docs/ACT-III-20261012/AMD-PILOT-R03-RESULTS.md",
+    "docs/ACT-III-20261012/CONTRATO-MODELO-IMPLEMENTADO.md",
+    "docs/ACT-III-20261012/PITCH-DRAFT-EN.md",
+    "docs/ACT-III-20261012/PITCH-PRESENTATION-EN.md",
+    "docs/ACT-III-20261012/PLANO-PILOTO-AMD.md",
+    "docs/ACT-III-20261012/PRESENTATION-VIDEO-NARRATION-EN.md",
+    "docs/ACT-III-20261012/PROPOSTA-E-VALOR.md",
+    "docs/ACT-III-20261012/README-PUBLIC-EN.md",
+    "docs/ACT-III-20261012/RELEASE-PLAN.md",
+    "docs/ACT-III-20261012/REQUISITOS-E-EVIDENCIAS.md",
+    "docs/ACT-III-20261012/ROTEIRO-DEMO-5-MIN.md",
+    "docs/ACT-III-20261012/SUBMISSION-COPY-R03.json",
+    "docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md",
+    "public-demo/browser-api.mjs",
+    "scripts/amd-pilot-inputs.json",
+    "scripts/amd-pilot.py",
+    "scripts/build-public-demo.mjs"
+  ],
+  "publicEvidence": [
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/MODEL-LICENSE.txt",
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/attempts.json",
+      "sha256": "e7995a7e10447c230f6b4beb7138c326b3052ed5ff6012b9c6e0be4e1dda16d1"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/environment.json",
+      "sha256": "23f7217c737ac8ff100c7eb322ab50f17edec31f03cdc0561b62c1bbfb5eb551"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/logits-01.json",
+      "sha256": "d05594b1b9c10d99f8ccc64be1f62128752843c86c7744bc5a04dd2e5b18d43f"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/matmul-diagnostic.json",
+      "sha256": "58aa07f2e4620093643b499efda65f6511bb97de93862234b5c17bae8a24bab2"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/product-inputs.json",
+      "sha256": "3388a479093e707058f9f18cc03f47c4469484b07abec72440d67c325cc2c0d0"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/raw-01.txt",
+      "sha256": "39985d838f56f29c594559f5215fa9999ee2ea37abbaf8422a471dcde459473f"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/result-01.json",
+      "sha256": "e6a4a91683e72adbf4c5df44da5220599ca9fc007b2cfbf426030dad000e4260"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/supervisor-receipt.json",
+      "sha256": "830bba05347d3585ee3a2afe2b3c7c45c04c2f483f329d0e36e609f15180d806"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172516Z-4ffbe9bb/worker-receipt.json",
+      "sha256": "af7e45bc2f4bf377f46ab1d9329cfc6d18f0a56e0cf340ce9b1881a28dceb6f0"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/MODEL-LICENSE.txt",
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/attempts.json",
+      "sha256": "c143215c525eef967f490dbd97260e52c7abf290261f94918474cef51c30ba0f"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/environment.json",
+      "sha256": "ae4be306005a1dfafc1bd4aeebbd57857cce42ffdcbc96f5cfd166acc3deee38"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/logits-01.json",
+      "sha256": "b95bb592feb7ae7fd308bddad79b39503e28a5b8522c20f4c4666e75cef541e2"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/logits-02.json",
+      "sha256": "9d5718d331d9d89a048fa19dc7e5e48cfac1627502869751f70e2f3d5e37ab8e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/matmul-diagnostic.json",
+      "sha256": "58aa07f2e4620093643b499efda65f6511bb97de93862234b5c17bae8a24bab2"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/product-inputs.json",
+      "sha256": "2bba4f4db0dd68569137c79ffb8222b0f8e478fcc39ae020175a8cac3c3ed404"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/raw-01.txt",
+      "sha256": "3676657f0c3ba5dabaa239c95c81019ccaf427d6e5006aa3d03f7bc12ea97677"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/raw-02.txt",
+      "sha256": "72745a2fb9a7c275c0ca2c45472e16f1823d167ee3c6225161f6a1bd7eee7bd8"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/result-01.json",
+      "sha256": "b5c92e1d4f20ad1400e6c27b07e8faf1a6cec5f3f38d60a5ba681c6b8b6fdc2d"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/result-02.json",
+      "sha256": "b660f5d3aed68c55c4a2819aac854dc3dad4456b2a33796608ad1854d1804986"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/supervisor-receipt.json",
+      "sha256": "2e39d481cc0609c775346cb91af888baca03d2c49dd37833671f5f30bf5bbf11"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T172749Z-a19ac764/worker-receipt.json",
+      "sha256": "7a56b102bd2372f7aae485fd6264877f3a7ac1544ac2dd942c34922d1b18bdaf"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173007Z-ff69817d/MODEL-LICENSE.txt",
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173007Z-ff69817d/attempts.json",
+      "sha256": "41f926234298865bf91f621f603d723fb1ec412cdd8e7d566e33635929d15c86"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173007Z-ff69817d/environment.json",
+      "sha256": "e207acf9ec213cf4e344cf71145e5ca6534932c4ca93bf4a3bc9ea01fa18d179"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173007Z-ff69817d/logits-01.json",
+      "sha256": "c4272726d6240a27fa063bf353ecabb2bccc813df997a6bdc458305008bf40db"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173007Z-ff69817d/product-inputs.json",
+      "sha256": "1ac82dae26927c466ca5c21461e1e3cc09e395627cee024f7f1a62f71a6546ed"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173007Z-ff69817d/raw-01.txt",
+      "sha256": "d696941764cc9cb49d49c60ed2c0fb7e915ea6ca36b6cf4bd09e48bc59d08b1a"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173007Z-ff69817d/result-01.json",
+      "sha256": "2b0aeefeadc88e9e77e0bf352d074296f62ddd0236dcce4d0c5bb027bec94fe3"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173007Z-ff69817d/supervisor-receipt.json",
+      "sha256": "9330d9f48aceca95ea2cd250e1d30581c27619bca0d7931e6b7530d35dd50ac4"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173007Z-ff69817d/worker-receipt.json",
+      "sha256": "c8a701f20a9d60cbe77d37bcd76c8bbb81adfab6a05de709effd92f4981acd10"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173027Z-0c611e08/MODEL-LICENSE.txt",
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173027Z-0c611e08/attempts.json",
+      "sha256": "79d2b4dbe8afd058bc7a8d8e7d9d920c5d5061533c9fedbcad1150e73b47df43"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173027Z-0c611e08/environment.json",
+      "sha256": "d73fd9b3051f9369a6abff8d27f8f1b9964f7747801f2fda559a9455b6f2debe"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173027Z-0c611e08/logits-01.json",
+      "sha256": "d50871d686e246b6eb6b0146bac30cac84c944fb3af9451715cef697aa0d39d6"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173027Z-0c611e08/product-inputs.json",
+      "sha256": "59060fba24e0f6df096ee266cba1331aa214a86453d5cc1ecc17843cc44e5543"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173027Z-0c611e08/raw-01.txt",
+      "sha256": "9258e139c8acd160876cfccb2d19dcb03450e31a83cc9019135ddad4b3a371e3"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173027Z-0c611e08/result-01.json",
+      "sha256": "5aba0c4d2bff48236a0e61c8b1bf56a64e48f391878b7089dca40bc5d2a5af4f"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173027Z-0c611e08/supervisor-receipt.json",
+      "sha256": "3a7ae657136e20d31e8b9e168cfa5df5bbcf2577b4e5dca8b47f544a76b32aba"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173027Z-0c611e08/worker-receipt.json",
+      "sha256": "6e7975ce79295207176e55df41333bcae06dddb9accde1b8dcad76c55f73b87c"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173042Z-356bd353/MODEL-LICENSE.txt",
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173042Z-356bd353/attempts.json",
+      "sha256": "2decfba3cbf5a2b85e692d853965443adf02df73679a1128da7f5e57c9a9858a"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173042Z-356bd353/environment.json",
+      "sha256": "e142eb5b1e3ee7cdefda192e3025343553d975d01e661917475e93d9057c3b53"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173042Z-356bd353/logits-01.json",
+      "sha256": "467bf08eb94770ca4137e3f7327e70c0cb05555e8ffee6d49e1414f2f4b55f75"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173042Z-356bd353/product-inputs.json",
+      "sha256": "da3022c6b54cd0fca098045f3a86b20abf09a6cc48c4fdfb292bd1d16e5bc9e2"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173042Z-356bd353/raw-01.txt",
+      "sha256": "59c4bf047cb64114578aa420f6f7cb3a54358dadf32fea74d25121fd50daf558"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173042Z-356bd353/result-01.json",
+      "sha256": "c9e41614451e442b503c75f2725356e92a09fde10d605e353cbfbb34b88315f8"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173042Z-356bd353/supervisor-receipt.json",
+      "sha256": "d167dc31c9a2b35f047159a2bbe1f48ca363fd3d18ee73fc1c0e2ed14139bb59"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173042Z-356bd353/worker-receipt.json",
+      "sha256": "8ab1e2cbb07c969df2356824076ea4f3ff04be2674739400914b9037b6a2f1f6"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173057Z-9edc6353/MODEL-LICENSE.txt",
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173057Z-9edc6353/attempts.json",
+      "sha256": "e3d61c51c4a0092218ff4d16ad1d0afa62e324a9bd251fb09572e93de05f1bb1"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173057Z-9edc6353/environment.json",
+      "sha256": "670d4afec43e009b0efa131d7710f221949687149eadda17253ce35697dd4f03"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173057Z-9edc6353/logits-01.json",
+      "sha256": "160b9100fecff413110e66c7a501be29d187beb17716904ee191f3b236a799c4"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173057Z-9edc6353/product-inputs.json",
+      "sha256": "580872697c6ee696a3bad2040d3e60d063cebb192c2b94162e4b4d749f995ec5"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173057Z-9edc6353/raw-01.txt",
+      "sha256": "7133f278c77d0ea837e26c04de34c017b794a611068e138d82ebd2e5367f5d73"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173057Z-9edc6353/result-01.json",
+      "sha256": "8a75bea6f2cda5d31db10955586bc7c38ec2d66d4b61f2c3339dbf3d9e151cee"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173057Z-9edc6353/supervisor-receipt.json",
+      "sha256": "9173303d5f0f81d356c705937e6b7c9b3e2b38140d8fb76d8184aa04a3a77d18"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173057Z-9edc6353/worker-receipt.json",
+      "sha256": "371ad5a54d4f8f78dfb923994b9f684758b634c92fd2148d8f08ccb4a1476c82"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173115Z-cc32d521/MODEL-LICENSE.txt",
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173115Z-cc32d521/attempts.json",
+      "sha256": "020bec928779c6e6c1f39d826d4028b2a875cf11ece30dfddedef4e872b924f0"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173115Z-cc32d521/environment.json",
+      "sha256": "bd9028997be0af9bbe52f48dea0515f9a43c3fc2018c9b5cd9ff40a2ba2bc167"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173115Z-cc32d521/logits-01.json",
+      "sha256": "17072a47a7942aec27540f83576dd85d804326e91876132c5c595cb0e15eca00"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173115Z-cc32d521/product-inputs.json",
+      "sha256": "92539af437428c7facf2dd18b122b72a974096608341853f15bf8e9b26373518"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173115Z-cc32d521/raw-01.txt",
+      "sha256": "ca68995d71a5892cb4fb4e99cd6506dda7d6411e63419e37d30fb028867a492e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173115Z-cc32d521/result-01.json",
+      "sha256": "6c9c55967cd4981e8af4b151853ac26bb4c5e8cc023fd476fc18ea94b811f57c"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173115Z-cc32d521/supervisor-receipt.json",
+      "sha256": "01b180dc2828bed823e9014cb9ca30d30a5e6698e69588a4c3657ea967c82e23"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173115Z-cc32d521/worker-receipt.json",
+      "sha256": "963c5148da4c6cbfcbe1f16272f20984a794668cf54e7cb2549ec74477781f32"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173800Z-994777c7/MODEL-LICENSE.txt",
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173800Z-994777c7/attempts.json",
+      "sha256": "6ef347a9c91338117fc52927b2ef17e5808dbbd3fabd600e23dd245635036703"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173800Z-994777c7/environment.json",
+      "sha256": "7dbaf17f0329a7a58024342cbc89916e0401984427a9fb102b9a6095ca89489c"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173800Z-994777c7/logits-01.json",
+      "sha256": "00db2bbf12eda0a0a41f00d159ff9623ea23fd951dbe6ddef2697dc2bfa2dae6"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173800Z-994777c7/product-inputs.json",
+      "sha256": "2bba4f4db0dd68569137c79ffb8222b0f8e478fcc39ae020175a8cac3c3ed404"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173800Z-994777c7/raw-01.txt",
+      "sha256": "af0bd297e5ebb5ee7038a66cb69115eabdc4aa6bb62f3203a3553b63b99a1fb3"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173800Z-994777c7/result-01.json",
+      "sha256": "55da1bbef9091d7ad721b1f0d74c83888d6b8a46d2ba37da1f3bb42b4e7e40fd"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173800Z-994777c7/supervisor-receipt.json",
+      "sha256": "c95cf66a5007a4c101e0f992f8bc6d391f3cb705a084bfc07ef3003a86d4ee54"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/RUN-20261012T173800Z-994777c7/worker-receipt.json",
+      "sha256": "ae09d0b95f8c8121ccd22bc7fbb3e693063acb802082b5b901a6d4c1cfe4a31c"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/amd-demo-inputs.json",
+      "sha256": "894dc434a9f60c0bcf9c2e74f170aee5b1a2a003908b3a021a4872c6f5d31613"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-PILOT-R03-SUMMARY.json",
+      "sha256": "e664928b1fa479228daf948ee6f6c5732096cda8f71fb42ac83f495628dd58a2"
+    },
+    {
+      "file": "evidence/ACT-III-R03-20261012/AMD-SHUTDOWN-RECEIPT.json",
+      "sha256": "0fa805b31de58708d97668929f15d40fa4074fd0d8831c62c723b8a9dc3bfe5c"
+    }
+  ],
+  "staticOutput": {
+    "directory": "public-demo",
+    "publishTo": "GitHub Pages gh-pages branch root",
+    "mustInspectActualGeneratedFiles": true,
+    "containsLocalProgress": false,
+    "liveInference": false
+  },
+  "excluded": [
+    "app/data/**",
+    ".env*",
+    "credentials or browser session files",
+    "all other evidence directories",
+    "R03 local ZIPs and screenshots",
+    "model weights and caches",
+    "node_modules and Python environments"
+  ],
+  "privacyReview": {
+    "scope": "Only the named JSON/TXT R03 evidence and the two named sanitized receipts",
+    "knownRealEmailOrCredentialOrPrivateAuthURLMatches": 0,
+    "rawOutputs": "Fictional input outputs retained as exact attempt evidence; failed text is never shown as an accepted answer",
+    "sourceAdapter": "public-demo/browser-api.mjs audited: same-origin bounded read-only archive fetch; browser-local synthetic state only; no credentials or private endpoints.",
+    "publicMarkdown": "Absolute machine paths and links to non-public local receipts are sanitized in the publication checkout; local originals are preserved."
+  },
+  "finalPublicationConfirmed": false
+}

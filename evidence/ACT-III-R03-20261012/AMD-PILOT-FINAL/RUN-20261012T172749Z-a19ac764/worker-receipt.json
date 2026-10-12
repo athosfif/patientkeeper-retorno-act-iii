@@ -1,0 +1,52 @@
+{
+  "runId": "RUN-20261012T172749Z-a19ac764",
+  "startedAt": "2026-10-12T17:27:49.433810+00:00",
+  "status": "candidate_rejected",
+  "stage": "finished",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "dtype": "float32",
+  "maxNewTokens": 512,
+  "cacheOnly": true,
+  "preflightOnly": false,
+  "semanticApproved": false,
+  "cloudShutdownVerified": false,
+  "gpuModelForwardExecuted": true,
+  "gpuInferenceExecuted": true,
+  "license": "Apache-2.0",
+  "licenseSha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+  "licenseFromCache": true,
+  "modelLoadSeconds": 6.131,
+  "modelFromCache": true,
+  "observedRevision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "actualModelDtype": "torch.float32",
+  "matmulDiagnostic": {
+    "shape": [
+      32,
+      32
+    ],
+    "cpuReferenceDtype": "float32",
+    "gpuDtype": "torch.float32",
+    "referenceFinite": true,
+    "gpuFinite": true,
+    "relativeL2Error": 0.0,
+    "maxAbsoluteError": 0.0,
+    "modelCpuInferenceExecuted": false
+  },
+  "lastLogitsMetrics": {
+    "totalLogits": 151936,
+    "nonfiniteCount": 0,
+    "std": 3.351734144798027,
+    "topTokenId": 515,
+    "forwardSeconds": 0.53,
+    "runId": "RUN-20261012T172749Z-a19ac764",
+    "caseId": "SIM-RET-02",
+    "dtype": "float32",
+    "gpuModelForwardExecuted": true,
+    "generationExecuted": false
+  },
+  "finishedAt": "2026-10-12T17:28:15.645079+00:00",
+  "attemptCount": 2,
+  "formatAcceptedCount": 1
+}

@@ -1,0 +1,117 @@
+[
+  {
+    "caseId": "SIM-RET-01",
+    "question": "What cancellation is recorded?",
+    "sources": [
+      {
+        "id": "SIM01-AGENDA",
+        "trecho": "O retorno foi cancelado. Nao ha reposicao confirmada na agenda."
+      },
+      {
+        "id": "SIM01-TAREFA",
+        "trecho": "A pendencia de reposicao esta aberta e atribuida a SEC-SIM-A."
+      },
+      {
+        "id": "SIM01-PREFERENCIA",
+        "trecho": "Na simulacao, o paciente autorizou contato administrativo pelo CANAL-FICTICIO-A; isso nao define frequencia ou prazo."
+      },
+      {
+        "id": "SIM01-POLITICA-CONTATO",
+        "trecho": "A equipe ficticia permite um rascunho administrativo para colher disponibilidade quando a preferencia autoriza. Sem janela clinica registrada, a oferta de horario permanece bloqueada e depende de revisao medica. Rascunho nunca equivale a envio."
+      }
+    ]
+  },
+  {
+    "caseId": "SIM-RET-02",
+    "question": "Who is responsible for the pending task?",
+    "sources": [
+      {
+        "id": "SIM02-CANCELAMENTO",
+        "trecho": "Ha um cancelamento de retorno sem reposicao."
+      },
+      {
+        "id": "SIM02-HANDOFF",
+        "trecho": "A pendencia foi criada sem responsavel e sem proxima acao registrada."
+      }
+    ]
+  },
+  {
+    "caseId": "SIM-RET-03",
+    "question": "Do the records include a reply to the contact?",
+    "sources": [
+      {
+        "id": "SIM03-CONTATO",
+        "trecho": "Foi registrada uma tentativa administrativa feita por humano na simulacao. Nao ha resposta registrada."
+      },
+      {
+        "id": "SIM03-PREFERENCIA",
+        "trecho": "Contato administrativo permitido no canal ficticio; nenhum numero maximo de tentativas ou intervalo consta nos registros."
+      }
+    ]
+  },
+  {
+    "caseId": "SIM-RET-04",
+    "question": "What contact preference is recorded?",
+    "sources": [
+      {
+        "id": "SIM04-PREFERENCIA",
+        "trecho": "Na simulacao, o paciente registrou: prefiro nao receber mensagens sobre esta remarcacao."
+      },
+      {
+        "id": "SIM04-PENDENCIA",
+        "trecho": "A reposicao ainda nao foi confirmada."
+      }
+    ]
+  },
+  {
+    "caseId": "SIM-RET-05",
+    "question": "What is the clinically appropriate follow-up interval?",
+    "sources": [
+      {
+        "id": "SIM05-PERGUNTA",
+        "trecho": "Depois do cancelamento, foi registrada a pergunta: em qual intervalo deve acontecer o retorno?"
+      },
+      {
+        "id": "SIM05-AUSENCIA",
+        "trecho": "Nenhum protocolo ou janela clinica consta nos registros apresentados."
+      }
+    ]
+  },
+  {
+    "caseId": "SIM-RET-06",
+    "question": "Which administrative rule is current, and who is responsible?",
+    "sources": [
+      {
+        "id": "SIM06-REGRA-V1",
+        "trecho": "A regra administrativa V1 orientava que a primeira pessoa da recepcao assumisse automaticamente qualquer remarcacao.",
+        "versao": "V1",
+        "vigente": false,
+        "substituida_por": "SIM06-REGRA-V2"
+      },
+      {
+        "id": "SIM06-REGRA-V2",
+        "trecho": "A regra administrativa V2 substitui V1. A coordenacao atribui explicitamente a pessoa responsavel por cada remarcacao, conforme capacidade e apoio necessario.",
+        "versao": "V2",
+        "vigente": true
+      },
+      {
+        "id": "SIM06-ATRIBUICAO",
+        "trecho": "Nesta simulacao, a coordenacao atribuiu a pendencia a SEC-SIM-C."
+      }
+    ]
+  },
+  {
+    "caseId": "SIM-RET-07",
+    "question": "Is the replacement appointment confirmed by both records?",
+    "sources": [
+      {
+        "id": "SIM07-AGENDA",
+        "trecho": "A agenda sintetica mostra reposicao confirmada, sem comprovante complementar."
+      },
+      {
+        "id": "SIM07-FILA",
+        "trecho": "A fila sintetica mostra reposicao ainda pendente. Nao ha registro que resolva a divergencia."
+      }
+    ]
+  }
+]

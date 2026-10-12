@@ -1,0 +1,16 @@
+{
+  "answer": "Não há uma resposta clara ou precisa nas fontes fornecidas sobre quem é responsável por essa tarefa pendente.",
+  "citations": [
+    {
+      "sourceId": "SIM02-CANCELAMENTO",
+      "trecho": "Ha um cancelamento de retorno sem reposicao."
+    },
+    {
+      "sourceId": "SIM02-HANDOFF",
+      "trecho": "A pendencia foi criada sem responsavel e sem proxima acao registrada."
+    }
+  ],
+  "abstention": true,
+  "reason": null,
+  "humanReviewRequired": true
+}

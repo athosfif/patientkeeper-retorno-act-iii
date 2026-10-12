@@ -1,0 +1,16 @@
+[
+  {
+    "caseId": "SIM-RET-07",
+    "question": "Is the replacement appointment confirmed by both records?",
+    "sources": [
+      {
+        "id": "SIM07-AGENDA",
+        "trecho": "A agenda sintetica mostra reposicao confirmada, sem comprovante complementar."
+      },
+      {
+        "id": "SIM07-FILA",
+        "trecho": "A fila sintetica mostra reposicao ainda pendente. Nao ha registro que resolva a divergencia."
+      }
+    ]
+  }
+]

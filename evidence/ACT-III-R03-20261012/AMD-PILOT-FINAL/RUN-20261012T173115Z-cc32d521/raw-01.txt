@@ -1,0 +1,15 @@
+{
+  "answer": "",
+  "citations": [
+    {
+      "sourceId": "SIM07-AGENDA",
+      "trecho": "A agenda sintetica mostra reposicao confirmada, sem comprovante complementar."
+    },
+    {
+      "sourceId": "SIM07-FILA",
+      "trecho": "A fila sintetica mostra reposicao ainda pendente. Nao ha registro que resolva a divergencia."
+    }
+  ],
+  "abstention": true,
+  "reason": "Both records indicate different statuses for the replacement appointment. The first indicates it's confirmed but lacks a supporting document, while the second shows it as pending without resolving any discrepancies."
+}

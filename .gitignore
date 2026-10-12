@@ -1,0 +1,25 @@
+# Local state and credentials are never part of the public release.
+app/data/
+evidence/*
+!evidence/ACT-III-R03-20261012/
+evidence/ACT-III-R03-20261012/*
+!evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/
+evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/**
+!evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/**/
+!evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/**/*.json
+!evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/**/*.txt
+!evidence/ACT-III-R03-20261012/AMD-PILOT-R03-SUMMARY.json
+!evidence/ACT-III-R03-20261012/AMD-SHUTDOWN-RECEIPT.json
+.DS_Store
+node_modules/
+.env
+.env.*
+*.log
+.venv/
+venv/
+__pycache__/
+.cache/
+*.safetensors
+*.pt
+*.pth
+*.bin

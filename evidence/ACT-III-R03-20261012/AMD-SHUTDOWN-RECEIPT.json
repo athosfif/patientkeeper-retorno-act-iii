@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-12T17:39:42Z",
+  "observedBy": "coordinator",
+  "source": "Existing authenticated AMD portal session; local cropped screenshot",
+  "cloudShutdownVerified": true,
+  "observedUI": {
+    "requestNotebookAvailable": true,
+    "activeNotebookControlVisible": false,
+    "remainingQuotaText": "2hrs 24min remaining",
+    "quotaResetText": "Quota resets in 23h 2m"
+  },
+  "stateInterpretation": "No active notebook is shown; the portal presents Request Notebook. The screenshot does not contain a literal OFF badge.",
+  "screenshot": "AMD-SESSION-OFF.png",
+  "screenshotSha256": "19b020e7ccf42435bb9ccd5f6994e6f65cf0aeb55763c7625f64fcbeadc98d13",
+  "scope": "Cloud session shutdown observation is separate from worker exit. Remaining quota is not a minimum-use requirement or contest-eligibility proof.",
+  "restartAuthorizedByThisReceipt": false
+}

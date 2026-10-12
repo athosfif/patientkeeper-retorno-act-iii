@@ -1,0 +1,16 @@
+{
+  "answer": "The current administrative rule is SIM06-REGRA-V2, which assigns responsibility to the person responsible for each remarcation based on capacity and necessary support.",
+  "citations": [
+    {
+      "sourceId": "SIM06-REGRA-V1",
+      "trecho": "A regra administrativa V1 orientava que a primeira pessoa da recepcao assumisse automaticamente qualquer remarcacao."
+    },
+    {
+      "sourceId": "SIM06-REGRA-V2",
+      "trecho": "A regra administrativa V2 substitui V1. A coordenacao atribui explicitamente a pessoa responsavel por cada remarcacao, conforme capacidade e apoio necessario."
+    }
+  ],
+  "abstention": false,
+  "reason": null,
+  "humanReviewRequired": true
+}

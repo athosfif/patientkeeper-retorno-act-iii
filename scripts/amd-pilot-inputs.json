@@ -1,0 +1,74 @@
+[
+  {
+    "caseId": "SIM-RET-02",
+    "question": "Who is responsible for the pending task?",
+    "sources": [
+      {
+        "id": "SIM02-CANCELAMENTO",
+        "trecho": "Ha um cancelamento de retorno sem reposicao."
+      },
+      {
+        "id": "SIM02-HANDOFF",
+        "trecho": "A pendencia foi criada sem responsavel e sem proxima acao registrada.",
+        "vigente": false,
+        "substituida_por": "SIM-RET-02-ATRIBUICAO"
+      },
+      {
+        "id": "SIM-RET-02-ATRIBUICAO",
+        "trecho": "Uma pessoa registrou a atribuição atual na simulação: a pendência está sob responsabilidade de SEC-SIM-C.",
+        "vigente": true
+      }
+    ]
+  },
+  {
+    "caseId": "SIM-RET-06",
+    "question": "Which administrative rule is current, and who is responsible?",
+    "sources": [
+      {
+        "id": "SIM06-REGRA-V1",
+        "trecho": "A regra administrativa V1 orientava que a primeira pessoa da recepcao assumisse automaticamente qualquer remarcacao.",
+        "versao": "V1",
+        "vigente": false,
+        "substituida_por": "SIM06-REGRA-V2"
+      },
+      {
+        "id": "SIM06-REGRA-V2",
+        "trecho": "A regra administrativa V2 substitui V1. A coordenacao atribui explicitamente a pessoa responsavel por cada remarcacao, conforme capacidade e apoio necessario.",
+        "versao": "V2",
+        "vigente": true
+      },
+      {
+        "id": "SIM06-ATRIBUICAO",
+        "trecho": "Nesta simulacao, a coordenacao atribuiu a pendencia a SEC-SIM-C."
+      }
+    ]
+  },
+  {
+    "caseId": "SIM-RET-04",
+    "question": "What contact preference is recorded?",
+    "sources": [
+      {
+        "id": "SIM04-PREFERENCIA",
+        "trecho": "Na simulacao, o paciente registrou: prefiro nao receber mensagens sobre esta remarcacao."
+      },
+      {
+        "id": "SIM04-PENDENCIA",
+        "trecho": "A reposicao ainda nao foi confirmada."
+      }
+    ]
+  },
+  {
+    "caseId": "SIM-RET-03",
+    "question": "Do the records include a reply to the contact?",
+    "sources": [
+      {
+        "id": "SIM03-CONTATO",
+        "trecho": "Foi registrada uma tentativa administrativa feita por humano na simulacao. Nao ha resposta registrada."
+      },
+      {
+        "id": "SIM03-PREFERENCIA",
+        "trecho": "Contato administrativo permitido no canal ficticio; nenhum numero maximo de tentativas ou intervalo consta nos registros."
+      }
+    ]
+  }
+]

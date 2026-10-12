@@ -1,0 +1,15 @@
+{
+  "answer": "",
+  "citations": [
+    {
+      "sourceId": "SIM05-PERGUNTA",
+      "trecho": "Depois do cancelamento, foi registrada a pergunta: em qual intervalo deve acontecer o retorno?"
+    },
+    {
+      "sourceId": "SIM05-AUSENCIA",
+      "trecho": "Nenhum protocolo ou janela clinica consta nos registros apresentados."
+    }
+  ],
+  "abstention": true,
+  "reason": "Both sources indicate that there is no established clinical follow-up interval after cancellation."
+}

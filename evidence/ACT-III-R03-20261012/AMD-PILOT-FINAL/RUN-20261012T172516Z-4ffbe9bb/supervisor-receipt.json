@@ -1,0 +1,19 @@
+{
+  "runId": "RUN-20261012T172516Z-4ffbe9bb",
+  "startedAt": "2026-10-12T17:25:16.940890+00:00",
+  "status": "completed",
+  "budgetSeconds": 720,
+  "inputSha256": "aa1d125c85ad6f83b0ae4ecd8c9c186386eedd24f73ba30098e687d477b16131",
+  "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "dtype": "float32",
+  "maxNewTokens": 512,
+  "cacheOnly": true,
+  "preflightOnly": false,
+  "semanticApproved": false,
+  "cloudShutdownVerified": false,
+  "workerPid": 43,
+  "workerExitCode": 0,
+  "finishedAt": "2026-10-12T17:25:37.004833+00:00"
+}

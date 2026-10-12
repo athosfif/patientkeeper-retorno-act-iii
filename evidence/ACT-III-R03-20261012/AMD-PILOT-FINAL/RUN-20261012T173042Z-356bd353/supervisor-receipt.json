@@ -1,0 +1,19 @@
+{
+  "runId": "RUN-20261012T173042Z-356bd353",
+  "startedAt": "2026-10-12T17:30:42.324633+00:00",
+  "status": "candidate_rejected",
+  "budgetSeconds": 492,
+  "inputSha256": "da3022c6b54cd0fca098045f3a86b20abf09a6cc48c4fdfb292bd1d16e5bc9e2",
+  "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "dtype": "float32",
+  "maxNewTokens": 512,
+  "cacheOnly": true,
+  "preflightOnly": false,
+  "semanticApproved": false,
+  "cloudShutdownVerified": false,
+  "workerPid": 1001,
+  "workerExitCode": 2,
+  "finishedAt": "2026-10-12T17:30:57.545511+00:00"
+}

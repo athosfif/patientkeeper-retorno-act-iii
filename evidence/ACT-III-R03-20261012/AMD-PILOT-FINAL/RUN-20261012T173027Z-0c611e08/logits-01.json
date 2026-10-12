@@ -1,0 +1,12 @@
+{
+  "totalLogits": 151936,
+  "nonfiniteCount": 0,
+  "std": 3.3646551387175574,
+  "topTokenId": 515,
+  "forwardSeconds": 1.579,
+  "runId": "RUN-20261012T173027Z-0c611e08",
+  "caseId": "SIM-RET-04",
+  "dtype": "float32",
+  "gpuModelForwardExecuted": true,
+  "generationExecuted": false
+}

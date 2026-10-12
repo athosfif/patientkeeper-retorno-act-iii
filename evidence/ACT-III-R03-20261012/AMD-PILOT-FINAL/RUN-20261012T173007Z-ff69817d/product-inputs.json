@@ -1,0 +1,16 @@
+[
+  {
+    "caseId": "SIM-RET-03",
+    "question": "Do the records include a reply to the contact?",
+    "sources": [
+      {
+        "id": "SIM03-CONTATO",
+        "trecho": "Foi registrada uma tentativa administrativa feita por humano na simulacao. Nao ha resposta registrada."
+      },
+      {
+        "id": "SIM03-PREFERENCIA",
+        "trecho": "Contato administrativo permitido no canal ficticio; nenhum numero maximo de tentativas ou intervalo consta nos registros."
+      }
+    ]
+  }
+]

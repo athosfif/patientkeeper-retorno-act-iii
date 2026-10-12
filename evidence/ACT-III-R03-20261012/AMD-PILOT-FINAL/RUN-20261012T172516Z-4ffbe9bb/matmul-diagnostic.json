@@ -1,0 +1,13 @@
+{
+  "shape": [
+    32,
+    32
+  ],
+  "cpuReferenceDtype": "float32",
+  "gpuDtype": "torch.float32",
+  "referenceFinite": true,
+  "gpuFinite": true,
+  "relativeL2Error": 0.0,
+  "maxAbsoluteError": 0.0,
+  "modelCpuInferenceExecuted": false
+}

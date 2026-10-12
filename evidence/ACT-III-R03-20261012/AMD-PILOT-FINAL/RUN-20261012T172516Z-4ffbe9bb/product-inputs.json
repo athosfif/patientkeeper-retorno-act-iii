@@ -1,0 +1,23 @@
+[
+  {
+    "caseId": "SIM-RET-02",
+    "question": "Who is responsible for the pending task?",
+    "sources": [
+      {
+        "id": "SIM02-CANCELAMENTO",
+        "trecho": "Ha um cancelamento de retorno sem reposicao."
+      },
+      {
+        "id": "SIM02-HANDOFF",
+        "trecho": "A pendencia foi criada sem responsavel e sem proxima acao registrada.",
+        "vigente": false,
+        "substituida_por": "SIM-RET-02-ATRIBUICAO"
+      },
+      {
+        "id": "SIM-RET-02-ATRIBUICAO",
+        "trecho": "Uma pessoa registrou a atribuição atual na simulação: a pendência está sob responsabilidade de SEC-SIM-C.",
+        "vigente": true
+      }
+    ]
+  }
+]

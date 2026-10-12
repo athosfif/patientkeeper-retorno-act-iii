@@ -1,0 +1,52 @@
+[
+  {
+    "runId": "RUN-20261012T172516Z-4ffbe9bb",
+    "index": 1,
+    "caseId": "SIM-RET-02",
+    "startedAt": "2026-10-12T17:25:26.845313+00:00",
+    "status": "candidate",
+    "requiresSemanticHumanReview": true,
+    "logitsMetrics": {
+      "totalLogits": 151936,
+      "nonfiniteCount": 0,
+      "std": 3.292770329135875,
+      "topTokenId": 515,
+      "forwardSeconds": 2.321,
+      "runId": "RUN-20261012T172516Z-4ffbe9bb",
+      "caseId": "SIM-RET-02",
+      "dtype": "float32",
+      "gpuModelForwardExecuted": true,
+      "generationExecuted": false
+    },
+    "inputTokens": 654,
+    "gpuModelForwardExecuted": true,
+    "gpuInferenceExecuted": true,
+    "semanticApproved": false,
+    "finishedAt": "2026-10-12T17:25:36.035449+00:00",
+    "latencySeconds": 6.854,
+    "outputTokens": 133,
+    "stopReason": "model_stop",
+    "repetition": null,
+    "validation": {
+      "formatValid": true,
+      "requiresSemanticHumanReview": true,
+      "candidate": {
+        "answer": "SEC-SIM-C",
+        "citations": [
+          {
+            "sourceId": "SIM02-CANCELAMENTO",
+            "trecho": "Ha um cancelamento de retorno sem reposicao."
+          },
+          {
+            "sourceId": "SIM-RET-02-ATRIBUICAO",
+            "trecho": "Uma pessoa registrou a atribuição atual na simulação: a pendência está sob responsabilidade de SEC-SIM-C."
+          }
+        ],
+        "abstention": false,
+        "reason": null,
+        "humanReviewRequired": true
+      },
+      "errors": []
+    }
+  }
+]

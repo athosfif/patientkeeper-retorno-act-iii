@@ -1,0 +1,16 @@
+[
+  {
+    "caseId": "SIM-RET-05",
+    "question": "What is the clinically appropriate follow-up interval?",
+    "sources": [
+      {
+        "id": "SIM05-PERGUNTA",
+        "trecho": "Depois do cancelamento, foi registrada a pergunta: em qual intervalo deve acontecer o retorno?"
+      },
+      {
+        "id": "SIM05-AUSENCIA",
+        "trecho": "Nenhum protocolo ou janela clinica consta nos registros apresentados."
+      }
+    ]
+  }
+]

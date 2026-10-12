@@ -1,0 +1,15 @@
+{
+  "answer": "",
+  "citations": [
+    {
+      "sourceId": "SIM03-CONTATO",
+      "trecho": "Foi registrada uma tentativa administrativa feita por humano na simulacao. Nao ha resposta registrada."
+    },
+    {
+      "sourceId": "SIM03-PREFERENCIA",
+      "trecho": "Contato administrativo permitido no canal ficticio; nenhum numero maximo de tentativas ou intervalo consta nos registros."
+    }
+  ],
+  "abstention": true,
+  "reason": "Nenhum registro foi encontrado que mencione uma resposta à solicitação de contato."
+}

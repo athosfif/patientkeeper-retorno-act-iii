@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "revision": "ACT-III-R03-20261012",
+  "state": "Prepared exact copy; not a submission receipt",
+  "title": "PatientKeeper Retorno",
+  "shortDescription": "An administrative review prototype for canceled follow-ups: current source records, explicit responsibility and cited human review, with transparent recorded AMD inference and visible failures.",
+  "longDescription": "PatientKeeper Retorno helps clinic reception and coordination keep a canceled follow-up visible until its next administrative step is checked. Eight fictional cases show ownership, contact preference, pending appointments, historical rules and conflicting records. It does not diagnose, recommend treatment, send messages or change real appointments.\n\nThe reviewer asks an administrative question, examines current literal excerpts and explicitly selects checked sources for a cited card. Known conflicts and clinical questions require human handoff. Stale sources cannot be reused silently, and preparing a card does not close the task.\n\nOn October 12, Qwen2.5-1.5B-Instruct ran in float32 on an AMD Radeon Pro W7900D through PyTorch HIP. Seven baseline cases produced two format-valid candidates and five rejected outputs. Including an assigned-context variant and an extra prompt attempt, three of nine outputs passed format checks. This is not semantic or clinical approval.\n\nThe recorded AMD panel binds a fixed question and its complete source context to the current case. It identifies replay, shows failures and confirms the GPU is off; it performs no live inference.\n\nThe October 5 administrative scaffold is disclosed. October 12 work adds source review, receipts, languages, model contracts and recorded inference. English is the default, with Portuguese and Spanish navigation. We aim to clarify administrative handoffs; business gains remain unmeasured.",
+  "counts": {
+    "title": 21,
+    "shortDescription": 193,
+    "longDescription": 1466,
+    "wordCount": 209
+  },
+  "evidence": "../../evidence/ACT-III-R03-20261012/AMD-PILOT-R03-SUMMARY.json",
+  "submissionConfirmed": false
+}

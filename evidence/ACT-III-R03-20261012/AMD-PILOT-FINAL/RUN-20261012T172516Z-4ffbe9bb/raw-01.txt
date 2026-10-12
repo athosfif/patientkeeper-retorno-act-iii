@@ -1,0 +1,16 @@
+{
+  "answer": "SEC-SIM-C",
+  "citations": [
+    {
+      "sourceId": "SIM02-CANCELAMENTO",
+      "trecho": "Ha um cancelamento de retorno sem reposicao."
+    },
+    {
+      "sourceId": "SIM-RET-02-ATRIBUICAO",
+      "trecho": "Uma pessoa registrou a atribuição atual na simulação: a pendência está sob responsabilidade de SEC-SIM-C."
+    }
+  ],
+  "abstention": false,
+  "reason": null,
+  "humanReviewRequired": true
+}

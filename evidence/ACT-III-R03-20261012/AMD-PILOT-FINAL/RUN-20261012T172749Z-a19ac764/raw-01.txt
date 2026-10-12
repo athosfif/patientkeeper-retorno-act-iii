@@ -1,0 +1,16 @@
+{
+  "answer": "The cancellation was recorded as the patient's follow-up has been canceled.",
+  "citations": [
+    {
+      "sourceId": "SIM01-AGENDA",
+      "trecho": "O retorno foi cancelado. Nao ha reposicao confirmada na agenda."
+    },
+    {
+      "sourceId": "SIM01-TAREFA",
+      "trecho": "A pendencia de reposicao esta aberta e atribuida a SEC-SIM-A."
+    }
+  ],
+  "abstention": false,
+  "reason": null,
+  "humanReviewRequired": true
+}

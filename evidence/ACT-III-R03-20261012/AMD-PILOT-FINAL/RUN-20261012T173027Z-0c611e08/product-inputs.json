@@ -1,0 +1,16 @@
+[
+  {
+    "caseId": "SIM-RET-04",
+    "question": "What contact preference is recorded?",
+    "sources": [
+      {
+        "id": "SIM04-PREFERENCIA",
+        "trecho": "Na simulacao, o paciente registrou: prefiro nao receber mensagens sobre esta remarcacao."
+      },
+      {
+        "id": "SIM04-PENDENCIA",
+        "trecho": "A reposicao ainda nao foi confirmada."
+      }
+    ]
+  }
+]

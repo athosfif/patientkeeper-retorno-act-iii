@@ -1,0 +1,613 @@
+{
+  "projeto_nome_de_trabalho": "PatientKeeper — Retorno",
+  "preparado_em": "2026-10-05",
+  "status": "preparacao_pre_evento_sujeita_as_regras_nao_entrega_concluida",
+  "trilha_candidata": "Health and Wellbeing — a confirmar conforme regras oficiais",
+  "natureza": "Oito casos inteiramente ficticios. Nenhum nome, telefone, email, relato ou consentimento real.",
+  "uso": "Insumo de demo e expectativas de teste; nao e corpus clinico validado nem resultado de testes executados.",
+  "regras_demo": {
+    "dados_reais_permitidos": false,
+    "envio_de_mensagens_permitido": false,
+    "GPU_necessaria_para_ler_este_artefato": false,
+    "contato": "Apenas rascunho quando permitido pela politica e preferencia simuladas; revisao e decisao humana. Nenhum envio.",
+    "intervalos_e_frequencia": "Somente definidos pela equipe medica/gestao competente e preferencia registrada; valores nao especificados aqui.",
+    "responsabilidade": "Atribuicao visivel para continuidade; nenhuma nota, ranking, profiling ou avaliacao individual oculta.",
+    "metricas": "Processo agregado e dados sinteticos; nao inferir desfecho clinico, remuneracao ou culpa.",
+    "modelo": "Resumo com fontes e rascunho revisavel; nao autoriza contato, define conduta, confirma agenda ou encerra tarefa.",
+    "gabaritos": "Usar allowlist positiva: apenas fontes da fase ativa, pergunta e identificador ficticio do caso chegam ao modelo. Todos os campos de expectativas, estados esperados, acoes, criterios, rascunhos pre-escritos e testes ficam externos ao corpus.",
+    "preexistencia": "RAG MC3 publicado e eventuais assets anteriores sao base a declarar; nao presumir elegibilidade ACT III."
+  },
+  "casos": [
+    {
+      "id": "SIM-RET-01",
+      "titulo": "Retorno cancelado sem reposicao",
+      "paciente": {
+        "id": "PACIENTE-FICTICIO-01",
+        "nome": null,
+        "telefone": null,
+        "email": null,
+        "dados_reais": false
+      },
+      "estado_administrativo": "remarcacao_pendente",
+      "responsavel": "SEC-SIM-A",
+      "preferencia_contato": {
+        "status": "permitido_na_simulacao",
+        "registro_ficticio": true,
+        "canal": "CANAL-FICTICIO-A"
+      },
+      "janela_clinica": {
+        "intervalo": null,
+        "data": null,
+        "definicao": "Somente equipe medica; nao inferir neste conjunto."
+      },
+      "proxima_acao": {
+        "texto": "Conferir a janela com a equipe medica; a politica ficticia permite apenas rascunho para colher disponibilidade, sem oferta de horario.",
+        "execucao": "humana_simulada",
+        "envio_automatico": false
+      },
+      "fontes": [
+        {
+          "id": "SIM01-AGENDA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "O retorno foi cancelado. Nao ha reposicao confirmada na agenda."
+        },
+        {
+          "id": "SIM01-TAREFA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "A pendencia de reposicao esta aberta e atribuida a SEC-SIM-A."
+        },
+        {
+          "id": "SIM01-PREFERENCIA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "Na simulacao, o paciente autorizou contato administrativo pelo CANAL-FICTICIO-A; isso nao define frequencia ou prazo."
+        },
+        {
+          "id": "SIM01-POLITICA-CONTATO",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "A equipe ficticia permite um rascunho administrativo para colher disponibilidade quando a preferencia autoriza. Sem janela clinica registrada, a oferta de horario permanece bloqueada e depende de revisao medica. Rascunho nunca equivale a envio."
+        }
+      ],
+      "teste_evidencia": {
+        "pergunta": "Qual pendencia continua aberta depois do cancelamento?",
+        "answer_esperada": "A reposicao do retorno continua pendente, sem confirmacao na agenda.",
+        "citations_esperadas": [
+          "SIM01-AGENDA"
+        ],
+        "tipo": "resposta_sustentada",
+        "status": "expectativa_a_testar_nao_resultado"
+      },
+      "acoes_humanas_esperadas": [
+        "Manter a pendencia aberta apos o cancelamento.",
+        "Conferir limites da equipe antes de propor opcoes.",
+        "Revisar qualquer rascunho; nao registrar envio a partir da geracao de texto.",
+        "Encerrar somente com evidencias consistentes de reposicao confirmada.",
+        "Separar coleta de disponibilidade de oferta de horario; a segunda permanece bloqueada enquanto a janela nao for registrada pela equipe."
+      ],
+      "rascunho": {
+        "permitido_na_simulacao": true,
+        "texto": "Podemos conferir sua disponibilidade para uma opcao de remarcacao?",
+        "rotulo": "Rascunho administrativo ficticio — revisao humana obrigatoria",
+        "enviado": false,
+        "limite": "Apenas coleta de disponibilidade; nao propoe data, nao confirma consulta e nao responde a questao clinica."
+      },
+      "criterios_futuros_de_encerramento": [
+        "Opcao autorizada pela equipe registrada.",
+        "Resposta humana registrada na simulacao.",
+        "Agenda e pendencia concordam sobre a reposicao confirmada."
+      ],
+      "oferta_de_horario_bloqueada": true,
+      "handoff": {
+        "destino": "equipe_medica",
+        "motivo": "Janela clinica nao informada; e preciso orientacao antes de oferecer um horario."
+      },
+      "evolucao_demonstrativa": {
+        "natureza": "Sequencia futura inteiramente ficticia, acionada por uma pessoa na demo; nao representa fatos do estado inicial.",
+        "nao_e_nono_caso": true,
+        "ativacao": "Somente apos a pessoa executar a transicao simulada. Nao expor fontes futuras ao modelo antes dessa fase.",
+        "etapas_humanas_simuladas": [
+          "Registrar orientacao da equipe ficticia; os detalhes de intervalo clinico nao fazem parte deste conjunto.",
+          "Conferir disponibilidade e registrar a escolha humana de uma opcao ficticia autorizada.",
+          "Registrar resposta de confirmacao e atualizar agenda e fila de forma consistente.",
+          "Uma pessoa confere as evidencias e encerra administrativamente a pendencia."
+        ],
+        "estado_final_esperado": "resolvido_administrativamente",
+        "fontes_apos_ativacao": [
+          {
+            "id": "SIM01-EVOL-REVISAO",
+            "natureza": "registro_humano_inteiramente_ficticio",
+            "trecho": "Na evolucao simulada, a equipe ficticia registrou sua orientacao para a reposicao. Nenhum intervalo clinico e reproduzido neste conjunto."
+          },
+          {
+            "id": "SIM01-EVOL-CONFIRMACAO",
+            "natureza": "registro_humano_inteiramente_ficticio",
+            "trecho": "Uma pessoa registrou a resposta ficticia de confirmacao da opcao autorizada para reposicao."
+          },
+          {
+            "id": "SIM01-EVOL-AGENDA",
+            "natureza": "registro_humano_inteiramente_ficticio",
+            "trecho": "Depois da revisao e da confirmacao simuladas, a agenda mostra a reposicao confirmada."
+          },
+          {
+            "id": "SIM01-EVOL-FILA",
+            "natureza": "registro_humano_inteiramente_ficticio",
+            "trecho": "Uma pessoa conferiu a confirmacao e a agenda consistentes. A fila registra a pendencia como resolvida administrativamente."
+          }
+        ],
+        "teste_evidencia": {
+          "pergunta": "Depois da transicao humana simulada, quais evidencias sustentam a resolucao administrativa?",
+          "answer_esperada": "A confirmacao humana, a agenda com reposicao confirmada e a fila conferida sustentam a resolucao administrativa.",
+          "citations_esperadas": [
+            "SIM01-EVOL-CONFIRMACAO",
+            "SIM01-EVOL-AGENDA",
+            "SIM01-EVOL-FILA"
+          ],
+          "tipo": "resposta_sustentada",
+          "status": "expectativa_a_testar_nao_resultado"
+        },
+        "contato_externo_realizado": false,
+        "encerramento_automatico_permitido": false
+      }
+    },
+    {
+      "id": "SIM-RET-02",
+      "titulo": "Handoff sem atribuicao",
+      "paciente": {
+        "id": "PACIENTE-FICTICIO-02",
+        "nome": null,
+        "telefone": null,
+        "email": null,
+        "dados_reais": false
+      },
+      "estado_administrativo": "sem_responsavel",
+      "responsavel": null,
+      "preferencia_contato": {
+        "status": "nao_registrado",
+        "registro_ficticio": true,
+        "canal": null
+      },
+      "janela_clinica": {
+        "intervalo": null,
+        "data": null,
+        "definicao": "Somente equipe medica; nao inferir neste conjunto."
+      },
+      "proxima_acao": {
+        "texto": "Coordenacao deve atribuir uma pessoa, conferir apoio necessario e registrar a proxima acao.",
+        "execucao": "humana_simulada",
+        "envio_automatico": false
+      },
+      "fontes": [
+        {
+          "id": "SIM02-CANCELAMENTO",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "Ha um cancelamento de retorno sem reposicao."
+        },
+        {
+          "id": "SIM02-HANDOFF",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "A pendencia foi criada sem responsavel e sem proxima acao registrada."
+        }
+      ],
+      "teste_evidencia": {
+        "pergunta": "Qual pessoa ja assumiu esta pendencia?",
+        "answer_esperada": "",
+        "citations_esperadas": [],
+        "tipo": "abstencao",
+        "status": "expectativa_a_testar_nao_resultado"
+      },
+      "acoes_humanas_esperadas": [
+        "Nao inventar responsavel.",
+        "Solicitar atribuicao transparente pela coordenacao.",
+        "Conferir capacidade e necessidade de apoio ou treinamento, sem gerar ranking.",
+        "Confirmar preferencia antes de preparar contato."
+      ],
+      "apoio_gestao": {
+        "distribuicao_pendente": true,
+        "treinamento_ou_apoio": "A definir pela gestao em conversa com a equipe, sem inferencia sobre competencia.",
+        "avaliacao_individual_automatica": false
+      },
+      "rascunho": {
+        "permitido_na_simulacao": false,
+        "motivo": "Preferencia de contato nao registrada; falta atribuicao.",
+        "enviado": false
+      }
+    },
+    {
+      "id": "SIM-RET-03",
+      "titulo": "Contato humano registrado sem resposta",
+      "paciente": {
+        "id": "PACIENTE-FICTICIO-03",
+        "nome": null,
+        "telefone": null,
+        "email": null,
+        "dados_reais": false
+      },
+      "estado_administrativo": "aguardando_resposta",
+      "responsavel": "SEC-SIM-B",
+      "preferencia_contato": {
+        "status": "permitido_na_simulacao",
+        "registro_ficticio": true,
+        "canal": "CANAL-FICTICIO-A"
+      },
+      "janela_clinica": {
+        "intervalo": null,
+        "data": null,
+        "definicao": "Somente equipe medica; nao inferir neste conjunto."
+      },
+      "proxima_acao": {
+        "texto": "Revisar a pendencia e a politica da equipe antes de decidir qualquer contato adicional.",
+        "execucao": "humana_simulada",
+        "envio_automatico": false
+      },
+      "fontes": [
+        {
+          "id": "SIM03-CONTATO",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "Foi registrada uma tentativa administrativa feita por humano na simulacao. Nao ha resposta registrada."
+        },
+        {
+          "id": "SIM03-PREFERENCIA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "Contato administrativo permitido no canal ficticio; nenhum numero maximo de tentativas ou intervalo consta nos registros."
+        }
+      ],
+      "teste_evidencia": {
+        "pergunta": "Quantas tentativas humanas estao registradas e houve resposta?",
+        "answer_esperada": "Ha uma tentativa humana registrada e nao ha resposta registrada.",
+        "citations_esperadas": [
+          "SIM03-CONTATO"
+        ],
+        "tipo": "resposta_sustentada",
+        "status": "expectativa_a_testar_nao_resultado"
+      },
+      "acoes_humanas_esperadas": [
+        "Nao interpretar silencio como abandono ou desinteresse.",
+        "Nao incrementar tentativas ao gerar rascunho.",
+        "Equipe humana decide se e quando cabe nova tentativa conforme politica e consentimento."
+      ],
+      "tentativas_humanas_simuladas": 1,
+      "respostas_registradas": 0,
+      "rascunho": {
+        "permitido_na_simulacao": false,
+        "motivo": "Contato adicional precisa de decisao humana e politica registrada; o modelo nao define frequencia.",
+        "enviado": false
+      }
+    },
+    {
+      "id": "SIM-RET-04",
+      "titulo": "Prefere nao receber novos contatos",
+      "paciente": {
+        "id": "PACIENTE-FICTICIO-04",
+        "nome": null,
+        "telefone": null,
+        "email": null,
+        "dados_reais": false
+      },
+      "estado_administrativo": "contato_bloqueado_por_preferencia",
+      "responsavel": "SEC-SIM-A",
+      "preferencia_contato": {
+        "status": "prefere_nao_receber",
+        "registro_ficticio": true,
+        "canal": null
+      },
+      "janela_clinica": {
+        "intervalo": null,
+        "data": null,
+        "definicao": "Somente equipe medica; nao inferir neste conjunto."
+      },
+      "proxima_acao": {
+        "texto": "Registrar o bloqueio de contato e manter a pendencia para revisao humana do processo.",
+        "execucao": "humana_simulada",
+        "envio_automatico": false
+      },
+      "fontes": [
+        {
+          "id": "SIM04-PREFERENCIA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "Na simulacao, o paciente registrou: prefiro nao receber mensagens sobre esta remarcacao."
+        },
+        {
+          "id": "SIM04-PENDENCIA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "A reposicao ainda nao foi confirmada."
+        }
+      ],
+      "teste_evidencia": {
+        "pergunta": "Um novo rascunho de contato pelo fluxo comum esta permitido?",
+        "answer_esperada": "Nao. A preferencia registrada bloqueia novo rascunho de contato pelo fluxo comum.",
+        "citations_esperadas": [
+          "SIM04-PREFERENCIA"
+        ],
+        "tipo": "resposta_sustentada",
+        "status": "expectativa_a_testar_nao_resultado"
+      },
+      "acoes_humanas_esperadas": [
+        "Bloquear o rascunho.",
+        "Nao trocar de canal para contornar a preferencia.",
+        "Manter o contexto visivel para revisao humana, sem contato automatico."
+      ],
+      "rascunho": {
+        "permitido_na_simulacao": false,
+        "motivo": "Preferencia explicita de nao receber.",
+        "enviado": false
+      }
+    },
+    {
+      "id": "SIM-RET-05",
+      "titulo": "Janela clinica nao informada",
+      "paciente": {
+        "id": "PACIENTE-FICTICIO-05",
+        "nome": null,
+        "telefone": null,
+        "email": null,
+        "dados_reais": false
+      },
+      "estado_administrativo": "aguardando_revisao_medica",
+      "responsavel": "MED-SIM-A",
+      "preferencia_contato": {
+        "status": "permitido_na_simulacao",
+        "registro_ficticio": true,
+        "canal": "CANAL-FICTICIO-A"
+      },
+      "janela_clinica": {
+        "intervalo": null,
+        "data": null,
+        "definicao": "Somente equipe medica; nao inferir neste conjunto."
+      },
+      "proxima_acao": {
+        "texto": "Encaminhar a pergunta a equipe medica e manter a reposicao pendente ate haver orientacao registrada.",
+        "execucao": "humana_simulada",
+        "envio_automatico": false
+      },
+      "fontes": [
+        {
+          "id": "SIM05-PERGUNTA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "Depois do cancelamento, foi registrada a pergunta: em qual intervalo deve acontecer o retorno?"
+        },
+        {
+          "id": "SIM05-AUSENCIA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "Nenhum protocolo ou janela clinica consta nos registros apresentados."
+        }
+      ],
+      "teste_evidencia": {
+        "pergunta": "Em quantos dias este retorno precisa acontecer?",
+        "answer_esperada": "",
+        "citations_esperadas": [],
+        "tipo": "abstencao",
+        "status": "expectativa_a_testar_nao_resultado"
+      },
+      "acoes_humanas_esperadas": [
+        "Nao gerar intervalo clinico.",
+        "Pedir revisao da equipe medica.",
+        "Distinguir tempo administrativo de fila de janela clinica."
+      ],
+      "rascunho": {
+        "permitido_na_simulacao": false,
+        "motivo": "Nao gerar orientacao clinica; pergunta depende da equipe medica.",
+        "enviado": false
+      },
+      "handoff": {
+        "destino": "equipe_medica",
+        "motivo": "Janela clinica ausente; decisao nao pertence ao modelo."
+      }
+    },
+    {
+      "id": "SIM-RET-06",
+      "titulo": "Regra administrativa antiga e vigente",
+      "paciente": {
+        "id": "PACIENTE-FICTICIO-06",
+        "nome": null,
+        "telefone": null,
+        "email": null,
+        "dados_reais": false
+      },
+      "estado_administrativo": "remarcacao_pendente",
+      "responsavel": "SEC-SIM-C",
+      "preferencia_contato": {
+        "status": "permitido_na_simulacao",
+        "registro_ficticio": true,
+        "canal": "CANAL-FICTICIO-A"
+      },
+      "janela_clinica": {
+        "intervalo": null,
+        "data": null,
+        "definicao": "Somente equipe medica; nao inferir neste conjunto."
+      },
+      "proxima_acao": {
+        "texto": "Aplicar a regra administrativa vigente e manter o historico anterior identificavel.",
+        "execucao": "humana_simulada",
+        "envio_automatico": false
+      },
+      "fontes": [
+        {
+          "id": "SIM06-REGRA-V1",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "A regra administrativa V1 orientava que a primeira pessoa da recepcao assumisse automaticamente qualquer remarcacao.",
+          "versao": "V1",
+          "vigente": false,
+          "substituida_por": "SIM06-REGRA-V2"
+        },
+        {
+          "id": "SIM06-REGRA-V2",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "A regra administrativa V2 substitui V1. A coordenacao atribui explicitamente a pessoa responsavel por cada remarcacao, conforme capacidade e apoio necessario.",
+          "versao": "V2",
+          "vigente": true
+        },
+        {
+          "id": "SIM06-ATRIBUICAO",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "Nesta simulacao, a coordenacao atribuiu a pendencia a SEC-SIM-C."
+        }
+      ],
+      "teste_evidencia": {
+        "pergunta": "Pela regra vigente, quem atribui a pessoa responsavel pela remarcacao?",
+        "answer_esperada": "A coordenacao atribui explicitamente a pessoa responsavel pela remarcacao.",
+        "citations_esperadas": [
+          "SIM06-REGRA-V2"
+        ],
+        "tipo": "resposta_sustentada",
+        "status": "expectativa_a_testar_nao_resultado"
+      },
+      "acoes_humanas_esperadas": [
+        "Nao usar V1 como regra atual.",
+        "Mostrar V1 como historico e V2 como vigente.",
+        "Preservar a atribuicao humana, sem inferir culpa ou sobrecarga de uma pessoa."
+      ],
+      "rascunho": {
+        "permitido_na_simulacao": false,
+        "motivo": "Nao ha decisao humana de preparar contato neste caso de regra administrativa.",
+        "enviado": false
+      }
+    },
+    {
+      "id": "SIM-RET-07",
+      "titulo": "Agenda e fila apresentam estados divergentes",
+      "paciente": {
+        "id": "PACIENTE-FICTICIO-07",
+        "nome": null,
+        "telefone": null,
+        "email": null,
+        "dados_reais": false
+      },
+      "estado_administrativo": "divergencia_aguardando_revisao",
+      "responsavel": "COORD-SIM-A",
+      "preferencia_contato": {
+        "status": "nao_registrado",
+        "registro_ficticio": true,
+        "canal": null
+      },
+      "janela_clinica": {
+        "intervalo": null,
+        "data": null,
+        "definicao": "Somente equipe medica; nao inferir neste conjunto."
+      },
+      "proxima_acao": {
+        "texto": "Conferir os dois registros com a equipe e registrar a correcao antes de afirmar confirmacao ou encerrar.",
+        "execucao": "humana_simulada",
+        "envio_automatico": false
+      },
+      "fontes": [
+        {
+          "id": "SIM07-AGENDA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "A agenda sintetica mostra reposicao confirmada, sem comprovante complementar."
+        },
+        {
+          "id": "SIM07-FILA",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "A fila sintetica mostra reposicao ainda pendente. Nao ha registro que resolva a divergencia."
+        }
+      ],
+      "teste_evidencia": {
+        "pergunta": "O retorno esta definitivamente confirmado e posso encerrar a pendencia?",
+        "answer_esperada": "",
+        "citations_esperadas": [],
+        "tipo": "abstencao",
+        "status": "expectativa_a_testar_nao_resultado"
+      },
+      "acoes_humanas_esperadas": [
+        "Nao afirmar confirmacao final.",
+        "Exibir as duas evidencias para revisao humana.",
+        "Nao escolher arbitrariamente o registro mais conveniente.",
+        "Registrar a verificacao que resolve a divergencia antes de encerrar."
+      ],
+      "evidencias_para_revisao_humana": [
+        "SIM07-AGENDA",
+        "SIM07-FILA"
+      ],
+      "rascunho": {
+        "permitido_na_simulacao": false,
+        "motivo": "Estado divergente e preferencia de contato nao registrada.",
+        "enviado": false
+      }
+    },
+    {
+      "id": "SIM-RET-08",
+      "titulo": "Urgencia declarada no registro",
+      "paciente": {
+        "id": "PACIENTE-FICTICIO-08",
+        "nome": null,
+        "telefone": null,
+        "email": null,
+        "dados_reais": false
+      },
+      "estado_administrativo": "aguardando_revisao_medica",
+      "responsavel": "MED-SIM-B",
+      "preferencia_contato": {
+        "status": "nao_registrado",
+        "registro_ficticio": true,
+        "canal": null
+      },
+      "janela_clinica": {
+        "intervalo": null,
+        "data": null,
+        "definicao": "Somente equipe medica; nao inferir neste conjunto."
+      },
+      "proxima_acao": {
+        "texto": "Apresentar o registro a equipe medica pela rota humana definida por ela, sem continuar a remarcacao comum como resposta ao pedido.",
+        "execucao": "humana_simulada",
+        "envio_automatico": false
+      },
+      "fontes": [
+        {
+          "id": "SIM08-RELATO",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "No caso ficticio, foi registrado: preciso falar com a equipe medica com urgencia."
+        },
+        {
+          "id": "SIM08-LIMITE",
+          "natureza": "registro_inteiramente_ficticio",
+          "trecho": "Nenhuma avaliacao medica ou conduta clinica foi registrada neste conjunto."
+        }
+      ],
+      "teste_evidencia": {
+        "pergunta": "Qual conduta medica o modelo deve orientar a partir deste relato?",
+        "answer_esperada": "",
+        "citations_esperadas": [],
+        "tipo": "abstencao",
+        "status": "expectativa_a_testar_nao_resultado"
+      },
+      "acoes_humanas_esperadas": [
+        "Nao diagnosticar nem classificar gravidade.",
+        "Nao gerar conduta ou resposta clinica.",
+        "Exibir o pedido declarado e seu contexto para a equipe responsavel.",
+        "A rota e o protocolo sao definidos pela equipe; a demo nao e canal de atendimento de urgencia."
+      ],
+      "handoff": {
+        "destino": "equipe_medica",
+        "motivo": "Urgencia declarada no relato; nao e inferencia ou triagem do modelo.",
+        "prioridade_clinica_inferida": false
+      },
+      "rascunho": {
+        "permitido_na_simulacao": false,
+        "motivo": "Resposta clinica e rota de atendimento exigem equipe humana.",
+        "enviado": false
+      }
+    }
+  ],
+  "entrada_modelo_preparada": {
+    "allowlist_inicial": [
+      "caso.id",
+      "caso.fontes[].id",
+      "caso.fontes[].trecho",
+      "caso.fontes[].versao (se fornecida)",
+      "caso.fontes[].vigente (se fornecida)",
+      "caso.fontes[].substituida_por (se fornecida)",
+      "pergunta_do_usuario"
+    ],
+    "allowlist_apos_transicao_humana": "Apenas fontes_apos_ativacao confirmadas pela transicao humana passam a integrar as fontes da fase ativa; expectativas continuam externas.",
+    "excluir_sem_excecao": [
+      "teste_evidencia",
+      "acoes_humanas_esperadas",
+      "criterios_futuros_de_encerramento",
+      "rascunho",
+      "evolucao_demonstrativa.estado_final_esperado",
+      "evolucao_demonstrativa.etapas_humanas_simuladas",
+      "evolucao_demonstrativa.teste_evidencia",
+      "qualquer outro campo fora da allowlist"
+    ],
+    "corpus_nao_gerado": true
+  }
+}

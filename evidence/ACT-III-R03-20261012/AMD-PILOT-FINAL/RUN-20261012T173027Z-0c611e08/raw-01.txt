@@ -1,0 +1,16 @@
+{
+  "answer": "prefiro nao receber mensagens",
+  "citations": [
+    {
+      "sourceId": "SIM04-PREFERENCIA",
+      "trecho": "Na simulacao, o paciente registrou: prefiro nao receber mensagens sobre esta remarcacao."
+    },
+    {
+      "sourceId": "SIM04-PENDENCIA",
+      "trecho": "A reposicao ainda nao foi confirmada."
+    }
+  ],
+  "abstention": false,
+  "reason": null,
+  "humanReviewRequired": true
+}

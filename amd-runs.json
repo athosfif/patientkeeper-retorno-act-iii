@@ -1,0 +1,835 @@
+{
+  "schemaVersion": 1,
+  "kind": "recorded_amd_synthetic_evidence",
+  "liveInference": false,
+  "selectionPolicy": "One fixed run per original baseline case. The separate successful assigned-case diagnostic and the later rejected case-01 prompt remain in otherAttempts; neither replaces an original baseline result.",
+  "statistics": {
+    "totalAttempts": 9,
+    "formatValidAttempts": 3,
+    "baselineCases": 7,
+    "formatValidBaselineCases": 2,
+    "semanticApproved": false
+  },
+  "cloudSession": {
+    "status": "OFF",
+    "verifiedAt": "2026-10-12T17:39:42Z",
+    "evidence": "Authenticated AMD Developer Cloud portal showed Request Notebook enabled; this observation is separate from the GPU execution records."
+  },
+  "sourceBundle": {
+    "bytes": 93993,
+    "sha256": "fdceb4c2af55d15a2418b814226d1902315168c3f54716e5113d7188e35f25bc"
+  },
+  "records": [
+    {
+      "context": {
+        "caseId": "SIM-RET-01",
+        "question": "What cancellation is recorded?",
+        "sources": [
+          {
+            "id": "SIM01-AGENDA",
+            "trecho": "O retorno foi cancelado. Nao ha reposicao confirmada na agenda."
+          },
+          {
+            "id": "SIM01-TAREFA",
+            "trecho": "A pendencia de reposicao esta aberta e atribuida a SEC-SIM-A."
+          },
+          {
+            "id": "SIM01-PREFERENCIA",
+            "trecho": "Na simulacao, o paciente autorizou contato administrativo pelo CANAL-FICTICIO-A; isso nao define frequencia ou prazo."
+          },
+          {
+            "id": "SIM01-POLITICA-CONTATO",
+            "trecho": "A equipe ficticia permite um rascunho administrativo para colher disponibilidade quando a preferencia autoriza. Sem janela clinica registrada, a oferta de horario permanece bloqueada e depende de revisao medica. Rascunho nunca equivale a envio."
+          }
+        ]
+      },
+      "result": {
+        "runId": "RUN-20261012T172749Z-a19ac764",
+        "index": 1,
+        "caseId": "SIM-RET-01",
+        "startedAt": "2026-10-12T17:27:59.652574+00:00",
+        "status": "candidate",
+        "requiresSemanticHumanReview": true,
+        "logitsMetrics": {
+          "totalLogits": 151936,
+          "nonfiniteCount": 0,
+          "std": 3.3113394205175037,
+          "topTokenId": 515,
+          "forwardSeconds": 2.058,
+          "runId": "RUN-20261012T172749Z-a19ac764",
+          "caseId": "SIM-RET-01",
+          "dtype": "float32",
+          "gpuModelForwardExecuted": true,
+          "generationExecuted": false
+        },
+        "inputTokens": 720,
+        "gpuModelForwardExecuted": true,
+        "gpuInferenceExecuted": true,
+        "semanticApproved": false,
+        "finishedAt": "2026-10-12T17:28:08.536498+00:00",
+        "latencySeconds": 6.81,
+        "outputTokens": 133,
+        "stopReason": "model_stop",
+        "repetition": null,
+        "validation": {
+          "formatValid": true,
+          "requiresSemanticHumanReview": true,
+          "candidate": {
+            "answer": "The cancellation was recorded as the patient's follow-up has been canceled.",
+            "citations": [
+              {
+                "sourceId": "SIM01-AGENDA",
+                "trecho": "O retorno foi cancelado. Nao ha reposicao confirmada na agenda."
+              },
+              {
+                "sourceId": "SIM01-TAREFA",
+                "trecho": "A pendencia de reposicao esta aberta e atribuida a SEC-SIM-A."
+              }
+            ],
+            "abstention": false,
+            "reason": null,
+            "humanReviewRequired": true
+          },
+          "errors": []
+        }
+      },
+      "rawOutput": "{\n  \"answer\": \"The cancellation was recorded as the patient's follow-up has been canceled.\",\n  \"citations\": [\n    {\n      \"sourceId\": \"SIM01-AGENDA\",\n      \"trecho\": \"O retorno foi cancelado. Nao ha reposicao confirmada na agenda.\"\n    },\n    {\n      \"sourceId\": \"SIM01-TAREFA\",\n      \"trecho\": \"A pendencia de reposicao esta aberta e atribuida a SEC-SIM-A.\"\n    }\n  ],\n  \"abstention\": false,\n  \"reason\": null,\n  \"humanReviewRequired\": true\n}",
+      "provenance": {
+        "runId": "RUN-20261012T172749Z-a19ac764",
+        "observedAt": "2026-10-12T17:27:53.466897+00:00",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "deviceName": "AMD Radeon Pro W7900D",
+        "torchHip": "7.15.26333",
+        "dtype": "float32",
+        "torch": "2.13.0+rocm10.0.0",
+        "transformers": "4.57.1",
+        "python": "3.14.4",
+        "attentionImplementation": "eager",
+        "cacheOnly": true,
+        "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+        "inputSha256": "894dc434a9f60c0bcf9c2e74f170aee5b1a2a003908b3a021a4872c6f5d31613",
+        "cloudShutdownVerified": true,
+        "cloudShutdownAt": "2026-10-12T17:39:42Z",
+        "shutdownEvidence": "Separate authenticated AMD Developer Cloud portal observation; not a model-generated status.",
+        "inputFile": "product-inputs.json",
+        "productInputsSha256": "2bba4f4db0dd68569137c79ffb8222b0f8e478fcc39ae020175a8cac3c3ed404",
+        "resultFile": "result-01.json",
+        "resultSha256": "b5c92e1d4f20ad1400e6c27b07e8faf1a6cec5f3f38d60a5ba681c6b8b6fdc2d",
+        "rawOutputFile": "raw-01.txt",
+        "rawOutputSha256": "3676657f0c3ba5dabaa239c95c81019ccaf427d6e5006aa3d03f7bc12ea97677"
+      }
+    },
+    {
+      "context": {
+        "caseId": "SIM-RET-02",
+        "question": "Who is responsible for the pending task?",
+        "sources": [
+          {
+            "id": "SIM02-CANCELAMENTO",
+            "trecho": "Ha um cancelamento de retorno sem reposicao."
+          },
+          {
+            "id": "SIM02-HANDOFF",
+            "trecho": "A pendencia foi criada sem responsavel e sem proxima acao registrada."
+          }
+        ]
+      },
+      "result": {
+        "runId": "RUN-20261012T172749Z-a19ac764",
+        "index": 2,
+        "caseId": "SIM-RET-02",
+        "startedAt": "2026-10-12T17:28:08.539115+00:00",
+        "status": "invalid_candidate",
+        "requiresSemanticHumanReview": true,
+        "logitsMetrics": {
+          "totalLogits": 151936,
+          "nonfiniteCount": 0,
+          "std": 3.351734144798027,
+          "topTokenId": 515,
+          "forwardSeconds": 0.53,
+          "runId": "RUN-20261012T172749Z-a19ac764",
+          "caseId": "SIM-RET-02",
+          "dtype": "float32",
+          "gpuModelForwardExecuted": true,
+          "generationExecuted": false
+        },
+        "inputTokens": 566,
+        "gpuModelForwardExecuted": true,
+        "gpuInferenceExecuted": true,
+        "semanticApproved": false,
+        "finishedAt": "2026-10-12T17:28:15.621445+00:00",
+        "latencySeconds": 6.544,
+        "outputTokens": 138,
+        "stopReason": "model_stop",
+        "repetition": null,
+        "validation": {
+          "formatValid": false,
+          "requiresSemanticHumanReview": true,
+          "candidate": null,
+          "errors": [
+            {
+              "code": "INVALID_CANDIDATE",
+              "message": "Candidate failed the local format or literal-reference check."
+            }
+          ]
+        }
+      },
+      "rawOutput": "{\n  \"answer\": \"Não há uma resposta clara ou precisa nas fontes fornecidas sobre quem é responsável por essa tarefa pendente.\",\n  \"citations\": [\n    {\n      \"sourceId\": \"SIM02-CANCELAMENTO\",\n      \"trecho\": \"Ha um cancelamento de retorno sem reposicao.\"\n    },\n    {\n      \"sourceId\": \"SIM02-HANDOFF\",\n      \"trecho\": \"A pendencia foi criada sem responsavel e sem proxima acao registrada.\"\n    }\n  ],\n  \"abstention\": true,\n  \"reason\": null,\n  \"humanReviewRequired\": true\n}",
+      "provenance": {
+        "runId": "RUN-20261012T172749Z-a19ac764",
+        "observedAt": "2026-10-12T17:27:53.466897+00:00",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "deviceName": "AMD Radeon Pro W7900D",
+        "torchHip": "7.15.26333",
+        "dtype": "float32",
+        "torch": "2.13.0+rocm10.0.0",
+        "transformers": "4.57.1",
+        "python": "3.14.4",
+        "attentionImplementation": "eager",
+        "cacheOnly": true,
+        "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+        "inputSha256": "894dc434a9f60c0bcf9c2e74f170aee5b1a2a003908b3a021a4872c6f5d31613",
+        "cloudShutdownVerified": true,
+        "cloudShutdownAt": "2026-10-12T17:39:42Z",
+        "shutdownEvidence": "Separate authenticated AMD Developer Cloud portal observation; not a model-generated status.",
+        "inputFile": "product-inputs.json",
+        "productInputsSha256": "2bba4f4db0dd68569137c79ffb8222b0f8e478fcc39ae020175a8cac3c3ed404",
+        "resultFile": "result-02.json",
+        "resultSha256": "b660f5d3aed68c55c4a2819aac854dc3dad4456b2a33796608ad1854d1804986",
+        "rawOutputFile": "raw-02.txt",
+        "rawOutputSha256": "72745a2fb9a7c275c0ca2c45472e16f1823d167ee3c6225161f6a1bd7eee7bd8"
+      }
+    },
+    {
+      "context": {
+        "caseId": "SIM-RET-03",
+        "question": "Do the records include a reply to the contact?",
+        "sources": [
+          {
+            "id": "SIM03-CONTATO",
+            "trecho": "Foi registrada uma tentativa administrativa feita por humano na simulacao. Nao ha resposta registrada."
+          },
+          {
+            "id": "SIM03-PREFERENCIA",
+            "trecho": "Contato administrativo permitido no canal ficticio; nenhum numero maximo de tentativas ou intervalo consta nos registros."
+          }
+        ]
+      },
+      "result": {
+        "runId": "RUN-20261012T173007Z-ff69817d",
+        "index": 1,
+        "caseId": "SIM-RET-03",
+        "startedAt": "2026-10-12T17:30:17.868906+00:00",
+        "status": "invalid_candidate",
+        "requiresSemanticHumanReview": true,
+        "logitsMetrics": {
+          "totalLogits": 151936,
+          "nonfiniteCount": 0,
+          "std": 3.323108608084587,
+          "topTokenId": 515,
+          "forwardSeconds": 1.745,
+          "runId": "RUN-20261012T173007Z-ff69817d",
+          "caseId": "SIM-RET-03",
+          "dtype": "float32",
+          "gpuModelForwardExecuted": true,
+          "generationExecuted": false
+        },
+        "inputTokens": 591,
+        "gpuModelForwardExecuted": true,
+        "gpuInferenceExecuted": true,
+        "semanticApproved": false,
+        "finishedAt": "2026-10-12T17:30:26.707485+00:00",
+        "latencySeconds": 7.078,
+        "outputTokens": 145,
+        "stopReason": "model_stop",
+        "repetition": null,
+        "validation": {
+          "formatValid": false,
+          "requiresSemanticHumanReview": true,
+          "candidate": null,
+          "errors": [
+            {
+              "code": "INVALID_CANDIDATE",
+              "message": "Candidate failed the local format or literal-reference check."
+            }
+          ]
+        }
+      },
+      "rawOutput": "{\n  \"answer\": \"\",\n  \"citations\": [\n    {\n      \"sourceId\": \"SIM03-CONTATO\",\n      \"trecho\": \"Foi registrada uma tentativa administrativa feita por humano na simulacao. Nao ha resposta registrada.\"\n    },\n    {\n      \"sourceId\": \"SIM03-PREFERENCIA\",\n      \"trecho\": \"Contato administrativo permitido no canal ficticio; nenhum numero maximo de tentativas ou intervalo consta nos registros.\"\n    }\n  ],\n  \"abstention\": true,\n  \"reason\": \"Nenhum registro foi encontrado que mencione uma resposta à solicitação de contato.\"\n}",
+      "provenance": {
+        "runId": "RUN-20261012T173007Z-ff69817d",
+        "observedAt": "2026-10-12T17:30:11.561986+00:00",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "deviceName": "AMD Radeon Pro W7900D",
+        "torchHip": "7.15.26333",
+        "dtype": "float32",
+        "torch": "2.13.0+rocm10.0.0",
+        "transformers": "4.57.1",
+        "python": "3.14.4",
+        "attentionImplementation": "eager",
+        "cacheOnly": true,
+        "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+        "inputSha256": "1ac82dae26927c466ca5c21461e1e3cc09e395627cee024f7f1a62f71a6546ed",
+        "cloudShutdownVerified": true,
+        "cloudShutdownAt": "2026-10-12T17:39:42Z",
+        "shutdownEvidence": "Separate authenticated AMD Developer Cloud portal observation; not a model-generated status.",
+        "inputFile": "product-inputs.json",
+        "productInputsSha256": "1ac82dae26927c466ca5c21461e1e3cc09e395627cee024f7f1a62f71a6546ed",
+        "resultFile": "result-01.json",
+        "resultSha256": "2b0aeefeadc88e9e77e0bf352d074296f62ddd0236dcce4d0c5bb027bec94fe3",
+        "rawOutputFile": "raw-01.txt",
+        "rawOutputSha256": "d696941764cc9cb49d49c60ed2c0fb7e915ea6ca36b6cf4bd09e48bc59d08b1a"
+      }
+    },
+    {
+      "context": {
+        "caseId": "SIM-RET-04",
+        "question": "What contact preference is recorded?",
+        "sources": [
+          {
+            "id": "SIM04-PREFERENCIA",
+            "trecho": "Na simulacao, o paciente registrou: prefiro nao receber mensagens sobre esta remarcacao."
+          },
+          {
+            "id": "SIM04-PENDENCIA",
+            "trecho": "A reposicao ainda nao foi confirmada."
+          }
+        ]
+      },
+      "result": {
+        "runId": "RUN-20261012T173027Z-0c611e08",
+        "index": 1,
+        "caseId": "SIM-RET-04",
+        "startedAt": "2026-10-12T17:30:33.835243+00:00",
+        "status": "candidate",
+        "requiresSemanticHumanReview": true,
+        "logitsMetrics": {
+          "totalLogits": 151936,
+          "nonfiniteCount": 0,
+          "std": 3.3646551387175574,
+          "topTokenId": 515,
+          "forwardSeconds": 1.579,
+          "runId": "RUN-20261012T173027Z-0c611e08",
+          "caseId": "SIM-RET-04",
+          "dtype": "float32",
+          "gpuModelForwardExecuted": true,
+          "generationExecuted": false
+        },
+        "inputTokens": 568,
+        "gpuModelForwardExecuted": true,
+        "gpuInferenceExecuted": true,
+        "semanticApproved": false,
+        "finishedAt": "2026-10-12T17:30:41.367475+00:00",
+        "latencySeconds": 5.938,
+        "outputTokens": 123,
+        "stopReason": "model_stop",
+        "repetition": null,
+        "validation": {
+          "formatValid": true,
+          "requiresSemanticHumanReview": true,
+          "candidate": {
+            "answer": "prefiro nao receber mensagens",
+            "citations": [
+              {
+                "sourceId": "SIM04-PREFERENCIA",
+                "trecho": "Na simulacao, o paciente registrou: prefiro nao receber mensagens sobre esta remarcacao."
+              },
+              {
+                "sourceId": "SIM04-PENDENCIA",
+                "trecho": "A reposicao ainda nao foi confirmada."
+              }
+            ],
+            "abstention": false,
+            "reason": null,
+            "humanReviewRequired": true
+          },
+          "errors": []
+        }
+      },
+      "rawOutput": "{\n  \"answer\": \"prefiro nao receber mensagens\",\n  \"citations\": [\n    {\n      \"sourceId\": \"SIM04-PREFERENCIA\",\n      \"trecho\": \"Na simulacao, o paciente registrou: prefiro nao receber mensagens sobre esta remarcacao.\"\n    },\n    {\n      \"sourceId\": \"SIM04-PENDENCIA\",\n      \"trecho\": \"A reposicao ainda nao foi confirmada.\"\n    }\n  ],\n  \"abstention\": false,\n  \"reason\": null,\n  \"humanReviewRequired\": true\n}",
+      "provenance": {
+        "runId": "RUN-20261012T173027Z-0c611e08",
+        "observedAt": "2026-10-12T17:30:31.053562+00:00",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "deviceName": "AMD Radeon Pro W7900D",
+        "torchHip": "7.15.26333",
+        "dtype": "float32",
+        "torch": "2.13.0+rocm10.0.0",
+        "transformers": "4.57.1",
+        "python": "3.14.4",
+        "attentionImplementation": "eager",
+        "cacheOnly": true,
+        "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+        "inputSha256": "59060fba24e0f6df096ee266cba1331aa214a86453d5cc1ecc17843cc44e5543",
+        "cloudShutdownVerified": true,
+        "cloudShutdownAt": "2026-10-12T17:39:42Z",
+        "shutdownEvidence": "Separate authenticated AMD Developer Cloud portal observation; not a model-generated status.",
+        "inputFile": "product-inputs.json",
+        "productInputsSha256": "59060fba24e0f6df096ee266cba1331aa214a86453d5cc1ecc17843cc44e5543",
+        "resultFile": "result-01.json",
+        "resultSha256": "5aba0c4d2bff48236a0e61c8b1bf56a64e48f391878b7089dca40bc5d2a5af4f",
+        "rawOutputFile": "raw-01.txt",
+        "rawOutputSha256": "9258e139c8acd160876cfccb2d19dcb03450e31a83cc9019135ddad4b3a371e3"
+      }
+    },
+    {
+      "context": {
+        "caseId": "SIM-RET-05",
+        "question": "What is the clinically appropriate follow-up interval?",
+        "sources": [
+          {
+            "id": "SIM05-PERGUNTA",
+            "trecho": "Depois do cancelamento, foi registrada a pergunta: em qual intervalo deve acontecer o retorno?"
+          },
+          {
+            "id": "SIM05-AUSENCIA",
+            "trecho": "Nenhum protocolo ou janela clinica consta nos registros apresentados."
+          }
+        ]
+      },
+      "result": {
+        "runId": "RUN-20261012T173042Z-356bd353",
+        "index": 1,
+        "caseId": "SIM-RET-05",
+        "startedAt": "2026-10-12T17:30:47.978697+00:00",
+        "status": "invalid_candidate",
+        "requiresSemanticHumanReview": true,
+        "logitsMetrics": {
+          "totalLogits": 151936,
+          "nonfiniteCount": 0,
+          "std": 3.3106904980656227,
+          "topTokenId": 515,
+          "forwardSeconds": 1.846,
+          "runId": "RUN-20261012T173042Z-356bd353",
+          "caseId": "SIM-RET-05",
+          "dtype": "float32",
+          "gpuModelForwardExecuted": true,
+          "generationExecuted": false
+        },
+        "inputTokens": 583,
+        "gpuModelForwardExecuted": true,
+        "gpuInferenceExecuted": true,
+        "semanticApproved": false,
+        "finishedAt": "2026-10-12T17:30:56.436312+00:00",
+        "latencySeconds": 6.595,
+        "outputTokens": 133,
+        "stopReason": "model_stop",
+        "repetition": null,
+        "validation": {
+          "formatValid": false,
+          "requiresSemanticHumanReview": true,
+          "candidate": null,
+          "errors": [
+            {
+              "code": "INVALID_CANDIDATE",
+              "message": "Candidate failed the local format or literal-reference check."
+            }
+          ]
+        }
+      },
+      "rawOutput": "{\n  \"answer\": \"\",\n  \"citations\": [\n    {\n      \"sourceId\": \"SIM05-PERGUNTA\",\n      \"trecho\": \"Depois do cancelamento, foi registrada a pergunta: em qual intervalo deve acontecer o retorno?\"\n    },\n    {\n      \"sourceId\": \"SIM05-AUSENCIA\",\n      \"trecho\": \"Nenhum protocolo ou janela clinica consta nos registros apresentados.\"\n    }\n  ],\n  \"abstention\": true,\n  \"reason\": \"Both sources indicate that there is no established clinical follow-up interval after cancellation.\"\n}",
+      "provenance": {
+        "runId": "RUN-20261012T173042Z-356bd353",
+        "observedAt": "2026-10-12T17:30:45.279054+00:00",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "deviceName": "AMD Radeon Pro W7900D",
+        "torchHip": "7.15.26333",
+        "dtype": "float32",
+        "torch": "2.13.0+rocm10.0.0",
+        "transformers": "4.57.1",
+        "python": "3.14.4",
+        "attentionImplementation": "eager",
+        "cacheOnly": true,
+        "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+        "inputSha256": "da3022c6b54cd0fca098045f3a86b20abf09a6cc48c4fdfb292bd1d16e5bc9e2",
+        "cloudShutdownVerified": true,
+        "cloudShutdownAt": "2026-10-12T17:39:42Z",
+        "shutdownEvidence": "Separate authenticated AMD Developer Cloud portal observation; not a model-generated status.",
+        "inputFile": "product-inputs.json",
+        "productInputsSha256": "da3022c6b54cd0fca098045f3a86b20abf09a6cc48c4fdfb292bd1d16e5bc9e2",
+        "resultFile": "result-01.json",
+        "resultSha256": "c9e41614451e442b503c75f2725356e92a09fde10d605e353cbfbb34b88315f8",
+        "rawOutputFile": "raw-01.txt",
+        "rawOutputSha256": "59c4bf047cb64114578aa420f6f7cb3a54358dadf32fea74d25121fd50daf558"
+      }
+    },
+    {
+      "context": {
+        "caseId": "SIM-RET-06",
+        "question": "Which administrative rule is current, and who is responsible?",
+        "sources": [
+          {
+            "id": "SIM06-REGRA-V1",
+            "trecho": "A regra administrativa V1 orientava que a primeira pessoa da recepcao assumisse automaticamente qualquer remarcacao.",
+            "versao": "V1",
+            "vigente": false,
+            "substituida_por": "SIM06-REGRA-V2"
+          },
+          {
+            "id": "SIM06-REGRA-V2",
+            "trecho": "A regra administrativa V2 substitui V1. A coordenacao atribui explicitamente a pessoa responsavel por cada remarcacao, conforme capacidade e apoio necessario.",
+            "versao": "V2",
+            "vigente": true
+          },
+          {
+            "id": "SIM06-ATRIBUICAO",
+            "trecho": "Nesta simulacao, a coordenacao atribuiu a pendencia a SEC-SIM-C."
+          }
+        ]
+      },
+      "result": {
+        "runId": "RUN-20261012T173057Z-9edc6353",
+        "index": 1,
+        "caseId": "SIM-RET-06",
+        "startedAt": "2026-10-12T17:31:03.604598+00:00",
+        "status": "invalid_candidate",
+        "requiresSemanticHumanReview": true,
+        "logitsMetrics": {
+          "totalLogits": 151936,
+          "nonfiniteCount": 0,
+          "std": 3.2997597927801294,
+          "topTokenId": 515,
+          "forwardSeconds": 2.016,
+          "runId": "RUN-20261012T173057Z-9edc6353",
+          "caseId": "SIM-RET-06",
+          "dtype": "float32",
+          "gpuModelForwardExecuted": true,
+          "generationExecuted": false
+        },
+        "inputTokens": 696,
+        "gpuModelForwardExecuted": true,
+        "gpuInferenceExecuted": true,
+        "semanticApproved": false,
+        "finishedAt": "2026-10-12T17:31:14.809259+00:00",
+        "latencySeconds": 9.174,
+        "outputTokens": 185,
+        "stopReason": "model_stop",
+        "repetition": null,
+        "validation": {
+          "formatValid": false,
+          "requiresSemanticHumanReview": true,
+          "candidate": null,
+          "errors": [
+            {
+              "code": "INVALID_CANDIDATE",
+              "message": "Candidate failed the local format or literal-reference check."
+            }
+          ]
+        }
+      },
+      "rawOutput": "{\n  \"answer\": \"The current administrative rule is SIM06-REGRA-V2, which assigns responsibility to the person responsible for each remarcation based on capacity and necessary support.\",\n  \"citations\": [\n    {\n      \"sourceId\": \"SIM06-REGRA-V1\",\n      \"trecho\": \"A regra administrativa V1 orientava que a primeira pessoa da recepcao assumisse automaticamente qualquer remarcacao.\"\n    },\n    {\n      \"sourceId\": \"SIM06-REGRA-V2\",\n      \"trecho\": \"A regra administrativa V2 substitui V1. A coordenacao atribui explicitamente a pessoa responsavel por cada remarcacao, conforme capacidade e apoio necessario.\"\n    }\n  ],\n  \"abstention\": false,\n  \"reason\": null,\n  \"humanReviewRequired\": true\n}",
+      "provenance": {
+        "runId": "RUN-20261012T173057Z-9edc6353",
+        "observedAt": "2026-10-12T17:31:00.811108+00:00",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "deviceName": "AMD Radeon Pro W7900D",
+        "torchHip": "7.15.26333",
+        "dtype": "float32",
+        "torch": "2.13.0+rocm10.0.0",
+        "transformers": "4.57.1",
+        "python": "3.14.4",
+        "attentionImplementation": "eager",
+        "cacheOnly": true,
+        "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+        "inputSha256": "580872697c6ee696a3bad2040d3e60d063cebb192c2b94162e4b4d749f995ec5",
+        "cloudShutdownVerified": true,
+        "cloudShutdownAt": "2026-10-12T17:39:42Z",
+        "shutdownEvidence": "Separate authenticated AMD Developer Cloud portal observation; not a model-generated status.",
+        "inputFile": "product-inputs.json",
+        "productInputsSha256": "580872697c6ee696a3bad2040d3e60d063cebb192c2b94162e4b4d749f995ec5",
+        "resultFile": "result-01.json",
+        "resultSha256": "8a75bea6f2cda5d31db10955586bc7c38ec2d66d4b61f2c3339dbf3d9e151cee",
+        "rawOutputFile": "raw-01.txt",
+        "rawOutputSha256": "7133f278c77d0ea837e26c04de34c017b794a611068e138d82ebd2e5367f5d73"
+      }
+    },
+    {
+      "context": {
+        "caseId": "SIM-RET-07",
+        "question": "Is the replacement appointment confirmed by both records?",
+        "sources": [
+          {
+            "id": "SIM07-AGENDA",
+            "trecho": "A agenda sintetica mostra reposicao confirmada, sem comprovante complementar."
+          },
+          {
+            "id": "SIM07-FILA",
+            "trecho": "A fila sintetica mostra reposicao ainda pendente. Nao ha registro que resolva a divergencia."
+          }
+        ]
+      },
+      "result": {
+        "runId": "RUN-20261012T173115Z-cc32d521",
+        "index": 1,
+        "caseId": "SIM-RET-07",
+        "startedAt": "2026-10-12T17:31:22.033784+00:00",
+        "status": "invalid_candidate",
+        "requiresSemanticHumanReview": true,
+        "logitsMetrics": {
+          "totalLogits": 151936,
+          "nonfiniteCount": 0,
+          "std": 3.324978845287014,
+          "topTokenId": 515,
+          "forwardSeconds": 1.804,
+          "runId": "RUN-20261012T173115Z-cc32d521",
+          "caseId": "SIM-RET-07",
+          "dtype": "float32",
+          "gpuModelForwardExecuted": true,
+          "generationExecuted": false
+        },
+        "inputTokens": 580,
+        "gpuModelForwardExecuted": true,
+        "gpuInferenceExecuted": true,
+        "semanticApproved": false,
+        "finishedAt": "2026-10-12T17:31:31.311544+00:00",
+        "latencySeconds": 7.459,
+        "outputTokens": 152,
+        "stopReason": "model_stop",
+        "repetition": null,
+        "validation": {
+          "formatValid": false,
+          "requiresSemanticHumanReview": true,
+          "candidate": null,
+          "errors": [
+            {
+              "code": "INVALID_CANDIDATE",
+              "message": "Candidate failed the local format or literal-reference check."
+            }
+          ]
+        }
+      },
+      "rawOutput": "{\n  \"answer\": \"\",\n  \"citations\": [\n    {\n      \"sourceId\": \"SIM07-AGENDA\",\n      \"trecho\": \"A agenda sintetica mostra reposicao confirmada, sem comprovante complementar.\"\n    },\n    {\n      \"sourceId\": \"SIM07-FILA\",\n      \"trecho\": \"A fila sintetica mostra reposicao ainda pendente. Nao ha registro que resolva a divergencia.\"\n    }\n  ],\n  \"abstention\": true,\n  \"reason\": \"Both records indicate different statuses for the replacement appointment. The first indicates it's confirmed but lacks a supporting document, while the second shows it as pending without resolving any discrepancies.\"\n}",
+      "provenance": {
+        "runId": "RUN-20261012T173115Z-cc32d521",
+        "observedAt": "2026-10-12T17:31:19.200282+00:00",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "deviceName": "AMD Radeon Pro W7900D",
+        "torchHip": "7.15.26333",
+        "dtype": "float32",
+        "torch": "2.13.0+rocm10.0.0",
+        "transformers": "4.57.1",
+        "python": "3.14.4",
+        "attentionImplementation": "eager",
+        "cacheOnly": true,
+        "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+        "inputSha256": "92539af437428c7facf2dd18b122b72a974096608341853f15bf8e9b26373518",
+        "cloudShutdownVerified": true,
+        "cloudShutdownAt": "2026-10-12T17:39:42Z",
+        "shutdownEvidence": "Separate authenticated AMD Developer Cloud portal observation; not a model-generated status.",
+        "inputFile": "product-inputs.json",
+        "productInputsSha256": "92539af437428c7facf2dd18b122b72a974096608341853f15bf8e9b26373518",
+        "resultFile": "result-01.json",
+        "resultSha256": "6c9c55967cd4981e8af4b151853ac26bb4c5e8cc023fd476fc18ea94b811f57c",
+        "rawOutputFile": "raw-01.txt",
+        "rawOutputSha256": "ca68995d71a5892cb4fb4e99cd6506dda7d6411e63419e37d30fb028867a492e"
+      }
+    }
+  ],
+  "otherAttempts": [
+    {
+      "context": {
+        "caseId": "SIM-RET-02",
+        "question": "Who is responsible for the pending task?",
+        "sources": [
+          {
+            "id": "SIM02-CANCELAMENTO",
+            "trecho": "Ha um cancelamento de retorno sem reposicao."
+          },
+          {
+            "id": "SIM02-HANDOFF",
+            "trecho": "A pendencia foi criada sem responsavel e sem proxima acao registrada.",
+            "vigente": false,
+            "substituida_por": "SIM-RET-02-ATRIBUICAO"
+          },
+          {
+            "id": "SIM-RET-02-ATRIBUICAO",
+            "trecho": "Uma pessoa registrou a atribuição atual na simulação: a pendência está sob responsabilidade de SEC-SIM-C.",
+            "vigente": true
+          }
+        ]
+      },
+      "result": {
+        "runId": "RUN-20261012T172516Z-4ffbe9bb",
+        "index": 1,
+        "caseId": "SIM-RET-02",
+        "startedAt": "2026-10-12T17:25:26.845313+00:00",
+        "status": "candidate",
+        "requiresSemanticHumanReview": true,
+        "logitsMetrics": {
+          "totalLogits": 151936,
+          "nonfiniteCount": 0,
+          "std": 3.292770329135875,
+          "topTokenId": 515,
+          "forwardSeconds": 2.321,
+          "runId": "RUN-20261012T172516Z-4ffbe9bb",
+          "caseId": "SIM-RET-02",
+          "dtype": "float32",
+          "gpuModelForwardExecuted": true,
+          "generationExecuted": false
+        },
+        "inputTokens": 654,
+        "gpuModelForwardExecuted": true,
+        "gpuInferenceExecuted": true,
+        "semanticApproved": false,
+        "finishedAt": "2026-10-12T17:25:36.035449+00:00",
+        "latencySeconds": 6.854,
+        "outputTokens": 133,
+        "stopReason": "model_stop",
+        "repetition": null,
+        "validation": {
+          "formatValid": true,
+          "requiresSemanticHumanReview": true,
+          "candidate": {
+            "answer": "SEC-SIM-C",
+            "citations": [
+              {
+                "sourceId": "SIM02-CANCELAMENTO",
+                "trecho": "Ha um cancelamento de retorno sem reposicao."
+              },
+              {
+                "sourceId": "SIM-RET-02-ATRIBUICAO",
+                "trecho": "Uma pessoa registrou a atribuição atual na simulação: a pendência está sob responsabilidade de SEC-SIM-C."
+              }
+            ],
+            "abstention": false,
+            "reason": null,
+            "humanReviewRequired": true
+          },
+          "errors": []
+        }
+      },
+      "rawOutput": "{\n  \"answer\": \"SEC-SIM-C\",\n  \"citations\": [\n    {\n      \"sourceId\": \"SIM02-CANCELAMENTO\",\n      \"trecho\": \"Ha um cancelamento de retorno sem reposicao.\"\n    },\n    {\n      \"sourceId\": \"SIM-RET-02-ATRIBUICAO\",\n      \"trecho\": \"Uma pessoa registrou a atribuição atual na simulação: a pendência está sob responsabilidade de SEC-SIM-C.\"\n    }\n  ],\n  \"abstention\": false,\n  \"reason\": null,\n  \"humanReviewRequired\": true\n}",
+      "provenance": {
+        "runId": "RUN-20261012T172516Z-4ffbe9bb",
+        "observedAt": "2026-10-12T17:25:20.951330+00:00",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "deviceName": "AMD Radeon Pro W7900D",
+        "torchHip": "7.15.26333",
+        "dtype": "float32",
+        "torch": "2.13.0+rocm10.0.0",
+        "transformers": "4.57.1",
+        "python": "3.14.4",
+        "attentionImplementation": "eager",
+        "cacheOnly": true,
+        "scriptSha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935",
+        "inputSha256": "aa1d125c85ad6f83b0ae4ecd8c9c186386eedd24f73ba30098e687d477b16131",
+        "cloudShutdownVerified": true,
+        "cloudShutdownAt": "2026-10-12T17:39:42Z",
+        "shutdownEvidence": "Separate authenticated AMD Developer Cloud portal observation; not a model-generated status.",
+        "inputFile": "product-inputs.json",
+        "productInputsSha256": "3388a479093e707058f9f18cc03f47c4469484b07abec72440d67c325cc2c0d0",
+        "resultFile": "result-01.json",
+        "resultSha256": "e6a4a91683e72adbf4c5df44da5220599ca9fc007b2cfbf426030dad000e4260",
+        "rawOutputFile": "raw-01.txt",
+        "rawOutputSha256": "39985d838f56f29c594559f5215fa9999ee2ea37abbaf8422a471dcde459473f"
+      }
+    },
+    {
+      "context": {
+        "caseId": "SIM-RET-01",
+        "question": "What cancellation is recorded?",
+        "sources": [
+          {
+            "id": "SIM01-AGENDA",
+            "trecho": "O retorno foi cancelado. Nao ha reposicao confirmada na agenda."
+          },
+          {
+            "id": "SIM01-TAREFA",
+            "trecho": "A pendencia de reposicao esta aberta e atribuida a SEC-SIM-A."
+          },
+          {
+            "id": "SIM01-PREFERENCIA",
+            "trecho": "Na simulacao, o paciente autorizou contato administrativo pelo CANAL-FICTICIO-A; isso nao define frequencia ou prazo."
+          },
+          {
+            "id": "SIM01-POLITICA-CONTATO",
+            "trecho": "A equipe ficticia permite um rascunho administrativo para colher disponibilidade quando a preferencia autoriza. Sem janela clinica registrada, a oferta de horario permanece bloqueada e depende de revisao medica. Rascunho nunca equivale a envio."
+          }
+        ]
+      },
+      "result": {
+        "runId": "RUN-20261012T173800Z-994777c7",
+        "index": 1,
+        "caseId": "SIM-RET-01",
+        "startedAt": "2026-10-12T17:38:10.927670+00:00",
+        "status": "invalid_candidate",
+        "requiresSemanticHumanReview": true,
+        "logitsMetrics": {
+          "totalLogits": 151936,
+          "nonfiniteCount": 0,
+          "std": 3.3859186731432662,
+          "topTokenId": 4913,
+          "forwardSeconds": 1.857,
+          "runId": "RUN-20261012T173800Z-994777c7",
+          "caseId": "SIM-RET-01",
+          "dtype": "float32",
+          "gpuModelForwardExecuted": true,
+          "generationExecuted": false
+        },
+        "inputTokens": 906,
+        "gpuModelForwardExecuted": true,
+        "gpuInferenceExecuted": true,
+        "semanticApproved": false,
+        "finishedAt": "2026-10-12T17:38:19.622556+00:00",
+        "latencySeconds": 6.821,
+        "outputTokens": 134,
+        "stopReason": "model_stop",
+        "repetition": null,
+        "validation": {
+          "formatValid": false,
+          "requiresSemanticHumanReview": true,
+          "candidate": null,
+          "errors": [
+            {
+              "code": "INVALID_CANDIDATE",
+              "message": "Candidate failed the local format or literal-reference check."
+            }
+          ]
+        }
+      },
+      "rawOutput": "{\n  \"answer\": \"The case has been canceled.\",\n  \"citations\": [\n    {\n      \"sourceId\": \"SIM01-AGENDA\",\n      \"trecho\": \"O retorno foi cancelado. Nao ha reposicao confirmada na agenda.\"\n    },\n    {\n      \"sourceId\": \"SIM01-TAREFA\",\n      \"trecho\": \"A pendencia de reposicao esta aberta e atribuida a SEC-SIM-A.\"\n    }\n  ],\n  \"abstention\": false,\n  \"reason\": \"The sources provide clear information about the cancellation status.\",\n  \"humanReviewRequired\": true\n}",
+      "provenance": {
+        "runId": "RUN-20261012T173800Z-994777c7",
+        "observedAt": "2026-10-12T17:38:04.776350+00:00",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "modelSource": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/tree/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "deviceName": "AMD Radeon Pro W7900D",
+        "torchHip": "7.15.26333",
+        "dtype": "float32",
+        "torch": "2.13.0+rocm10.0.0",
+        "transformers": "4.57.1",
+        "python": "3.14.4",
+        "attentionImplementation": "eager",
+        "cacheOnly": true,
+        "scriptSha256": "6850cda169ac1e769d606d8c10409644f2ff54966eccdfd9412b3aded64fe275",
+        "inputSha256": "894dc434a9f60c0bcf9c2e74f170aee5b1a2a003908b3a021a4872c6f5d31613",
+        "cloudShutdownVerified": true,
+        "cloudShutdownAt": "2026-10-12T17:39:42Z",
+        "shutdownEvidence": "Separate authenticated AMD Developer Cloud portal observation; not a model-generated status.",
+        "inputFile": "product-inputs.json",
+        "productInputsSha256": "2bba4f4db0dd68569137c79ffb8222b0f8e478fcc39ae020175a8cac3c3ed404",
+        "resultFile": "result-01.json",
+        "resultSha256": "55da1bbef9091d7ad721b1f0d74c83888d6b8a46d2ba37da1f3bb42b4e7e40fd",
+        "rawOutputFile": "raw-01.txt",
+        "rawOutputSha256": "af0bd297e5ebb5ee7038a66cb69115eabdc4aa6bb62f3203a3553b63b99a1fb3"
+      }
+    }
+  ]
+}

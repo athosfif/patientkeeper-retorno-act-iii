@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>PatientKeeper — Retorno | Conferir com fontes</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./client.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#detail">Pular para a pendência</a>
+  <div class="shell">
+    <header class="topbar">
+      <a class="wordmark" href="./" aria-label="PatientKeeper — Retorno, início">FIGUEIRA<span>/</span>PATIENTKEEPER</a>
+      <div class="topbar-tools"><span class="badge">Demonstração isolada no navegador</span><div class="language-field"><label for="language">Idioma</label><select id="language" aria-label="Idioma"><option value="en" data-language-option lang="en">English</option><option value="pt" data-language-option lang="pt-BR">Português</option><option value="es" data-language-option lang="es">Español</option></select></div></div>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div><p class="eyebrow">Continuidade do retorno</p><h1 id="page-title">Toda pendência precisa<br>de um próximo passo.</h1><p class="lede">Do cancelamento à conferência: uma fila com responsável, registros de origem e um cartão preparado por quem revisou.</p></div>
+        <div class="demo-note"><span class="dot" aria-hidden="true"></span><div><strong>Somente casos fictícios</strong><p>As alterações ficam somente neste navegador. Limpar os dados do site apaga o progresso.<br>Nenhuma mensagem é enviada.</p></div></div>
+      </section>
+      <section class="metrics" aria-label="Indicadores do processo">
+        <div><strong id="metric-open">—</strong><span>Pendências abertas</span></div>
+        <div><strong id="metric-unowned">—</strong><span>Sem responsável</span></div>
+        <div><strong id="metric-medical">—</strong><span>Revisão médica</span></div>
+        <div><strong id="metric-resolved">—</strong><span>Resoluções conferidas</span></div>
+      </section>
+      <div class="workspace">
+        <aside class="queue" aria-label="Fila de retornos">
+          <div class="queue-header"><h2>Fila de retornos</h2><label for="search">Buscar caso ou responsável</label><input type="search" id="search" placeholder="Ex.: Caso 01 ou SEC-SIM-A" autocomplete="off"><label for="filter">Mostrar</label><select id="filter"><option value="open">Pendências abertas</option><option value="all">Todos os casos</option><option value="unowned">Sem responsável</option><option value="medical">Revisão médica</option><option value="waiting">Aguardando resposta</option><option value="blocked">Contato bloqueado</option><option value="resolved">Resolvidas</option></select><p id="queue-count" class="caption" aria-live="polite">Carregando os casos…</p></div>
+          <div id="cases"></div>
+        </aside>
+        <section class="detail" id="detail" tabindex="-1" aria-label="Detalhe da pendência"><div class="empty-state"><h2>Carregando a demonstração</h2><p>Abrindo os oito casos fictícios e seu histórico local.</p></div></section>
+      </div>
+      <details class="data-tools"><summary>Dados da demonstração</summary><div class="tools-body"><p>Salve uma cópia do progresso ou retome uma cópia destes mesmos oito casos. Importe somente o arquivo desta demonstração, sem dados de pacientes.</p><div class="tool-actions"><a class="button" id="export" href="#export" download>Exportar progresso fictício</a><button id="export-reviews" type="button">Exportar recibos de conferência</button><button id="open-import" type="button">Importar progresso</button><button id="open-reset" type="button">Reiniciar oito casos</button></div><p class="caption">A cópia do progresso não inclui os recibos de conferência. Exporte-os separadamente; reiniciar os casos preserva esses recibos neste navegador.</p><p class="caption" id="storage-status">Armazenamento deste navegador · Execução AMD gravada · Sem inferência ao vivo.</p></div></details>
+      <footer><p>Protótipo administrativo com casos fictícios. A equipe define regras de contato e janelas clínicas. Consulta literal de fontes e execução AMD gravada; GPU desligada, sem inferência ao vivo. Não faz avaliação clínica, ranking da equipe ou envio automático.</p><span>PatientKeeper — Retorno / 2026</span></footer>
+    </main>
+  </div>
+  <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+  <dialog id="action-dialog" aria-labelledby="dialog-title"><form id="action-form"><div class="dialog-head"><p class="eyebrow">Registro humano · Dados fictícios</p><button class="icon-button" type="button" id="cancel-dialog" aria-label="Fechar confirmação">×</button></div><h2 id="dialog-title"></h2><p id="dialog-description"></p><div id="dialog-checks"></div><div class="dialog-actions"><button type="button" id="back-dialog">Voltar</button><button type="submit" class="primary" id="confirm-dialog" disabled>Confirmar na demonstração</button></div></form></dialog>
+  <dialog id="import-dialog" aria-labelledby="import-title"><form id="import-form"><div class="dialog-head"><p class="eyebrow">Somente progresso fictício</p><button class="icon-button" type="button" id="cancel-import" aria-label="Fechar importação">×</button></div><h2 id="import-title">Retomar uma cópia</h2><p>O arquivo substitui o progresso local. Apenas o formato e os casos desta demonstração são aceitos.</p><label for="import-file">Arquivo JSON exportado nesta demonstração</label><input id="import-file" type="file" accept=".json,application/json" required><label class="check"><input type="checkbox" id="import-confirm" required><span>Confirmo que o arquivo contém somente estes casos fictícios.</span></label><p class="form-error" id="import-error" role="alert"></p><div class="dialog-actions"><button type="button" id="back-import">Voltar</button><button type="submit" class="primary">Importar progresso</button></div></form></dialog>
+</body>
+</html>

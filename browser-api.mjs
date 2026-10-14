@@ -1,3 +1,4 @@
+import { createCareBrowserApi } from './care-browser-api.mjs';
 import { createState, transition, viewState, validateState, getModelInput } from './engine.mjs';
 import { queryEvidence, createEvidenceCard, evidenceContext, validStore, MAX_REVIEWS, MAX_REVIEW_BYTES } from './evidence.mjs';
 import { fixtures as defaultFixtures } from './fixtures.mjs';
@@ -181,4 +182,4 @@ export function createBrowserApi(options = {}) {
     }
   };
 }
-export const request = createBrowserApi();
+export const request = createCareBrowserApi(createBrowserApi());

@@ -4,15 +4,49 @@ import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { createState, viewState } from '../app/engine.mjs';
 import { readRecordedAMDArchive, recordedContextMatches } from '../app/recorded-amd.mjs';
+import { readRecordedGemmaArchive } from '../app/recorded-gemma.mjs';
 
 // Positive allowlist: no app/data, credentials, remote transport or test oracle.
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const COPY = ['styles.css', 'favicon.svg', 'theme-init.js', 'theme.mjs', 'calendar.mjs', 'calendar-client.mjs', 'evidence-client.mjs', 'model-client.mjs', 'engine.mjs', 'recorded-amd-client.mjs', 'recorded-amd.mjs', 'ai-contract.mjs', 'source-reading.mjs', 'source-translations.mjs'];
+const COPY = ['recorded-gemma.mjs', 'recorded-gemma-client.mjs', 'recorded-gemma.css', 'care-journey.mjs', 'care-journey-client.mjs', 'care-journey.css', 'care-browser-api.mjs', 'selection-controls.css', 'styles.css', 'favicon.svg', 'theme-init.js', 'theme.mjs', 'calendar.mjs', 'calendar-client.mjs', 'evidence-client.mjs', 'model-client.mjs', 'engine.mjs', 'recorded-amd-client.mjs', 'recorded-amd.mjs', 'ai-contract.mjs', 'source-reading.mjs', 'source-translations.mjs'];
 const SOURCE_KEYS = ['id', 'trecho', 'versao', 'vigente', 'substituida_por'];
 const pick = (value, keys) => Object.fromEntries(keys.filter(key => Object.hasOwn(value, key)).map(key => [key, value[key]]));
 function replaceOnce(source, needle, value) {
   if (source.split(needle).length !== 2) throw new Error(`Build marker missing or ambiguous: ${needle.slice(0, 60)}`);
   return source.replace(needle, value);
+}
+// The static product has no audio backend. Remove the entire local file-reading,
+// encoding and upload callback before publishing; a disabled UI is not enough.
+export function browserClientWithoutVoiceUpload(source) {
+  const startMarker = "  transcribeAudio: async (file, { signal, onProgress, language = 'pt' } = {}) => {\n";
+  const endMarker = "  },\n});\nvoid request('/api/voice/status')";
+  if (typeof source !== 'string' || source.split(startMarker).length !== 2 || source.split(endMarker).length !== 2) {
+    throw new Error('The local voice callback boundary is missing or ambiguous.');
+  }
+  const start = source.indexOf(startMarker), end = source.indexOf(endMarker, start);
+  if (end < start) throw new Error('The local voice callback boundary changed.');
+  const replacement = "  transcribeAudio: async () => {\n    throw Object.assign(new Error('VOICE_UNAVAILABLE'), { code: 'VOICE_UNAVAILABLE' });\n";
+  const portable = source.slice(0, start) + replacement + source.slice(end);
+  if (/\bfetch\s*\(/.test(portable) || /file\.arrayBuffer\s*\(|\bbtoa\s*\(/.test(portable)) {
+    throw new Error('The static client still contains an upload or direct network transport.');
+  }
+  return portable;
+}
+function browserCareAdapter(source) {
+  const careImport = "import { createCareBrowserApi } from './care-browser-api.mjs';\n";
+  const original = 'export const request = createBrowserApi();';
+  const generated = 'export const request = createCareBrowserApi(createBrowserApi());';
+  // The adapter is also an output file. Recognize only our exact prior wrapper
+  // so a checked-in public build can be reproduced without nesting wrappers.
+  if (source.startsWith(careImport)) {
+    if (source.split(careImport).length !== 2 || source.split(generated).length !== 2 || source.includes(original)) {
+      throw new Error('The generated browser adapter boundary is ambiguous.');
+    }
+    source = replaceOnce(source.slice(careImport.length), generated, original);
+  } else if (source.includes(careImport) || source.includes(generated)) {
+    throw new Error('The browser adapter wrapper is unexpected.');
+  }
+  return careImport + replaceOnce(source, original, generated);
 }
 function browserEvidence(source) {
   const end = source.indexOf('function corrupt()');
@@ -139,10 +173,13 @@ export async function buildPublicDemo({ root = ROOT, outputDir = path.join(root,
     readFile(path.join(root, 'public-demo', 'browser-api.mjs'), 'utf8'),
     recordedArchive(root),
   ]);
+  const gemmaRaw = JSON.parse(await readFile(path.join(root, 'docs/recorded-gemma-runs.json'), 'utf8'));
+  if (!(await readRecordedGemmaArchive(gemmaRaw)).valid) throw new Error('Recorded Gemma archive failed its pinned evidence check.');
   const content = new Map(files), generated = new Map(COPY.map(name => [name, content.get(name)]));
   generated.set('styles.css', content.get('styles.css') + `\n/* Recorded execution is a separate reading surface, not a live AI answer. */\n.recorded-amd-reading.section{padding:24px;margin-top:28px;border-top:1px solid var(--line);border-radius:10px;background:var(--surface-subtle);min-width:0;overflow-wrap:anywhere}.recorded-amd-reading .section-title-row h3{font:400 18px/1.35 Georgia,"Times New Roman",serif;letter-spacing:-.02em}.recorded-amd-reading h4{font-size:14px;margin:20px 0 10px}.recorded-amd-reading .evidence-excerpt{background:var(--white)}.recorded-amd-reading .evidence-excerpt>strong{font-size:11px}.recorded-amd-reading .evidence-receipts .caption{overflow-wrap:anywhere}.recorded-amd-reading .caption{line-height:1.6}.recorded-amd-reading .callout{line-height:1.65}@media(max-width:480px){.recorded-amd-reading.section{padding:18px}}\n`);
-  generated.set('browser-api.mjs', adapter);
+  generated.set('browser-api.mjs', browserCareAdapter(adapter));
   generated.set('amd-runs.json',JSON.stringify(archive,null,2)+'\n');
+  generated.set('gemma-runs.json',JSON.stringify(gemmaRaw,null,2)+'\n');
   let evidenceClient=content.get('evidence-client.mjs');
   if (!evidenceClient.includes("from './recorded-amd-client.mjs'")) evidenceClient="import { mountRecordedAMDPanel } from './recorded-amd-client.mjs';\n"+evidenceClient;
   if (!evidenceClient.includes('mountRecordedAMDPanel(container,')) evidenceClient=replaceOnce(evidenceClient,'  mountModelPanel(container,','  mountRecordedAMDPanel(container, { item, revision, request, notify, onStale });\n  mountModelPanel(container,');
@@ -151,6 +188,7 @@ export async function buildPublicDemo({ root = ROOT, outputDir = path.join(root,
   const start = client.indexOf('async function request(path, body) {'), end = client.indexOf('function setBusy(value) {', start);
   if (start < 0 || end < 0) throw new Error('The client request boundary was not found.');
   let browserClient = "import { request } from './browser-api.mjs';\n" + client.slice(0, start) + client.slice(end);
+  browserClient = browserClientWithoutVoiceUpload(browserClient);
   const exportHandler = `$('#export').addEventListener('click',async event => {\n  event.preventDefault();\n  try {\n    const snapshot=await request('/api/export');\n    const url=URL.createObjectURL(new Blob([JSON.stringify(snapshot,null,2)+'\\n'],{type:'application/json'}));\n    const link=document.createElement('a');link.href=url;link.download='retorno-ficticio-navegador.json';\n    document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);\n  } catch(error) { notify(error.message,true); }\n});\n`;
   browserClient = replaceOnce(browserClient, "$('#open-reset').onclick", exportHandler + "$('#open-reset').onclick");
   browserClient += `\n$('#export-reviews').addEventListener('click',async ()=>{\n  try {\n    const receipts=await request('/api/evidence/export');\n    const url=URL.createObjectURL(new Blob([JSON.stringify(receipts,null,2)+'\\n'],{type:'application/json'}));\n    const link=document.createElement('a');link.href=url;link.download='retorno-recibos-ficticios.json';\n    document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);\n  } catch(error) { notify(error.message,true); }\n});\n`;
@@ -169,7 +207,7 @@ export async function buildPublicDemo({ root = ROOT, outputDir = path.join(root,
     .replaceAll('Literal source lookup available · AI/AMD not connected yet.', 'Literal source lookup available · Recorded AMD execution · No live inference.')
     .replaceAll('Consulta literal de fuentes disponible · IA/AMD aún no conectados.', 'Consulta literal de fuentes disponible · Ejecución AMD grabada · Sin inferencia en vivo.');
   generated.set('i18n.mjs', translations);
-  generated.set('index.html', content.get('index.html').replaceAll('href="/styles.css"','href="./styles.css"').replaceAll('href="/favicon.svg"','href="./favicon.svg"').replaceAll('src="/client.mjs"','src="./client.mjs"').replaceAll('src="/theme-init.js"','src="./theme-init.js"').replaceAll('href="/"','href="./"').replaceAll('href="/api/export"','href="#export"').replace('Demonstração local','Demonstração isolada no navegador').replace('As alterações ficam neste computador.','As alterações ficam somente neste navegador. Limpar os dados do site apaga o progresso.').replace('Armazenamento local · IA/RAG ainda não conectados.','Armazenamento deste navegador · Execução AMD gravada · Sem inferência ao vivo.').replace('<button id="open-import"', '<button id="export-reviews" type="button">Exportar recibos de conferência</button><button id="open-import"').replace('<p class="caption" id="storage-status">','<p class="caption">A cópia do progresso não inclui os recibos de conferência. Exporte-os separadamente; reiniciar os casos preserva esses recibos neste navegador.</p><p class="caption" id="storage-status">').replace('Protótipo administrativo com casos fictícios. A equipe define regras de contato e janelas clínicas. Consulta local com fontes; integração IA/AMD pendente. Não faz avaliação clínica, ranking da equipe ou envio automático.', publicCopy.find(row=>row[0].startsWith('Protótipo administrativo'))[0]));
+  generated.set('index.html', content.get('index.html').replaceAll('href="/care-journey.css"','href="./care-journey.css"').replaceAll('href="/selection-controls.css"','href="./selection-controls.css"').replaceAll('href="/recorded-gemma.css"','href="./recorded-gemma.css"').replaceAll('href="/styles.css"','href="./styles.css"').replaceAll('href="/favicon.svg"','href="./favicon.svg"').replaceAll('src="/client.mjs"','src="./client.mjs"').replaceAll('src="/theme-init.js"','src="./theme-init.js"').replaceAll('href="/"','href="./"').replaceAll('href="/api/export"','href="#export"').replace('Demonstração local','Demonstração isolada no navegador').replace('As alterações ficam neste computador.','As alterações ficam somente neste navegador. Limpar os dados do site apaga o progresso.').replace('Armazenamento local · IA/RAG ainda não conectados.','Armazenamento deste navegador · Execução AMD gravada · Sem inferência ao vivo.').replace('<button id="open-import"', '<button id="export-reviews" type="button">Exportar recibos de conferência</button><button id="open-import"').replace('<p class="caption" id="storage-status">','<p class="caption">A cópia do progresso não inclui os recibos de conferência. Exporte-os separadamente; reiniciar os casos preserva esses recibos neste navegador.</p><p class="caption" id="storage-status">').replace('Protótipo com dados fictícios. A equipe médica define as orientações e os prazos clínicos. Fontes conferíveis e revisão humana. Não envia mensagens nem altera consultas reais.', publicCopy.find(row=>row[0].startsWith('Protótipo administrativo'))[0]).replace('Protótipo administrativo com casos fictícios. A equipe define regras de contato e janelas clínicas. Consulta local com fontes; integração IA/AMD pendente. Não faz avaliação clínica, ranking da equipe ou envio automático.', publicCopy.find(row=>row[0].startsWith('Protótipo administrativo'))[0]));
   generated.set('evidence.mjs', browserEvidence(content.get('evidence.mjs')));
   generated.set('fixtures.mjs', '// Public fictional fixtures only. Test expectations and local progress are excluded.\nexport const fixtures = ' + JSON.stringify(publicFixtures(JSON.parse(rawFixtures)), null, 2) + ';\n');
   generated.set('_headers', `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  X-Frame-Options: DENY\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'\n`);

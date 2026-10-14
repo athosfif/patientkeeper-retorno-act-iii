@@ -1,6 +1,7 @@
 {
-  "schemaVersion": 1,
-  "state": "Published UX R09 with persistent appearance and fictional doctor calendar. The R05/R08 LabLab/media receipt remains a separately timestamped historical submission.",
+  "schemaVersion": 2,
+  "revision": "R12-GEMMA-CARE-20261014",
+  "state": "R12 source staged, clean-build verified and ready for publication; not published or submitted",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -11,6 +12,11 @@
     "app/ai-contract.mjs",
     "app/calendar-client.mjs",
     "app/calendar.mjs",
+    "app/care-browser-api.mjs",
+    "app/care-journey-client.mjs",
+    "app/care-journey.css",
+    "app/care-journey.mjs",
+    "app/care-store.mjs",
     "app/client.mjs",
     "app/engine.mjs",
     "app/evidence-client.mjs",
@@ -18,28 +24,41 @@
     "app/favicon.svg",
     "app/i18n.mjs",
     "app/index.html",
+    "app/model-budget.mjs",
     "app/model-client.mjs",
     "app/model-transport.mjs",
     "app/recorded-amd-client.mjs",
     "app/recorded-amd.mjs",
+    "app/recorded-gemma-client.mjs",
+    "app/recorded-gemma.css",
+    "app/recorded-gemma.mjs",
+    "app/selection-controls.css",
     "app/server.mjs",
     "app/source-reading.mjs",
     "app/source-translations.mjs",
     "app/styles.css",
     "app/tests/ai-contract.test.mjs",
     "app/tests/calendar.test.mjs",
+    "app/tests/care-browser-api.test.mjs",
+    "app/tests/care-journey.test.mjs",
+    "app/tests/care-server.test.mjs",
     "app/tests/engine.test.mjs",
     "app/tests/evidence-server.test.mjs",
     "app/tests/evidence.test.mjs",
     "app/tests/i18n.test.mjs",
+    "app/tests/model-budget.test.mjs",
     "app/tests/model-server.test.mjs",
     "app/tests/model-transport.test.mjs",
     "app/tests/recorded-amd.test.mjs",
+    "app/tests/recorded-gemma.test.mjs",
     "app/tests/server.test.mjs",
     "app/tests/source-reading.test.mjs",
     "app/tests/theme.test.mjs",
+    "app/tests/voice-transcription.test.mjs",
     "app/theme-init.js",
     "app/theme.mjs",
+    "app/voice-transcription-worker.py",
+    "app/voice-transcription.mjs",
     "assets/ACT-III-20261012/BRAND-FIGUEIRA/PROVENANCE.md",
     "assets/ACT-III-20261012/BRAND-FIGUEIRA/figueira-wordmark.png",
     "assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md",
@@ -60,6 +79,13 @@
     "docs/ACT-III-20261012/SUBMISSION-COPY-R11.json",
     "docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md",
     "docs/ACT-III-20261012/UX-R09.md",
+    "docs/ACT-III-20261014/COVER-R10.png",
+    "docs/ACT-III-20261014/NARRATION-EN-R07.txt",
+    "docs/ACT-III-20261014/PRESENTATION-EN-R12.pdf",
+    "docs/ACT-III-20261014/PRESENTATION-EN-R12.pptx",
+    "docs/ACT-III-20261014/RELEASE-R12.md",
+    "docs/recorded-gemma-integration.md",
+    "docs/recorded-gemma-runs.json",
     "public-demo/browser-api.mjs",
     "public-demo/tests/browser-api.test.mjs",
     "public-demo/tests/recorded-amd-integration.test.mjs",
@@ -393,144 +419,703 @@
   "staticOutput": {
     "directory": "public-demo",
     "publishTo": "GitHub Pages gh-pages branch root",
-    "mustInspectActualGeneratedFiles": true,
-    "containsLocalProgress": false,
-    "liveInference": false,
-    "generatedFiles": 22,
+    "expectedGeneratedFiles": 31,
     "deploymentMarker": ".nojekyll",
-    "testFilesIncluded": false
+    "liveInference": false,
+    "audioTranscription": false,
+    "mustInspectActualGeneratedFiles": true,
+    "generatedFiles": 31,
+    "deploymentTotalWithMarker": 32,
+    "generatedFileNames": [
+      "recorded-gemma.mjs",
+      "recorded-gemma-client.mjs",
+      "recorded-gemma.css",
+      "care-journey.mjs",
+      "care-journey-client.mjs",
+      "care-journey.css",
+      "care-browser-api.mjs",
+      "selection-controls.css",
+      "styles.css",
+      "favicon.svg",
+      "theme-init.js",
+      "theme.mjs",
+      "calendar.mjs",
+      "calendar-client.mjs",
+      "evidence-client.mjs",
+      "model-client.mjs",
+      "engine.mjs",
+      "recorded-amd-client.mjs",
+      "recorded-amd.mjs",
+      "ai-contract.mjs",
+      "source-reading.mjs",
+      "source-translations.mjs",
+      "browser-api.mjs",
+      "amd-runs.json",
+      "gemma-runs.json",
+      "client.mjs",
+      "i18n.mjs",
+      "index.html",
+      "evidence.mjs",
+      "fixtures.mjs",
+      "_headers"
+    ],
+    "generatedFileSha256": [
+      {
+        "file": "recorded-gemma.mjs",
+        "sha256": "597600ae439ab7eb38301200934eedc54daf62b6f75e570cbd40cae5256f4ec3"
+      },
+      {
+        "file": "recorded-gemma-client.mjs",
+        "sha256": "d404593f2567541123bd147050d0dfaa9e3560abe509400d979814d934aab90c"
+      },
+      {
+        "file": "recorded-gemma.css",
+        "sha256": "2da41caca09d03b03dc071a0d83683d0a9a96e9a42ba3de5c9d1b58e6a627bfb"
+      },
+      {
+        "file": "care-journey.mjs",
+        "sha256": "43922833055a681718b5f6832769bc70cbaf0b31bb78343f5606785142f16f60"
+      },
+      {
+        "file": "care-journey-client.mjs",
+        "sha256": "4e26981ba5cb5f5d2c29d5ef668591233926917bf1fcf15c449c15f2b120b6e8"
+      },
+      {
+        "file": "care-journey.css",
+        "sha256": "9c33ae64e24df67c84752958d4ee24b55a4f4c37d2cfc05dfe25ec713d098009"
+      },
+      {
+        "file": "care-browser-api.mjs",
+        "sha256": "7dcef1b0f318f18dfdc8db9d43fbb75cf3e8da578c1d4a482ca3b8128a92d0ad"
+      },
+      {
+        "file": "selection-controls.css",
+        "sha256": "10e32dcaa82bb99adddbd92e777c5ead00e538400c9439ad73a0efc464ff2a71"
+      },
+      {
+        "file": "styles.css",
+        "sha256": "7999e75e6d95edde6b6392d72ee68dc8f2e29bc20815259c0f88ffefdd575afd"
+      },
+      {
+        "file": "favicon.svg",
+        "sha256": "e70dd602b5e76de29ccbeeef1a384ecdd88e8056879de89a742e559e68bc4889"
+      },
+      {
+        "file": "theme-init.js",
+        "sha256": "fc6be17dc111820e89ae359d132ddf70b5224137419f679a5ab48149e506d2cc"
+      },
+      {
+        "file": "theme.mjs",
+        "sha256": "1532f4f0e44ca9d86a17f1c8a5e2f110ca713ec4c3fd9b464b8d353f65dce4b6"
+      },
+      {
+        "file": "calendar.mjs",
+        "sha256": "5c5dfe5e95d5b5f8baff16da8da83db0e24e41f8803d6d5f886cd878dfe93ccf"
+      },
+      {
+        "file": "calendar-client.mjs",
+        "sha256": "d9211edacc9c81608c4339acd4abc763a330f225ca875e29804e262a71e280b8"
+      },
+      {
+        "file": "evidence-client.mjs",
+        "sha256": "990892ab3006aab8f573746986754964ed0824f00e87c41ea8ac4f3208684c2b"
+      },
+      {
+        "file": "model-client.mjs",
+        "sha256": "760fe52d97bdab4a2e4e385c9f32acccf9ceb35c5cf3d04a315fb0e80971323f"
+      },
+      {
+        "file": "engine.mjs",
+        "sha256": "017d17fdb67995cff32b532d5f1a98fd3498c3e19002f81248f440bb6a28e637"
+      },
+      {
+        "file": "recorded-amd-client.mjs",
+        "sha256": "bf85c6c7fe8d1ae718fa57a52db7184c3b3f75bb1b821bbb93bc40a4c88b692d"
+      },
+      {
+        "file": "recorded-amd.mjs",
+        "sha256": "e0c29be08847ac0777cc6b25451fc99569e955128de3d6c0c95e84529ee45541"
+      },
+      {
+        "file": "ai-contract.mjs",
+        "sha256": "7eaa02dc6cfe39140a07b013e7331ea701a098853d68a398fa6be73577fa3cef"
+      },
+      {
+        "file": "source-reading.mjs",
+        "sha256": "b3f93a27b0186de0fff9c8a3f7e23eaca1e58c2f27a4ee210ceafc7f71b6b10f"
+      },
+      {
+        "file": "source-translations.mjs",
+        "sha256": "cb9b94694365b43d4642466db896a97d403ddf0c00b34013f05069d4ae1bb3b1"
+      },
+      {
+        "file": "browser-api.mjs",
+        "sha256": "14be095a4bac7801768d70ba0b9f3019a69655591c65fb34f0a2dfefd52c8d95"
+      },
+      {
+        "file": "amd-runs.json",
+        "sha256": "e7a31cf25a73b06212b151df1f54676a0369fd70b136937487f3464afd3d09ea"
+      },
+      {
+        "file": "gemma-runs.json",
+        "sha256": "ad399e1c04385052ab8eb273d2ed46b699434ed1e5e6dbde20ece2b876ec4fd2"
+      },
+      {
+        "file": "client.mjs",
+        "sha256": "9d8c5a5183a9bcfbe0bd9cfda27bd844589404918fa5c61382bd30f78807e3b5"
+      },
+      {
+        "file": "i18n.mjs",
+        "sha256": "90859f7b66662aef3015cd275d9dfad9dd2e2b3a1a02e67f81881ed0d4a4a520"
+      },
+      {
+        "file": "index.html",
+        "sha256": "4dc9feae0a0d3717141c682fcd0f788260063868823625c1363d6bc1712a245f"
+      },
+      {
+        "file": "evidence.mjs",
+        "sha256": "adad241bb5b41e7b11fc1060352b951dac2fadb0f027411c88caa1fd06954dcb"
+      },
+      {
+        "file": "fixtures.mjs",
+        "sha256": "95fa993d4f4ff7d8f3fc6fc6ebca4dcec5aab835f41f95041499e09aa9db95f8"
+      },
+      {
+        "file": "_headers",
+        "sha256": "dad216fa446bef5af72deec210c39c34e4bb761caa536012973838002c670c3c"
+      }
+    ],
+    "audioCallback": "VOICE_UNAVAILABLE before file read or upload",
+    "repeatedBuildVerified": true,
+    "trackedAdapterAlsoServesAsGeneratedBuildInput": true,
+    "otherGeneratedFilesOutsideSourceAllowlist": 30
   },
+  "sourceFilesBase": ".",
+  "finalPublicationConfirmed": false,
+  "googlePrizeEligibilityConfirmed": false,
   "excluded": [
+    ".git/**",
     "app/data/**",
     ".env*",
-    "credentials or browser session files",
-    "all other evidence directories",
-    "R03 local ZIPs and screenshots",
-    "model weights and caches",
-    "node_modules and Python environments"
+    "auth/key/session files",
+    "all non-allowlisted evidence",
+    "capture and preview state",
+    "private ASR configuration and uploaded/source audio",
+    "private AMD manual or authenticated account observations",
+    "raw provider response envelopes",
+    "model weights and runtime caches",
+    "backups and render caches",
+    "complete educational medical PDFs",
+    "raw narration and font binaries"
   ],
+  "originDisclosure": "ADMIN-R01 pre-event scaffolding; core AI/source review October12; Gemma/doctor episode/local ASR October14. Earlier engine/UI not copied into independent preparation.",
   "privacyReview": {
-    "scope": "Only the named JSON/TXT R03 evidence and the two named sanitized receipts",
-    "knownRealEmailOrCredentialOrPrivateAuthURLMatches": 0,
-    "rawOutputs": "Fictional input outputs retained as exact attempt evidence; failed text is never shown as an accepted answer",
-    "sourceAdapter": "public-demo/browser-api.mjs audited: same-origin bounded read-only archive fetch; browser-local synthetic state only; no credentials or private endpoints.",
-    "publicMarkdown": "Absolute machine paths and links to non-public local receipts are sanitized in the publication checkout; local originals are preserved.",
-    "cover": "Conceptual imagegen illustration; visual audit found no identifiable patient, patient records, credentials or outcome claims; exact PNG identity verified.",
-    "sourceReading": "Exact source ID and full Portuguese literal gate reviewed EN/ES display translations. Original evidence, model output and saved receipts are unchanged.",
-    "brand": "Only the unchanged official FIGUEIRA wordmark and its named provenance are included; no other brand or media folder is copied."
-  },
-  "finalPublicationConfirmed": true,
-  "publication": {
-    "observedAt": "2026-10-12T22:36:07.673239+00:00",
-    "sourceCodeCommit": "54e3d3630ac996d4aebf9aa216a448425758cc8b",
-    "staticCommit": "d14fd101caff1759894227ee3f5c34068e99692c",
-    "publicURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
-    "publicFilesHTTPAndSHA256Matched": 23,
-    "liveInference": false,
-    "labLabSubmitted": true,
-    "sourceReadingPublished": true,
-    "mediaState": "Submitted R05 video, R08 PDF and R08 composition with R02 conceptual AI illustration",
-    "readingTranslationLimit": "Display aids only. Full original PT sources and AMD answer/reason are unchanged.",
-    "submission": {
-      "observedAt": "2026-10-12T19:27:49.777140+00:00",
-      "url": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
-      "confirmedBy": "Official LabLab success UI and final project page in the existing Chrome session",
-      "unauthenticatedPageHTTPStatus": 403,
-      "unauthenticatedPageAccessConfirmed": false,
-      "judging": "In progress; no result or eligibility approval claimed"
-    },
-    "finalMedia": {
-      "observedAt": "2026-10-12T19:27:49.777140+00:00",
-      "videoRevision": "R05",
-      "pdfRevision": "R08",
-      "coverRevision": "R08 diagrammed, R02 conceptual AI photo",
-      "videoDurationSeconds": 186.271,
-      "narration": "Synthetic English narration supplied by Athos via Envato; files1 through5 in order; no speed-up.",
-      "humanIntegralListening": false,
-      "assets": {
-        "pdf": {
-          "url": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_nif3ozbuwn7a1lqs7vdgg5vt.pdf",
-          "status": 200,
-          "contentType": "application/pdf",
-          "bytes": 4694100,
-          "sha256": "968b38f3aa74b53240fc72135051b2cbe55343edf43cff166ecf40762052ce70",
-          "unauthenticated": true,
-          "fullBytesReadInMemory": true
-        },
-        "cover": {
-          "url": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/image/image_qwij0iodrs5swlszu3ere2r7.jpg",
-          "status": 200,
-          "contentType": "image/jpeg",
-          "bytes": 227489,
-          "sha256": "a536d51bb75626d3d49650fa3b7197da01e86f8030001d8cd7991d36217e4c6a",
-          "unauthenticated": true,
-          "fullBytesReadInMemory": true
-        },
-        "video": {
-          "url": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_yxmp2jbaeshptu64v71cswcn.mp4",
-          "status": 200,
-          "contentType": "video/mp4",
-          "bytes": 7235091,
-          "sha256": "ea2cb3b7e82102f22b0b1b155e2abc1c3f6fd046bca1857d2e8ae96887030347",
-          "unauthenticated": true,
-          "fullBytesReadInMemory": true
-        }
-      }
-    },
-    "initialSourceCommit": "05391eadb16d7fb1da9a527b21534f143733fd92",
-    "mediaDocumentationCommit": "3aecac2f3099c6e0b811e07955f565fb530aa36d",
-    "currentStateObservedAt": "2026-10-12T19:27:49.777140+00:00",
-    "observedAtScope": "Unauthenticated R09 static files verified against d14fd10; historical LabLab submission and media receipts retain their own timestamps.",
-    "previousStaticVerification": {
-      "observedAt": "2026-10-12T18:42:56.144Z",
-      "sourceCodeCommit": "947329ee80248f13d1318601486e6c4cdfe41310",
-      "staticCommit": "f1b4d91dbb288ba3ae38b20d069eaf14151eb24d",
-      "publicFilesHTTPAndSHA256Matched": 18,
-      "observedAtScope": "Historical unauthenticated verification of the 18 static files at the recorded staticCommit; not the latest source or submission timestamp"
-    },
-    "uxUpdate": {
-      "revision": "R09",
-      "verifiedAt": "2026-10-12T22:36:10.680Z",
-      "publishedFeatureSourceCommit": "54e3d3630ac996d4aebf9aa216a448425758cc8b",
-      "staticCommit": "d14fd101caff1759894227ee3f5c34068e99692c",
-      "publicURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
-      "calendarURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/#calendar",
-      "http200AndSha256Matched": 23,
-      "browserChecksPassed": 7,
-      "browserErrors": 0,
-      "externalServiceRequests": 0,
-      "pagesWorkflowURL": "https://github.com/athosfif/patientkeeper-retorno-act-iii/actions/runs/38317423478",
-      "pagesWorkflowConclusion": "success",
-      "mediaUpdateConfirmedByThisReceipt": false,
-      "newGpuExecution": false
-    }
+    "positiveAllowlist": true,
+    "privateMachinePaths": 0,
+    "newGemmaPublicEvidence": "Only docs/recorded-gemma-runs.json; no private provider artifacts copied",
+    "physicalHardwareIndependentlyVerifiedForGemma": false,
+    "privateMachinePathPatterns": 0,
+    "highEntropyCredentialPatterns": 0,
+    "sourcePublicationFiles": 170,
+    "staticGeneratedFiles": 31,
+    "newPublicGemmaProofs": "Sanitized fixed fixture and integration note only; no account artifacts or model key",
+    "currentLocalAsrClientUnchanged": true
   },
   "verifiedLocalTests": {
-    "files": 15,
-    "pass": 195,
+    "tests": 281,
+    "pass": 281,
     "fail": 0,
     "skipped": 0,
-    "validation": "R09 exact publication checkout test and build verification; production verification recorded separately"
+    "scope": "Exact staged source after build; same results from clean source before second identical build",
+    "modelOrAsrExecution": false
   },
-  "sourceFilesBase": "release/github",
-  "localCleanup": {
-    "at": "2026-10-12T19:54:27.268096+00:00",
-    "sourceFilesMeaning": "Exact source publication snapshot relative to sourceFilesBase; some earlier published docs/assets were removed only from the local working root.",
-    "sourceSnapshotPreserved": true,
-    "currentFinalInventory": "ENTREGA-FINAL/MANIFEST-CLEAN-FINAL-20261012.json",
-    "publicEvidenceMeaning": "The 80 immutable proofs still resolve relative to the project root and remain unchanged.",
-    "noRemotePublicationChanged": true
+  "cleanSourceReproduction": {
+    "initialFiles": 170,
+    "generatedAssetsInitiallyAbsent": true,
+    "buildThenTestsPassed": true,
+    "secondBuildByteIdentical": true
   },
-  "uxRevision": {
-    "revision": "R09",
-    "features": [
-      "persistent light and dark appearance",
-      "read-only fictional doctor calendar",
-      "EN/PT/ES calendar and navigation",
-      "case links retain current records"
-    ],
-    "doesNotStartGPU": true,
-    "calendarNotProductionScheduling": true,
-    "publicationState": "Published and publicly verified; this source update does not confirm presentation-media or LabLab changes."
-  }
+  "sourceIntegrity": [
+    {
+      "file": ".gitignore",
+      "bytes": 636,
+      "sha256": "6396ce4bbeff4417ba7ef61ec68bed308c4c204da4ee99c32d43d624a51ab1ca"
+    },
+    {
+      "file": "BASE-PREEXISTENTE.md",
+      "bytes": 7176,
+      "sha256": "14079a207b573785b66a751787dba86de90c5fd72e5622355894a6617e3d94f5"
+    },
+    {
+      "file": "CASOS-SINTETICOS.json",
+      "bytes": 24690,
+      "sha256": "ed64497b692923fe42595ae47886aa4431dbd87e42d13b9c95702c6e397211cd"
+    },
+    {
+      "file": "LICENSE",
+      "bytes": 1069,
+      "sha256": "0349e9253b68201f6014356cc9c3e13578fdc3e098f2f8f110ab14ebee05167d"
+    },
+    {
+      "file": "README.md",
+      "bytes": 14663,
+      "sha256": "55e2fdd067005c6401af0f42504543feb962add691c89b1d5b15a13bea4bb721"
+    },
+    {
+      "file": "app/ai-contract.mjs",
+      "bytes": 11162,
+      "sha256": "7eaa02dc6cfe39140a07b013e7331ea701a098853d68a398fa6be73577fa3cef"
+    },
+    {
+      "file": "app/calendar-client.mjs",
+      "bytes": 8857,
+      "sha256": "d9211edacc9c81608c4339acd4abc763a330f225ca875e29804e262a71e280b8"
+    },
+    {
+      "file": "app/calendar.mjs",
+      "bytes": 15250,
+      "sha256": "5c5dfe5e95d5b5f8baff16da8da83db0e24e41f8803d6d5f886cd878dfe93ccf"
+    },
+    {
+      "file": "app/care-browser-api.mjs",
+      "bytes": 7983,
+      "sha256": "7dcef1b0f318f18dfdc8db9d43fbb75cf3e8da578c1d4a482ca3b8128a92d0ad"
+    },
+    {
+      "file": "app/care-journey-client.mjs",
+      "bytes": 48521,
+      "sha256": "4e26981ba5cb5f5d2c29d5ef668591233926917bf1fcf15c449c15f2b120b6e8"
+    },
+    {
+      "file": "app/care-journey.css",
+      "bytes": 9467,
+      "sha256": "9c33ae64e24df67c84752958d4ee24b55a4f4c37d2cfc05dfe25ec713d098009"
+    },
+    {
+      "file": "app/care-journey.mjs",
+      "bytes": 25858,
+      "sha256": "43922833055a681718b5f6832769bc70cbaf0b31bb78343f5606785142f16f60"
+    },
+    {
+      "file": "app/care-store.mjs",
+      "bytes": 2292,
+      "sha256": "d4847304ccd630c438b8e12f586ca311a16ec3d708232a46828105b17edf1937"
+    },
+    {
+      "file": "app/client.mjs",
+      "bytes": 30208,
+      "sha256": "ef46ce6cd5b8473bafabf6627aac9f8e06c1f43a6792811704a61efcd58efb7d"
+    },
+    {
+      "file": "app/engine.mjs",
+      "bytes": 28368,
+      "sha256": "017d17fdb67995cff32b532d5f1a98fd3498c3e19002f81248f440bb6a28e637"
+    },
+    {
+      "file": "app/evidence-client.mjs",
+      "bytes": 14724,
+      "sha256": "16f2ad16f98cf1a307cfaf866776108efaaf84edb7d8048b546e8d20fcd52671"
+    },
+    {
+      "file": "app/evidence.mjs",
+      "bytes": 15181,
+      "sha256": "8df4188fba473e6ca60d9ae0e31ac7b120dad4c9221d308276fd4933bb02ae72"
+    },
+    {
+      "file": "app/favicon.svg",
+      "bytes": 274,
+      "sha256": "e70dd602b5e76de29ccbeeef1a384ecdd88e8056879de89a742e559e68bc4889"
+    },
+    {
+      "file": "app/i18n.mjs",
+      "bytes": 53330,
+      "sha256": "8b615739433bc54a7aac7d41c8b3e4b5497883b1e68d6305ffb0315facbdbe18"
+    },
+    {
+      "file": "app/index.html",
+      "bytes": 7977,
+      "sha256": "f0c7ece336ef5dcf57d02a9273f5cc5d470d1a4497f30a0dfa576a6b6f025603"
+    },
+    {
+      "file": "app/model-budget.mjs",
+      "bytes": 3635,
+      "sha256": "e004da435179fe562828d66072012d8c610adaabc6493671b6fae241d91d327f"
+    },
+    {
+      "file": "app/model-client.mjs",
+      "bytes": 8069,
+      "sha256": "760fe52d97bdab4a2e4e385c9f32acccf9ceb35c5cf3d04a315fb0e80971323f"
+    },
+    {
+      "file": "app/model-transport.mjs",
+      "bytes": 16633,
+      "sha256": "098386b7f16eaf6d8b43f0ae0f9e87299351e5c1cdbff5d75a12313770959aa9"
+    },
+    {
+      "file": "app/recorded-amd-client.mjs",
+      "bytes": 13243,
+      "sha256": "bf85c6c7fe8d1ae718fa57a52db7184c3b3f75bb1b821bbb93bc40a4c88b692d"
+    },
+    {
+      "file": "app/recorded-amd.mjs",
+      "bytes": 7280,
+      "sha256": "e0c29be08847ac0777cc6b25451fc99569e955128de3d6c0c95e84529ee45541"
+    },
+    {
+      "file": "app/recorded-gemma-client.mjs",
+      "bytes": 15960,
+      "sha256": "d404593f2567541123bd147050d0dfaa9e3560abe509400d979814d934aab90c"
+    },
+    {
+      "file": "app/recorded-gemma.css",
+      "bytes": 3644,
+      "sha256": "2da41caca09d03b03dc071a0d83683d0a9a96e9a42ba3de5c9d1b58e6a627bfb"
+    },
+    {
+      "file": "app/recorded-gemma.mjs",
+      "bytes": 9807,
+      "sha256": "597600ae439ab7eb38301200934eedc54daf62b6f75e570cbd40cae5256f4ec3"
+    },
+    {
+      "file": "app/selection-controls.css",
+      "bytes": 866,
+      "sha256": "10e32dcaa82bb99adddbd92e777c5ead00e538400c9439ad73a0efc464ff2a71"
+    },
+    {
+      "file": "app/server.mjs",
+      "bytes": 25840,
+      "sha256": "d502395c36488a9574d2af45813ce38b0f083ba765afc04201a8771a98f5342c"
+    },
+    {
+      "file": "app/source-reading.mjs",
+      "bytes": 2383,
+      "sha256": "b3f93a27b0186de0fff9c8a3f7e23eaca1e58c2f27a4ee210ceafc7f71b6b10f"
+    },
+    {
+      "file": "app/source-translations.mjs",
+      "bytes": 12548,
+      "sha256": "cb9b94694365b43d4642466db896a97d403ddf0c00b34013f05069d4ae1bb3b1"
+    },
+    {
+      "file": "app/styles.css",
+      "bytes": 27120,
+      "sha256": "f695079e075133f3f07e1fd864c55340cd7a80eca3223ddbed52809817dd04e8"
+    },
+    {
+      "file": "app/tests/ai-contract.test.mjs",
+      "bytes": 14569,
+      "sha256": "9b60b4770bf102349c6c4959dc873aac810a873233d295fc4b671612ec5f1a18"
+    },
+    {
+      "file": "app/tests/calendar.test.mjs",
+      "bytes": 8340,
+      "sha256": "f12c97a5ab1beeac99679d713c7ed55a6a4d649dc0cf94f21009541a6818fdaa"
+    },
+    {
+      "file": "app/tests/care-browser-api.test.mjs",
+      "bytes": 12239,
+      "sha256": "71430381479ac24f09d9b759f396994349a00ff8486963a7e7aa160b9b207fab"
+    },
+    {
+      "file": "app/tests/care-journey.test.mjs",
+      "bytes": 11331,
+      "sha256": "9ea9c61e34ff8237e685881c8a25ac8987cf417daaa2d3f65a3bbf3cf009f947"
+    },
+    {
+      "file": "app/tests/care-server.test.mjs",
+      "bytes": 4614,
+      "sha256": "0ff1c43eae89a4d0b894fb56241e7891bccb49b4af85044e8b9b240554481d17"
+    },
+    {
+      "file": "app/tests/engine.test.mjs",
+      "bytes": 24613,
+      "sha256": "d56430b4b2a30c467da3cee97d4e4111e86a35072ee36469473355276027e269"
+    },
+    {
+      "file": "app/tests/evidence-server.test.mjs",
+      "bytes": 15105,
+      "sha256": "013e66f17bf74008ae8169cf6c540fee259fef36cd14c7f7d06f9a413bcd2207"
+    },
+    {
+      "file": "app/tests/evidence.test.mjs",
+      "bytes": 12122,
+      "sha256": "1124065db147314b13cb7f5c526d00358793011546e933e4f48066f30c57c74d"
+    },
+    {
+      "file": "app/tests/i18n.test.mjs",
+      "bytes": 6085,
+      "sha256": "7c935dcfe1c7c1d37c4cea12ee595c5bdf8f1ccb8c06f54ecac8b26fbba1a75d"
+    },
+    {
+      "file": "app/tests/model-budget.test.mjs",
+      "bytes": 7384,
+      "sha256": "90f968f2fb1c3d5134df8557fe2223d2cba60e86eab07965e069fae942f744b8"
+    },
+    {
+      "file": "app/tests/model-server.test.mjs",
+      "bytes": 11884,
+      "sha256": "e72f5f72ae44c9fa32fee170d239867cccbf19174d220524afe75ce8b1526607"
+    },
+    {
+      "file": "app/tests/model-transport.test.mjs",
+      "bytes": 32232,
+      "sha256": "6482454501c123a3123ac630cc3482ec3d67bc47be5440479675bbe2fdf0e373"
+    },
+    {
+      "file": "app/tests/recorded-amd.test.mjs",
+      "bytes": 12447,
+      "sha256": "490b3939a52a8242c76136ad878cf179430ce72cc74469b3b768fa2b917aaf6c"
+    },
+    {
+      "file": "app/tests/recorded-gemma.test.mjs",
+      "bytes": 12767,
+      "sha256": "6be94f55d1a3b6a49329d176b6f87535f5ffa17e81d784ce3a98cc60241ee56b"
+    },
+    {
+      "file": "app/tests/server.test.mjs",
+      "bytes": 16767,
+      "sha256": "efeacf9ed83f2e0d36fd5fad8ba99c15b1dda04d208b1294e62ae5a3a814d329"
+    },
+    {
+      "file": "app/tests/source-reading.test.mjs",
+      "bytes": 8830,
+      "sha256": "bf50fdfb7d604932337c64446ac6ed90592e24a86ed7384a3bd2bb750bb98ce6"
+    },
+    {
+      "file": "app/tests/theme.test.mjs",
+      "bytes": 1225,
+      "sha256": "351662c503b2b3ba340e4377303f895f9d7330040ae8e88b4337b56413244ce7"
+    },
+    {
+      "file": "app/tests/voice-transcription.test.mjs",
+      "bytes": 12004,
+      "sha256": "e48e805dbdc6438e3acdabbec9fe5484cb209b8a46020463f6687e51db45b530"
+    },
+    {
+      "file": "app/theme-init.js",
+      "bytes": 519,
+      "sha256": "fc6be17dc111820e89ae359d132ddf70b5224137419f679a5ab48149e506d2cc"
+    },
+    {
+      "file": "app/theme.mjs",
+      "bytes": 2667,
+      "sha256": "1532f4f0e44ca9d86a17f1c8a5e2f110ca713ec4c3fd9b464b8d353f65dce4b6"
+    },
+    {
+      "file": "app/voice-transcription-worker.py",
+      "bytes": 6701,
+      "sha256": "732377762a8be087f54199078fce57e6331dd2031919150b14c9c5914b143340"
+    },
+    {
+      "file": "app/voice-transcription.mjs",
+      "bytes": 13518,
+      "sha256": "64d48322ab4731cff9f38425f400e20878ff70e078640d78b7e1ce7e087c7e49"
+    },
+    {
+      "file": "assets/ACT-III-20261012/BRAND-FIGUEIRA/PROVENANCE.md",
+      "bytes": 1131,
+      "sha256": "3c6f26438a423fd556187679dd8768ad4dc4dc20353e1842dbd214b67ef24443"
+    },
+    {
+      "file": "assets/ACT-III-20261012/BRAND-FIGUEIRA/figueira-wordmark.png",
+      "bytes": 17212,
+      "sha256": "466d5130b5d21e473b5fa4cd2085344c3fd5ec98ca0258c14f22f18275931bd6"
+    },
+    {
+      "file": "assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md",
+      "bytes": 3096,
+      "sha256": "ef398f591d7cfba1463ac9bdb35db10b2d86f0b52ec3b1294ca4af1471f63302"
+    },
+    {
+      "file": "assets/ACT-III-20261012/COVER-IA-R01/PATIENTKEEPER-RETORNO-COVER-IA-R01.png",
+      "bytes": 2033543,
+      "sha256": "eb193cee7b62d78224a3bd4d8564c2e2226d43a62e3824f87c89903345a2a3f5"
+    },
+    {
+      "file": "docs/ACT-III-20261012/AMD-PILOT-DIAGNOSTIC.md",
+      "bytes": 7075,
+      "sha256": "bb6d02df41fc84ace9d22596c67fc5e2da64e58e43faba4fcae230ca36c2decb"
+    },
+    {
+      "file": "docs/ACT-III-20261012/AMD-PILOT-R03-RESULTS.md",
+      "bytes": 2910,
+      "sha256": "fa5ab50cebd2c0729e535ad5e2addf7a307a3cc0403a9842632f72d8cc24f93a"
+    },
+    {
+      "file": "docs/ACT-III-20261012/CONTRATO-MODELO-IMPLEMENTADO.md",
+      "bytes": 7678,
+      "sha256": "a18ec79ac5b076ee914fcb6b7efec7e355e453f7fcbcfceb4418e51cb51ea25a"
+    },
+    {
+      "file": "docs/ACT-III-20261012/PITCH-DRAFT-EN.md",
+      "bytes": 9788,
+      "sha256": "97a819437b081f9e0b9000365bbad98c5ba3592863154b1209c5ac236b72b949"
+    },
+    {
+      "file": "docs/ACT-III-20261012/PITCH-PRESENTATION-EN.md",
+      "bytes": 9210,
+      "sha256": "09937cdc2396093589efde90acaa68ebcb17c505f6ee199e2fc4922ea2c5fdd7"
+    },
+    {
+      "file": "docs/ACT-III-20261012/PLANO-PILOTO-AMD.md",
+      "bytes": 10276,
+      "sha256": "aecd2cec1f7a3ed4aae2ee6ff8e4f0c842eeb82f6c528e399946732bc42e0ba8"
+    },
+    {
+      "file": "docs/ACT-III-20261012/PRESENTATION-VIDEO-NARRATION-EN.md",
+      "bytes": 7616,
+      "sha256": "b738407df7392b89703126efcf57858f35e91b251ca44d3eb5704789220674fb"
+    },
+    {
+      "file": "docs/ACT-III-20261012/PROPOSTA-E-VALOR.md",
+      "bytes": 11323,
+      "sha256": "ed3b35112e2c086b1433e9c8aa53e57e656a6c962cdae911aef09b288beb2d51"
+    },
+    {
+      "file": "docs/ACT-III-20261012/README-PUBLIC-EN.md",
+      "bytes": 1924,
+      "sha256": "07c1f6a2b37d675fd2561d0a6c5219c0554d201304d6939e58c64c8c5fbd89bd"
+    },
+    {
+      "file": "docs/ACT-III-20261012/RELEASE-PLAN.md",
+      "bytes": 9283,
+      "sha256": "606d81b23fc45b0295ca7830042f8ea81f438a271fb27c6b011895fa2aed427f"
+    },
+    {
+      "file": "docs/ACT-III-20261012/REQUISITOS-E-EVIDENCIAS.md",
+      "bytes": 10836,
+      "sha256": "b02e9f4c2160333abbbe132596c8c2d37be6e94e62b506505ece2d95539543f0"
+    },
+    {
+      "file": "docs/ACT-III-20261012/ROTEIRO-DEMO-5-MIN.md",
+      "bytes": 8919,
+      "sha256": "d77b36530fcd8e3215372ec276890a1878afdea5e0c7d041067645c36615acff"
+    },
+    {
+      "file": "docs/ACT-III-20261012/SUBMISSION-COPY-R03.json",
+      "bytes": 2104,
+      "sha256": "3c71f35464033804399a33479f52474e4c1c1b380eedafb18d0b5ef9f6b35084"
+    },
+    {
+      "file": "docs/ACT-III-20261012/SUBMISSION-COPY-R11.json",
+      "bytes": 3683,
+      "sha256": "9d6467bcde390bd7bbcfaf0b15b084d757e8d9b4a5b3b4813bf38b5eb9cf54e6"
+    },
+    {
+      "file": "docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md",
+      "bytes": 9464,
+      "sha256": "183656f6698d68349b2fc3470fa172c6aaa72701628de67825a71deaafa59d98"
+    },
+    {
+      "file": "docs/ACT-III-20261012/UX-R09.md",
+      "bytes": 2359,
+      "sha256": "2364f5ffebcf06e172642fb30c46fb2f411413cb8e4dcbebcbdd7c4d51f8a264"
+    },
+    {
+      "file": "docs/ACT-III-20261014/COVER-R10.png",
+      "bytes": 1703882,
+      "sha256": "61d3e7227b61afa208ec53844d6a8311d00d262d3b609828b1df6cda51b3a320"
+    },
+    {
+      "file": "docs/ACT-III-20261014/NARRATION-EN-R07.txt",
+      "bytes": 3254,
+      "sha256": "2c9c43d00fca266f123908837c0218cd397aaa4ea8fc57a93d0485746ec23187"
+    },
+    {
+      "file": "docs/ACT-III-20261014/PRESENTATION-EN-R12.pdf",
+      "bytes": 4656064,
+      "sha256": "84cf0af2120830e315f3c97054e7fbf49e216632c25c4179589afa2da2d95b1b"
+    },
+    {
+      "file": "docs/ACT-III-20261014/PRESENTATION-EN-R12.pptx",
+      "bytes": 2111571,
+      "sha256": "433ff56cc5f70faa05aaae14e5162a1cf049ee1438ac94ef3b6111255478147e"
+    },
+    {
+      "file": "docs/ACT-III-20261014/RELEASE-R12.md",
+      "bytes": 3078,
+      "sha256": "6a26b23769894000a70869814cc22f19449ad69366c35b8ded1e060f85469e0b"
+    },
+    {
+      "file": "docs/recorded-gemma-integration.md",
+      "bytes": 4062,
+      "sha256": "ea7a8e075bbfaaa56a150f77115efb249349409363ffe2a9614eb57e24ab5321"
+    },
+    {
+      "file": "docs/recorded-gemma-runs.json",
+      "bytes": 13440,
+      "sha256": "ad399e1c04385052ab8eb273d2ed46b699434ed1e5e6dbde20ece2b876ec4fd2"
+    },
+    {
+      "file": "public-demo/browser-api.mjs",
+      "bytes": 13407,
+      "sha256": "14be095a4bac7801768d70ba0b9f3019a69655591c65fb34f0a2dfefd52c8d95"
+    },
+    {
+      "file": "public-demo/tests/browser-api.test.mjs",
+      "bytes": 18116,
+      "sha256": "b15d048d8205d2e36c8e6bb50c75a866ab89674aa59d02666bce2f1a1681dcf5"
+    },
+    {
+      "file": "public-demo/tests/recorded-amd-integration.test.mjs",
+      "bytes": 7479,
+      "sha256": "9ffdaad736e18225daa3961a200ee7bccac4da4051d1bc2e8e1fdd73c166e1f7"
+    },
+    {
+      "file": "public-demo/tests/source-reading.test.mjs",
+      "bytes": 2671,
+      "sha256": "3301fe68dfbdd8b18833d322ca2c74b0aa2d0db006042ed54d0cbf45468d273b"
+    },
+    {
+      "file": "scripts/amd-pilot-inputs.json",
+      "bytes": 2377,
+      "sha256": "aa1d125c85ad6f83b0ae4ecd8c9c186386eedd24f73ba30098e687d477b16131"
+    },
+    {
+      "file": "scripts/amd-pilot.py",
+      "bytes": 27091,
+      "sha256": "e7f46cca1a80f5de8c149262524acf8ffa7e030e049d7160ee285591ab4f3935"
+    },
+    {
+      "file": "scripts/build-public-demo.mjs",
+      "bytes": 27720,
+      "sha256": "e52b99c5d11409484fca1ff01fc2007905ba5e7b3b56ff591e2ca9f044568ae2"
+    }
+  ],
+  "currentConfirmedLabLabMedia": {
+    "videoRevision": "R06",
+    "pdfRevision": "R11",
+    "coverRevision": "R10",
+    "date": "2026-10-12",
+    "newR12VideoOutputIncluded": false
+  },
+  "labLabR12UpdateConfirmed": false,
+  "selfHashStoredInPrivateFreezeReceipt": true,
+  "preparedMaterialFiles": [
+    {
+      "file": "docs/ACT-III-20261014/PRESENTATION-EN-R12.pdf",
+      "bytes": 4656064,
+      "sha256": "84cf0af2120830e315f3c97054e7fbf49e216632c25c4179589afa2da2d95b1b"
+    },
+    {
+      "file": "docs/ACT-III-20261014/PRESENTATION-EN-R12.pptx",
+      "bytes": 2111571,
+      "sha256": "433ff56cc5f70faa05aaae14e5162a1cf049ee1438ac94ef3b6111255478147e"
+    },
+    {
+      "file": "docs/ACT-III-20261014/COVER-R10.png",
+      "bytes": 1703882,
+      "sha256": "61d3e7227b61afa208ec53844d6a8311d00d262d3b609828b1df6cda51b3a320"
+    },
+    {
+      "file": "docs/ACT-III-20261014/NARRATION-EN-R07.txt",
+      "bytes": 3254,
+      "sha256": "2c9c43d00fca266f123908837c0218cd397aaa4ea8fc57a93d0485746ec23187"
+    },
+    {
+      "file": "docs/ACT-III-20261014/RELEASE-R12.md",
+      "bytes": 3078,
+      "sha256": "6a26b23769894000a70869814cc22f19449ad69366c35b8ded1e060f85469e0b"
+    }
+  ]
 }

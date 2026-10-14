@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { buildModelRequest, validateModelCandidate } from '../ai-contract.mjs';
+import { buildModelRequest, validateModelCandidate, MODEL_REQUEST_MAX_TOKENS } from '../ai-contract.mjs';
 import { createState, getModelInput, transition } from '../engine.mjs';
 
 const NOW = '2026-10-12T15:00:00.000Z';
@@ -35,6 +35,8 @@ test('constrói corpo offline com esquema fechado, fontes exatas e nenhuma confi
   context.sources[0].vigente = true;
   const before = clone(context);
   const request = buildModelRequest(context, { model: 'synthetic/model-under-review' });
+  assert.equal(request.max_tokens, MODEL_REQUEST_MAX_TOKENS);
+  assert.equal(MODEL_REQUEST_MAX_TOKENS, 1024);
   assert.equal(request.model, 'synthetic/model-under-review');
   assert.deepEqual(JSON.parse(request.messages[1].content), before);
   assert.deepEqual(request.messages.map((message) => message.role), ['system', 'user']);

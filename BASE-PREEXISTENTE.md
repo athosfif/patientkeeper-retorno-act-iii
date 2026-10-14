@@ -1,3 +1,11 @@
+# R12 clarification · 2026-10-14
+
+The document below is the historical October 5 preparation declaration, not a statement of current capabilities. ADMIN-R01 queue, assignment, history, local persistence and the eight fictional cases predate ACT III. The independent Retorno preparation did not copy the earlier September PatientKeeper engine/UI or the Academy OCR/RAG engine.
+
+October 12 event-window work added source review, cited receipts, conflict/stale-context guards, multilingual navigation, model contracts, bounded optional transport, real Qwen AMD execution and replay. October 14 added the recorded five-attempt Gemma pilot, exact official service-identifier binding, explicit JSON-object adaptation with local validation, the doctor episode, local CPU ASR and extractive notes. Reuse and prior learning remain disclosed; award eligibility is not confirmed. Current features and limitations are in [README.md](README.md).
+
+---
+
 # Base preexistente e origem das entregas
 
 Registro em 05/10/2026 para distinguir aprendizado anterior, preparação atual e trabalho que será produzido no ACT III. Elegibilidade de reutilização não está confirmada. Ver fontes e regras (preserved in the private local archive).

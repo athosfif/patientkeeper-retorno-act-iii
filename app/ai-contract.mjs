@@ -1,5 +1,6 @@
 // Núcleo novo desenvolvido em 12/10/2026. Preparação offline; não faz inferência.
 // Formato e referências exatas não comprovam sustentação semântica ou validade clínica.
+export const MODEL_REQUEST_MAX_TOKENS = 1024;
 const LIMITS = Object.freeze({
   question: 2000,
   sources: 64,
@@ -154,7 +155,7 @@ export function buildModelRequest(input, options) {
       { role: 'user', content: JSON.stringify(context) },
     ],
     temperature: 0,
-    max_tokens: 1024,
+    max_tokens: MODEL_REQUEST_MAX_TOKENS,
     response_format: {
       type: 'json_schema',
       json_schema: { name: 'patientkeeper_administrative_candidate', strict: true, schema: candidateSchema(context) },

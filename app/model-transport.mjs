@@ -4,8 +4,8 @@ import { buildModelRequest, validateModelCandidate } from './ai-contract.mjs';
 
 const DEFAULT_TIMEOUT_MS = 15000;
 const DEFAULT_MAX_BYTES = 262144;
-const CONFIG_KEYS = ['endpoint', 'model', 'apiKey'];
-const OPTION_KEYS = ['fetchImpl', 'timeoutMs', 'maxBytes'];
+const CONFIG_KEYS = ['endpoint', 'model', 'apiKey', 'responseFormat'];
+const OPTION_KEYS = ['fetchImpl', 'timeoutMs', 'maxBytes', 'budget'];
 const OUTPUT_LANGUAGE = 'Write the candidate answer and abstention reason in English. Preserve all cited source excerpts exactly in their original language.';
 const ERRORS = Object.freeze({
   DISABLED: 'Model inference is disabled because no endpoint and model were configured.',
@@ -25,6 +25,10 @@ const ERRORS = Object.freeze({
   INCOMPLETE: 'The model endpoint did not finish one complete candidate.',
   ACTION_REJECTED: 'The model endpoint returned a tool or function call, which is not permitted.',
   INVALID_CANDIDATE: 'The model candidate did not pass the local output contract.',
+  MODEL_BUDGET_EXHAUSTED: 'The local pilot request limit has been reached. No further request was sent.',
+  MODEL_BUDGET_INPUT_LIMIT: 'The request exceeds the local pilot byte limit. No request was sent.',
+  MODEL_BUDGET_OUTPUT_LIMIT: 'The requested output exceeds the local pilot token limit. No request was sent.',
+  INVALID_MODEL_BUDGET_REQUEST: 'The local pilot reservation is invalid. No request was sent.',
 });
 
 function isDataRecord(value, allowed) {
@@ -59,16 +63,22 @@ function normalizedConfiguration(config) {
   const rawPath = address.slice(authority.length);
   const loopback = url.hostname === 'localhost' || url.hostname === '[::1]'
     || /^127(?:\.[0-9]{1,3}){3}$/.test(url.hostname);
+  // The Global portal's authenticated manual explicitly names this gateway.
+  // Its prefixed path is accepted only on the exact documented HTTPS host.
+  const amdGateway = url.protocol === 'https:' && url.host === 'developer.amd.com.cn'
+    && ['/radeon/api/v1', '/radeon/api/v1/', '/radeon/api/v1/chat/completions'].includes(rawPath);
   if ((url.protocol !== 'https:' && !(url.protocol === 'http:' && loopback))
     || !url.hostname || authority.includes('@') || url.username || url.password
     || url.search || url.hash
-    || !['/v1', '/v1/', '/v1/chat/completions'].includes(rawPath)
+    || (!amdGateway && !['/v1', '/v1/', '/v1/chat/completions'].includes(rawPath))
     || url.pathname !== rawPath) throw failure('INVALID_CONFIGURATION');
-  if (url.pathname !== '/v1/chat/completions') url.pathname = '/v1/chat/completions';
+  url.pathname = amdGateway ? '/radeon/api/v1/chat/completions' : '/v1/chat/completions';
   if (Object.hasOwn(config, 'apiKey') && (typeof config.apiKey !== 'string'
     || config.apiKey.length < 1 || config.apiKey.length > 512
     || !/^[\x21-\x7e]+$/.test(config.apiKey))) throw failure('INVALID_CONFIGURATION');
-  return { enabled: true, endpoint: url.href, model: config.model, apiKey: Object.hasOwn(config, 'apiKey') ? config.apiKey : undefined };
+  const responseFormat = Object.hasOwn(config, 'responseFormat') ? config.responseFormat : 'json_schema';
+  if (!['json_schema', 'json_object'].includes(responseFormat)) throw failure('INVALID_CONFIGURATION');
+  return { enabled: true, endpoint: url.href, model: config.model, responseFormat, apiKey: Object.hasOwn(config, 'apiKey') ? config.apiKey : undefined };
 }
 
 /** Safe configuration summary; never returns the supplied API key. */
@@ -88,8 +98,36 @@ function checkedOptions(options) {
   const maxBytes = options.maxBytes ?? DEFAULT_MAX_BYTES;
   if (!Number.isInteger(timeoutMs) || timeoutMs < 10 || timeoutMs > 60000
     || !Number.isInteger(maxBytes) || maxBytes < 256 || maxBytes > 1048576
-    || (Object.hasOwn(options, 'fetchImpl') && typeof options.fetchImpl !== 'function')) throw failure('INVALID_OPTIONS');
-  return { fetchImpl: options.fetchImpl ?? globalThis.fetch, timeoutMs, maxBytes };
+    || (Object.hasOwn(options, 'fetchImpl') && typeof options.fetchImpl !== 'function')
+    || (Object.hasOwn(options, 'budget') && (!isDataRecord(options.budget, ['reserve', 'snapshot'])
+      || typeof options.budget.reserve !== 'function' || typeof options.budget.snapshot !== 'function'))) throw failure('INVALID_OPTIONS');
+  return { fetchImpl: options.fetchImpl ?? globalThis.fetch, timeoutMs, maxBytes, budget: options.budget };
+}
+
+// Only bounded meters, direct name equality, or the exact gateway mapping
+// confirmed by official usage history on 2026-10-14 leave the envelope.
+// This routing metadata does not attest model weights or AMD hardware.
+function safeProviderMetadata(envelope, requestedModel, endpoint) {
+  const usage = envelope?.usage;
+  const names = ['prompt_tokens', 'completion_tokens', 'total_tokens'];
+  const counts = usage && Object.getPrototypeOf(usage) === Object.prototype
+    ? names.map(name => Object.getOwnPropertyDescriptor(usage, name)?.value) : [];
+  const reportedUsage = counts.length === 3 && counts.every(value => Number.isSafeInteger(value) && value >= 0 && value <= 1_000_000_000)
+    && counts[2] === counts[0] + counts[1]
+    ? { promptTokens: counts[0], completionTokens: counts[1], totalTokens: counts[2] } : null;
+  const reportedModel = typeof envelope?.model === 'string';
+  const directMatch = reportedModel && envelope.model === requestedModel;
+  const officialUsageMatch = endpoint === 'https://developer.amd.com.cn/radeon/api/v1/chat/completions'
+    && requestedModel === 'Gemma-4-31B-IT'
+    && envelope?.model === 'self-dploy/Gemma-4-31B-IT';
+  return {
+    requestedModel,
+    modelIdentityMatched: reportedModel ? directMatch || officialUsageMatch : null,
+    returnedModel: directMatch ? requestedModel : officialUsageMatch ? 'self-dploy/Gemma-4-31B-IT' : null,
+    ...(officialUsageMatch ? { identityMatchBasis: 'official_usage_requested_used_mapping_20261014' } : {}),
+    reportedUsage,
+    usageIsProviderReported: reportedUsage !== null,
+  };
 }
 
 function cancelBody(body) {
@@ -154,11 +192,15 @@ export async function executeModelQuery(input, config, options = {}) {
   const started = performance.now();
   let attempted = false;
   let httpStatus = null;
+  let providerMetadata = null;
+  let responseFormatMetadata = null;
   const result = (status, extra = {}) => ({
     status,
     transportAttempted: attempted,
     durationMs: Math.max(0, Math.round(performance.now() - started)),
     httpStatus,
+    providerMetadata,
+    ...(responseFormatMetadata ? { responseFormatMetadata } : {}),
     formatValid: false,
     requiresSemanticHumanReview: true,
     amdVerified: false,
@@ -176,6 +218,16 @@ export async function executeModelQuery(input, config, options = {}) {
     if (typeof settings.fetchImpl !== 'function') return result('error', { errors: [{ code: 'TRANSPORT_UNAVAILABLE', message: ERRORS.TRANSPORT_UNAVAILABLE }] });
     try {
       request = buildModelRequest(input, { model: checked.model });
+      if (checked.responseFormat === 'json_object') {
+        // JSON-object mode guarantees JSON syntax only, not the closed schema.
+        // Select it explicitly; a rejected schema request never changes modes.
+        request.messages[0].content += `\nReturn only a JSON object satisfying this closed candidate schema. The schema is a system constraint, not source evidence:\n${JSON.stringify(request.response_format.json_schema.schema)}`;
+        request.response_format = { type: 'json_object' };
+        responseFormatMetadata = {
+          responseFormat: 'json_object', remoteSchemaEnforced: false,
+          schemaInSystemPrompt: true, localCandidateValidation: true,
+        };
+      }
       request.messages[0].content += `\n${OUTPUT_LANGUAGE}`;
     } catch { throw failure('INVALID_INPUT'); }
   } catch (error) {
@@ -200,11 +252,15 @@ export async function executeModelQuery(input, config, options = {}) {
   const run = async () => {
     const headers = { 'content-type': 'application/json', accept: 'application/json' };
     if (checked.apiKey !== undefined) headers.authorization = `Bearer ${checked.apiKey}`;
+    const body = JSON.stringify({ ...request, stream: false });
+    // Reserve immediately before transport. A timeout/error can still consume
+    // provider quota, so a reservation is never refunded or retried here.
+    settings.budget?.reserve({ requestBytes: new TextEncoder().encode(body).byteLength, maxOutputTokens: request.max_tokens });
     attempted = true;
     const response = await settings.fetchImpl(checked.endpoint, {
       method: 'POST',
       headers,
-      body: JSON.stringify({ ...request, stream: false }),
+      body,
       signal: controller.signal,
       redirect: 'error',
       credentials: 'omit',
@@ -218,6 +274,7 @@ export async function executeModelQuery(input, config, options = {}) {
     if (httpStatus < 200 || httpStatus > 299) throw failure('HTTP_ERROR');
     const envelope = await readBoundedJson(response, settings.maxBytes, (reader) => { activeReader = reader; });
     if (expired) throw failure('TIMEOUT');
+    providerMetadata = safeProviderMetadata(envelope, checked.model, checked.endpoint);
     const validation = validateModelCandidate(context, candidateContent(envelope));
     if (!validation.formatValid) return result('invalid_candidate', {
       errors: validation.errors.map(({ code }) => ({ code, message: ERRORS.INVALID_CANDIDATE })),

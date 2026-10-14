@@ -1,110 +1,166 @@
-# PatientKeeper Retorno
+# PatientKeeper Retorno · R12
 
-A source. A reviewer. A next step.
+A source. A responsible doctor. A next step.
 
-PatientKeeper Retorno is an administrative prototype for clinic reception and coordination. It keeps a canceled follow-up visible while a person checks current records, assigns responsibility and prepares a cited review card. All eight cases are fictional. It does not diagnose, recommend treatment, contact patients or change real appointments.
+![PatientKeeper Retorno · FIGUEIRA desk-calendar cover](docs/ACT-III-20261014/COVER-R10.png)
 
-**Current experience revision: UX R09.** The eight fictional cases now have a persistent light/dark button, direct Queue/Calendar navigation and a read-only example doctor calendar. Its two fictional doctors and ten agenda items link to existing cases; they do not create appointments or change records. EN/PT/ES labels and date controls remain available. [Open the demo](https://athosfif.github.io/patientkeeper-retorno-act-iii/) · [Calendar](https://athosfif.github.io/patientkeeper-retorno-act-iii/#calendar) · [R09 scope](docs/ACT-III-20261012/UX-R09.md).
+Conceptual AI desk-calendar cover with the official FIGUEIRA wordmark. Cover typography is Sequel, with RETORNO in bold italic; the artwork is not evidence of a real patient or appointment.
 
-The original ACT-III-R03 source evidence and recorded AMD execution are preserved. LabLab confirmed the updated submission at **22:49:28 UTC / 19:49:28 Brasília on October 12**, showing “Submission Updated!”. The project page displayed the R06 narrated video, R11 PDF and R10 desk-calendar cover; the PDF and MP4 public bytes matched the new final files. Earlier R05/R08 delivery remains historical evidence. [Open the submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno).
+PatientKeeper Retorno is a fictional clinic-workflow prototype developed by FIGUEIRA for AMD Developer Hackathon: ACT III. It combines the original return queue with a doctor workspace for an illustrative bunion and bunionette surgery episode. A person records responsibility, the next administrative action and its due date, reviews the exact source and message, and records a simulated response before closing the episode.
 
-## Product workflow
+**R12 source ready for publication.** GitHub/Pages publication requires its own verification. The existing confirmed LabLab delivery still uses video R06, PDF R11 and cover R10 from October 12; updated media and a new submission receipt are pending. This document describes the current implementation, not a completed R12 upload or a judging result.
 
-1. Choose a fictional follow-up and inspect its pending step and owner.
-2. Open Review. Read current literal excerpts; historical records remain separate.
-3. Explicitly select checked sources and confirm before preparing a cited card.
-4. Inspect a known conflict or a clinical question: these require human handoff. The card cannot resolve the conflict automatically.
-5. Switch EN/PT/ES. English is the initial navigation language. Records have reviewed reading translations; open the Portuguese original to inspect the unchanged evidence.
-6. Open Calendar, filter a fictional doctor, choose a day and open its linked case. Switching views retains an unsaved draft. Toggle the light/dark button; its independent appearance preference does not alter case progress.
+[Demo URL](https://athosfif.github.io/patientkeeper-retorno-act-iii/) · [Source repository](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [Existing LabLab project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno)
 
-Reviewed EN/ES reading translations are separate display aids. The complete Portuguese original remains available and unchanged. Translation requires both a recognized source ID and an exact full Portuguese literal; unknown or altered records keep the original. Model answers and abstention reasons are original recorded outputs and are not translated. Evidence digests, inputs, citations and saved receipts retain the original Portuguese text.
+[Presentation PDF R12 · 8 pages](docs/ACT-III-20261014/PRESENTATION-EN-R12.pdf) · [Editable presentation R12](docs/ACT-III-20261014/PRESENTATION-EN-R12.pptx) · [Cover R10](docs/ACT-III-20261014/COVER-R10.png) · [Narration text R07](docs/ACT-III-20261014/NARRATION-EN-R07.txt) · [Material status and origins](docs/ACT-III-20261014/RELEASE-R12.md)
 
-A reviewed card records an interaction, not an authenticated clinical approval. It changes neither contact, appointment nor administrative closure. Source lookup is lexical; no match is a search limitation, not proof that information does not exist. Suggested questions map to the original administrative language.
+These reviewable source materials are ready for the R12 source release. They do not establish a new video upload or a LabLab media update; the previous confirmed delivery remains R06/R11/R10 until a new receipt is verified.
 
-## Actual AMD execution
+## Try the workflow
 
-On October 12, Qwen/Qwen2.5-1.5B-Instruct ran in **float32** on an **AMD Radeon Pro W7900D** using PyTorch HIP. The pinned model revision is `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`, licensed Apache-2.0. The runtime recorded Python 3.14.4, PyTorch 2.13.0+rocm10.0.0, HIP 7.15.26333 and Transformers 4.57.1. vLLM, Evolus and Google services were not used.
+1. Open **Doctor workspace → Journey**. Inspect the fictional doctor, phase, next action and administrative due date. Surgical care instructions remain pending; the surgery label is not a clinical indication.
+2. Open **Contacts**. Record the contact preference, review the administrative source, prepare a message, and review its exact text. The contact button records a simulation. A refusal blocks contact; changing the source or message invalidates its earlier review.
+3. Record a fictional response and the next administrative step. Final closure requires an explicit human resolution. A prepared message or absent reply is not a completed contact.
+4. Open **Consultation**. The public demo accepts a manual fictional transcript. Select literal segments, prepare an extractive note, inspect its citations and record a simulated review. It is not a Gemma-generated clinical note or a signed medical record.
+5. In the **return queue**, open Review for Case 04 to inspect the fixed Gemma replay. Its exact archived question and complete source context must still match. Case 01 preserves its human-handoff restriction and recorded metadata; Case 06 preserves a timeout without an answer; Case 07 demonstrates a conflicting-record handoff.
+6. Explore EN/PT/ES, light/dark appearance and the fictional doctor calendar. The calendar is read-only and separate from the doctor episode; it does not schedule a real appointment or calculate a clinical follow-up interval.
 
-| Archived cohort | Passed candidate-format checks | Rejected | Interpretation |
-|---|---:|---:|---|
-| Seven original baseline cases | 2 / 7 | 5 / 7 | SIM-RET-01 and SIM-RET-04 passed format and exact-reference checks. |
-| Assigned-context diagnostic variant | 1 / 1 | 0 / 1 | SIM-RET-02 had different current input; it must not replace the unassigned baseline result. |
-| Extra structured-prompt attempt | 0 / 1 | 1 / 1 | A separate SIM-RET-01 attempt failed the unchanged output contract. |
-| All attempts | **3 / 9** | **6 / 9** | Format acceptance is not semantic or clinical approval. |
+The new workspace is operated by the doctor; a secretary is not a required operator. The older return-queue fixtures retain their original fictional administrative assignees. No patient messages, real appointments or external medical records are changed. Browser progress belongs to that visitor only; clearing site data erases it. Portuguese original sources remain unchanged, with separate reading translations. Recorded model answers retain their original language.
 
-Accepted generation times were 6.810 seconds (baseline SIM-RET-01), 5.938 seconds (baseline SIM-RET-04) and 6.854 seconds (assigned variant). These are individual generation durations, not a latency benchmark or total cloud-session time. SIM-RET-04 repeated Portuguese in its answer despite the English instruction; the original output is preserved and labeled honestly.
+## What runs where
 
-[Attempt summary](evidence/ACT-III-R03-20261012/AMD-PILOT-R03-SUMMARY.json) · [Exact synthetic inputs and results](evidence/ACT-III-R03-20261012/AMD-PILOT-FINAL/) · [Separate shutdown receipt](evidence/ACT-III-R03-20261012/AMD-SHUTDOWN-RECEIPT.json). The authenticated portal was observed without an active notebook at **17:39:42 UTC / 14:39:42 Brasília**. Worker termination and cloud-session shutdown are different evidence. The earlier failed float16 run is preserved privately as R02 history.
+| Component | Current behavior |
+|---|---|
+| Public GitHub Pages demo | Browser-local fictional queue and doctor episode, source review, human simulation and recorded Qwen/Gemma panels. No live model backend, audio transcription or external contact. |
+| Local Node server | The same synthetic workflows, with bounded local persistence and optional explicitly configured services. Model inference is disabled in the default run. |
+| Local voice | Real faster-whisper ASR using an existing local snapshot, CPU/int8 and PT/EN audio. WAV/MP3 is limited to 5 MiB and 120 seconds; fictional-content confirmation and transcript review are required. |
+| Consultation note | Exact extraction from selected transcript segments, with segment references and a simulated review. No diagnosis, prescription or clinical summary is inferred. |
+| WhatsApp | Prepared/reviewed messages, simulated contact and explicitly simulated replies. No message is sent. |
+| Clinical protocol | Pending. The inspected educational e-books do not supply an individualized surgical-care protocol. No medication, fasting, dressing, weight-bearing or clinical schedule is invented. |
 
-## Recorded AMD panel
+Amplimed, live WhatsApp and signed medical records are not connected. This prototype is not a clinic-production deployment or an efficacy study.
 
-The static demonstration reads a published archive, then compares the fixed recorded question and **every** source record, including historical flags, with the current positive case projection. It displays an original candidate only after fresh format and literal-reference validation. Clinical or conflicting-record handoffs show execution metadata only. Rejected outputs are counted and not presented as answers.
+## Recorded AMD and Gemma evidence
 
-**Recorded AMD execution · GPU off · No live inference.** The panel cannot answer a new question with a fixed old output, save a review card or trigger a case action. Format-valid meaning still needs human review; no formal semantic approval has been recorded. The sufficiency of recorded replay for the ACT III meaningful-AMD requirement is not established by this repository.
+On October 14, five fictional administrative requests were attempted through AMD Token Factory. Four returned outputs passed the closed candidate format and exact-reference checks: **three affirmative candidates and one abstention**. The fifth attempt timed out after **15,004 ms** and retained no answer. There were no automatic retries or automatic administrative actions.
 
-## Run and test the local source
+| Attempt | Result | Recorded duration |
+|---|---|---:|
+| 01 · Cancellation recorded | Candidate | 10,234 ms |
+| 02 · Essential source missing | Abstention | 11,209 ms |
+| 03 · Historical/current policy | Timeout; no retained answer | 15,004 ms |
+| 04 · Instruction embedded in an untrusted source | Candidate, still requiring review | 10,248 ms |
+| 05 · Contact preference through the local product API | Candidate | 13,703 ms |
 
-Node.js v24.19.0 was observed. The local server uses Node built-ins; no dependency install is needed.
+Requested identifier: `Gemma-4-31B-IT`. The official usage observation linked it to the exact used identifier `self-dploy/Gemma-4-31B-IT`. The first original response identifier was not retained and remains null. This is service-routing evidence, not independent inspection of physical GPU hardware, model weights or a checkpoint revision.
+
+Retained per-attempt usage totals **2,956 tokens across four outputs**. The separate provider dashboard displayed `3.796` total tokens, `0.0001 pts` cost and `0.9999 pts` remaining at `2026-10-14T21:54:12.418Z`. The dashboard reported zero errors; the local timeout remains a distinct failed attempt. No conversion to currency or inferred timeout usage is made.
+
+[Sanitized archive](docs/recorded-gemma-runs.json) · [Replay contract and limits](docs/recorded-gemma-integration.md) · [AMD Token Factory](https://notebooks.amd.com/tokenfactory)
+
+The replay verifies the immutable original, exact question, all source texts and historical flags, both current revision receipts, the source digest, literal citations and human-handoff conditions. It cannot answer a new question or save a review card, message, appointment or closure. All five calls concern `SIM-RET`, not the `SIM-CARE` doctor episode, voice, clinical protocol or note. Source-support review does not establish formal semantic approval, clinical accuracy, general prompt-injection resistance, measured savings or a controlled Qwen/Gemma benchmark.
+
+The separate October 12 Qwen2.5-1.5B-Instruct pilot ran on an AMD Radeon Pro W7900D through PyTorch HIP. Two of seven baseline cases passed format checks; three of all nine attempts passed when the separate assigned-context and extra-prompt attempts are included. The GPU shutdown was recorded separately. Qwen and Gemma statistics must not be merged into one accuracy claim.
+
+The [official ACT III event page](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii) requires a meaningful AMD workload in the working product shown to judges. Actual execution, public recorded replay and award eligibility are different states. This repository does not establish that replay alone satisfies that requirement, or that using this Gemma identifier qualifies for a Google award. Google eligibility remains unconfirmed.
+
+## Run from source
+
+Node.js 24.19.0 was observed; the Node server uses built-in modules. These commands leave model inference and voice disabled and require no provider key:
 
 ```sh
-node app/server.mjs
+RETORNO_MODEL_ENABLED=0 RETORNO_VOICE_ENABLED=0 RETORNO_PORT=8769 node app/server.mjs
+```
+
+Open `http://127.0.0.1:8769/`. Local progress is created under `app/data/`, outside the public release. Use fictional data only.
+
+```sh
 node scripts/build-public-demo.mjs
 node --test app/tests/*.test.mjs public-demo/tests/*.test.mjs
+python3 -m http.server 8771 --bind 127.0.0.1 --directory public-demo
 ```
 
-Open `http://127.0.0.1:8769/`. The server deliberately accepts local access only. Opening the HTML file directly does not supply APIs. A clean source copy creates progress under `app/data/`, which is excluded from Git. Reset the fictional cases to begin a fresh demonstration. Review-card receipts remain separate from administrative progress exports.
+Open `http://127.0.0.1:8771/` for the static variant. Opening an HTML file directly does not provide the required origin or APIs. The checked-in browser adapter and exact allowlisted Qwen evidence are build inputs; a clone missing those inputs cannot reproduce the build by guessing substitutes.
 
-The exact R09 source publication checkout passed **195/195** tests in 15 files, with zero failures or skipped tests. Its static build also passed. This includes calendar date arithmetic and immutable example fixtures, appearance preference handling, source-reading gates, the browser adapter, recorded-run and model-contract checks, and server regression. These checks do not establish model accuracy, clinical safety, user benefit or contest eligibility. Public browser QA is recorded separately.
+The latest R12 local test record contains **281 passed, zero failed or skipped**. The independent Gemma replay check passed 16 tests and matched the five original artifacts and three execution receipts. Tests, real provider calls, real local ASR checks and final public browser QA are separate evidence; they do not prove clinical validity or operational benefit.
 
-## Public static demo and GitHub Pages
+For optional local ASR, supply Python with faster-whisper and PyAV and an already available local model snapshot. Explicit configuration uses `RETORNO_VOICE_ENABLED`, `RETORNO_VOICE_PYTHON`, `RETORNO_VOICE_MODEL_DIR`, `RETORNO_VOICE_MODEL_ID` and `RETORNO_VOICE_MODEL_REVISION`. The recorded synthetic PT/EN checks used `Systran/faster-whisper-small` at revision `536b0662742c02347bc0e980a01041f333bce120`, CPU/int8. A clean clone does not include that runtime, weights or machine configuration; missing configuration reports unavailable instead of pretending to transcribe. No microphone capture is required.
 
-The public variant is built separately under `public-demo/`. Domain checks, source review and progress storage run in the visitor’s browser; one visitor does not update another visitor’s progress. It performs no external contact or live GPU request. Clearing site data erases that browser’s progress.
+## Origin and licenses
 
-```sh
-node scripts/build-public-demo.mjs
+The earlier PatientKeeper was published on September 26, before ACT III. This Retorno application was prepared independently; its October 5 `ADMIN-R01` queue, assignment, history, local persistence and synthetic fixtures are **pre-event scaffolding**, not event-built AI. The earlier PatientKeeper engine/UI and Academy OCR/RAG engine were not copied into that independent preparation. Prior learning and the shared product name are disclosed.
+
+October 12 event-window work added source review, cited receipts, conflict and stale-context guards, multilingual navigation, model contracts, bounded optional transport, the real Qwen AMD pilot, replay, theme and calendar. October 14 work added the five Gemma attempts, exact service-identity binding, explicit JSON-object adaptation with local validation, the immutable Gemma replay, doctor episode and local ASR/extractive-note path. Reuse disclosure does not imply individual eligibility approval.
+
+Own code is [MIT licensed](LICENSE). The retained Qwen model license is Apache-2.0. Model weights are not distributed. Third-party engines, model/provider terms, typefaces, brand artwork and narration have their own terms; the code license does not relicense them. No Gemma 4 model license or unrestricted output-use permission is asserted here. Final publication must retain the applicable reviewed notices and permission evidence. Educational PDFs, individual medical protocols, Envato source audio, font binaries and machine-specific ASR configuration are excluded.
+
+## Publication boundary
+
+The source repository and GitHub Pages output are separate packages. Use an explicit file allowlist, inspect actual staged bytes, and refresh the old R09 manifest before publishing R12. Never publish the project root recursively.
+
+Source additions requiring explicit inclusion are the care domain/UI/styles/browser adapter/store, voice adapter/worker, model budget, Gemma replay/UI/styles, selection controls, their six new test files and the sanitized Gemma docs. Preserve only the individually named and reviewed earlier Qwen build inputs/evidence. Root README and origin declarations require public relative links rather than private machine paths.
+
+The exact code and integration additions to the earlier source allowlist are listed below. The five prepared presentation/cover/narration/release-note files linked above are separately named additions; no media directory is copied recursively.
+
+```text
+app/care-browser-api.mjs
+app/care-journey-client.mjs
+app/care-journey.css
+app/care-journey.mjs
+app/care-store.mjs
+app/model-budget.mjs
+app/recorded-gemma-client.mjs
+app/recorded-gemma.css
+app/recorded-gemma.mjs
+app/selection-controls.css
+app/voice-transcription-worker.py
+app/voice-transcription.mjs
+app/tests/care-browser-api.test.mjs
+app/tests/care-journey.test.mjs
+app/tests/care-server.test.mjs
+app/tests/model-budget.test.mjs
+app/tests/recorded-gemma.test.mjs
+app/tests/voice-transcription.test.mjs
+docs/recorded-gemma-integration.md
+docs/recorded-gemma-runs.json
 ```
 
-The build requires the exact allowlisted synthetic R03 input/result files and the checked browser adapter. The server application and static output are separate artifacts. Deployment uses the **root of the `gh-pages` branch** on GitHub Pages; it does not deploy `app/` as a working remote API.
+Changed existing server, client, HTML, review UI, translations, builder and tests also need their current source bytes rather than the earlier checkout. This list does not authorize including other local documents or evidence by directory wildcard.
 
-[Public source repository](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [Open the published demo](https://athosfif.github.io/patientkeeper-retorno-act-iii/). The initial source publication is commit [05391ea](https://github.com/athosfif/patientkeeper-retorno-act-iii/commit/05391eadb16d7fb1da9a527b21534f143733fd92); documentation and the conceptual cover are synchronized in a subsequent source-only commit. The earlier source-reading update is [gh-pages commit f1b4d91](https://github.com/athosfif/patientkeeper-retorno-act-iii/tree/f1b4d91dbb288ba3ae38b20d069eaf14151eb24d). Those 18 historical public files returned HTTP 200 and matched their SHA-256 at 2026-10-12T18:42:56.144Z, without credentials. R09 generates 22 static files plus the Pages `.nojekyll` marker. At 22:36:07 UTC on October 12, all 23 R09 public files returned HTTP 200 and matched the build SHA-256. [R09 Pages commit d14fd10](https://github.com/athosfif/patientkeeper-retorno-act-iii/tree/d14fd101caff1759894227ee3f5c34068e99692c) · [Successful Pages deployment](https://github.com/athosfif/patientkeeper-retorno-act-iii/actions/runs/38317423478). A separate public Chrome check at 22:36:10 UTC exercised the calendar, theme persistence, filters, date keyboard navigation, EN/PT/ES, unsaved drafts, blocked-conflict case links and 390px Spanish views. It reported no JavaScript errors or requests outside this static demo. GitHub Pages does not apply the Netlify-style `_headers` file; no custom response-header enforcement is claimed. No Netlify deployment is claimed.
+The current static builder produces these **31 files**; publish them at the root of `gh-pages`, with `.nojekyll` as the separate deployment marker (32 deployed files in total):
 
-## Origin, licenses and limits
+```text
+_headers
+ai-contract.mjs
+amd-runs.json
+browser-api.mjs
+calendar-client.mjs
+calendar.mjs
+care-browser-api.mjs
+care-journey-client.mjs
+care-journey.css
+care-journey.mjs
+client.mjs
+engine.mjs
+evidence-client.mjs
+evidence.mjs
+favicon.svg
+fixtures.mjs
+gemma-runs.json
+i18n.mjs
+index.html
+model-client.mjs
+recorded-amd-client.mjs
+recorded-amd.mjs
+recorded-gemma-client.mjs
+recorded-gemma.css
+recorded-gemma.mjs
+selection-controls.css
+source-reading.mjs
+source-translations.mjs
+styles.css
+theme-init.js
+theme.mjs
+```
 
-**ADMIN-R01-20261005 is pre-event scaffolding**: queue, assignment, history and local persistence. October 12 increments add source review, cited receipts, conflict guards, EN/PT/ES navigation, light/dark appearance, the read-only fictional calendar, the closed model contract, bounded optional transport, real AMD tests and recorded replay. [Baseline declaration](BASE-PREEXISTENTE.md). Reuse must be disclosed; specific contest eligibility remains a separate determination.
-
-Own code uses [MIT](LICENSE). Qwen is Apache-2.0, with its exact model license retained in the pilot evidence. Model weights, credentials, private cloud URLs, sessions and `app/data/` are excluded. Literal outputs and failures are retained only from fictional input records.
-
-R09 isolated Chrome verification covered 390/760/1024/1440 widths, appearance persistence, calendar filtering, date keyboard navigation, case links, EN/PT/ES, unsaved draft preservation and human review/confirmation surfaces. Chrome R02 previously verified 320/390/768 widths, keyboard navigation, context preservation and saved-card recovery. The published R03 app loaded with eight cases, language selection and the truthful recorded-execution footer; its detailed browser and mobile checks are a separate release record. No target-user study, complete WCAG audit, clinical validation or measured operational savings is asserted.
-
-[Requirements and evidence](docs/ACT-III-20261012/REQUISITOS-E-EVIDENCIAS.md) · [Current submission text snapshot R11](docs/ACT-III-20261012/SUBMISSION-COPY-R11.json) · [Release plan](docs/ACT-III-20261012/RELEASE-PLAN.md). Final submission is supported by the observed LabLab success message and matching delivered media; it does not establish a judging result.
-
-The source archive retains an [earlier conceptual cover R01](assets/ACT-III-20261012/COVER-IA-R01/PATIENTKEEPER-RETORNO-COVER-IA-R01.png) and its [generation record](assets/ACT-III-20261012/COVER-IA-R01/GENERATION.md). It is not the current R10 cover. The updated R10 cover is a conceptual AI desk calendar with native typography and the unchanged official FIGUEIRA wordmark, not a product screenshot or patient photograph.
-
-## Current submitted presentation media
-
-The existing authenticated Chrome session showed **“Submission Updated!”** at 22:49:28 UTC / 19:49:28 Brasília on October 12, 2026. The refreshed project page at 22:50:07 UTC displayed the updated calendar description, the public GitHub Pages demo, the R11 presentation link, the R06 video and the R10 cover as its video poster. This confirms an updated submission; it does not establish judging results, prize or eligibility approval.
-
-[Submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno) · [Presentation PDF R11](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_w7zl0umzsh50uxv8ny3rxokt.pdf) · [Narrated video R06](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_fg9l23xrghhhn7ihwyhcyb4e.mp4) · [Delivered cover R10](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/image/image_d082tis4nr4f21dmszmgt4bv.jpg)
-
-The updated MP4 is about **3 minutes 6 seconds** (186.27 seconds observed in the player), using the same synthetic English Envato narration supplied by Athos, synchronized subtitles and edited captures of the real fictional-case interface, including the R09 calendar and day/night modes. It is neither Athos speaking nor a continuous screen recording. R11 PDF and R10 cover use the official FIGUEIRA wordmark and cream, dark and neon-green identity. The conceptual desk-calendar cover uses Sequel typography, with RETORNO in bold italic. Original Portuguese evidence and recorded model outputs remain unchanged; reviewed reading translations are separate display aids.
-
-Unauthenticated full-byte HTTPS checks with TLS verification returned **HTTP 200** for all three new media URLs. The PDF is 3,741,035 bytes, SHA-256 `84eeb974bd30f0e596ec67b48065fe81c386b4bbd86ae617e34dfc818c91f102`; the video is 11,434,603 bytes, SHA-256 `f68abe3ef16dd3ef0423273d632dd913b21be7dea4bb3340c89faea774124a4d`. Both match the corresponding local final file exactly. The delivered JPEG cover is 221,382 bytes, SHA-256 `03322387548bbeead201520eee39182d48649ebe8c9a98128a6117d85def5c2c`, with delivered dimensions 1913 × 1076. LabLab cropped and converted the uploaded PNG to JPEG; its delivered hash is therefore separate, and its composition was checked in the page UI.
-
-The [R11 text snapshot](docs/ACT-III-20261012/SUBMISSION-COPY-R11.json) preserves the prepared copy verbatim. Its preparation metadata deliberately says it is not a submission receipt; update confirmation comes from the later observed LabLab UI and matching delivered media above. No private UI receipt, original screenshot, media file or Sequel font file is copied into this source repository.
-
-## Earlier confirmed presentation media — historical R05/R08
-
-The links and checks below document the earlier delivery, which the R06/R11/R10 update supersedes.
-
-
-Submission was confirmed on October 12, 2026 at 19:27:49 UTC / 16:27:49 Brasília by the LabLab success message: “You have successfully submitted your project for the AMD Developer Hackathon: ACT III event!” The existing Chrome session then displayed the published project with the exact R05 video and R08 PDF. Judging was shown as in progress; no evaluation, award or eligibility result is claimed.
-
-[Submitted project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno) · [Presentation PDF R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_nif3ozbuwn7a1lqs7vdgg5vt.pdf) · [Narrated video R05](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_yxmp2jbaeshptu64v71cswcn.mp4) · [Delivered cover R08](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/image/image_qwij0iodrs5swlszu3ere2r7.jpg)
-
-The delivered MP4 is **186.271 seconds (3 minutes 6.271 seconds)**, with synthetic English narration supplied by Athos through Envato, synchronized English subtitles and edited captures of the fictional product. It is neither Athos speaking nor a continuous screen recording. The R08 cover composition uses the R02 conceptual AI illustration and the unchanged official FIGUEIRA wordmark. Reading translations are separate from original Portuguese evidence and recorded model answers.
-
-Unauthenticated full-byte HTTPS checks returned **HTTP 200** for the PDF, video and delivered JPEG cover. Their SHA-256 values match the final media receipt: PDF `968b38f3aa74b53240fc72135051b2cbe55343edf43cff166ecf40762052ce70` (4,694,100 bytes), video `ea2cb3b7e82102f22b0b1b155e2abc1c3f6fd046bca1857d2e8ae96887030347` (7,235,091 bytes), and cover `a536d51bb75626d3d49650fa3b7197da01e86f8030001d8cd7991d36217e4c6a` (227,489 bytes). LabLab converted the uploaded PNG to JPEG, so the delivered cover has its own hash.
-
-The project page was verified in the existing Chrome session. A direct unauthenticated HTTP request returned **403**; anonymous access to the project page itself is not confirmed. The public media and GitHub Pages demo were checked separately. Full video decode, 14 sampled final frames and comparison of local ASR with the supplied script were recorded; no integral human listening review is claimed.
-
-The [official FIGUEIRA wordmark provenance](assets/ACT-III-20261012/BRAND-FIGUEIRA/PROVENANCE.md) accompanies the unchanged brand asset. Older draft media and receipts remain archived locally.
+Confirm this list against the builder's returned names and final staged files before use; server modules, Python, tests and local evidence do not belong in Pages. GitHub Pages does not enforce the Netlify-style `_headers` file. Private states, uploads, auth observations, raw provider envelopes, credentials, caches, backups, full medical PDFs and unsanitized local receipts stay outside both publication packages.

@@ -8,6 +8,10 @@ import {
 } from './engine.mjs';
 import { EvidenceError, queryEvidence, createEvidenceCard, persistEvidenceCard, listEvidenceReviews } from './evidence.mjs';
 import { validateModelConfiguration, executeModelQuery } from './model-transport.mjs';
+import { createModelBudget } from './model-budget.mjs';
+import { MODEL_REQUEST_MAX_TOKENS } from './ai-contract.mjs';
+import { createCareStore } from './care-store.mjs';
+import { createVoiceTranscriber, VOICE_MAX_AUDIO_BYTES } from './voice-transcription.mjs';
 
 const APP_DIR = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_FIXTURES = path.resolve(APP_DIR, '..', 'CASOS-SINTETICOS.json');
@@ -21,6 +25,15 @@ const STATIC_FILES = new Map([
   ['/theme.mjs', ['theme.mjs', 'text/javascript; charset=utf-8']],
   ['/calendar.mjs', ['calendar.mjs', 'text/javascript; charset=utf-8']],
   ['/calendar-client.mjs', ['calendar-client.mjs', 'text/javascript; charset=utf-8']],
+  ['/care-journey.mjs', ['care-journey.mjs', 'text/javascript; charset=utf-8']],
+  ['/care-journey-client.mjs', ['care-journey-client.mjs', 'text/javascript; charset=utf-8']],
+  ['/care-journey.css', ['care-journey.css', 'text/css; charset=utf-8']],
+  ['/selection-controls.css', ['selection-controls.css', 'text/css; charset=utf-8']],
+  ['/recorded-gemma.css', ['recorded-gemma.css', 'text/css; charset=utf-8']],
+  ['/recorded-gemma.mjs', ['recorded-gemma.mjs', 'text/javascript; charset=utf-8']],
+  ['/ai-contract.mjs', ['ai-contract.mjs', 'text/javascript; charset=utf-8']],
+  ['/recorded-gemma-client.mjs', ['recorded-gemma-client.mjs', 'text/javascript; charset=utf-8']],
+  ['/gemma-runs.json', ['../docs/recorded-gemma-runs.json', 'application/json; charset=utf-8']],
   ['/client.mjs', ['client.mjs', 'text/javascript; charset=utf-8']],
   ['/evidence-client.mjs', ['evidence-client.mjs', 'text/javascript; charset=utf-8']],
   ['/i18n.mjs', ['i18n.mjs', 'text/javascript; charset=utf-8']],
@@ -34,6 +47,8 @@ const API_METHODS = new Map([
   ['/api/ai/context', 'POST'],
   ['/api/evidence/query', 'POST'], ['/api/evidence/card', 'POST'], ['/api/evidence/reviews', 'POST'],
   ['/api/model/status', 'GET'], ['/api/model/query', 'POST'],
+  ['/api/care/state', 'GET'], ['/api/care/actions', 'POST'],
+  ['/api/voice/status', 'GET'], ['/api/voice/transcribe', 'POST'],
 ]);
 
 class ApiError extends Error {
@@ -98,14 +113,14 @@ function sendError(response, error) {
   }, error?.allow ? { Allow: error.allow } : {});
 }
 
-function readJsonBody(request) {
+function readJsonBody(request, maxBytes = MAX_BODY_BYTES) {
   const contentType = request.headers['content-type'] ?? '';
   if (!/^application\/json(?:\s*;\s*charset\s*=\s*utf-8)?\s*$/i.test(contentType)) {
     request.resume();
     throw new ApiError(415, 'JSON_REQUIRED', 'Use Content-Type: application/json.');
   }
   const declaredLength = Number(request.headers['content-length']);
-  if (Number.isFinite(declaredLength) && declaredLength > MAX_BODY_BYTES) {
+  if (Number.isFinite(declaredLength) && declaredLength > maxBytes) {
     request.resume();
     throw new ApiError(413, 'BODY_TOO_LARGE', 'O pedido excede o limite local de 128 KB.');
   }
@@ -122,7 +137,7 @@ function readJsonBody(request) {
     request.on('data', (chunk) => {
       if (finished) return;
       size += chunk.length;
-      if (size > MAX_BODY_BYTES) {
+      if (size > maxBytes) {
         fail(new ApiError(413, 'BODY_TOO_LARGE', 'O pedido excede o limite local de 128 KB.'));
         request.resume();
         return;
@@ -213,7 +228,8 @@ async function saveState(dataDir, state) {
 export async function createAppServer({
   dataDir = path.join(APP_DIR, 'data'), port = 8769,
   fixturesPath = DEFAULT_FIXTURES, host = '127.0.0.1',
-  modelConfiguration = null, modelFetch,
+  modelConfiguration = null, modelFetch, modelBudgetLimits = {},
+  voiceConfiguration = null, voiceTranscriber = null,
 } = {}) {
   if (!['127.0.0.1', '::1'].includes(host)) {
     throw new ApiError(400, 'LOCAL_BIND_REQUIRED', 'Use apenas 127.0.0.1 ou ::1 para iniciar a demo.');
@@ -246,7 +262,12 @@ export async function createAppServer({
   };
   let boundPort;
   const modelSetup = validateModelConfiguration(modelConfiguration);
+  const modelBudget = createModelBudget(modelBudgetLimits);
   let modelInFlight = false;
+  const voice = voiceTranscriber ?? createVoiceTranscriber(voiceConfiguration);
+  // Lazy access preserves the original queue until the new journey is opened.
+  let careStore;
+  const care = () => careStore ??= createCareStore(storageDir);
 
   const server = http.createServer(async (request, response) => {
     try {
@@ -295,15 +316,59 @@ export async function createAppServer({
         return;
       }
       if (pathname === '/api/model/status') {
+        const budget = modelBudget.snapshot();
+        const outputBudgetCompatible = budget.maxOutputTokens >= MODEL_REQUEST_MAX_TOKENS;
         sendJson(response, 200, {
           configured: modelSetup.valid && modelSetup.enabled,
-          enabled: modelSetup.valid && modelSetup.enabled,
+          enabled: modelSetup.valid && modelSetup.enabled && !budget.exhausted && outputBudgetCompatible,
+          disabledReason: modelSetup.valid && modelSetup.enabled && !outputBudgetCompatible ? {
+            code: 'MODEL_BUDGET_OUTPUT_LIMIT',
+            message: `The local pilot output limit of ${budget.maxOutputTokens} tokens is below the current contract request of ${MODEL_REQUEST_MAX_TOKENS} tokens. No model request can be sent with these settings.`,
+          } : null,
+          localPilotBudget: budget,
+          providerQuotaVerified: false,
           inferenceVerified: false, amdVerified: false,
           requiresSemanticHumanReview: true,
         });
         return;
       }
-      const body = await readJsonBody(request);
+      if (pathname === '/api/care/state') {
+        sendJson(response, 200, (await care()).snapshot());
+        return;
+      }
+      if (pathname === '/api/voice/status') {
+        sendJson(response, 200, await voice.status());
+        return;
+      }
+      const body = await readJsonBody(request, pathname === '/api/voice/transcribe' ? Math.ceil(VOICE_MAX_AUDIO_BYTES / 3) * 4 + 4096 : MAX_BODY_BYTES);
+      if (pathname === '/api/care/actions') {
+        checkEnvelope(body, ['expectedRevision', 'action']);
+        const store = await care();
+        sendJson(response, 200, await store.act(body.action, body.expectedRevision));
+        return;
+      }
+      if (pathname === '/api/voice/transcribe') {
+        checkEnvelope(body, ['fileName', 'mimeType', 'base64', 'language', 'syntheticConfirmed']);
+        if (body.syntheticConfirmed !== true) throw new ApiError(400, 'VOICE_SYNTHETIC_ONLY', 'Use only a fictional recording in this prototype.');
+        if (typeof body.base64 !== 'string' || body.base64.length > Math.ceil(VOICE_MAX_AUDIO_BYTES / 3) * 4
+          || !/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(body.base64)) {
+          throw new ApiError(400, 'VOICE_INVALID_INPUT', 'Choose a WAV or MP3 file of up to 5 MB.');
+        }
+        const audio = Buffer.from(body.base64, 'base64');
+        const controller = new AbortController();
+        const abort = () => { if (!response.writableEnded) controller.abort(); };
+        response.once('close', abort);
+        try {
+          const output = await voice.transcribe({ bytes: audio, fileName: body.fileName, mimeType: body.mimeType,
+            language: body.language, syntheticConfirmed: true }, { signal: controller.signal });
+          if (!response.destroyed) sendJson(response, 200, output);
+        } catch (error) {
+          const status = error.code === 'VOICE_BUSY' ? 429 : error.code === 'VOICE_TIMEOUT' ? 504
+            : ['VOICE_NOT_CONFIGURED', 'VOICE_MODEL_UNAVAILABLE', 'VOICE_RUNTIME_UNAVAILABLE'].includes(error.code) ? 503 : 400;
+          throw new ApiError(status, /^VOICE_[A-Z_]+$/.test(error.code ?? '') ? error.code : 'VOICE_TRANSCRIPTION_FAILED', 'The audio was not transcribed. Review the file or use the text alternative.');
+        } finally { audio.fill(0); response.off('close', abort); }
+        return;
+      }
       if (pathname === '/api/model/query') {
         // Capture only the current positive projection. No model output can
         // modify the case, agenda, contact history or receipt automatically.
@@ -323,12 +388,13 @@ export async function createAppServer({
           throw new ApiError(503, 'MODEL_NOT_CONFIGURED', 'Model connection is not enabled. The local source check remains available.');
         }
         if (modelInFlight) throw new ApiError(429, 'MODEL_BUSY', 'One model request is already running. Wait before trying again.');
+        if (modelBudget.snapshot().exhausted) throw new ApiError(429, 'MODEL_BUDGET_EXHAUSTED', 'The local pilot request limit has been reached. Check the recorded usage before a new explicitly bounded pilot.');
         const capturedRevision = state.revision;
         const input = getModelInput(state, body.caseId, body.question, fixtures);
         modelInFlight = true;
         let execution;
         try {
-          execution = await executeModelQuery(input, modelConfiguration, { ...(modelFetch ? { fetchImpl: modelFetch } : {}) });
+          execution = await executeModelQuery(input, modelConfiguration, { budget: modelBudget, ...(modelFetch ? { fetchImpl: modelFetch } : {}) });
         } finally { modelInFlight = false; }
         await mutationQueue;
         if (capturedRevision !== state.revision) throw new ApiError(409, 'STALE_MODEL_CONTEXT', 'The progress changed while the model was running. Check the current records again.');
@@ -337,6 +403,7 @@ export async function createAppServer({
           mode: 'model_candidate', caseId: body.caseId, revision: capturedRevision,
           sourceDigest: report.sourceDigest,
           administrativeStateUnchanged: true, noExternalContact: true,
+          localPilotBudget: modelBudget.snapshot(), providerQuotaVerified: false,
           amdVerified: false, requiresSemanticHumanReview: true,
         });
         return;
@@ -409,11 +476,13 @@ export async function createAppServer({
   });
   const url = `http://${host === '::1' ? '[::1]' : host}:${boundPort}`;
   const close = async () => {
+    voice.cancel();
     const closed = new Promise((resolve, reject) => {
       server.close((error) => error ? reject(error) : resolve());
     });
     server.closeIdleConnections();
     await mutationQueue;
+    if (careStore) await (await careStore).flush();
     await closed;
   };
   return { server, url, close };
@@ -425,9 +494,22 @@ if (entryFile === fileURLToPath(import.meta.url)) {
     const app = await createAppServer({
       ...(process.env.RETORNO_DATA_DIR ? { dataDir: process.env.RETORNO_DATA_DIR } : {}),
       ...(process.env.RETORNO_PORT !== undefined ? { port: Number(process.env.RETORNO_PORT) } : {}),
+      ...(process.env.RETORNO_VOICE_ENABLED === '1' ? { voiceConfiguration: {
+        pythonExecutable: process.env.RETORNO_VOICE_PYTHON,
+        modelDirectory: process.env.RETORNO_VOICE_MODEL_DIR,
+        modelId: process.env.RETORNO_VOICE_MODEL_ID,
+        modelRevision: process.env.RETORNO_VOICE_MODEL_REVISION,
+        tempRoot: path.join(process.env.RETORNO_DATA_DIR || path.join(APP_DIR, 'data'), 'voice-tmp'),
+      } } : {}),
+      modelBudgetLimits: {
+        ...(process.env.RETORNO_MODEL_MAX_REQUESTS !== undefined ? { maxRequests: Number(process.env.RETORNO_MODEL_MAX_REQUESTS) } : {}),
+        ...(process.env.RETORNO_MODEL_MAX_REQUEST_BYTES !== undefined ? { maxRequestBytes: Number(process.env.RETORNO_MODEL_MAX_REQUEST_BYTES) } : {}),
+        ...(process.env.RETORNO_MODEL_MAX_OUTPUT_TOKENS !== undefined ? { maxOutputTokens: Number(process.env.RETORNO_MODEL_MAX_OUTPUT_TOKENS) } : {}),
+      },
       ...(process.env.RETORNO_MODEL_ENABLED === '1' ? { modelConfiguration: {
         endpoint: process.env.RETORNO_MODEL_ENDPOINT,
         model: process.env.RETORNO_MODEL_NAME,
+        ...(process.env.RETORNO_MODEL_RESPONSE_FORMAT !== undefined ? { responseFormat: process.env.RETORNO_MODEL_RESPONSE_FORMAT } : {}),
         ...(process.env.RETORNO_MODEL_API_KEY ? { apiKey: process.env.RETORNO_MODEL_API_KEY } : {}),
       }} : {}),
     });

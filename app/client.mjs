@@ -3,6 +3,8 @@ import { evidenceView, mountEvidencePanel } from './evidence-client.mjs';
 import { sourceReadingView } from './source-reading.mjs';
 import { mountTheme } from './theme.mjs';
 import { mountCalendar } from './calendar-client.mjs';
+import { mountCareJourney } from './care-journey-client.mjs';
+import { mountRecordedGemmaPanel } from './recorded-gemma-client.mjs';
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const owners = ['SEC-SIM-A','SEC-SIM-B','SEC-SIM-C','COORD-SIM-A','MED-SIM-A','MED-SIM-B'];
@@ -22,7 +24,35 @@ const displayNext = item => {
 };
 let state, currentId, currentTab = 'summary', filter = 'open', search = '', busy = false, noticeTimer, pendingAction;
 const edits = new Map();
+let recordedGemmaPanel;
 const refreshTheme = mountTheme($('#theme-toggle'),getLanguage);
+const careWorkspace = mountCareJourney($('#care-view'), {
+  language: getLanguage(), notify, request,
+  transcribeAudio: async (file, { signal, onProgress, language = 'pt' } = {}) => {
+    if (signal?.aborted) throw new DOMException('Cancelled', 'AbortError');
+    if (file.size > 5 * 1024 * 1024) throw new Error('VOICE_AUDIO_LIMIT');
+    onProgress?.({ state: 'validating' });
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    if (signal?.aborted) { bytes.fill(0); throw new DOMException('Cancelled', 'AbortError'); }
+    let binary = '';
+    for (let offset = 0; offset < bytes.length; offset += 8192) binary += String.fromCharCode(...bytes.subarray(offset, offset + 8192));
+    bytes.fill(0);
+    const base64 = btoa(binary); binary = '';
+    onProgress?.({ state: 'transcribing' });
+    const response = await fetch('/api/voice/transcribe', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, signal,
+      body: JSON.stringify({ fileName: file.name, mimeType: file.type || (file.name.toLowerCase().endsWith('.mp3') ? 'audio/mpeg' : 'audio/wav'), base64, language, syntheticConfirmed: true }),
+    });
+    const result = await response.json();
+    if (!response.ok) throw Object.assign(new Error(result.error?.code || 'VOICE_TRANSCRIPTION_FAILED'), { code: result.error?.code });
+    if (signal?.aborted) throw new DOMException('Cancelled', 'AbortError');
+    onProgress?.({ state: 'complete' });
+    return result;
+  },
+});
+void request('/api/voice/status').then(status => {
+  if (status.enabled !== true) careWorkspace.setTranscriber(undefined);
+}).catch(() => careWorkspace.setTranscriber(undefined));
 let currentView = 'queue';
 const navigationAvailable = () => {
   if (busy || $('#case-panel')?.getAttribute('aria-busy') === 'true') {
@@ -42,10 +72,11 @@ const refreshCalendar = mountCalendar($('#calendar-view'),{
 });
 function changeView(view, updateHash = true) {
   if (!navigationAvailable()) return false;
-  currentView=view==='calendar' ? 'calendar' : 'queue';
+  currentView=['calendar','care'].includes(view) ? view : 'queue';
   $('#queue-view').hidden=currentView!=='queue';$('#calendar-view').hidden=currentView!=='calendar';
-  $('.intro').hidden=currentView==='calendar';
-  $('.skip').href=currentView==='calendar' ? '#calendar-view' : '#detail';
+  $('#care-view').hidden=currentView!=='care';
+  $('.intro').hidden=currentView!=='queue';
+  $('.skip').href=currentView==='care' ? '#care-view' : currentView==='calendar' ? '#calendar-view' : '#detail';
   document.querySelectorAll('[data-view]').forEach(link=>{
     if(link.dataset.view===currentView)link.setAttribute('aria-current','page');
     else link.removeAttribute('aria-current');
@@ -54,8 +85,8 @@ function changeView(view, updateHash = true) {
   return true;
 }
 document.querySelectorAll('[data-view]').forEach(link=>link.onclick=event=>{event.preventDefault();changeView(link.dataset.view);});
-window.addEventListener('hashchange',()=>{if(!changeView(location.hash==='#calendar'?'calendar':'queue',false))history.replaceState(null,'',`#${currentView}`);});
-changeView(location.hash==='#calendar'?'calendar':'queue',false);
+window.addEventListener('hashchange',()=>{if(!changeView(location.hash.slice(1),false))history.replaceState(null,'',`#${currentView}`);});
+changeView(location.hash.slice(1),false);
 
 
 function notify(message, error = false) {
@@ -74,6 +105,7 @@ async function request(path, body) {
   if (!response.ok) {
     const error = new Error(errorText(typeof result.error === 'string' ? result.error : result.message || result.error?.message));
     error.status = response.status;
+    if (typeof result.error?.code === 'string' && /^[A-Z][A-Z0-9_]{0,63}$/.test(result.error.code)) error.code = result.error.code;
     throw error;
   }
   return result;
@@ -123,13 +155,22 @@ function historyView(item) {
   return `<section class="section"><h3>Histórico do caso fictício</h3><p>Atribuições e etapas são salvas neste computador, com registro de data e hora.</p>${item.history.length ? `<p class="caption original-label">Histórico original · Português</p><ol class="timeline">${item.history.map(event => `<li><div><p data-original lang="pt-BR">${esc(event.text)}</p><time datetime="${esc(event.at)}">${esc(stamp(event.at))}</time></div></li>`).join('')}</ol>` : '<div class="empty-state"><p>Nenhuma alteração humana registrada neste caso. Os registros iniciais estão na aba Registros.</p></div>'}</section>`;
 }
 function renderDetail() {
+  recordedGemmaPanel?.destroy();
+  recordedGemmaPanel = undefined;
   const item = state.cases.find(entry => entry.id === currentId);
   if (!item) { $('#detail').innerHTML = '<div class="empty-state"><h2>Nenhum caso neste filtro</h2><p>Escolha outra fila para acompanhar as pendências.</p></div>'; localizeTree($('#detail')); return; }
   const tabs = [['summary','Acompanhamento'],['evidence','Conferência'],['sources','Registros'],['history','Histórico']];
   $('#detail').innerHTML = `<button type="button" id="return-to-queue" class="queue-return"><span aria-hidden="true">←</span> Voltar à fila</button><header class="detail-head"><div><p class="eyebrow">${esc(item.id)} · Dados fictícios</p><h2>${esc(displayTitle(item))}</h2></div><span class="tag ${statusClass(item)}">${esc(item.statusLabel)}</span></header><p class="context-line">${esc(item.owner ? `Responsável: ${item.owner}` : 'Responsável ainda não atribuído')} · Agenda fictícia</p><div class="tabs" role="tablist" aria-label="Informações da pendência">${tabs.map(([id,label]) => `<button type="button" role="tab" id="tab-${id}" data-tab="${id}" aria-selected="${currentTab === id}" tabindex="${currentTab === id ? 0 : -1}" aria-controls="case-panel">${label}</button>`).join('')}</div><div id="case-panel" role="tabpanel" aria-labelledby="tab-${currentTab}" tabindex="0">${currentTab === 'summary' ? summaryView(item) : currentTab === 'evidence' ? evidenceView(item) : currentTab === 'sources' ? sourcesView(item) : historyView(item)}</div>`;
   localizeTree($('#detail'));
   bindDetail(item);
-  if (currentTab === 'evidence') mountEvidencePanel($('#case-panel'), { item, revision:state.revision, request, notify, onStale:async () => { state = await request('/api/state'); render('tab-evidence'); } });
+  if (currentTab === 'evidence') {
+    const onStale = async () => { state = await request('/api/state'); render('tab-evidence'); };
+    mountEvidencePanel($('#case-panel'), { item, revision:state.revision, request, notify, onStale });
+    const gemmaHost = document.createElement('section');
+    gemmaHost.id = 'recorded-gemma-panel';
+    $('#case-panel').append(gemmaHost);
+    recordedGemmaPanel = mountRecordedGemmaPanel(gemmaHost, { item, revision:state.revision, request, language:getLanguage(), onStale });
+  }
 }
 function render(focus = null) {
   for (const [key,value] of Object.entries(state.metrics)) { const target = $(`#metric-${key}`); if (target) target.textContent = value; }
@@ -242,17 +283,27 @@ $('#filter').addEventListener('change',event => { if (busy) return;filter=event.
 $('#search').addEventListener('input',event => { if (busy) return;search=event.target.value;render(); });
 window.addEventListener('beforeunload',event => { if (edits.size) { event.preventDefault();event.returnValue=''; } });
 $('#language').value=getLanguage();
+function updateLanguageChoices() {
+  for (const button of document.querySelectorAll('[data-language]')) button.setAttribute('aria-pressed', String(button.dataset.language === getLanguage()));
+}
+updateLanguageChoices();
+for (const button of document.querySelectorAll('[data-language]')) button.addEventListener('click', () => {
+  if (button.disabled) return;
+  $('#language').value = button.dataset.language;
+  $('#language').dispatchEvent(new Event('change'));
+});
 localizeTree(document.body);
 $('#language').addEventListener('change',event => {
-  if (busy) return;
-  if ($('#case-panel')?.getAttribute('aria-busy') === 'true') { event.target.value=getLanguage();notify('Aguarde a consulta ou o salvamento antes de trocar o idioma.');return; }
+  if (busy) { event.target.value=getLanguage();updateLanguageChoices();return; }
+  if ($('#case-panel')?.getAttribute('aria-busy') === 'true') { event.target.value=getLanguage();updateLanguageChoices();notify('Aguarde a consulta ou o salvamento antes de trocar o idioma.');return; }
   const detailScroll=$('#detail').scrollTop, queueScroll=$('#cases').scrollTop;
   const ownerSelection=$('#owner')?.value;
   setLanguage(event.target.value);
   if (state) render(); else localizeTree(document.body);
-  refreshTheme();refreshCalendar();
+  refreshTheme();refreshCalendar();careWorkspace.setLanguage(getLanguage());
   if (ownerSelection !== undefined && $('#owner')) $('#owner').value=ownerSelection;
-  $('#detail').scrollTop=detailScroll;$('#cases').scrollTop=queueScroll;$('#language').focus({preventScroll:true});
+  updateLanguageChoices();
+  $('#detail').scrollTop=detailScroll;$('#cases').scrollTop=queueScroll;document.querySelector(`[data-language="${getLanguage()}"]`)?.focus({preventScroll:true});
 });
 try {
   state=await request('/api/state');render();

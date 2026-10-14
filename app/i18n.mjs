@@ -3,6 +3,8 @@ export const LANGUAGES = Object.freeze({ en:'English', pt:'Português', es:'Espa
 const LOCALES = { en:'en', pt:'pt-BR', es:'es' };
 const STORAGE_KEY = 'patientkeeper-retorno-language';
 export const catalog = [
+  ['Protótipo com dados fictícios. A equipe médica define as orientações e os prazos clínicos. Fontes conferíveis e revisão humana. Não envia mensagens nem altera consultas reais.', 'Prototype with fictional data. The medical team defines care instructions and clinical timing. Reviewable sources and human review. No messages are sent and no real appointments are changed.', 'Prototipo con datos ficticios. El equipo médico define las indicaciones y los plazos clínicos. Fuentes verificables y revisión humana. No envía mensajes ni modifica citas reales.'],
+  ['Central do médico', 'Doctor workspace', 'Espacio del médico'],
   ['Pular para o conteúdo','Skip to content','Saltar al contenido'],
   ['Aguarde a consulta ou o salvamento antes de mudar a visualização.','Wait for the query or save before changing views.','Espere a que termine la consulta o el guardado antes de cambiar de vista.'],
   ['Navegação do trabalho','Workspace navigation','Navegación del trabajo'],

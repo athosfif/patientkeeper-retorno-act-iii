@@ -226,7 +226,9 @@ test('public allowlist contains no Node persistence, oracle fields, local progre
   const forbidden=/(?:teste_evidencia|estado_final_esperado|acoes_humanas_esperadas|criterios_futuros_de_encerramento)/;
   assert.equal(forbidden.test(await readFile(new URL('../fixtures.mjs',import.meta.url),'utf8')),false);
   assert.equal(/node:|createHash|\bBuffer\b/.test(await readFile(new URL('../evidence.mjs',import.meta.url),'utf8')),false);
-  assert.equal(/await fetch\(/.test(await readFile(new URL('../client.mjs',import.meta.url),'utf8')),false);
+  const client=await readFile(new URL('../client.mjs',import.meta.url),'utf8');
+  assert.equal(/\bfetch\s*\(/.test(client),false);
+  assert.equal(/file\.arrayBuffer\s*\(|\bbtoa\s*\(/.test(client),false);
   const index=await readFile(new URL('../index.html',import.meta.url),'utf8');assert.equal(index.includes('href="/api/export"'),false);assert.equal(index.includes('src="./client.mjs"'),true);
   assert.equal(index.includes('href="/"'),false);assert.equal(index.includes('href="./"'),true);
   const adapter=await readFile(new URL('../browser-api.mjs',import.meta.url),'utf8');assert.equal(adapter.includes("fetch(new URL('./amd-runs.json',import.meta.url)"),true);

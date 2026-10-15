@@ -1,0 +1,258 @@
+1
+00:00:00,000 --> 00:00:04,020
+PatientKeeper Retorno helps a doctor keep the
+next step visible when a
+
+2
+00:00:04,020 --> 00:00:06,120
+patient follow-up remains unfinished.
+
+3
+00:00:06,820 --> 00:00:11,880
+Created by Athos from Figueira, this
+prototype grew from the scattered contacts
+
+4
+00:00:11,880 --> 00:00:15,480
+and incomplete follow-ups we see while
+supporting medical practices.
+
+5
+00:00:16,300 --> 00:00:18,400
+All cases in this demonstration are
+fictional.
+
+6
+00:00:19,080 --> 00:00:23,020
+The doctor workspace brings the journey,
+consultation and contact history together.
+
+7
+00:00:23,700 --> 00:00:27,260
+Here, a fictional bunion and bunionette
+surgery labels the scenario.
+
+8
+00:00:27,260 --> 00:00:32,420
+The doctor chooses the phase, the responsible
+person, the next administrative action
+
+9
+00:00:32,580 --> 00:00:33,340
+and a check date.
+
+10
+00:00:34,100 --> 00:00:37,440
+The system does not invent surgical
+instructions or clinical deadlines.
+
+11
+00:00:38,180 --> 00:00:42,600
+The practice receives an organized record
+without requiring reception staff to operate
+
+12
+00:00:42,600 --> 00:00:43,400
+this demonstration.
+
+13
+00:00:43,979 --> 00:00:47,859
+The local version really transcribes a
+fictional audio file on this computer.
+
+14
+00:00:48,439 --> 00:00:52,959
+Portuguese and English audio are supported
+independently from the navigation language.
+
+15
+00:00:53,599 --> 00:00:57,739
+The doctor reviews the original transcript
+and selects literal segments to prepare
+
+16
+00:00:57,739 --> 00:00:59,159
+a note with source references.
+
+17
+00:00:59,779 --> 00:01:01,079
+This draft is an extraction,
+
+18
+00:01:01,559 --> 00:01:05,099
+not a model-generated clinical summary or a
+signed medical record.
+
+19
+00:01:05,739 --> 00:01:08,299
+Selecting a different file requires a new
+declaration.
+
+20
+00:01:09,079 --> 00:01:11,939
+Changing language or tabs preserves the
+selected audio.
+
+21
+00:01:12,459 --> 00:01:16,099
+The contact routine checks the recorded
+preference and requires review of the
+
+22
+00:01:16,099 --> 00:01:18,119
+exact administrative source and message.
+
+23
+00:01:18,979 --> 00:01:22,599
+The action shown here is a simulation: no
+WhatsApp message is sent.
+
+24
+00:01:23,179 --> 00:01:25,379
+A response and the next step remain visible.
+
+25
+00:01:25,879 --> 00:01:30,438
+A refusal blocks further contact. Changing
+the source invalidates the earlier review.
+
+26
+00:01:31,098 --> 00:01:33,758
+A human records the administrative
+resolution, so
+
+27
+00:01:33,758 --> 00:01:36,178
+preparing a message alone cannot close the
+episode.
+
+28
+00:01:36,778 --> 00:01:41,378
+We also executed five distinct administrative
+queries through the AMD Token Factory
+
+29
+00:01:41,378 --> 00:01:41,828
+service.
+
+30
+00:01:42,558 --> 00:01:45,998
+The official usage history maps the requested
+Gemma model to the returned
+
+31
+00:01:45,998 --> 00:01:50,398
+identifier. Three responses produced
+candidates supported by literal citations.
+
+32
+00:01:51,058 --> 00:01:54,718
+One response abstained when the essential
+source was absent, and one request
+
+33
+00:01:54,718 --> 00:01:58,398
+timed out. The final positive case ran
+through the product API.
+
+34
+00:01:59,158 --> 00:02:02,618
+These experiments used the follow-up queue,
+not the new consultation note.
+
+35
+00:02:03,278 --> 00:02:06,438
+The public panel displays recorded evidence
+matched to the current question and
+
+36
+00:02:06,438 --> 00:02:08,698
+sources; it does not start live inference.
+
+37
+00:02:09,289 --> 00:02:14,109
+A clinical question, conflicting records, or
+changed context blocks reuse of an
+
+38
+00:02:14,109 --> 00:02:14,589
+old answer.
+
+39
+00:02:15,269 --> 00:02:19,349
+The original queue, fictional doctor
+calendar, English, Portuguese and Spanish
+
+40
+00:02:19,349 --> 00:02:22,309
+navigation, and light and dark appearance
+remain available.
+
+41
+00:02:23,189 --> 00:02:25,329
+Gemma runs on the AMD service.
+
+42
+00:02:26,009 --> 00:02:28,229
+Audio transcription runs locally on the CPU.
+
+43
+00:02:29,029 --> 00:02:32,409
+The public static version cannot transcribe
+audio or send messages.
+
+44
+00:02:33,049 --> 00:02:36,649
+This separation makes the limits visible
+instead of presenting a prepared action
+
+45
+00:02:36,649 --> 00:02:37,909
+as an executed one.
+
+46
+00:02:37,909 --> 00:02:42,709
+The intended value is fewer unfinished
+follow-ups and less repeated administrative
+
+47
+00:02:42,709 --> 00:02:43,189
+work.
+
+48
+00:02:43,829 --> 00:02:46,469
+We have tested the software and the synthetic
+workflow;
+
+49
+00:02:47,109 --> 00:02:49,909
+operational savings and clinical outcomes
+have not been measured.
+
+50
+00:02:50,649 --> 00:02:53,589
+The administrative scaffold existed before
+the event and is declared.
+
+51
+00:02:54,289 --> 00:02:58,769
+Source review, real AMD experiments, and the
+new doctor workspace were added
+
+52
+00:02:58,769 --> 00:02:59,469
+during the event.
+
+53
+00:03:00,109 --> 00:03:04,129
+The public demo and repository let judges
+inspect the prototype, the source,
+
+54
+00:03:04,609 --> 00:03:05,569
+and the recorded evidence.
+
+55
+00:03:05,569 --> 00:03:11,409
+PatientKeeper Retorno: a source, a review,
+and a next step.

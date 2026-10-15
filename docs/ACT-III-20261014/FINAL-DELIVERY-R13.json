@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-15T01:10:44.143534+00:00",
+  "state": "lablab_updated_and_public_media_verified",
+  "team": "FIGUEIRA AI",
+  "submissionURL": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
+  "confirmation": "Submission Updated! Your submission for AMD Developer Hackathon: ACT III has been updated successfully.",
+  "publicPageReloadVerified": true,
+  "sourceRepository": "https://github.com/athosfif/patientkeeper-retorno-act-iii",
+  "demoURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
+  "applicationVersion": "R12",
+  "presentationVersion": "R13",
+  "presentationPages": 9,
+  "videoVersion": "R08",
+  "coverVersion": "R10",
+  "validatedCodeCommit": "22df95368a5f6dc340c627e5244ffc781fef2dae",
+  "previousSourceMetadataCommit": "95696cd6d08be6b317e8fd5cbc492d3e7a70426e",
+  "pagesCommit": "3bf87f772237f001220fe221a85c715c5d0e29c0",
+  "testsPassedAtValidatedCode": 284,
+  "applicationCodeChangedForThisMediaUpdate": false,
+  "pagesChangedForThisMediaUpdate": false,
+  "media": {
+    "pdf": {
+      "version": "R13",
+      "publicURL": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_wbbq4gjv0rqcvhuppo8ud6h7.pdf",
+      "sha256": "651bdc5e2761e41fe3a88a576dc06c350cc722b79bf461d06811c9f8e500c46e",
+      "publicSha256": "651bdc5e2761e41fe3a88a576dc06c350cc722b79bf461d06811c9f8e500c46e",
+      "matched": true,
+      "status": 200,
+      "bytes": 4797139,
+      "contentType": "application/pdf",
+      "tlsVerified": true,
+      "authenticated": false
+    },
+    "video": {
+      "version": "R08",
+      "publicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_jincpatvkbrlzyqnp3w7njsh.mp4",
+      "sha256": "8777dfc74d832c86e5d26c5cab0c7b99e9d5969ba81aeef914f89d1e0b5ad27a",
+      "publicSha256": "8777dfc74d832c86e5d26c5cab0c7b99e9d5969ba81aeef914f89d1e0b5ad27a",
+      "matched": true,
+      "status": 200,
+      "bytes": 9389449,
+      "contentType": "video/mp4",
+      "tlsVerified": true,
+      "authenticated": false
+    },
+    "cover": {
+      "version": "R10",
+      "publicURL": "https://lablab.ai/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Flablab-static-eu%2Fsubmissions%2Frfoyjx7o4t96hjkfomod284i%2Fd1miiuhs58slqur1hhzk7g15%2Fimage%2Fimage_d082tis4nr4f21dmszmgt4bv.jpg&w=3840&q=75",
+      "unchanged": true
+    }
+  },
+  "valueScenario": {
+    "recordsPerDay": 6,
+    "volumeBasis": "reported by the team",
+    "reportedManualDocumentationMinutesPerRecord": 15,
+    "manualBasis": "user-reported documentation time, not an independently timed study",
+    "manualDocumentationMinutesPerDay": 90,
+    "assumedTotalAssistedMinutesPerRecord": 10,
+    "assistedBasis": "our illustrative assumption, not measured",
+    "assistedTotalIncludes": [
+      "preparation",
+      "doctor review",
+      "corrections",
+      "overhead"
+    ],
+    "conditionalNetMinutesPerDay": 30,
+    "formula": "6 * (15 - 10) = 30",
+    "measuredPatientKeeperSavings": false,
+    "overlappingAsrAndNoteBenefitsAddedTogether": false,
+    "modelLatencyPresentedAsTimeSaved": false
+  },
+  "anonymousOtherToolReport": {
+    "includedInPresentationOnly": true,
+    "approximateHoursPerDay": 2,
+    "tool": "another consultation transcription tool",
+    "source": "informal physician report shared with the team",
+    "independentlyVerified": false,
+    "patientKeeperResult": false
+  },
+  "syntheticCasesOnly": true,
+  "newInferenceCallsDuringRelease": 0,
+  "netlifyCreditsUsed": 0,
+  "whatsApp": "simulation; no real sending",
+  "clinicalProtocol": "pending",
+  "localAsrMaxAudioSeconds": 120,
+  "careNote": "literal selected transcript extraction; requires doctor review; no model-generated or signed clinical record",
+  "publicAsr": "unavailable; manual fictional text only",
+  "googleEligibilityConfirmed": false,
+  "physicalGemmaHardwareIndependentlyVerified": false,
+  "rawSourceAudioIncluded": false,
+  "audio": {
+    "narrator": "Envato Benjamin",
+    "originalPartsPreserved": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "newVoiceGenerationCompleted": false,
+    "narrationWordingUnchangedFromR07": true,
+    "subtitleTextAndTimingUnchangedFromR07": true,
+    "pendingReplacementVoiceNotInPublishedVideo": true,
+    "integralHumanAudioListeningClaimed": false
+  },
+  "video": {
+    "durationSeconds": 191.843,
+    "resolution": "1920x1080",
+    "framesPerSecond": 30
+  }
+}

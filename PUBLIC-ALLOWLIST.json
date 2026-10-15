@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "revision": "R12-GEMMA-CARE-20261014",
-  "state": "R12 published and verified; existing LabLab submission updated with video R07, PDF R12 and cover R10",
+  "revision": "R12-APP-R13-PRESENTATION-R08-VIDEO-20261014",
+  "state": "LabLab media R13/R08 verified; source distribution for validated application R12 with final presentation R13 and video R08",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -81,12 +81,19 @@
     "docs/ACT-III-20261012/UX-R09.md",
     "docs/ACT-III-20261014/COVER-R10.png",
     "docs/ACT-III-20261014/FINAL-DELIVERY-R12.json",
+    "docs/ACT-III-20261014/FINAL-DELIVERY-R13.json",
     "docs/ACT-III-20261014/NARRATION-EN-R07.txt",
+    "docs/ACT-III-20261014/NARRATION-EN-R08.txt",
     "docs/ACT-III-20261014/PRESENTATION-EN-R12.pdf",
     "docs/ACT-III-20261014/PRESENTATION-EN-R12.pptx",
+    "docs/ACT-III-20261014/PRESENTATION-EN-R13.pdf",
+    "docs/ACT-III-20261014/PRESENTATION-EN-R13.pptx",
     "docs/ACT-III-20261014/RELEASE-R12.md",
+    "docs/ACT-III-20261014/RELEASE-R13.md",
     "docs/ACT-III-20261014/SUBTITLES-EN-R07.srt",
+    "docs/ACT-III-20261014/SUBTITLES-EN-R08.srt",
     "docs/ACT-III-20261014/VIDEO-EN-R07.mp4",
+    "docs/ACT-III-20261014/VIDEO-EN-R08.mp4",
     "docs/recorded-gemma-integration.md",
     "docs/recorded-gemma-runs.json",
     "public-demo/browser-api.mjs",
@@ -620,7 +627,7 @@
     "physicalHardwareIndependentlyVerifiedForGemma": false,
     "privateMachinePathPatterns": 0,
     "highEntropyCredentialPatterns": 0,
-    "sourcePublicationFiles": 173,
+    "sourcePublicationFiles": 180,
     "staticGeneratedFiles": 31,
     "newPublicGemmaProofs": "Sanitized fixed fixture and integration note only; no account artifacts or model key",
     "currentLocalAsrClientUnchanged": true
@@ -638,7 +645,7 @@
     "generatedAssetsInitiallyAbsent": true,
     "buildThenTestsPassed": true,
     "secondBuildByteIdentical": true,
-    "scope": "170-file validated functional code tree; final update adds only edited media, subtitles and sanitized receipt; no product code changes"
+    "scope": "170-file functional R12 code tree verified at the validated code commit; subsequent source files are only final media and metadata; application and static assets unchanged"
   },
   "sourceIntegrity": [
     {
@@ -663,8 +670,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 15492,
-      "sha256": "db1749fd184d9a54d2403cad20d7c6b10aae9183a7ee30fcb23ed5db38a76f10"
+      "bytes": 16559,
+      "sha256": "13205ab2cdff2aaebb327abf96ef8b355359f3ef087860b5db7f5766c20c0a77"
     },
     {
       "file": "app/ai-contract.mjs",
@@ -1027,7 +1034,17 @@
       "sha256": "e6db47eede2ecc2e322d0a467ce76c3040f35658b0f965b263288eedb2276e4f"
     },
     {
+      "file": "docs/ACT-III-20261014/FINAL-DELIVERY-R13.json",
+      "bytes": 4569,
+      "sha256": "0e415a772b0b38425d225fe5f2d40080d25f05f4d83e9389d0014db1a17cd5bd"
+    },
+    {
       "file": "docs/ACT-III-20261014/NARRATION-EN-R07.txt",
+      "bytes": 3254,
+      "sha256": "2c9c43d00fca266f123908837c0218cd397aaa4ea8fc57a93d0485746ec23187"
+    },
+    {
+      "file": "docs/ACT-III-20261014/NARRATION-EN-R08.txt",
       "bytes": 3254,
       "sha256": "2c9c43d00fca266f123908837c0218cd397aaa4ea8fc57a93d0485746ec23187"
     },
@@ -1042,9 +1059,24 @@
       "sha256": "433ff56cc5f70faa05aaae14e5162a1cf049ee1438ac94ef3b6111255478147e"
     },
     {
+      "file": "docs/ACT-III-20261014/PRESENTATION-EN-R13.pdf",
+      "bytes": 4797139,
+      "sha256": "651bdc5e2761e41fe3a88a576dc06c350cc722b79bf461d06811c9f8e500c46e"
+    },
+    {
+      "file": "docs/ACT-III-20261014/PRESENTATION-EN-R13.pptx",
+      "bytes": 2132946,
+      "sha256": "0d32091521c153c02c3ee400037892eee111ff8950f7b7510baa9c04623e9fce"
+    },
+    {
       "file": "docs/ACT-III-20261014/RELEASE-R12.md",
       "bytes": 4301,
       "sha256": "900e201e02d394e3600c32a8f0281a8f51bbbd28752407049892c64ab2c29d97"
+    },
+    {
+      "file": "docs/ACT-III-20261014/RELEASE-R13.md",
+      "bytes": 4808,
+      "sha256": "72aebd4405d4150700272eeca288dd8db44b24e2d92221d9758b9e74b6e7e86f"
     },
     {
       "file": "docs/ACT-III-20261014/SUBTITLES-EN-R07.srt",
@@ -1052,9 +1084,19 @@
       "sha256": "c4dc4ac0448667d16845c5705e3fca5db412dad8f29c91bed535c8164b3178eb"
     },
     {
+      "file": "docs/ACT-III-20261014/SUBTITLES-EN-R08.srt",
+      "bytes": 5108,
+      "sha256": "c4dc4ac0448667d16845c5705e3fca5db412dad8f29c91bed535c8164b3178eb"
+    },
+    {
       "file": "docs/ACT-III-20261014/VIDEO-EN-R07.mp4",
       "bytes": 9509857,
       "sha256": "a25e23a1bdef80c69e5287f811674fa045db25ca88482ce859b9ca709a6bcc6a"
+    },
+    {
+      "file": "docs/ACT-III-20261014/VIDEO-EN-R08.mp4",
+      "bytes": 9389449,
+      "sha256": "8777dfc74d832c86e5d26c5cab0c7b99e9d5969ba81aeef914f89d1e0b5ad27a"
     },
     {
       "file": "docs/recorded-gemma-integration.md",
@@ -1103,17 +1145,19 @@
     }
   ],
   "currentConfirmedLabLabMedia": {
-    "videoRevision": "R07",
-    "pdfRevision": "R12",
+    "videoRevision": "R08",
+    "pdfRevision": "R13",
     "coverRevision": "R10",
     "date": "2026-10-14",
-    "verifiedAt": "2026-10-15T00:15:55.658984+00:00",
-    "newR12VideoOutputIncluded": true,
+    "verifiedAt": "2026-10-15T01:10:44.143534+00:00",
     "submissionURL": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
-    "videoPublicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_gn3f2kt2c93vxt7lubydx7ml.mp4",
-    "pdfPublicURL": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_n5si5gvrp1wr9ra8tr8tgy2o.pdf",
+    "videoPublicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_jincpatvkbrlzyqnp3w7njsh.mp4",
+    "pdfPublicURL": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_wbbq4gjv0rqcvhuppo8ud6h7.pdf",
     "publicPageReloadVerified": true,
-    "videoAndPdfFullHashesMatched": true
+    "videoAndPdfFullHashesMatched": true,
+    "presentationPages": 9,
+    "newVoiceGenerated": false,
+    "originalFiveAudioPartsPreserved": true
   },
   "labLabR12UpdateConfirmed": true,
   "selfHashStoredInPrivateFreezeReceipt": true,
@@ -1157,9 +1201,61 @@
       "file": "docs/ACT-III-20261014/FINAL-DELIVERY-R12.json",
       "bytes": 3013,
       "sha256": "e6db47eede2ecc2e322d0a467ce76c3040f35658b0f965b263288eedb2276e4f"
+    },
+    {
+      "file": "docs/ACT-III-20261014/PRESENTATION-EN-R13.pdf",
+      "bytes": 4797139,
+      "sha256": "651bdc5e2761e41fe3a88a576dc06c350cc722b79bf461d06811c9f8e500c46e"
+    },
+    {
+      "file": "docs/ACT-III-20261014/PRESENTATION-EN-R13.pptx",
+      "bytes": 2132946,
+      "sha256": "0d32091521c153c02c3ee400037892eee111ff8950f7b7510baa9c04623e9fce"
+    },
+    {
+      "file": "docs/ACT-III-20261014/VIDEO-EN-R08.mp4",
+      "bytes": 9389449,
+      "sha256": "8777dfc74d832c86e5d26c5cab0c7b99e9d5969ba81aeef914f89d1e0b5ad27a"
+    },
+    {
+      "file": "docs/ACT-III-20261014/SUBTITLES-EN-R08.srt",
+      "bytes": 5108,
+      "sha256": "c4dc4ac0448667d16845c5705e3fca5db412dad8f29c91bed535c8164b3178eb"
+    },
+    {
+      "file": "docs/ACT-III-20261014/NARRATION-EN-R08.txt",
+      "bytes": 3254,
+      "sha256": "2c9c43d00fca266f123908837c0218cd397aaa4ea8fc57a93d0485746ec23187"
+    },
+    {
+      "file": "docs/ACT-III-20261014/RELEASE-R13.md",
+      "bytes": 4808,
+      "sha256": "72aebd4405d4150700272eeca288dd8db44b24e2d92221d9758b9e74b6e7e86f"
+    },
+    {
+      "file": "docs/ACT-III-20261014/FINAL-DELIVERY-R13.json",
+      "bytes": 4569,
+      "sha256": "0e415a772b0b38425d225fe5f2d40080d25f05f4d83e9389d0014db1a17cd5bd"
     }
   ],
   "validatedCodeCommit": "22df95368a5f6dc340c627e5244ffc781fef2dae",
   "validatedPagesCommit": "3bf87f772237f001220fe221a85c715c5d0e29c0",
-  "finalBrowserQAPassed": true
+  "finalBrowserQAPassed": true,
+  "applicationVersion": "R12",
+  "presentationVersion": "R13",
+  "videoVersion": "R08",
+  "labLabR13UpdateConfirmed": true,
+  "applicationCodeChangedForMediaUpdate": false,
+  "sourceMetadataPublicationPendingReview": false,
+  "valueScenario": {
+    "recordsPerDay": 6,
+    "reportedManualDocumentationMinutesPerRecord": 15,
+    "reportedManualMinutesPerDay": 90,
+    "assumedTotalAssistedMinutesPerRecord": 10,
+    "assistedIncludesPreparationReviewCorrectionsAndOverhead": true,
+    "conditionalNetMinutesPerDay": 30,
+    "measuredPatientKeeperSavings": false,
+    "anonymousOtherToolReportIsPatientKeeperOutcome": false
+  },
+  "sourceMetadataReviewed": true
 }

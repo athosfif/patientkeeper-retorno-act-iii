@@ -4,6 +4,7 @@ import { queryEvidence, createEvidenceCard, evidenceContext, validStore, MAX_REV
 import { fixtures as defaultFixtures } from './fixtures.mjs';
 import { errorText, ui } from './i18n.mjs';
 import { readRecordedAMDArchive } from './recorded-amd.mjs';
+import { readRecordedGemmaArchive } from './recorded-gemma.mjs';
 
 // This adapter is local to this app. It never intercepts or replaces fetch.
 export const STORAGE_KEY = 'patientkeeper-retorno-public-v1';
@@ -103,6 +104,20 @@ export function createBrowserApi(options = {}) {
         finally { clearTimeout(timeout); }
       }
       if (!readRecordedAMDArchive(archive).valid) fail(500,'INVALID_ARCHIVE','Não foi possível validar o arquivo de execuções gravadas.');
+      return archive;
+    }
+    if (path === '/gemma-runs.json' && body === undefined) {
+      let archive;
+      const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),10000);
+      try {
+        const response=await fetch(new URL('./gemma-runs.json',import.meta.url),{cache:'no-store',credentials:'omit',redirect:'error',signal:controller.signal});
+        if (!response.ok) throw new Error();
+        const raw=await response.text();
+        if (encoder.encode(raw).length > 256*1024) throw new Error();
+        archive=JSON.parse(raw);
+      } catch { fail(503,'ARCHIVE_UNAVAILABLE','A execução gravada está indisponível. Nenhum pedido a um modelo ao vivo foi feito.'); }
+      finally { clearTimeout(timeout); }
+      if (!(await readRecordedGemmaArchive(archive)).valid) fail(500,'INVALID_ARCHIVE','Não foi possível validar o arquivo de execuções gravadas.');
       return archive;
     }
     if (path === '/api/model/status' && body === undefined) return {...unchangedModel};

@@ -8,13 +8,17 @@ Conceptual AI desk-calendar cover with the official FIGUEIRA wordmark. Cover typ
 
 PatientKeeper Retorno is a fictional clinic-workflow prototype developed by FIGUEIRA for AMD Developer Hackathon: ACT III. It combines the original return queue with a doctor workspace for an illustrative bunion and bunionette surgery episode. A person records responsibility, the next administrative action and its due date, reviews the exact source and message, and records a simulated response before closing the episode.
 
-**R12 source and presentation published on GitHub.** The static Gemma archive route is covered by an integration test through the real browser adapter; GitHub/Pages runtime verification is recorded separately. The existing confirmed LabLab delivery still uses video R06, PDF R11 and cover R10 from October 12; updated media and a new submission receipt are pending. This document describes the current implementation, not a completed R12 upload or a judging result.
+**R12 delivered and verified.** The existing LabLab submission was updated successfully and its public page reloaded: video R07, PDF R12 and cover R10. The public video and PDF returned HTTP200 and exact SHA-256 matches. GitHub Pages passed final browser checks, including the Case04 recorded Gemma candidate and the human-handoff, timeout and conflict cases. This confirms delivery, not a judging result or award eligibility.
 
 [Demo URL](https://athosfif.github.io/patientkeeper-retorno-act-iii/) · [Source repository](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [Existing LabLab project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno)
 
 [Presentation PDF R12 · 8 pages](docs/ACT-III-20261014/PRESENTATION-EN-R12.pdf) · [Editable presentation R12](docs/ACT-III-20261014/PRESENTATION-EN-R12.pptx) · [Cover R10](docs/ACT-III-20261014/COVER-R10.png) · [Narration text R07](docs/ACT-III-20261014/NARRATION-EN-R07.txt) · [Material status and origins](docs/ACT-III-20261014/RELEASE-R12.md)
 
-These reviewable source materials are ready for the R12 source release. They do not establish a new video upload or a LabLab media update; the previous confirmed delivery remains R06/R11/R10 until a new receipt is verified.
+[Final edited video R07 · 3 min 12 s](docs/ACT-III-20261014/VIDEO-EN-R07.mp4) · [English subtitles R07](docs/ACT-III-20261014/SUBTITLES-EN-R07.srt) · [Sanitized delivery receipt](docs/ACT-III-20261014/FINAL-DELIVERY-R12.json)
+
+[Video submitted to LabLab](https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_gn3f2kt2c93vxt7lubydx7ml.mp4) · [PDF submitted to LabLab](https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_n5si5gvrp1wr9ra8tr8tgy2o.pdf). These links were read back from the updated submission and verified against the final local exports. Raw Envato narration MP3 files are not distributed.
+
+The functional code was validated at `22df95368a5f6dc340c627e5244ffc781fef2dae`; the later source commit adds only final media and delivery metadata. Pages remains `3bf87f772237f001220fe221a85c715c5d0e29c0`.
 
 ## Try the workflow
 

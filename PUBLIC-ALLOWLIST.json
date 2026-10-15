@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "revision": "R12-GEMMA-CARE-20261014",
-  "state": "R12 source release with tested static Gemma archive route; updated LabLab media and receipt remain pending",
+  "state": "R12 published and verified; existing LabLab submission updated with video R07, PDF R12 and cover R10",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -80,10 +80,13 @@
     "docs/ACT-III-20261012/SUBMISSION-DRAFT-EN.md",
     "docs/ACT-III-20261012/UX-R09.md",
     "docs/ACT-III-20261014/COVER-R10.png",
+    "docs/ACT-III-20261014/FINAL-DELIVERY-R12.json",
     "docs/ACT-III-20261014/NARRATION-EN-R07.txt",
     "docs/ACT-III-20261014/PRESENTATION-EN-R12.pdf",
     "docs/ACT-III-20261014/PRESENTATION-EN-R12.pptx",
     "docs/ACT-III-20261014/RELEASE-R12.md",
+    "docs/ACT-III-20261014/SUBTITLES-EN-R07.srt",
+    "docs/ACT-III-20261014/VIDEO-EN-R07.mp4",
     "docs/recorded-gemma-integration.md",
     "docs/recorded-gemma-runs.json",
     "public-demo/browser-api.mjs",
@@ -592,7 +595,7 @@
     "gemmaArchiveRoute": "Read-only relative module URL; 256KiB bound, timeout, omitted credentials, no redirects, pinned archive validation"
   },
   "sourceFilesBase": ".",
-  "finalPublicationConfirmed": false,
+  "finalPublicationConfirmed": true,
   "googlePrizeEligibilityConfirmed": false,
   "excluded": [
     ".git/**",
@@ -617,7 +620,7 @@
     "physicalHardwareIndependentlyVerifiedForGemma": false,
     "privateMachinePathPatterns": 0,
     "highEntropyCredentialPatterns": 0,
-    "sourcePublicationFiles": 170,
+    "sourcePublicationFiles": 173,
     "staticGeneratedFiles": 31,
     "newPublicGemmaProofs": "Sanitized fixed fixture and integration note only; no account artifacts or model key",
     "currentLocalAsrClientUnchanged": true
@@ -634,7 +637,8 @@
     "initialFiles": 170,
     "generatedAssetsInitiallyAbsent": true,
     "buildThenTestsPassed": true,
-    "secondBuildByteIdentical": true
+    "secondBuildByteIdentical": true,
+    "scope": "170-file validated functional code tree; final update adds only edited media, subtitles and sanitized receipt; no product code changes"
   },
   "sourceIntegrity": [
     {
@@ -659,8 +663,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 14779,
-      "sha256": "dce86168ff3339ed2d96890122f8c97f4e3b9776481492f555cbb81962ca124c"
+      "bytes": 15492,
+      "sha256": "db1749fd184d9a54d2403cad20d7c6b10aae9183a7ee30fcb23ed5db38a76f10"
     },
     {
       "file": "app/ai-contract.mjs",
@@ -1018,6 +1022,11 @@
       "sha256": "61d3e7227b61afa208ec53844d6a8311d00d262d3b609828b1df6cda51b3a320"
     },
     {
+      "file": "docs/ACT-III-20261014/FINAL-DELIVERY-R12.json",
+      "bytes": 3013,
+      "sha256": "e6db47eede2ecc2e322d0a467ce76c3040f35658b0f965b263288eedb2276e4f"
+    },
+    {
       "file": "docs/ACT-III-20261014/NARRATION-EN-R07.txt",
       "bytes": 3254,
       "sha256": "2c9c43d00fca266f123908837c0218cd397aaa4ea8fc57a93d0485746ec23187"
@@ -1034,8 +1043,18 @@
     },
     {
       "file": "docs/ACT-III-20261014/RELEASE-R12.md",
-      "bytes": 3078,
-      "sha256": "6a26b23769894000a70869814cc22f19449ad69366c35b8ded1e060f85469e0b"
+      "bytes": 4301,
+      "sha256": "900e201e02d394e3600c32a8f0281a8f51bbbd28752407049892c64ab2c29d97"
+    },
+    {
+      "file": "docs/ACT-III-20261014/SUBTITLES-EN-R07.srt",
+      "bytes": 5108,
+      "sha256": "c4dc4ac0448667d16845c5705e3fca5db412dad8f29c91bed535c8164b3178eb"
+    },
+    {
+      "file": "docs/ACT-III-20261014/VIDEO-EN-R07.mp4",
+      "bytes": 9509857,
+      "sha256": "a25e23a1bdef80c69e5287f811674fa045db25ca88482ce859b9ca709a6bcc6a"
     },
     {
       "file": "docs/recorded-gemma-integration.md",
@@ -1084,13 +1103,19 @@
     }
   ],
   "currentConfirmedLabLabMedia": {
-    "videoRevision": "R06",
-    "pdfRevision": "R11",
+    "videoRevision": "R07",
+    "pdfRevision": "R12",
     "coverRevision": "R10",
-    "date": "2026-10-12",
-    "newR12VideoOutputIncluded": false
+    "date": "2026-10-14",
+    "verifiedAt": "2026-10-15T00:15:55.658984+00:00",
+    "newR12VideoOutputIncluded": true,
+    "submissionURL": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
+    "videoPublicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_gn3f2kt2c93vxt7lubydx7ml.mp4",
+    "pdfPublicURL": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_n5si5gvrp1wr9ra8tr8tgy2o.pdf",
+    "publicPageReloadVerified": true,
+    "videoAndPdfFullHashesMatched": true
   },
-  "labLabR12UpdateConfirmed": false,
+  "labLabR12UpdateConfirmed": true,
   "selfHashStoredInPrivateFreezeReceipt": true,
   "preparedMaterialFiles": [
     {
@@ -1115,8 +1140,26 @@
     },
     {
       "file": "docs/ACT-III-20261014/RELEASE-R12.md",
-      "bytes": 3078,
-      "sha256": "6a26b23769894000a70869814cc22f19449ad69366c35b8ded1e060f85469e0b"
+      "bytes": 4301,
+      "sha256": "900e201e02d394e3600c32a8f0281a8f51bbbd28752407049892c64ab2c29d97"
+    },
+    {
+      "file": "docs/ACT-III-20261014/VIDEO-EN-R07.mp4",
+      "bytes": 9509857,
+      "sha256": "a25e23a1bdef80c69e5287f811674fa045db25ca88482ce859b9ca709a6bcc6a"
+    },
+    {
+      "file": "docs/ACT-III-20261014/SUBTITLES-EN-R07.srt",
+      "bytes": 5108,
+      "sha256": "c4dc4ac0448667d16845c5705e3fca5db412dad8f29c91bed535c8164b3178eb"
+    },
+    {
+      "file": "docs/ACT-III-20261014/FINAL-DELIVERY-R12.json",
+      "bytes": 3013,
+      "sha256": "e6db47eede2ecc2e322d0a467ce76c3040f35658b0f965b263288eedb2276e4f"
     }
-  ]
+  ],
+  "validatedCodeCommit": "22df95368a5f6dc340c627e5244ffc781fef2dae",
+  "validatedPagesCommit": "3bf87f772237f001220fe221a85c715c5d0e29c0",
+  "finalBrowserQAPassed": true
 }

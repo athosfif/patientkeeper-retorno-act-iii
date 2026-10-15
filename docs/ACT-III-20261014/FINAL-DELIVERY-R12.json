@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-15T00:15:55.658984+00:00",
+  "state": "published_verified_and_submission_updated",
+  "team": "FIGUEIRA AI",
+  "submissionURL": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
+  "confirmation": "Submission Updated! Your submission for AMD Developer Hackathon: ACT III has been updated successfully.",
+  "publicPageReloadVerified": true,
+  "sourceRepository": "https://github.com/athosfif/patientkeeper-retorno-act-iii",
+  "demoURL": "https://athosfif.github.io/patientkeeper-retorno-act-iii/",
+  "validatedCodeCommit": "22df95368a5f6dc340c627e5244ffc781fef2dae",
+  "pagesCommit": "3bf87f772237f001220fe221a85c715c5d0e29c0",
+  "testsPassed": 284,
+  "browserQAPassed": true,
+  "media": {
+    "pdf": {
+      "version": "R12",
+      "publicURL": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_n5si5gvrp1wr9ra8tr8tgy2o.pdf",
+      "sha256": "84cf0af2120830e315f3c97054e7fbf49e216632c25c4179589afa2da2d95b1b",
+      "publicSha256": "84cf0af2120830e315f3c97054e7fbf49e216632c25c4179589afa2da2d95b1b",
+      "matched": true,
+      "status": 200,
+      "bytes": 4656064,
+      "contentType": "application/pdf",
+      "tlsVerified": true,
+      "authenticated": false
+    },
+    "video": {
+      "version": "R07",
+      "publicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_gn3f2kt2c93vxt7lubydx7ml.mp4",
+      "sha256": "a25e23a1bdef80c69e5287f811674fa045db25ca88482ce859b9ca709a6bcc6a",
+      "publicSha256": "a25e23a1bdef80c69e5287f811674fa045db25ca88482ce859b9ca709a6bcc6a",
+      "matched": true,
+      "status": 200,
+      "bytes": 9509857,
+      "contentType": "video/mp4",
+      "tlsVerified": true,
+      "authenticated": false
+    },
+    "cover": {
+      "version": "R10",
+      "publicURL": "https://lablab.ai/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Flablab-static-eu%2Fsubmissions%2Frfoyjx7o4t96hjkfomod284i%2Fd1miiuhs58slqur1hhzk7g15%2Fimage%2Fimage_d082tis4nr4f21dmszmgt4bv.jpg&w=3840&q=75",
+      "unchanged": true
+    }
+  },
+  "syntheticCasesOnly": true,
+  "newInferenceCallsDuringRelease": 0,
+  "netlifyCreditsUsed": 0,
+  "whatsApp": "simulation; no real sending",
+  "clinicalProtocol": "pending",
+  "asr": "Optional local CPU transcription; static public demo accepts manual fictional text only",
+  "googleEligibilityConfirmed": false,
+  "physicalGemmaHardwareIndependentlyVerified": false,
+  "rawSourceAudioIncluded": false,
+  "video": {
+    "durationSeconds": 191.844,
+    "resolution": "1920x1080",
+    "framesPerSecond": 30,
+    "narration": "Computer-generated narration; five approved parts in sequence",
+    "audioListeningClaimed": false
+  },
+  "subtitles": {
+    "file": "SUBTITLES-EN-R07.srt",
+    "bytes": 5108,
+    "sha256": "c4dc4ac0448667d16845c5705e3fca5db412dad8f29c91bed535c8164b3178eb"
+  }
+}

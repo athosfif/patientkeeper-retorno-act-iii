@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "revision": "R12-GEMMA-CARE-20261014",
-  "state": "R12 source staged, clean-build verified and ready for publication; not published or submitted",
+  "state": "R12 source release with tested static Gemma archive route; updated LabLab media and receipt remain pending",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -550,7 +550,7 @@
       },
       {
         "file": "browser-api.mjs",
-        "sha256": "14be095a4bac7801768d70ba0b9f3019a69655591c65fb34f0a2dfefd52c8d95"
+        "sha256": "38d636344689c8ba2eabeeec241c4dbe959925911dc4e2b2be99d2a85b800b98"
       },
       {
         "file": "amd-runs.json",
@@ -588,7 +588,8 @@
     "audioCallback": "VOICE_UNAVAILABLE before file read or upload",
     "repeatedBuildVerified": true,
     "trackedAdapterAlsoServesAsGeneratedBuildInput": true,
-    "otherGeneratedFilesOutsideSourceAllowlist": 30
+    "otherGeneratedFilesOutsideSourceAllowlist": 30,
+    "gemmaArchiveRoute": "Read-only relative module URL; 256KiB bound, timeout, omitted credentials, no redirects, pinned archive validation"
   },
   "sourceFilesBase": ".",
   "finalPublicationConfirmed": false,
@@ -622,11 +623,11 @@
     "currentLocalAsrClientUnchanged": true
   },
   "verifiedLocalTests": {
-    "tests": 281,
-    "pass": 281,
+    "tests": 284,
+    "pass": 284,
     "fail": 0,
     "skipped": 0,
-    "scope": "Exact staged source after build; same results from clean source before second identical build",
+    "scope": "Exact source after build, including real static adapter to Gemma panel integration; no live model or real ASR execution",
     "modelOrAsrExecution": false
   },
   "cleanSourceReproduction": {
@@ -658,8 +659,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 14663,
-      "sha256": "55e2fdd067005c6401af0f42504543feb962add691c89b1d5b15a13bea4bb721"
+      "bytes": 14779,
+      "sha256": "dce86168ff3339ed2d96890122f8c97f4e3b9776481492f555cbb81962ca124c"
     },
     {
       "file": "app/ai-contract.mjs",
@@ -1048,8 +1049,8 @@
     },
     {
       "file": "public-demo/browser-api.mjs",
-      "bytes": 13407,
-      "sha256": "14be095a4bac7801768d70ba0b9f3019a69655591c65fb34f0a2dfefd52c8d95"
+      "bytes": 14372,
+      "sha256": "38d636344689c8ba2eabeeec241c4dbe959925911dc4e2b2be99d2a85b800b98"
     },
     {
       "file": "public-demo/tests/browser-api.test.mjs",
@@ -1058,8 +1059,8 @@
     },
     {
       "file": "public-demo/tests/recorded-amd-integration.test.mjs",
-      "bytes": 7479,
-      "sha256": "9ffdaad736e18225daa3961a200ee7bccac4da4051d1bc2e8e1fdd73c166e1f7"
+      "bytes": 12492,
+      "sha256": "165c66fd023b7b7f17e0afa787b6fc64eec601df964b408d50c04747bac64789"
     },
     {
       "file": "public-demo/tests/source-reading.test.mjs",

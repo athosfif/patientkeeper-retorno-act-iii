@@ -8,7 +8,7 @@ Conceptual AI desk-calendar cover with the official FIGUEIRA wordmark. Cover typ
 
 PatientKeeper Retorno is a fictional clinic-workflow prototype developed by FIGUEIRA for AMD Developer Hackathon: ACT III. It combines the original return queue with a doctor workspace for an illustrative bunion and bunionette surgery episode. A person records responsibility, the next administrative action and its due date, reviews the exact source and message, and records a simulated response before closing the episode.
 
-**R12 source ready for publication.** GitHub/Pages publication requires its own verification. The existing confirmed LabLab delivery still uses video R06, PDF R11 and cover R10 from October 12; updated media and a new submission receipt are pending. This document describes the current implementation, not a completed R12 upload or a judging result.
+**R12 source and presentation published on GitHub.** The static Gemma archive route is covered by an integration test through the real browser adapter; GitHub/Pages runtime verification is recorded separately. The existing confirmed LabLab delivery still uses video R06, PDF R11 and cover R10 from October 12; updated media and a new submission receipt are pending. This document describes the current implementation, not a completed R12 upload or a judging result.
 
 [Demo URL](https://athosfif.github.io/patientkeeper-retorno-act-iii/) · [Source repository](https://github.com/athosfif/patientkeeper-retorno-act-iii) · [Existing LabLab project](https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno)
 
@@ -82,7 +82,7 @@ python3 -m http.server 8771 --bind 127.0.0.1 --directory public-demo
 
 Open `http://127.0.0.1:8771/` for the static variant. Opening an HTML file directly does not provide the required origin or APIs. The checked-in browser adapter and exact allowlisted Qwen evidence are build inputs; a clone missing those inputs cannot reproduce the build by guessing substitutes.
 
-The latest R12 local test record contains **281 passed, zero failed or skipped**. The independent Gemma replay check passed 16 tests and matched the five original artifacts and three execution receipts. Tests, real provider calls, real local ASR checks and final public browser QA are separate evidence; they do not prove clinical validity or operational benefit.
+The latest R12 local test record contains **284 passed, zero failed or skipped**. The independent Gemma replay check passed 16 tests and matched the five original artifacts and three execution receipts. Tests, real provider calls, real local ASR checks and final public browser QA are separate evidence; they do not prove clinical validity or operational benefit.
 
 For optional local ASR, supply Python with faster-whisper and PyAV and an already available local model snapshot. Explicit configuration uses `RETORNO_VOICE_ENABLED`, `RETORNO_VOICE_PYTHON`, `RETORNO_VOICE_MODEL_DIR`, `RETORNO_VOICE_MODEL_ID` and `RETORNO_VOICE_MODEL_REVISION`. The recorded synthetic PT/EN checks used `Systran/faster-whisper-small` at revision `536b0662742c02347bc0e980a01041f333bce120`, CPU/int8. A clean clone does not include that runtime, weights or machine configuration; missing configuration reports unavailable instead of pretending to transcribe. No microphone capture is required.
 

@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "version": "R14-APP-R15-PDF-R11-VIDEO",
+  "state": "R15_presentation_R11_video_submitted_public_bytes_verified",
+  "versions": {
+    "application": "R14",
+    "presentation": "R15",
+    "video": "R11",
+    "cover": "R10"
+  },
+  "files": [
+    {
+      "path": "docs/ACT-III-20261016/VIDEO-EN-R11.mp4",
+      "bytes": 9351477,
+      "sha256": "d54c649f44f20631817fcd3335507e7fba3b5b810c6f69aa847daa7486256c6e"
+    },
+    {
+      "path": "docs/ACT-III-20261016/SUBTITLES-EN-R11.srt",
+      "bytes": 5108,
+      "sha256": "c4dc4ac0448667d16845c5705e3fca5db412dad8f29c91bed535c8164b3178eb"
+    },
+    {
+      "path": "docs/ACT-III-20261016/NARRATION-EN-R11.txt",
+      "bytes": 3254,
+      "sha256": "2c9c43d00fca266f123908837c0218cd397aaa4ea8fc57a93d0485746ec23187"
+    },
+    {
+      "path": "docs/ACT-III-20261016/PRESENTATION-EN-R15.pdf",
+      "bytes": 4765293,
+      "sha256": "fd13f4c4a83b0b606e506a3334778b2d20d49c087ea6c292dd9df2f1104e8ec3"
+    },
+    {
+      "path": "docs/ACT-III-20261016/PRESENTATION-EN-R15.pptx",
+      "bytes": 2213896,
+      "sha256": "c18410274fc068dfd4686e2a032900c3e6e133648bf6f8f08cc70208e40fd592"
+    }
+  ],
+  "presentationPages": 9,
+  "videoDurationSeconds": 191.843,
+  "subtitleCues": 55,
+  "narration": {
+    "provider": "Envato AI Voice",
+    "voice": "Benjamin",
+    "synthetic": true,
+    "origin": "Original R07/R08 spoken narration retained",
+    "newSpeechGenerated": false,
+    "newAudioProcessing": false,
+    "userApprovedContinuousV2Preview": true,
+    "approvedPreviewSha256": "160569b9094998b5827d6344ab3474a1d4ae8f465045d78e465ba2fd0f50d181"
+  },
+  "approvedPreviewIntegrity": {
+    "remuxOnly": true,
+    "videoPacketDataAndTimestampsIdentical": true,
+    "audioPacketDataAndTimestampsIdentical": true,
+    "videoPackets": 5755,
+    "audioPackets": 8994
+  },
+  "presentationProvenance": {
+    "visibleContentsUnchangedFromR14": true,
+    "metadataAndPptxNotesCorrected": true
+  },
+  "separateExecutionEvidence": {
+    "narratedAMDTests": {
+      "date": "2026-10-14",
+      "attempts": 5,
+      "affirmativeCandidates": 3,
+      "abstentions": 1,
+      "timeouts": 1
+    },
+    "visualEvolusPilot": {
+      "date": "2026-10-16",
+      "providerDurationMs": 8149,
+      "exactCitations": 2,
+      "humanReviewRequired": true,
+      "administrativeStateUnchanged": true,
+      "modelIdentityIndependentlyVerified": false,
+      "hardwareIdentityIndependentlyVerified": false
+    }
+  },
+  "implementationCommit": "2ba09aa58d1b4a7661636e881645c42d4f9e89b9",
+  "pagesCommit": "bf20a07aff981e328449242f95e0261fe9b4860c",
+  "applicationCodeChanged": false,
+  "pagesChanged": false,
+  "publicLiveInference": false,
+  "offlineCodeTestsPassed": 370,
+  "containerHttpSecurityChecksPassed": 16,
+  "testsRerunForMediaOnlyUpdate": false,
+  "measuredPatientKeeperSavings": false,
+  "awardEligibilityConfirmed": false,
+  "selectedTracks": [
+    "Health and Wellbeing",
+    "Evolus Business Agents on AMD"
+  ],
+  "selectedTracksPublicReadbackVerified": true,
+  "rawAudioOrIntermediateRendersDistributed": false,
+  "published": true,
+  "submitted": true,
+  "publicationFlagsScope": "latest R15 presentation and R11 video",
+  "previousConfirmedDelivery": {
+    "receipt": "docs/ACT-III-20261016/FINAL-DELIVERY-R14.json",
+    "videoRevision": "R10",
+    "presentationRevision": "R14",
+    "videoURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_tqs87vete0xtswed7wcvg75w.mp4",
+    "pdfURL": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_htwtdh5lgnqwr82y5hqhauzm.pdf",
+    "videoSha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9",
+    "pdfSha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1"
+  },
+  "originArtifactSha256": {
+    "finalMediaManifest": "a68711db76b0024a7fdac5aec18a23bf7e4c28a5f358f2cbc6ab017d56c44c2c",
+    "videoIntegrityReceipt": "b1945566d0d6f6061f785cdac045eaff478b28fc309bea8b6a6e395020091371",
+    "documentProvenanceReceipt": "b702d4c951689f9d3139222fe202f401cbb3494460002a858b0b047fbbef542d"
+  },
+  "publicReadbackVerifiedAt": "2026-10-16T21:53:04.982519+00:00",
+  "labLab": {
+    "submissionURL": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
+    "confirmation": "Submission Updated!",
+    "publicReadbackVerified": true,
+    "publicPlayerMuted": false,
+    "tracks": [
+      "Health and Wellbeing",
+      "Evolus Business Agents on AMD"
+    ],
+    "tracksPublicReadbackVerified": true,
+    "media": [
+      {
+        "kind": "video",
+        "url": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_hk4u7m0ofbfcem617yfpggez.mp4",
+        "httpStatus": 200,
+        "contentType": "video/mp4",
+        "bytes": 9351477,
+        "sha256": "d54c649f44f20631817fcd3335507e7fba3b5b810c6f69aa847daa7486256c6e",
+        "matched": true
+      },
+      {
+        "kind": "pdf",
+        "url": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_rtkmu9sziual63prao1dooou.pdf",
+        "httpStatus": 200,
+        "contentType": "application/pdf",
+        "bytes": 4765293,
+        "sha256": "fd13f4c4a83b0b606e506a3334778b2d20d49c087ea6c292dd9df2f1104e8ec3",
+        "matched": true
+      }
+    ]
+  }
+}

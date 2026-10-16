@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "revision": "R14-LOCAL-EVOLUS-PDF-R14-VIDEO-R10-20261016-PUBLISHED",
-  "state": "published_and_lablab_r10_video_r14_pdf_public_bytes_verified",
+  "revision": "R14-APP-R15-PDF-R11-VIDEO-20261016-PUBLISHED",
+  "state": "R15_presentation_R11_video_submitted_public_bytes_verified",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -97,13 +97,20 @@
     "docs/ACT-III-20261014/VIDEO-EN-R07.mp4",
     "docs/ACT-III-20261014/VIDEO-EN-R08.mp4",
     "docs/ACT-III-20261016/FINAL-DELIVERY-R14.json",
+    "docs/ACT-III-20261016/FINAL-DELIVERY-R15.json",
     "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
+    "docs/ACT-III-20261016/NARRATION-EN-R11.txt",
     "docs/ACT-III-20261016/PRESENTATION-EN-R14.pdf",
     "docs/ACT-III-20261016/PRESENTATION-EN-R14.pptx",
+    "docs/ACT-III-20261016/PRESENTATION-EN-R15.pdf",
+    "docs/ACT-III-20261016/PRESENTATION-EN-R15.pptx",
     "docs/ACT-III-20261016/RELEASE-R14.md",
+    "docs/ACT-III-20261016/RELEASE-R15.md",
     "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+    "docs/ACT-III-20261016/SUBTITLES-EN-R11.srt",
     "docs/ACT-III-20261016/VIDEO-EN-R09.mp4",
     "docs/ACT-III-20261016/VIDEO-EN-R10.mp4",
+    "docs/ACT-III-20261016/VIDEO-EN-R11.mp4",
     "docs/evolus-app-pilot-20261016.json",
     "docs/evolus-app-pilot-20261016.md",
     "docs/recorded-gemma-integration.md",
@@ -624,8 +631,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 19006,
-      "sha256": "28f9ce8a19a240b16d047a71ef25f429e74e83dffc865cf17f32ec49cc3e150f"
+      "bytes": 19435,
+      "sha256": "abb420953cc629ae06cc7da623f8d78d10bf9b30ddbf1dfe7675016bbb82104a"
     },
     {
       "file": "app/ai-contract.mjs",
@@ -1068,9 +1075,19 @@
       "sha256": "48c7b72049722bb98d3b840cb06ddf7495892faa691c0bb171bada59c57e2fe8"
     },
     {
+      "file": "docs/ACT-III-20261016/FINAL-DELIVERY-R15.json",
+      "bytes": 5518,
+      "sha256": "55c13569fe6f28be37e9c1fd6a26b573f1745309406cde6161baa2119b474c29"
+    },
+    {
       "file": "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
       "bytes": 3078,
       "sha256": "9b083ebf09f80250614ba3f5248256537732a87993a0224a937977e9442ff5d3"
+    },
+    {
+      "file": "docs/ACT-III-20261016/NARRATION-EN-R11.txt",
+      "bytes": 3254,
+      "sha256": "2c9c43d00fca266f123908837c0218cd397aaa4ea8fc57a93d0485746ec23187"
     },
     {
       "file": "docs/ACT-III-20261016/PRESENTATION-EN-R14.pdf",
@@ -1083,14 +1100,34 @@
       "sha256": "5fa68a900c40be0ef6d0b1456aa40daafcac595d052717f4442fdfe03a99e280"
     },
     {
+      "file": "docs/ACT-III-20261016/PRESENTATION-EN-R15.pdf",
+      "bytes": 4765293,
+      "sha256": "fd13f4c4a83b0b606e506a3334778b2d20d49c087ea6c292dd9df2f1104e8ec3"
+    },
+    {
+      "file": "docs/ACT-III-20261016/PRESENTATION-EN-R15.pptx",
+      "bytes": 2213896,
+      "sha256": "c18410274fc068dfd4686e2a032900c3e6e133648bf6f8f08cc70208e40fd592"
+    },
+    {
       "file": "docs/ACT-III-20261016/RELEASE-R14.md",
       "bytes": 3649,
       "sha256": "49482a71992733ae86d8c4e7b31d90e7cb1fbaadb429023029b78b2886d81b21"
     },
     {
+      "file": "docs/ACT-III-20261016/RELEASE-R15.md",
+      "bytes": 3819,
+      "sha256": "b51260f2ccbc22b7309023114928b1a76184dc2919f75be2c2c0993d5a78a3ee"
+    },
+    {
       "file": "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
       "bytes": 4878,
       "sha256": "eec3fbf127c1d4844ca8d599ea362ef6331e6f2b0a7da50f8ae16e75b1c2dca1"
+    },
+    {
+      "file": "docs/ACT-III-20261016/SUBTITLES-EN-R11.srt",
+      "bytes": 5108,
+      "sha256": "c4dc4ac0448667d16845c5705e3fca5db412dad8f29c91bed535c8164b3178eb"
     },
     {
       "file": "docs/ACT-III-20261016/VIDEO-EN-R09.mp4",
@@ -1101,6 +1138,11 @@
       "file": "docs/ACT-III-20261016/VIDEO-EN-R10.mp4",
       "bytes": 10938457,
       "sha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9"
+    },
+    {
+      "file": "docs/ACT-III-20261016/VIDEO-EN-R11.mp4",
+      "bytes": 9351477,
+      "sha256": "d54c649f44f20631817fcd3335507e7fba3b5b810c6f69aa847daa7486256c6e"
     },
     {
       "file": "docs/evolus-app-pilot-20261016.json",
@@ -1239,28 +1281,32 @@
     }
   ],
   "currentConfirmedLabLabMedia": {
-    "videoRevision": "R10",
-    "pdfRevision": "R14",
+    "videoRevision": "R11",
+    "pdfRevision": "R15",
     "coverRevision": "R10",
     "date": "2026-10-16",
+    "verifiedAt": "2026-10-16T21:53:04.982519+00:00",
     "submissionURL": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
-    "videoPublicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_tqs87vete0xtswed7wcvg75w.mp4",
-    "pdfPublicURL": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_htwtdh5lgnqwr82y5hqhauzm.pdf",
-    "videoSha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9",
-    "pdfSha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1",
+    "videoPublicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_hk4u7m0ofbfcem617yfpggez.mp4",
+    "videoBytes": 9351477,
+    "videoSha256": "d54c649f44f20631817fcd3335507e7fba3b5b810c6f69aa847daa7486256c6e",
+    "pdfPublicURL": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_rtkmu9sziual63prao1dooou.pdf",
+    "pdfBytes": 4765293,
+    "pdfSha256": "fd13f4c4a83b0b606e506a3334778b2d20d49c087ea6c292dd9df2f1104e8ec3",
     "publicPageReloadVerified": true,
     "videoAndPdfFullHashesMatched": true,
     "presentationPages": 9,
-    "narrator": "Athos, human voice; Adobe Podcast Enhance Speech v2 plus loudness normalization",
+    "videoDurationSeconds": 191.843,
+    "subtitleCues": 55,
+    "narrator": "Synthetic Envato AI Voice / Benjamin; original R07/R08 narration retained",
+    "newVoiceGeneration": false,
+    "newAudioProcessing": false,
+    "publicPlayerMuted": false,
     "tracks": [
       "Health and Wellbeing",
       "Evolus Business Agents on AMD"
     ],
-    "tracksPublicReadbackVerified": true,
-    "videoBytes": 10938457,
-    "verifiedAt": "2026-10-16T21:00:02.987054+00:00",
-    "audioEnhancement": "Adobe Podcast Enhance Speech v2",
-    "sameR09VideoStreamAndCaptions": true
+    "tracksPublicReadbackVerified": true
   },
   "labLabR12UpdateConfirmed": true,
   "selfHashStoredInPrivateFreezeReceipt": true,
@@ -1379,14 +1425,49 @@
       "file": "docs/ACT-III-20261016/VIDEO-EN-R10.mp4",
       "bytes": 10938457,
       "sha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9"
+    },
+    {
+      "file": "docs/ACT-III-20261016/VIDEO-EN-R11.mp4",
+      "bytes": 9351477,
+      "sha256": "d54c649f44f20631817fcd3335507e7fba3b5b810c6f69aa847daa7486256c6e"
+    },
+    {
+      "file": "docs/ACT-III-20261016/SUBTITLES-EN-R11.srt",
+      "bytes": 5108,
+      "sha256": "c4dc4ac0448667d16845c5705e3fca5db412dad8f29c91bed535c8164b3178eb"
+    },
+    {
+      "file": "docs/ACT-III-20261016/NARRATION-EN-R11.txt",
+      "bytes": 3254,
+      "sha256": "2c9c43d00fca266f123908837c0218cd397aaa4ea8fc57a93d0485746ec23187"
+    },
+    {
+      "file": "docs/ACT-III-20261016/PRESENTATION-EN-R15.pdf",
+      "bytes": 4765293,
+      "sha256": "fd13f4c4a83b0b606e506a3334778b2d20d49c087ea6c292dd9df2f1104e8ec3"
+    },
+    {
+      "file": "docs/ACT-III-20261016/PRESENTATION-EN-R15.pptx",
+      "bytes": 2213896,
+      "sha256": "c18410274fc068dfd4686e2a032900c3e6e133648bf6f8f08cc70208e40fd592"
+    },
+    {
+      "file": "docs/ACT-III-20261016/RELEASE-R15.md",
+      "bytes": 3819,
+      "sha256": "b51260f2ccbc22b7309023114928b1a76184dc2919f75be2c2c0993d5a78a3ee"
+    },
+    {
+      "file": "docs/ACT-III-20261016/FINAL-DELIVERY-R15.json",
+      "bytes": 5518,
+      "sha256": "55c13569fe6f28be37e9c1fd6a26b573f1745309406cde6161baa2119b474c29"
     }
   ],
   "validatedCodeCommit": "2ba09aa58d1b4a7661636e881645c42d4f9e89b9",
   "validatedPagesCommit": "bf20a07aff981e328449242f95e0261fe9b4860c",
   "finalBrowserQAPassed": false,
   "applicationVersion": "R14",
-  "presentationVersion": "R14",
-  "videoVersion": "R10",
+  "presentationVersion": "R15",
+  "videoVersion": "R11",
   "labLabR13UpdateConfirmed": true,
   "applicationCodeChangedForMediaUpdate": false,
   "sourceMetadataPublicationPendingReview": false,
@@ -1426,19 +1507,19 @@
   },
   "expectedFinalMedia": {
     "files": [
-      "docs/ACT-III-20261016/PRESENTATION-EN-R14.pdf",
-      "docs/ACT-III-20261016/PRESENTATION-EN-R14.pptx",
-      "docs/ACT-III-20261016/VIDEO-EN-R10.mp4",
-      "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
-      "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
-      "docs/ACT-III-20261016/FINAL-DELIVERY-R14.json",
-      "docs/ACT-III-20261016/RELEASE-R14.md"
+      "docs/ACT-III-20261016/VIDEO-EN-R11.mp4",
+      "docs/ACT-III-20261016/SUBTITLES-EN-R11.srt",
+      "docs/ACT-III-20261016/NARRATION-EN-R11.txt",
+      "docs/ACT-III-20261016/PRESENTATION-EN-R15.pdf",
+      "docs/ACT-III-20261016/PRESENTATION-EN-R15.pptx",
+      "docs/ACT-III-20261016/RELEASE-R15.md",
+      "docs/ACT-III-20261016/FINAL-DELIVERY-R15.json"
     ],
     "copiedByThisPreparation": true,
-    "state": "R10_video_R14_pdf_published_and_LabLab_public_hashes_verified",
+    "state": "R15_PDF_R11_video_submitted_public_bytes_verified",
     "published": true,
     "submitted": true,
-    "scope": "latest R10 video revision; earlier R14/R09 delivery preserved"
+    "scope": "latest R15 presentation and R11 video"
   },
   "currentEvolusProof": {
     "file": "docs/evolus-app-pilot-20261016.json",
@@ -1496,9 +1577,33 @@
         "Evolus Business Agents on AMD"
       ],
       "tracksPublicReadbackVerified": true
+    },
+    {
+      "videoRevision": "R10",
+      "pdfRevision": "R14",
+      "coverRevision": "R10",
+      "date": "2026-10-16",
+      "submissionURL": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
+      "videoPublicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_tqs87vete0xtswed7wcvg75w.mp4",
+      "pdfPublicURL": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_htwtdh5lgnqwr82y5hqhauzm.pdf",
+      "videoSha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9",
+      "pdfSha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1",
+      "publicPageReloadVerified": true,
+      "videoAndPdfFullHashesMatched": true,
+      "presentationPages": 9,
+      "narrator": "Athos, human voice; Adobe Podcast Enhance Speech v2 plus loudness normalization",
+      "tracks": [
+        "Health and Wellbeing",
+        "Evolus Business Agents on AMD"
+      ],
+      "tracksPublicReadbackVerified": true,
+      "videoBytes": 10938457,
+      "verifiedAt": "2026-10-16T21:00:02.987054+00:00",
+      "audioEnhancement": "Adobe Podcast Enhance Speech v2",
+      "sameR09VideoStreamAndCaptions": true
     }
   ],
-  "finalPublicationFlagsScope": "latest R10 video revision",
+  "finalPublicationFlagsScope": "latest R15 presentation and R11 video",
   "labLabR14UpdateConfirmed": true,
   "componentPublication": {
     "application": {
@@ -1510,36 +1615,56 @@
       "commit": "bf20a07aff981e328449242f95e0261fe9b4860c",
       "publicAssetHashesMatched": 33
     },
-    "pdf": {
-      "revision": "R14",
+    "presentation": {
+      "revision": "R15",
       "published": true,
       "submitted": true,
-      "url": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_htwtdh5lgnqwr82y5hqhauzm.pdf",
-      "sha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1"
+      "url": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_rtkmu9sziual63prao1dooou.pdf",
+      "bytes": 4765293,
+      "sha256": "fd13f4c4a83b0b606e506a3334778b2d20d49c087ea6c292dd9df2f1104e8ec3",
+      "publicReadbackVerifiedAt": "2026-10-16T21:53:04.982519+00:00"
     },
     "latestVideo": {
-      "revision": "R10",
+      "revision": "R11",
       "published": true,
       "submitted": true,
-      "url": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_tqs87vete0xtswed7wcvg75w.mp4",
-      "bytes": 10938457,
-      "sha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9",
-      "publicReadbackVerifiedAt": "2026-10-16T21:00:02.987054+00:00"
+      "url": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_hk4u7m0ofbfcem617yfpggez.mp4",
+      "bytes": 9351477,
+      "sha256": "d54c649f44f20631817fcd3335507e7fba3b5b810c6f69aa847daa7486256c6e",
+      "publicReadbackVerifiedAt": "2026-10-16T21:53:04.982519+00:00"
     }
   },
   "audioRevision": {
-    "videoFile": "docs/ACT-III-20261016/VIDEO-EN-R10.mp4",
-    "sha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9",
-    "bytes": 10938457,
-    "narrator": "Athos, human voice",
-    "enhancement": "Adobe Podcast Enhance Speech v2",
-    "postEnhancementLoudnessNormalization": true,
-    "unchangedVideoStreamSha256": "e397d09c3e9d25602b1cbaf36547d93688f5b67ea4d2523883987fd7a05993aa",
-    "captionReference": "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+    "revision": "R11",
+    "narrator": "Synthetic Envato AI Voice / Benjamin",
+    "retainedOriginalR07R08Speech": true,
+    "newSpeechGenerated": false,
+    "newAudioProcessing": false,
+    "durationSeconds": 191.843,
+    "subtitleCues": 55,
+    "approvedPreviewPacketDataAndTimestampsPreserved": true,
     "published": true,
     "submitted": true,
-    "publicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_tqs87vete0xtswed7wcvg75w.mp4",
-    "publicReadbackVerifiedAt": "2026-10-16T21:00:02.987054+00:00"
+    "publicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_hk4u7m0ofbfcem617yfpggez.mp4",
+    "sha256": "d54c649f44f20631817fcd3335507e7fba3b5b810c6f69aa847daa7486256c6e",
+    "publicReadbackVerifiedAt": "2026-10-16T21:53:04.982519+00:00"
   },
-  "labLabR10VideoUpdateConfirmed": true
+  "labLabR10VideoUpdateConfirmed": true,
+  "historicalAudioRevisions": [
+    {
+      "videoFile": "docs/ACT-III-20261016/VIDEO-EN-R10.mp4",
+      "sha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9",
+      "bytes": 10938457,
+      "narrator": "Athos, human voice",
+      "enhancement": "Adobe Podcast Enhance Speech v2",
+      "postEnhancementLoudnessNormalization": true,
+      "unchangedVideoStreamSha256": "e397d09c3e9d25602b1cbaf36547d93688f5b67ea4d2523883987fd7a05993aa",
+      "captionReference": "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+      "published": true,
+      "submitted": true,
+      "publicURL": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_tqs87vete0xtswed7wcvg75w.mp4",
+      "publicReadbackVerifiedAt": "2026-10-16T21:00:02.987054+00:00"
+    }
+  ],
+  "labLabR15UpdateConfirmed": true
 }

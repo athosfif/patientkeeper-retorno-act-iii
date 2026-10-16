@@ -1,6 +1,6 @@
 {
-  "version": "R14-APP-R14-PDF-R09-VIDEO",
-  "state": "local_media_validated_publication_pending",
+  "version": "R14-APP-R14-PDF-R10-VIDEO",
+  "state": "published_and_lablab_r10_video_r14_pdf_public_bytes_verified",
   "files": [
     {
       "path": "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
@@ -23,18 +23,160 @@
       "bytes": 4878
     },
     {
-      "path": "docs/ACT-III-20261016/VIDEO-EN-R09.mp4",
-      "sha256": "9633e1efceadb2fd5265b0cd44f887bc1fcb4289e023217108a7f474ec716d78",
-      "bytes": 8987742
+      "path": "docs/ACT-III-20261016/VIDEO-EN-R10.mp4",
+      "sha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9",
+      "bytes": 10938457
     }
   ],
   "videoDurationSeconds": 265.6,
-  "narrator": "Athos, human voice recorded via WhatsApp",
+  "narrator": "Athos, human voice recorded via WhatsApp; enhanced with Adobe Podcast Enhance Speech v2",
   "videoReferenceCaptions": true,
   "fullHumanListeningCertified": false,
   "publicDemo": "static recorded evidence, no live inference/transcription",
   "evolusPilot": "one real app API run, 8149ms, 2 exact citations, admin state unchanged",
   "savings": "Illustrative 30min/day if 6 records x (15min reported manual -10min assumed assisted); not measured",
-  "published": false,
-  "submitted": false
+  "published": true,
+  "submitted": true,
+  "videoRevision": "R10",
+  "publicationFlagsScope": "latest R10 video revision",
+  "selectedTracks": [
+    "Health and Wellbeing",
+    "Evolus Business Agents on AMD"
+  ],
+  "selectedTracksPublicReadbackVerified": true,
+  "awardEligibilityConfirmed": false,
+  "audioProcessing": {
+    "codec": "aac",
+    "sampleRate": 48000,
+    "narrator": "Athos, human voice",
+    "enhancement": "Adobe Podcast Enhance Speech v2",
+    "sourceSha256": "967b0e3ad409dc961f3d98ddb691494953f2b0420063bd5405e01c0954eb3f95",
+    "constantGainDB": null,
+    "targetLUFS": -18.0,
+    "measuredLUFS": -18.64,
+    "truePeakDBTP": -1.85,
+    "extraNoiseReduction": false,
+    "dynamicNormalization": true,
+    "speedChanged": false,
+    "speechCut": false,
+    "fullHumanListeningCertified": false,
+    "rawOrEnhancedSourceAudioDistributed": false
+  },
+  "videoStream": {
+    "codec": "h264",
+    "width": 1920,
+    "height": 1080,
+    "fps": "30/1",
+    "sha256": "e397d09c3e9d25602b1cbaf36547d93688f5b67ea4d2523883987fd7a05993aa",
+    "unchangedFromR09": true,
+    "reencoded": false,
+    "fullDecodePassed": true
+  },
+  "captions": {
+    "referenceFile": "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+    "count": 54,
+    "unchangedFromR09": true,
+    "referenceAligned": true,
+    "sha256": "eec3fbf127c1d4844ca8d599ea362ef6331e6f2b0a7da50f8ae16e75b1c2dca1"
+  },
+  "componentPublication": {
+    "application": {
+      "published": true,
+      "commit": "2ba09aa58d1b4a7661636e881645c42d4f9e89b9"
+    },
+    "pages": {
+      "published": true,
+      "commit": "bf20a07aff981e328449242f95e0261fe9b4860c",
+      "publicAssetHashesMatched": 33
+    },
+    "pdf": {
+      "revision": "R14",
+      "published": true,
+      "submitted": true,
+      "url": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_htwtdh5lgnqwr82y5hqhauzm.pdf",
+      "sha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1"
+    },
+    "latestVideo": {
+      "revision": "R10",
+      "published": true,
+      "submitted": true,
+      "url": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_tqs87vete0xtswed7wcvg75w.mp4",
+      "bytes": 10938457,
+      "sha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9",
+      "publicReadbackVerifiedAt": "2026-10-16T21:00:02.987054+00:00"
+    }
+  },
+  "history": [
+    {
+      "revision": "R14/R09",
+      "state": "published_and_lablab_public_readback_verified",
+      "published": true,
+      "submitted": true,
+      "videoUrl": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_vid5rv9zw4glybbnnjhpzycy.mp4",
+      "videoSha256": "9633e1efceadb2fd5265b0cd44f887bc1fcb4289e023217108a7f474ec716d78",
+      "pdfUrl": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_htwtdh5lgnqwr82y5hqhauzm.pdf",
+      "pdfSha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1",
+      "files": [
+        {
+          "path": "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
+          "sha256": "9b083ebf09f80250614ba3f5248256537732a87993a0224a937977e9442ff5d3",
+          "bytes": 3078
+        },
+        {
+          "path": "docs/ACT-III-20261016/PRESENTATION-EN-R14.pdf",
+          "sha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1",
+          "bytes": 4765149
+        },
+        {
+          "path": "docs/ACT-III-20261016/PRESENTATION-EN-R14.pptx",
+          "sha256": "5fa68a900c40be0ef6d0b1456aa40daafcac595d052717f4442fdfe03a99e280",
+          "bytes": 2214227
+        },
+        {
+          "path": "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+          "sha256": "eec3fbf127c1d4844ca8d599ea362ef6331e6f2b0a7da50f8ae16e75b1c2dca1",
+          "bytes": 4878
+        },
+        {
+          "path": "docs/ACT-III-20261016/VIDEO-EN-R09.mp4",
+          "sha256": "9633e1efceadb2fd5265b0cd44f887bc1fcb4289e023217108a7f474ec716d78",
+          "bytes": 8987742
+        }
+      ],
+      "sourceCommit": "2ba09aa58d1b4a7661636e881645c42d4f9e89b9",
+      "pagesCommit": "bf20a07aff981e328449242f95e0261fe9b4860c",
+      "tracks": [
+        "Health and Wellbeing",
+        "Evolus Business Agents on AMD"
+      ],
+      "originalNarration": "Athos, human voice recorded via WhatsApp, before Adobe enhancement"
+    }
+  ],
+  "publicReadbackVerifiedAt": "2026-10-16T21:00:02.987054+00:00",
+  "labLab": {
+    "projectURL": "https://lablab.ai/ai-hackathons/amd-developer-hackathon-act-iii/figueira-ai/patientkeeper-retorno",
+    "confirmation": "Submission Updated!",
+    "publicReloadVerified": true,
+    "tracks": [
+      "Health and Wellbeing",
+      "Evolus Business Agents on AMD"
+    ],
+    "tracksPublicReadbackVerified": true,
+    "media": [
+      {
+        "kind": "pdf",
+        "url": "https://storage.googleapis.com/lablab-static-eu/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/presentation/presentation_htwtdh5lgnqwr82y5hqhauzm.pdf",
+        "bytes": 4765149,
+        "sha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1",
+        "matched": true
+      },
+      {
+        "kind": "video",
+        "url": "https://storage.googleapis.com/lablab-video-submissions/submissions/rfoyjx7o4t96hjkfomod284i/d1miiuhs58slqur1hhzk7g15/video/video_tqs87vete0xtswed7wcvg75w.mp4",
+        "bytes": 10938457,
+        "sha256": "ea1bbbbdc96c967ce84ed13a2e52c2d1ba2ea507f9c7f15f51cf5a39423b30c9",
+        "matched": true
+      }
+    ]
+  }
 }

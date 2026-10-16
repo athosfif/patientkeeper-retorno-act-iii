@@ -49,6 +49,7 @@ function serialize(value, limit) {
 }
 const emptyReviews = () => ({schemaVersion:1,demo:true,reviews:[]});
 const unchangedModel = Object.freeze({configured:false,enabled:false,inferenceVerified:false,amdVerified:false,requiresSemanticHumanReview:true});
+const unchangedEvolus = Object.freeze({provider:'evolus',configured:false,enabled:false,canStart:false,pending:false,pendingSession:null,remainingExecutions:0,requiresSemanticHumanReview:true,applicationStateWritesByRunner:0,patientContactPerformed:false});
 
 export function createBrowserApi(options = {}) {
   const fixtures=options.fixtures ?? defaultFixtures;
@@ -122,6 +123,8 @@ export function createBrowserApi(options = {}) {
     }
     if (path === '/api/model/status' && body === undefined) return {...unchangedModel};
     if (path === '/api/model/query') fail(503,'MODEL_NOT_CONFIGURED','A conexão de IA não está configurada nesta demonstração.');
+    if (path === '/api/evolus/status' && body === undefined) return {...unchangedEvolus};
+    if (path === '/api/evolus/query' || path === '/api/evolus/poll') fail(503,'EVOLUS_NOT_CONFIGURED','A conexão de IA não está configurada nesta demonstração.');
     if (path === '/api/health' && body === undefined) return {demo:true,isolated:true,aiConnected:false,storage:'browser_local',externalContact:false};
     const methods=new Map([['/api/state','GET'],['/api/export','GET'],['/api/evidence/export','GET'],['/api/actions','POST'],['/api/reset','POST'],['/api/import','POST'],['/api/ai/context','POST'],['/api/evidence/query','POST'],['/api/evidence/card','POST'],['/api/evidence/reviews','POST']]);
     if (!methods.has(path)) fail(404,'NOT_FOUND','Esta ação não pertence ao fluxo administrativo da demo.');

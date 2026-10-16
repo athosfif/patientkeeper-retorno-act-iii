@@ -1,4 +1,5 @@
 import { sourceReadingView } from './source-reading.mjs';
+import { normalizeSuggestedQuestion } from './i18n.mjs';
 // Optional model path. Mounting checks configuration; it never starts inference.
 // Candidate text is never saved as a clinical decision or administrative action.
 const sessions = new WeakMap();
@@ -39,14 +40,178 @@ const copy = {
   },
 };
 
+const evolusScope = Object.freeze({ caseId:'SIM-RET-02', question:'Qual pendência continua aberta e quem é o responsável?' });
+const evolusCopy = {
+  en: {
+    title:'Evolus + Gemma · Experimental local pilot',
+    description:'Ask the fixed question about case 02 using only the current fictitious records. Review every cited source before interpreting the candidate.',
+    scope:'Pilot question · Portuguese original', ask:'Ask through Evolus',
+    answer:'Candidate answer · original',
+    scopeRequired:'Select the suggested question “Which issue is still open, and who is responsible?” to use this pilot.',
+    pending:'The request is pending. Check its result explicitly; this does not start another execution.',
+    poll:'Check result', checking:'Checking the existing request…',
+    stale:'The records changed. Open the current version before making a new request.',
+    unavailable:'This local pilot is unavailable or has reached its execution limit.',
+    timeout:'The request ended without a usable result. Use the current records and human review.',
+    sources:'Cited records from the current stage · Meaning still requires human review.',
+    noAction:'This experimental candidate is read only. It cannot save a card or change progress, appointments or contact records.',
+  },
+  pt: {
+    title:'Evolus + Gemma · Piloto local experimental',
+    description:'Consulte a pergunta fixa do caso 02 somente com os registros fictícios atuais. Confira cada fonte citada antes de interpretar a candidata.',
+    scope:'Pergunta do piloto · Original em português', ask:'Consultar pelo Evolus',
+    answer:'Resposta candidata · original',
+    scopeRequired:'Selecione a pergunta sugerida “Qual pendência continua aberta e quem é o responsável?” para usar este piloto.',
+    pending:'A consulta está pendente. Verifique o resultado por uma ação explícita; isso não inicia outra execução.',
+    poll:'Verificar resultado', checking:'Verificando a consulta existente…',
+    stale:'Os registros mudaram. Abra a versão atual antes de fazer uma nova consulta.',
+    unavailable:'Este piloto local está indisponível ou atingiu o limite de execuções.',
+    timeout:'A consulta terminou sem um resultado utilizável. Use os registros atuais e a revisão humana.',
+    sources:'Registros citados da etapa atual · O significado ainda exige revisão humana.',
+    noAction:'Esta candidata experimental é somente leitura. Ela não salva cartão nem altera progresso, agenda ou registros de contato.',
+  },
+  es: {
+    title:'Evolus + Gemma · Piloto local experimental',
+    description:'Consulte la pregunta fija del caso 02 solo con los registros ficticios actuales. Revise cada fuente citada antes de interpretar la candidata.',
+    scope:'Pregunta del piloto · Original en portugués', ask:'Consultar mediante Evolus',
+    answer:'Respuesta candidata · original',
+    scopeRequired:'Seleccione la pregunta sugerida “¿Qué asunto sigue pendiente y quién es responsable?” para usar este piloto.',
+    pending:'La consulta está pendiente. Compruebe el resultado mediante una acción explícita; esto no inicia otra ejecución.',
+    poll:'Comprobar resultado', checking:'Comprobando la consulta existente…',
+    stale:'Los registros cambiaron. Abra la versión actual antes de hacer otra consulta.',
+    unavailable:'Este piloto local no está disponible o alcanzó el límite de ejecuciones.',
+    timeout:'La consulta terminó sin un resultado utilizable. Use los registros actuales y la revisión humana.',
+    sources:'Registros citados de la etapa actual · El significado aún requiere revisión humana.',
+    noAction:'Esta candidata experimental es de solo lectura. No guarda tarjetas ni cambia el progreso, las citas o los registros de contacto.',
+  },
+};
+
+function mountEvolusPanel(container, { item, revision, request, notify, onStale, alive, language, canStart, pendingSession }) {
+  const strings = copy[language], pilot = evolusCopy[language], caseId = item.id;
+  const host = document.createElement('section');
+  host.className = 'section model-reading';
+  host.innerHTML = `<h3>${pilot.title}</h3><p>${pilot.description}</p><p class="caption">${pilot.scope}</p><p data-original lang="pt-BR">${esc(evolusScope.question)}</p><p class="caption" data-evolus-scope></p><button type="button" class="primary" data-model-ask>${pilot.ask}</button><div data-model-result aria-live="polite"></div><p class="caption">${pilot.noAction}</p>`;
+  container.append(host);
+  const ask = host.querySelector('[data-model-ask]'), result = host.querySelector('[data-model-result]');
+  const scopeHint = host.querySelector('[data-evolus-scope]');
+  let working = false, pending = null, questionVersion = 0, unavailable = canStart === false;
+  if (unavailable) result.innerHTML = `<h4 tabindex="-1">${pilot.unavailable}</h4>`;
+  const question = () => container.querySelector('#evidence-question')?.value.trim() || '';
+  const inScope = () => caseId === evolusScope.caseId && item.id === caseId && normalizeSuggestedQuestion(question()) === evolusScope.question;
+  const current = context => alive() && inScope() && context.version === questionVersion && context.question === question();
+  const focusResult = () => result.querySelector('h4')?.focus({ preventScroll:true });
+  const updateControls = () => {
+    if (!alive()) return;
+    ask.disabled = working || !!pending || unavailable || !inScope();
+    scopeHint.textContent = inScope() ? '' : pilot.scopeRequired;
+    const poll = result.querySelector('[data-evolus-poll]');
+    if (poll) poll.disabled = working || !pending;
+  };
+  container.addEventListener('retorno-question-changed', () => {
+    if (!alive()) return;
+    questionVersion += 1;
+    pending = null;
+    result.innerHTML = '';
+    updateControls();
+  });
+
+  function showPending(sessionId, context) {
+    const receipt = { sessionId, context };
+    pending = receipt;
+    result.innerHTML = `<h4 tabindex="-1">${pilot.pending}</h4><button type="button" data-evolus-poll>${pilot.poll}</button>`;
+    result.querySelector('[data-evolus-poll]').addEventListener('click', () => pollExisting(receipt));
+  }
+
+  async function receive(output, context) {
+    if (!current(context)) return;
+    pending = null;
+    if (output?.remainingExecutions === 0) unavailable = true;
+    if (output?.status === 'stale') {
+      result.innerHTML = `<h4 tabindex="-1">${pilot.stale}</h4>`;
+      unavailable = true;
+      await onStale?.();
+    } else if (output?.provider !== 'evolus' || output?.caseId !== caseId || output?.revision !== revision || output?.requiresSemanticHumanReview !== true) {
+      result.innerHTML = `<h4 tabindex="-1">${strings.failure}</h4>`;
+    } else if (output.status === 'pending' && typeof output.sessionId === 'string' && /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(output.sessionId)) {
+      showPending(output.sessionId, context);
+    } else if (['disabled','blocked'].includes(output.status)) {
+      unavailable = true;
+      result.innerHTML = `<h4 tabindex="-1">${pilot.unavailable}</h4>`;
+    } else if (output.status === 'timeout') {
+      result.innerHTML = `<h4 tabindex="-1">${pilot.timeout}</h4>`;
+    } else if (output.status === 'abstained' && output.formatValid === true && output.candidate?.abstention === true) {
+      result.innerHTML = `<h4 tabindex="-1">${strings.abstention}</h4><p data-original>${esc(output.candidate.reason)}</p><p class="caption">${pilot.answer}</p>`;
+    } else if (output.status === 'candidate' && output.formatValid === true && output.candidate?.humanReviewRequired === true && output.candidate?.abstention === false && typeof output.candidate.answer === 'string' && Array.isArray(output.candidate.citations) && output.candidate.citations.length) {
+      const candidate = output.candidate;
+      result.innerHTML = `<h4 tabindex="-1">${pilot.answer}</h4><p class="callout" data-original>${esc(candidate.answer)}</p><p class="caption">${pilot.sources}</p>${candidate.citations.map(source => `<article class="source"><strong>${esc(source.sourceId)}</strong>${sourceReadingView(source, { originalTag:'blockquote' })}</article>`).join('')}`;
+    } else {
+      result.innerHTML = `<h4 tabindex="-1">${strings.failure}</h4>`;
+    }
+    if (current(context)) focusResult();
+  }
+
+  async function execute(route, body, context, loading) {
+    working = true;
+    updateControls();
+    result.innerHTML = `<p role="status">${loading}</p>`;
+    try {
+      const output = await request(route, body);
+      await receive(output, context);
+    } catch (error) {
+      if (!current(context)) return;
+      result.innerHTML = `<h4 tabindex="-1">${error.status === 409 ? pilot.stale : strings.failure}</h4>`;
+      notify(error.status === 409 ? pilot.stale : strings.failure, true);
+      if (error.status === 409) { pending = null; unavailable = true; await onStale?.(); }
+      // A failed poll keeps the existing session; it can only be checked again.
+      else if (pending) {
+        const receipt = pending;
+        result.innerHTML += `<button type="button" data-evolus-poll>${pilot.poll}</button>`;
+        result.querySelector('[data-evolus-poll]').addEventListener('click', () => pollExisting(receipt));
+      }
+      if (current(context)) focusResult();
+    } finally {
+      working = false;
+      updateControls();
+    }
+  }
+
+  async function pollExisting(receipt) {
+    if (working || !pending || pending !== receipt || !current(receipt.context)) return;
+    await execute('/api/evolus/poll', { sessionId:receipt.sessionId, expectedRevision:revision }, receipt.context, pilot.checking);
+  }
+  ask.addEventListener('click', async () => {
+    if (working || pending || unavailable || !alive() || !inScope()) return;
+    const context = { version:questionVersion, question:question() };
+    await execute('/api/evolus/query', { caseId, question:evolusScope.question, expectedRevision:revision }, context, strings.working);
+  });
+  // A remount may recover the server's local receipt, never a provider identifier.
+  // Recovery renders a control only; it does not query, poll or accept old output.
+  if (inScope() && pendingSession?.caseId === caseId && pendingSession.revision === revision
+    && pendingSession.requiresSemanticHumanReview === true && typeof pendingSession.sessionId === 'string'
+    && /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/i.test(pendingSession.sessionId)) {
+    showPending(pendingSession.sessionId, { version:questionVersion, question:question() });
+  }
+  updateControls();
+}
+
 export async function mountModelPanel(container, { item, revision, request, notify, onStale, onCardSaved }) {
   const session = Symbol('model-session');
   sessions.set(container, session);
   const alive = () => container.isConnected && sessions.get(container) === session;
-  const strings = copy[document.documentElement.lang.slice(0,2)] || copy.en;
-  let status;
-  try { status = await request('/api/model/status'); } catch { return; }
-  if (!alive() || !status.enabled) return;
+  const language = Object.hasOwn(copy, document.documentElement.lang.slice(0,2)) ? document.documentElement.lang.slice(0,2) : 'en';
+  const strings = copy[language];
+  const [modelStatus, evolusStatus] = await Promise.allSettled([request('/api/model/status'), request('/api/evolus/status')]);
+  if (!alive()) return;
+  const pilot = evolusStatus.status === 'fulfilled' ? evolusStatus.value : null;
+  if (pilot?.enabled) {
+    if (pilot.provider === 'evolus' && pilot.scope?.caseId === evolusScope.caseId && pilot.scope?.question === evolusScope.question && item.id === evolusScope.caseId) {
+      mountEvolusPanel(container, { item, revision, request, notify, onStale, alive, language,
+        canStart:pilot.canStart, pendingSession:pilot.pendingSession });
+    }
+    return;
+  }
+  const status = modelStatus.status === 'fulfilled' ? modelStatus.value : null;
+  if (!status?.enabled) return;
   const host = document.createElement('section');
   host.className = 'section model-reading';
   host.innerHTML = `<h3>${strings.title}</h3><p>${strings.description}</p><button type="button" class="primary" data-model-ask>${strings.ask}</button><div data-model-result aria-live="polite"></div><p class="caption">${strings.noAction}</p>`;

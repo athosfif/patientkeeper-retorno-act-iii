@@ -47,6 +47,7 @@ const API_METHODS = new Map([
   ['/api/ai/context', 'POST'],
   ['/api/evidence/query', 'POST'], ['/api/evidence/card', 'POST'], ['/api/evidence/reviews', 'POST'],
   ['/api/model/status', 'GET'], ['/api/model/query', 'POST'],
+  ['/api/evolus/status', 'GET'], ['/api/evolus/query', 'POST'], ['/api/evolus/poll', 'POST'],
   ['/api/care/state', 'GET'], ['/api/care/actions', 'POST'],
   ['/api/voice/status', 'GET'], ['/api/voice/transcribe', 'POST'],
 ]);
@@ -230,6 +231,7 @@ export async function createAppServer({
   fixturesPath = DEFAULT_FIXTURES, host = '127.0.0.1',
   modelConfiguration = null, modelFetch, modelBudgetLimits = {},
   voiceConfiguration = null, voiceTranscriber = null,
+  evolusConfiguration = null, evolusGetApiKey, evolusFetch, evolusObserve, evolusRunnerOptions = {},
 } = {}) {
   if (!['127.0.0.1', '::1'].includes(host)) {
     throw new ApiError(400, 'LOCAL_BIND_REQUIRED', 'Use apenas 127.0.0.1 ou ::1 para iniciar a demo.');
@@ -264,6 +266,19 @@ export async function createAppServer({
   const modelSetup = validateModelConfiguration(modelConfiguration);
   const modelBudget = createModelBudget(modelBudgetLimits);
   let modelInFlight = false;
+  // Dynamic import keeps the disabled baseline/container independent of the pilot.
+  let evolus;
+  if (evolusConfiguration?.enabled === true) {
+    const { createEvolusHttpApi } = await import('../integration/evolus-pilot/http-api.mjs');
+    evolus = createEvolusHttpApi(evolusConfiguration, {
+      readCurrent: () => ({ state, fixtures }), getApiKey: evolusGetApiKey, fetchImpl: evolusFetch,
+      observe: evolusObserve, runnerOptions: evolusRunnerOptions, settle: async () => { await mutationQueue; },
+    });
+  }
+  const disabledEvolus = () => ({ enabled: false, configured: false, provider: 'evolus',
+    scope: { caseId: 'SIM-RET-02', question: 'Qual pendência continua aberta e quem é o responsável?' },
+    maxExecutions: 2, reservedExecutions: 0, remainingExecutions: 0, canStart: false,
+    requiresSemanticHumanReview: true, disabledReason: 'EVOLUS_NOT_CONFIGURED' });
   const voice = voiceTranscriber ?? createVoiceTranscriber(voiceConfiguration);
   // Lazy access preserves the original queue until the new journey is opened.
   let careStore;
@@ -332,6 +347,11 @@ export async function createAppServer({
         });
         return;
       }
+      if (pathname === '/api/evolus/status') {
+        await mutationQueue;
+        sendJson(response, 200, evolus ? evolus.status() : disabledEvolus());
+        return;
+      }
       if (pathname === '/api/care/state') {
         sendJson(response, 200, (await care()).snapshot());
         return;
@@ -341,6 +361,17 @@ export async function createAppServer({
         return;
       }
       const body = await readJsonBody(request, pathname === '/api/voice/transcribe' ? Math.ceil(VOICE_MAX_AUDIO_BYTES / 3) * 4 + 4096 : MAX_BODY_BYTES);
+      if (pathname === '/api/evolus/query' || pathname === '/api/evolus/poll') {
+        checkEnvelope(body, pathname.endsWith('/query') ? ['caseId', 'question', 'expectedRevision'] : ['sessionId', 'expectedRevision']);
+        if (!evolus) {
+          sendJson(response, 503, { ...disabledEvolus(), status: 'disabled', sessionId: null, candidate: null,
+            formatValid: false, error: { code: 'EVOLUS_NOT_CONFIGURED', message: 'A conexão Evolus não está habilitada.' } });
+          return;
+        }
+        const result = await (pathname.endsWith('/query') ? evolus.query(body) : evolus.poll(body));
+        sendJson(response, result.httpStatus, result.body);
+        return;
+      }
       if (pathname === '/api/care/actions') {
         checkEnvelope(body, ['expectedRevision', 'action']);
         const store = await care();
@@ -491,7 +522,14 @@ export async function createAppServer({
 const entryFile = process.argv[1] ? path.resolve(process.argv[1]) : null;
 if (entryFile === fileURLToPath(import.meta.url)) {
   try {
+    let evolusOptions = {};
+    if (process.env.RETORNO_EVOLUS_ENABLED === '1') {
+      const { evolusConfigurationFromEnvironment } = await import('../integration/evolus-pilot/http-api.mjs');
+      evolusOptions = { evolusConfiguration: evolusConfigurationFromEnvironment(process.env),
+        ...(process.env.RETORNO_EVOLUS_API_KEY ? { evolusGetApiKey: () => process.env.RETORNO_EVOLUS_API_KEY } : {}) };
+    }
     const app = await createAppServer({
+      ...evolusOptions,
       ...(process.env.RETORNO_DATA_DIR ? { dataDir: process.env.RETORNO_DATA_DIR } : {}),
       ...(process.env.RETORNO_PORT !== undefined ? { port: Number(process.env.RETORNO_PORT) } : {}),
       ...(process.env.RETORNO_VOICE_ENABLED === '1' ? { voiceConfiguration: {

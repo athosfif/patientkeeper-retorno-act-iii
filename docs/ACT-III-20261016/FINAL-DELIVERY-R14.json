@@ -1,0 +1,40 @@
+{
+  "version": "R14-APP-R14-PDF-R09-VIDEO",
+  "state": "local_media_validated_publication_pending",
+  "files": [
+    {
+      "path": "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
+      "sha256": "9b083ebf09f80250614ba3f5248256537732a87993a0224a937977e9442ff5d3",
+      "bytes": 3078
+    },
+    {
+      "path": "docs/ACT-III-20261016/PRESENTATION-EN-R14.pdf",
+      "sha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1",
+      "bytes": 4765149
+    },
+    {
+      "path": "docs/ACT-III-20261016/PRESENTATION-EN-R14.pptx",
+      "sha256": "5fa68a900c40be0ef6d0b1456aa40daafcac595d052717f4442fdfe03a99e280",
+      "bytes": 2214227
+    },
+    {
+      "path": "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+      "sha256": "eec3fbf127c1d4844ca8d599ea362ef6331e6f2b0a7da50f8ae16e75b1c2dca1",
+      "bytes": 4878
+    },
+    {
+      "path": "docs/ACT-III-20261016/VIDEO-EN-R09.mp4",
+      "sha256": "9633e1efceadb2fd5265b0cd44f887bc1fcb4289e023217108a7f474ec716d78",
+      "bytes": 8987742
+    }
+  ],
+  "videoDurationSeconds": 265.6,
+  "narrator": "Athos, human voice recorded via WhatsApp",
+  "videoReferenceCaptions": true,
+  "fullHumanListeningCertified": false,
+  "publicDemo": "static recorded evidence, no live inference/transcription",
+  "evolusPilot": "one real app API run, 8149ms, 2 exact citations, admin state unchanged",
+  "savings": "Illustrative 30min/day if 6 records x (15min reported manual -10min assumed assisted); not measured",
+  "published": false,
+  "submitted": false
+}

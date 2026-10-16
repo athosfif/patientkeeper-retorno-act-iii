@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 2,
-  "revision": "R12-APP-R13-PRESENTATION-R08-VIDEO-20261014",
-  "state": "LabLab media R13/R08 verified; source distribution for validated application R12 with final presentation R13 and video R08",
+  "schemaVersion": 3,
+  "revision": "R14-LOCAL-EVOLUS-PDF-R14-VIDEO-R09-20261016-PREPARED",
+  "state": "source_static_media_and_container_validated_publication_pending",
   "sourceFiles": [
     ".gitignore",
     "BASE-PREEXISTENTE.md",
@@ -45,8 +45,10 @@
     "app/tests/engine.test.mjs",
     "app/tests/evidence-server.test.mjs",
     "app/tests/evidence.test.mjs",
+    "app/tests/evolus-server.test.mjs",
     "app/tests/i18n.test.mjs",
     "app/tests/model-budget.test.mjs",
+    "app/tests/model-client.test.mjs",
     "app/tests/model-server.test.mjs",
     "app/tests/model-transport.test.mjs",
     "app/tests/recorded-amd.test.mjs",
@@ -94,10 +96,35 @@
     "docs/ACT-III-20261014/SUBTITLES-EN-R08.srt",
     "docs/ACT-III-20261014/VIDEO-EN-R07.mp4",
     "docs/ACT-III-20261014/VIDEO-EN-R08.mp4",
+    "docs/ACT-III-20261016/FINAL-DELIVERY-R14.json",
+    "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
+    "docs/ACT-III-20261016/PRESENTATION-EN-R14.pdf",
+    "docs/ACT-III-20261016/PRESENTATION-EN-R14.pptx",
+    "docs/ACT-III-20261016/RELEASE-R14.md",
+    "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+    "docs/ACT-III-20261016/VIDEO-EN-R09.mp4",
+    "docs/evolus-app-pilot-20261016.json",
+    "docs/evolus-app-pilot-20261016.md",
     "docs/recorded-gemma-integration.md",
     "docs/recorded-gemma-runs.json",
+    "integration/container-pilot/CONTEXT-MANIFEST-20261016-EVOLUS-LOCAL.json",
+    "integration/container-pilot/CONTEXT-MANIFEST-20261016-VALIDATED.json",
+    "integration/container-pilot/CONTEXT-MANIFEST.json",
+    "integration/container-pilot/Dockerfile",
+    "integration/container-pilot/Dockerfile.dockerignore",
+    "integration/container-pilot/README.md",
+    "integration/container-pilot/VALIDATION-20261016.json",
+    "integration/container-pilot/smoke_runtime.mjs",
+    "integration/container-pilot/verify_context.py",
+    "integration/evolus-pilot/README.md",
+    "integration/evolus-pilot/http-api.mjs",
+    "integration/evolus-pilot/preparation.mjs",
+    "integration/evolus-pilot/rest-client.mjs",
+    "integration/evolus-pilot/runtime-pilot.mjs",
+    "integration/evolus-pilot/runtime-pilot.test.mjs",
     "public-demo/browser-api.mjs",
     "public-demo/tests/browser-api.test.mjs",
+    "public-demo/tests/evolus-recorded-proof.test.mjs",
     "public-demo/tests/recorded-amd-integration.test.mjs",
     "public-demo/tests/source-reading.test.mjs",
     "scripts/amd-pilot-inputs.json",
@@ -429,13 +456,13 @@
   "staticOutput": {
     "directory": "public-demo",
     "publishTo": "GitHub Pages gh-pages branch root",
-    "expectedGeneratedFiles": 31,
+    "expectedGeneratedFiles": 33,
     "deploymentMarker": ".nojekyll",
     "liveInference": false,
     "audioTranscription": false,
     "mustInspectActualGeneratedFiles": true,
-    "generatedFiles": 31,
-    "deploymentTotalWithMarker": 32,
+    "generatedFiles": 33,
+    "deploymentTotalWithMarker": 34,
     "generatedFileNames": [
       "recorded-gemma.mjs",
       "recorded-gemma-client.mjs",
@@ -462,6 +489,8 @@
       "browser-api.mjs",
       "amd-runs.json",
       "gemma-runs.json",
+      "evolus-app-pilot-20261016.json",
+      "evolus-app-pilot-20261016.md",
       "client.mjs",
       "i18n.mjs",
       "index.html",
@@ -469,140 +498,52 @@
       "fixtures.mjs",
       "_headers"
     ],
-    "generatedFileSha256": [
-      {
-        "file": "recorded-gemma.mjs",
-        "sha256": "597600ae439ab7eb38301200934eedc54daf62b6f75e570cbd40cae5256f4ec3"
-      },
-      {
-        "file": "recorded-gemma-client.mjs",
-        "sha256": "d404593f2567541123bd147050d0dfaa9e3560abe509400d979814d934aab90c"
-      },
-      {
-        "file": "recorded-gemma.css",
-        "sha256": "2da41caca09d03b03dc071a0d83683d0a9a96e9a42ba3de5c9d1b58e6a627bfb"
-      },
-      {
-        "file": "care-journey.mjs",
-        "sha256": "43922833055a681718b5f6832769bc70cbaf0b31bb78343f5606785142f16f60"
-      },
-      {
-        "file": "care-journey-client.mjs",
-        "sha256": "4e26981ba5cb5f5d2c29d5ef668591233926917bf1fcf15c449c15f2b120b6e8"
-      },
-      {
-        "file": "care-journey.css",
-        "sha256": "9c33ae64e24df67c84752958d4ee24b55a4f4c37d2cfc05dfe25ec713d098009"
-      },
-      {
-        "file": "care-browser-api.mjs",
-        "sha256": "7dcef1b0f318f18dfdc8db9d43fbb75cf3e8da578c1d4a482ca3b8128a92d0ad"
-      },
-      {
-        "file": "selection-controls.css",
-        "sha256": "10e32dcaa82bb99adddbd92e777c5ead00e538400c9439ad73a0efc464ff2a71"
-      },
-      {
-        "file": "styles.css",
-        "sha256": "7999e75e6d95edde6b6392d72ee68dc8f2e29bc20815259c0f88ffefdd575afd"
-      },
-      {
-        "file": "favicon.svg",
-        "sha256": "e70dd602b5e76de29ccbeeef1a384ecdd88e8056879de89a742e559e68bc4889"
-      },
-      {
-        "file": "theme-init.js",
-        "sha256": "fc6be17dc111820e89ae359d132ddf70b5224137419f679a5ab48149e506d2cc"
-      },
-      {
-        "file": "theme.mjs",
-        "sha256": "1532f4f0e44ca9d86a17f1c8a5e2f110ca713ec4c3fd9b464b8d353f65dce4b6"
-      },
-      {
-        "file": "calendar.mjs",
-        "sha256": "5c5dfe5e95d5b5f8baff16da8da83db0e24e41f8803d6d5f886cd878dfe93ccf"
-      },
-      {
-        "file": "calendar-client.mjs",
-        "sha256": "d9211edacc9c81608c4339acd4abc763a330f225ca875e29804e262a71e280b8"
-      },
-      {
-        "file": "evidence-client.mjs",
-        "sha256": "990892ab3006aab8f573746986754964ed0824f00e87c41ea8ac4f3208684c2b"
-      },
-      {
-        "file": "model-client.mjs",
-        "sha256": "760fe52d97bdab4a2e4e385c9f32acccf9ceb35c5cf3d04a315fb0e80971323f"
-      },
-      {
-        "file": "engine.mjs",
-        "sha256": "017d17fdb67995cff32b532d5f1a98fd3498c3e19002f81248f440bb6a28e637"
-      },
-      {
-        "file": "recorded-amd-client.mjs",
-        "sha256": "bf85c6c7fe8d1ae718fa57a52db7184c3b3f75bb1b821bbb93bc40a4c88b692d"
-      },
-      {
-        "file": "recorded-amd.mjs",
-        "sha256": "e0c29be08847ac0777cc6b25451fc99569e955128de3d6c0c95e84529ee45541"
-      },
-      {
-        "file": "ai-contract.mjs",
-        "sha256": "7eaa02dc6cfe39140a07b013e7331ea701a098853d68a398fa6be73577fa3cef"
-      },
-      {
-        "file": "source-reading.mjs",
-        "sha256": "b3f93a27b0186de0fff9c8a3f7e23eaca1e58c2f27a4ee210ceafc7f71b6b10f"
-      },
-      {
-        "file": "source-translations.mjs",
-        "sha256": "cb9b94694365b43d4642466db896a97d403ddf0c00b34013f05069d4ae1bb3b1"
-      },
-      {
-        "file": "browser-api.mjs",
-        "sha256": "38d636344689c8ba2eabeeec241c4dbe959925911dc4e2b2be99d2a85b800b98"
-      },
-      {
-        "file": "amd-runs.json",
-        "sha256": "e7a31cf25a73b06212b151df1f54676a0369fd70b136937487f3464afd3d09ea"
-      },
-      {
-        "file": "gemma-runs.json",
-        "sha256": "ad399e1c04385052ab8eb273d2ed46b699434ed1e5e6dbde20ece2b876ec4fd2"
-      },
-      {
-        "file": "client.mjs",
-        "sha256": "9d8c5a5183a9bcfbe0bd9cfda27bd844589404918fa5c61382bd30f78807e3b5"
-      },
-      {
-        "file": "i18n.mjs",
-        "sha256": "90859f7b66662aef3015cd275d9dfad9dd2e2b3a1a02e67f81881ed0d4a4a520"
-      },
-      {
-        "file": "index.html",
-        "sha256": "4dc9feae0a0d3717141c682fcd0f788260063868823625c1363d6bc1712a245f"
-      },
-      {
-        "file": "evidence.mjs",
-        "sha256": "adad241bb5b41e7b11fc1060352b951dac2fadb0f027411c88caa1fd06954dcb"
-      },
-      {
-        "file": "fixtures.mjs",
-        "sha256": "95fa993d4f4ff7d8f3fc6fc6ebca4dcec5aab835f41f95041499e09aa9db95f8"
-      },
-      {
-        "file": "_headers",
-        "sha256": "dad216fa446bef5af72deec210c39c34e4bb761caa536012973838002c670c3c"
-      }
-    ],
+    "generatedFileSha256": {
+      "recorded-gemma.mjs": "597600ae439ab7eb38301200934eedc54daf62b6f75e570cbd40cae5256f4ec3",
+      "recorded-gemma-client.mjs": "d404593f2567541123bd147050d0dfaa9e3560abe509400d979814d934aab90c",
+      "recorded-gemma.css": "2da41caca09d03b03dc071a0d83683d0a9a96e9a42ba3de5c9d1b58e6a627bfb",
+      "care-journey.mjs": "43922833055a681718b5f6832769bc70cbaf0b31bb78343f5606785142f16f60",
+      "care-journey-client.mjs": "4e26981ba5cb5f5d2c29d5ef668591233926917bf1fcf15c449c15f2b120b6e8",
+      "care-journey.css": "9c33ae64e24df67c84752958d4ee24b55a4f4c37d2cfc05dfe25ec713d098009",
+      "care-browser-api.mjs": "7dcef1b0f318f18dfdc8db9d43fbb75cf3e8da578c1d4a482ca3b8128a92d0ad",
+      "selection-controls.css": "10e32dcaa82bb99adddbd92e777c5ead00e538400c9439ad73a0efc464ff2a71",
+      "styles.css": "7999e75e6d95edde6b6392d72ee68dc8f2e29bc20815259c0f88ffefdd575afd",
+      "favicon.svg": "e70dd602b5e76de29ccbeeef1a384ecdd88e8056879de89a742e559e68bc4889",
+      "theme-init.js": "fc6be17dc111820e89ae359d132ddf70b5224137419f679a5ab48149e506d2cc",
+      "theme.mjs": "1532f4f0e44ca9d86a17f1c8a5e2f110ca713ec4c3fd9b464b8d353f65dce4b6",
+      "calendar.mjs": "5c5dfe5e95d5b5f8baff16da8da83db0e24e41f8803d6d5f886cd878dfe93ccf",
+      "calendar-client.mjs": "d9211edacc9c81608c4339acd4abc763a330f225ca875e29804e262a71e280b8",
+      "evidence-client.mjs": "990892ab3006aab8f573746986754964ed0824f00e87c41ea8ac4f3208684c2b",
+      "model-client.mjs": "b25f244ebf3b02601c7d94cea4beb3d19ef1faf9a16c17fb60fb533e50157e84",
+      "engine.mjs": "017d17fdb67995cff32b532d5f1a98fd3498c3e19002f81248f440bb6a28e637",
+      "recorded-amd-client.mjs": "bf85c6c7fe8d1ae718fa57a52db7184c3b3f75bb1b821bbb93bc40a4c88b692d",
+      "recorded-amd.mjs": "e0c29be08847ac0777cc6b25451fc99569e955128de3d6c0c95e84529ee45541",
+      "ai-contract.mjs": "7eaa02dc6cfe39140a07b013e7331ea701a098853d68a398fa6be73577fa3cef",
+      "source-reading.mjs": "b3f93a27b0186de0fff9c8a3f7e23eaca1e58c2f27a4ee210ceafc7f71b6b10f",
+      "source-translations.mjs": "cb9b94694365b43d4642466db896a97d403ddf0c00b34013f05069d4ae1bb3b1",
+      "browser-api.mjs": "352c0d96626b71295549aba47b35db4cdb6bac9e0c9e18417aeb869275021681",
+      "amd-runs.json": "e7a31cf25a73b06212b151df1f54676a0369fd70b136937487f3464afd3d09ea",
+      "gemma-runs.json": "ad399e1c04385052ab8eb273d2ed46b699434ed1e5e6dbde20ece2b876ec4fd2",
+      "evolus-app-pilot-20261016.json": "b466f19ed637fa775691f97756cee2fe2db1d6d98f41d1e1aa612d733bab23de",
+      "evolus-app-pilot-20261016.md": "fa885ddc3110d9e7fdc47b60092100ad0885a780c25513190b6e4eb7a2753e80",
+      "client.mjs": "9d8c5a5183a9bcfbe0bd9cfda27bd844589404918fa5c61382bd30f78807e3b5",
+      "i18n.mjs": "90859f7b66662aef3015cd275d9dfad9dd2e2b3a1a02e67f81881ed0d4a4a520",
+      "index.html": "1636ee7fe9b1ac89884c0e5ae24ac3cea3dd771d0bd38e07538831b8dd71941b",
+      "evidence.mjs": "adad241bb5b41e7b11fc1060352b951dac2fadb0f027411c88caa1fd06954dcb",
+      "fixtures.mjs": "95fa993d4f4ff7d8f3fc6fc6ebca4dcec5aab835f41f95041499e09aa9db95f8",
+      "_headers": "dad216fa446bef5af72deec210c39c34e4bb761caa536012973838002c670c3c"
+    },
     "audioCallback": "VOICE_UNAVAILABLE before file read or upload",
     "repeatedBuildVerified": true,
     "trackedAdapterAlsoServesAsGeneratedBuildInput": true,
     "otherGeneratedFilesOutsideSourceAllowlist": 30,
-    "gemmaArchiveRoute": "Read-only relative module URL; 256KiB bound, timeout, omitted credentials, no redirects, pinned archive validation"
+    "gemmaArchiveRoute": "Read-only relative module URL; 256KiB bound, timeout, omitted credentials, no redirects, pinned archive validation",
+    "evolusLiveTransport": "disabled; query and poll fail closed without fetch or storage",
+    "evolusRecordedProof": "Standalone dated JSON and English note downloads; not an interactive replay or live backend",
+    "candidatePublished": false
   },
   "sourceFilesBase": ".",
-  "finalPublicationConfirmed": true,
+  "finalPublicationConfirmed": false,
   "googlePrizeEligibilityConfirmed": false,
   "excluded": [
     ".git/**",
@@ -619,33 +560,43 @@
     "complete educational medical PDFs",
     "raw narration and font binaries"
   ],
-  "originDisclosure": "ADMIN-R01 pre-event scaffolding; core AI/source review October12; Gemma/doctor episode/local ASR October14. Earlier engine/UI not copied into independent preparation.",
+  "originDisclosure": "ADMIN-R01 pre-event scaffolding; core AI/source review October12; Gemma/doctor episode/local ASR October14. Earlier engine/UI not copied into independent preparation. Optional local Evolus transport/application execution added October16; public evidence remains a dated archive.",
   "privacyReview": {
     "positiveAllowlist": true,
-    "privateMachinePaths": 0,
-    "newGemmaPublicEvidence": "Only docs/recorded-gemma-runs.json; no private provider artifacts copied",
-    "physicalHardwareIndependentlyVerifiedForGemma": false,
-    "privateMachinePathPatterns": 0,
-    "highEntropyCredentialPatterns": 0,
-    "sourcePublicationFiles": 180,
-    "staticGeneratedFiles": 31,
-    "newPublicGemmaProofs": "Sanitized fixed fixture and integration note only; no account artifacts or model key",
-    "currentLocalAsrClientUnchanged": true
+    "newPublicEvidence": "Only explicitly selected dated synthetic proof and English explanation; no raw provider envelopes or account captures",
+    "credentialsCopied": false,
+    "externalProviderObjectIdsCopied": false,
+    "privateMachinePathsCopied": false,
+    "preexistingUntrackedGeneratedFilesPreserved": 30,
+    "pendingMediaRequiresFinalPrivacyReview": false,
+    "mediaQAAndReceiptMatched": true,
+    "privateMachinePathPatternFindings": 0,
+    "credentialLiteralPatternFindings": 0,
+    "fullSecretAuditClaimed": false
   },
   "verifiedLocalTests": {
-    "tests": 284,
-    "pass": 284,
+    "tests": 370,
+    "pass": 370,
     "fail": 0,
     "skipped": 0,
-    "scope": "Exact source after build, including real static adapter to Gemma panel integration; no live model or real ASR execution",
-    "modelOrAsrExecution": false
+    "scope": "Current app, static browser and Evolus runner tests with fakes; serial concurrency=1",
+    "modelOrAsrExecution": false,
+    "externalNetworkUsed": false,
+    "localLoopbackHttpTests": true
   },
   "cleanSourceReproduction": {
-    "initialFiles": 170,
     "generatedAssetsInitiallyAbsent": true,
-    "buildThenTestsPassed": true,
+    "positiveAllowlistOnly": true,
+    "buildSucceeded": true,
+    "matchesCanonicalAndCandidate": true,
     "secondBuildByteIdentical": true,
-    "scope": "170-file functional R12 code tree verified at the validated code commit; subsequent source files are only final media and metadata; application and static assets unchanged"
+    "testsRunInCleanCopy": false,
+    "networkUsed": false,
+    "finalMediaIncludedInCleanCopy": true,
+    "currentReadmeLinksResolve": true,
+    "localServerStartedAndClosed": true,
+    "localHttpChecks": 6,
+    "providersDisabled": true
   },
   "sourceIntegrity": [
     {
@@ -670,8 +621,8 @@
     },
     {
       "file": "README.md",
-      "bytes": 16559,
-      "sha256": "13205ab2cdff2aaebb327abf96ef8b355359f3ef087860b5db7f5766c20c0a77"
+      "bytes": 18014,
+      "sha256": "0fc4c871c27eab2927f99f1452dd094b1d13cdf20a25a184c04c915f1f044bab"
     },
     {
       "file": "app/ai-contract.mjs",
@@ -755,8 +706,8 @@
     },
     {
       "file": "app/model-client.mjs",
-      "bytes": 8069,
-      "sha256": "760fe52d97bdab4a2e4e385c9f32acccf9ceb35c5cf3d04a315fb0e80971323f"
+      "bytes": 19341,
+      "sha256": "b25f244ebf3b02601c7d94cea4beb3d19ef1faf9a16c17fb60fb533e50157e84"
     },
     {
       "file": "app/model-transport.mjs",
@@ -795,8 +746,8 @@
     },
     {
       "file": "app/server.mjs",
-      "bytes": 25840,
-      "sha256": "d502395c36488a9574d2af45813ce38b0f083ba765afc04201a8771a98f5342c"
+      "bytes": 28232,
+      "sha256": "fdb7b4a3f947c728046859f8912ba2a8ea12dde607ee6b532f0002bebeac1b79"
     },
     {
       "file": "app/source-reading.mjs",
@@ -835,8 +786,8 @@
     },
     {
       "file": "app/tests/care-server.test.mjs",
-      "bytes": 4614,
-      "sha256": "0ff1c43eae89a4d0b894fb56241e7891bccb49b4af85044e8b9b240554481d17"
+      "bytes": 4862,
+      "sha256": "e8cea350f360a4830c36100f23a03c5d35c6dfccf068acae82bb8b2699a7b919"
     },
     {
       "file": "app/tests/engine.test.mjs",
@@ -854,6 +805,11 @@
       "sha256": "1124065db147314b13cb7f5c526d00358793011546e933e4f48066f30c57c74d"
     },
     {
+      "file": "app/tests/evolus-server.test.mjs",
+      "bytes": 20210,
+      "sha256": "ffb2dba85411596984cc2959d1952a9327cbccbfb9f30f3c959cc30c15d9d2b2"
+    },
+    {
       "file": "app/tests/i18n.test.mjs",
       "bytes": 6085,
       "sha256": "7c935dcfe1c7c1d37c4cea12ee595c5bdf8f1ccb8c06f54ecac8b26fbba1a75d"
@@ -862,6 +818,11 @@
       "file": "app/tests/model-budget.test.mjs",
       "bytes": 7384,
       "sha256": "90f968f2fb1c3d5134df8557fe2223d2cba60e86eab07965e069fae942f744b8"
+    },
+    {
+      "file": "app/tests/model-client.test.mjs",
+      "bytes": 18859,
+      "sha256": "b8b1784d567b147cc137f9240c533960396bf341c8811ef5d5a75a7474736056"
     },
     {
       "file": "app/tests/model-server.test.mjs",
@@ -1099,6 +1060,51 @@
       "sha256": "8777dfc74d832c86e5d26c5cab0c7b99e9d5969ba81aeef914f89d1e0b5ad27a"
     },
     {
+      "file": "docs/ACT-III-20261016/FINAL-DELIVERY-R14.json",
+      "bytes": 1508,
+      "sha256": "31e2dc6cd52b105b3b4427004e70aee9ed6e62ffe3368c1bfe3717b55ef0a59f"
+    },
+    {
+      "file": "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
+      "bytes": 3078,
+      "sha256": "9b083ebf09f80250614ba3f5248256537732a87993a0224a937977e9442ff5d3"
+    },
+    {
+      "file": "docs/ACT-III-20261016/PRESENTATION-EN-R14.pdf",
+      "bytes": 4765149,
+      "sha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1"
+    },
+    {
+      "file": "docs/ACT-III-20261016/PRESENTATION-EN-R14.pptx",
+      "bytes": 2214227,
+      "sha256": "5fa68a900c40be0ef6d0b1456aa40daafcac595d052717f4442fdfe03a99e280"
+    },
+    {
+      "file": "docs/ACT-III-20261016/RELEASE-R14.md",
+      "bytes": 1430,
+      "sha256": "dbe640ad92a3e12acb286d0a392042d61811d34d6b611829c9d7f8c292c90493"
+    },
+    {
+      "file": "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+      "bytes": 4878,
+      "sha256": "eec3fbf127c1d4844ca8d599ea362ef6331e6f2b0a7da50f8ae16e75b1c2dca1"
+    },
+    {
+      "file": "docs/ACT-III-20261016/VIDEO-EN-R09.mp4",
+      "bytes": 8987742,
+      "sha256": "9633e1efceadb2fd5265b0cd44f887bc1fcb4289e023217108a7f474ec716d78"
+    },
+    {
+      "file": "docs/evolus-app-pilot-20261016.json",
+      "bytes": 5259,
+      "sha256": "b466f19ed637fa775691f97756cee2fe2db1d6d98f41d1e1aa612d733bab23de"
+    },
+    {
+      "file": "docs/evolus-app-pilot-20261016.md",
+      "bytes": 3474,
+      "sha256": "fa885ddc3110d9e7fdc47b60092100ad0885a780c25513190b6e4eb7a2753e80"
+    },
+    {
       "file": "docs/recorded-gemma-integration.md",
       "bytes": 4062,
       "sha256": "ea7a8e075bbfaaa56a150f77115efb249349409363ffe2a9614eb57e24ab5321"
@@ -1109,14 +1115,94 @@
       "sha256": "ad399e1c04385052ab8eb273d2ed46b699434ed1e5e6dbde20ece2b876ec4fd2"
     },
     {
+      "file": "integration/container-pilot/CONTEXT-MANIFEST-20261016-EVOLUS-LOCAL.json",
+      "bytes": 12440,
+      "sha256": "c4ec3904fe37bc5fe5d6db13a307a1b9acb37f204532077680aa77fd092038ac"
+    },
+    {
+      "file": "integration/container-pilot/CONTEXT-MANIFEST-20261016-VALIDATED.json",
+      "bytes": 11997,
+      "sha256": "8ae3da9f1c52cfe848b6f9b5e8b2ed554f932acd3a069e7d3d0a39686e773f79"
+    },
+    {
+      "file": "integration/container-pilot/CONTEXT-MANIFEST.json",
+      "bytes": 5816,
+      "sha256": "e629ee2f7c35cea66d49dca7f6c7189cad0748191b78f889c8d8debe50a8e5e1"
+    },
+    {
+      "file": "integration/container-pilot/Dockerfile",
+      "bytes": 1904,
+      "sha256": "7f14da68a5a9c38eade280a77e5deed7d33280777b8aa9bb394f22e9da9ca81d"
+    },
+    {
+      "file": "integration/container-pilot/Dockerfile.dockerignore",
+      "bytes": 1097,
+      "sha256": "d0d129ca4695353008c3bc53f33481fbd8d254abcdb98a4d0830fc6b7009be4c"
+    },
+    {
+      "file": "integration/container-pilot/README.md",
+      "bytes": 9880,
+      "sha256": "a668e232e084ff69f70ea0d16be401ce013b5353379d880372e47fc89af2315d"
+    },
+    {
+      "file": "integration/container-pilot/VALIDATION-20261016.json",
+      "bytes": 3304,
+      "sha256": "5bdce4b576826471b10f939c26175462701a1bb95e3d4fb2231e2d6a4de5f4c3"
+    },
+    {
+      "file": "integration/container-pilot/smoke_runtime.mjs",
+      "bytes": 10617,
+      "sha256": "9e033d630abbe06cd7cee049b5abfd44e437572fad1564322d27297feb7eb09c"
+    },
+    {
+      "file": "integration/container-pilot/verify_context.py",
+      "bytes": 9676,
+      "sha256": "91c060ab136c54b76e73d05b252fc6036e7c07961ca934a41d8d88982bbdda85"
+    },
+    {
+      "file": "integration/evolus-pilot/README.md",
+      "bytes": 4422,
+      "sha256": "54a90f972b9fff7ab57f2377e64551c4b395168b4375a8a78afdb820526a775e"
+    },
+    {
+      "file": "integration/evolus-pilot/http-api.mjs",
+      "bytes": 11783,
+      "sha256": "8c503a6d8bbc38fa4594eae1c21105b3cf67b449de802be53c75b98d66df8d7b"
+    },
+    {
+      "file": "integration/evolus-pilot/preparation.mjs",
+      "bytes": 4261,
+      "sha256": "489758b8ba52524b0e8c8e947593c88d85bf4d6a75e07e48cb183ca666370b84"
+    },
+    {
+      "file": "integration/evolus-pilot/rest-client.mjs",
+      "bytes": 15021,
+      "sha256": "74fd7be9a41bf4026ebf19c4961fbce75575d7fd1f43b3647527547a8dfd0897"
+    },
+    {
+      "file": "integration/evolus-pilot/runtime-pilot.mjs",
+      "bytes": 12593,
+      "sha256": "4e69e2ae4dc12b24c997f91fa0ad447766a03bcecd7dd7ee6fc3cdf908a21842"
+    },
+    {
+      "file": "integration/evolus-pilot/runtime-pilot.test.mjs",
+      "bytes": 18683,
+      "sha256": "8204c1e18c2ccca9857b3d40c60aa35f395b6efe6a720c78f74f2357fd565076"
+    },
+    {
       "file": "public-demo/browser-api.mjs",
-      "bytes": 14372,
-      "sha256": "38d636344689c8ba2eabeeec241c4dbe959925911dc4e2b2be99d2a85b800b98"
+      "bytes": 14888,
+      "sha256": "352c0d96626b71295549aba47b35db4cdb6bac9e0c9e18417aeb869275021681"
     },
     {
       "file": "public-demo/tests/browser-api.test.mjs",
-      "bytes": 18116,
-      "sha256": "b15d048d8205d2e36c8e6bb50c75a866ab89674aa59d02666bce2f1a1681dcf5"
+      "bytes": 19303,
+      "sha256": "b8730aaed91ce06db6f8e88419c1bf14d0af889ed552a31a0990e1acd71e1f49"
+    },
+    {
+      "file": "public-demo/tests/evolus-recorded-proof.test.mjs",
+      "bytes": 4421,
+      "sha256": "d126e256bc0f33e815baae11c126cc8e1f7b298607b5fde206ba894b10c82b3e"
     },
     {
       "file": "public-demo/tests/recorded-amd-integration.test.mjs",
@@ -1140,8 +1226,8 @@
     },
     {
       "file": "scripts/build-public-demo.mjs",
-      "bytes": 27720,
-      "sha256": "e52b99c5d11409484fca1ff01fc2007905ba5e7b3b56ff591e2ca9f044568ae2"
+      "bytes": 29621,
+      "sha256": "540b3911b7dfe624f2f05f009c86af0c19ae812316ecf07be6ce2dd487dc0ae8"
     }
   ],
   "currentConfirmedLabLabMedia": {
@@ -1236,17 +1322,52 @@
       "file": "docs/ACT-III-20261014/FINAL-DELIVERY-R13.json",
       "bytes": 4569,
       "sha256": "0e415a772b0b38425d225fe5f2d40080d25f05f4d83e9389d0014db1a17cd5bd"
+    },
+    {
+      "file": "docs/ACT-III-20261016/PRESENTATION-EN-R14.pdf",
+      "bytes": 4765149,
+      "sha256": "7409c6fe15696fb4e93ac1a415205d7cfde4cce97d821a7fc46f994b5c207dc1"
+    },
+    {
+      "file": "docs/ACT-III-20261016/PRESENTATION-EN-R14.pptx",
+      "bytes": 2214227,
+      "sha256": "5fa68a900c40be0ef6d0b1456aa40daafcac595d052717f4442fdfe03a99e280"
+    },
+    {
+      "file": "docs/ACT-III-20261016/VIDEO-EN-R09.mp4",
+      "bytes": 8987742,
+      "sha256": "9633e1efceadb2fd5265b0cd44f887bc1fcb4289e023217108a7f474ec716d78"
+    },
+    {
+      "file": "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+      "bytes": 4878,
+      "sha256": "eec3fbf127c1d4844ca8d599ea362ef6331e6f2b0a7da50f8ae16e75b1c2dca1"
+    },
+    {
+      "file": "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
+      "bytes": 3078,
+      "sha256": "9b083ebf09f80250614ba3f5248256537732a87993a0224a937977e9442ff5d3"
+    },
+    {
+      "file": "docs/ACT-III-20261016/FINAL-DELIVERY-R14.json",
+      "bytes": 1508,
+      "sha256": "31e2dc6cd52b105b3b4427004e70aee9ed6e62ffe3368c1bfe3717b55ef0a59f"
+    },
+    {
+      "file": "docs/ACT-III-20261016/RELEASE-R14.md",
+      "bytes": 1430,
+      "sha256": "dbe640ad92a3e12acb286d0a392042d61811d34d6b611829c9d7f8c292c90493"
     }
   ],
-  "validatedCodeCommit": "22df95368a5f6dc340c627e5244ffc781fef2dae",
-  "validatedPagesCommit": "3bf87f772237f001220fe221a85c715c5d0e29c0",
-  "finalBrowserQAPassed": true,
-  "applicationVersion": "R12",
-  "presentationVersion": "R13",
-  "videoVersion": "R08",
+  "validatedCodeCommit": null,
+  "validatedPagesCommit": null,
+  "finalBrowserQAPassed": false,
+  "applicationVersion": "R14 prepared delivery with optional local Evolus boundary",
+  "presentationVersion": "R14",
+  "videoVersion": "R09",
   "labLabR13UpdateConfirmed": true,
-  "applicationCodeChangedForMediaUpdate": false,
-  "sourceMetadataPublicationPendingReview": false,
+  "applicationCodeChangedForMediaUpdate": true,
+  "sourceMetadataPublicationPendingReview": true,
   "valueScenario": {
     "recordsPerDay": 6,
     "reportedManualDocumentationMinutesPerRecord": 15,
@@ -1257,5 +1378,64 @@
     "measuredPatientKeeperSavings": false,
     "anonymousOtherToolReportIsPatientKeeperOutcome": false
   },
-  "sourceMetadataReviewed": true
+  "sourceMetadataReviewed": false,
+  "historicalConfirmedSourceValidation": {
+    "revision": "R12-APP-R13-PRESENTATION-R08-VIDEO-20261014",
+    "state": "LabLab media R13/R08 verified; source distribution for validated application R12 with final presentation R13 and video R08",
+    "validatedCodeCommit": "22df95368a5f6dc340c627e5244ffc781fef2dae",
+    "validatedPagesCommit": "3bf87f772237f001220fe221a85c715c5d0e29c0",
+    "finalBrowserQAPassed": true,
+    "verifiedLocalTests": {
+      "tests": 284,
+      "pass": 284,
+      "fail": 0,
+      "skipped": 0,
+      "scope": "Exact source after build, including real static adapter to Gemma panel integration; no live model or real ASR execution",
+      "modelOrAsrExecution": false
+    },
+    "cleanSourceReproduction": {
+      "initialFiles": 170,
+      "generatedAssetsInitiallyAbsent": true,
+      "buildThenTestsPassed": true,
+      "secondBuildByteIdentical": true,
+      "scope": "170-file functional R12 code tree verified at the validated code commit; subsequent source files are only final media and metadata; application and static assets unchanged"
+    },
+    "finalPublicationConfirmed": true
+  },
+  "expectedFinalMedia": {
+    "files": [
+      "docs/ACT-III-20261016/PRESENTATION-EN-R14.pdf",
+      "docs/ACT-III-20261016/PRESENTATION-EN-R14.pptx",
+      "docs/ACT-III-20261016/VIDEO-EN-R09.mp4",
+      "docs/ACT-III-20261016/SUBTITLES-EN-R09.srt",
+      "docs/ACT-III-20261016/NARRATION-EN-R09.txt",
+      "docs/ACT-III-20261016/FINAL-DELIVERY-R14.json",
+      "docs/ACT-III-20261016/RELEASE-R14.md"
+    ],
+    "copiedByThisPreparation": true,
+    "state": "local_media_QA_complete_exact_files_copied",
+    "published": false,
+    "submitted": false
+  },
+  "currentEvolusProof": {
+    "file": "docs/evolus-app-pilot-20261016.json",
+    "sha256": "b466f19ed637fa775691f97756cee2fe2db1d6d98f41d1e1aa612d733bab23de",
+    "kind": "recorded_local_application_execution",
+    "livePublicInference": false,
+    "originalAnswerAndCitationsPreserved": true,
+    "semanticOrClinicalApproval": false,
+    "externalObjectIdsIncluded": false
+  },
+  "containerValidation": {
+    "receipt": "integration/container-pilot/VALIDATION-20261016.json",
+    "sha256": "5bdce4b576826471b10f939c26175462701a1bb95e3d4fb2231e2d6a4de5f4c3",
+    "state": "image_built_container_executed_internal_http_smoke_passed",
+    "platform": "linux/arm64",
+    "networkMode": "none",
+    "httpAndSecurityChecksPassed": 16,
+    "runtimeHashesMatched": 35,
+    "staticRoutesChecked": 23,
+    "providerCalls": 0,
+    "imagePushed": false
+  }
 }

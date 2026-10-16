@@ -35,6 +35,25 @@ async function card(api,extra={}) {
 }
 const rejectsCode=(operation,code,status)=>assert.rejects(operation,error=>error.code === code && (!status || error.status === status));
 
+test('static Evolus status is disabled and query/poll cannot reach network or storage',async()=>{
+  const storage=new MemoryStorage();
+  const {api}=setup({storage,lockManager:null});
+  const originalFetch=globalThis.fetch;
+  let networkCalls=0;
+  globalThis.fetch=async()=>{networkCalls++;throw new Error('Static Evolus must not fetch');};
+  try {
+    const status=await api('/api/evolus/status');
+    assert.equal(status.provider,'evolus');assert.equal(status.enabled,false);assert.equal(status.configured,false);
+    assert.equal(status.canStart,false);assert.equal(status.pending,false);assert.equal(status.pendingSession,null);
+    assert.equal(status.remainingExecutions,0);
+    status.enabled=true;
+    assert.equal((await api('/api/evolus/status')).enabled,false);
+    await rejectsCode(api('/api/evolus/query',{caseId:'SIM-RET-02',question:'test',expectedRevision:0}),'EVOLUS_NOT_CONFIGURED',503);
+    await rejectsCode(api('/api/evolus/poll',{sessionId:'test',expectedRevision:0}),'EVOLUS_NOT_CONFIGURED',503);
+    assert.equal(networkCalls,0);assert.equal(storage.writes,0);assert.equal(storage.getItem(STORAGE_KEY),null);
+  } finally { globalThis.fetch=originalFetch; }
+});
+
 test('public demo starts at revision zero, has eight fictional cases, and persists only its own envelope',async()=>{
   const {api,storage}=setup();
   const state=await api('/api/state');

@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { createState, viewState } from '../app/engine.mjs';
 import { readRecordedAMDArchive, recordedContextMatches } from '../app/recorded-amd.mjs';
 import { readRecordedGemmaArchive } from '../app/recorded-gemma.mjs';
+import { validateModelCandidate } from '../app/ai-contract.mjs';
 
 // Positive allowlist: no app/data, credentials, remote transport or test oracle.
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -94,6 +95,8 @@ const SELECTED_RUNS = [
   ['SIM-RET-07','RUN-20261012T173115Z-cc32d521',1],
 ];
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
+const EVOLUS_PROOF_SHA256 = 'b466f19ed637fa775691f97756cee2fe2db1d6d98f41d1e1aa612d733bab23de';
+const EVOLUS_PROOF_DOWNLOAD = '<details class="data-tools" data-source-reading lang="en"><summary>Recorded Evolus pilot · 16 October 2026</summary><div class="tools-body"><p>A separate local application run returned a candidate with two exact fictional citations in 8.149 seconds. Human review remained required and saved administrative state was unchanged. This archived evidence does not run a model or answer new questions in this browser.</p><div class="tool-actions"><a class="button" href="./evolus-app-pilot-20261016.json" download>Download sanitized receipt · JSON</a><a class="button" href="./evolus-app-pilot-20261016.md" download>Read the evidence and limits · English</a></div><p class="caption">The agent was configured for Gemma through AMD Token Factory; the execution response does not independently identify its model. The temporary server was stopped and the workflow paused.</p></div></details>\n      ';
 async function recordedArchive(root) {
   const cases=publicFixtures(JSON.parse(await readFile(path.join(root,'CASOS-SINTETICOS.json'),'utf8')));
   const baseline=createState(cases);
@@ -175,11 +178,17 @@ export async function buildPublicDemo({ root = ROOT, outputDir = path.join(root,
   ]);
   const gemmaRaw = JSON.parse(await readFile(path.join(root, 'docs/recorded-gemma-runs.json'), 'utf8'));
   if (!(await readRecordedGemmaArchive(gemmaRaw)).valid) throw new Error('Recorded Gemma archive failed its pinned evidence check.');
+  const evolusProof = await readFile(path.join(root, 'docs/evolus-app-pilot-20261016.json'), 'utf8');
+  if (sha256(evolusProof) !== EVOLUS_PROOF_SHA256) throw new Error('Recorded Evolus proof changed; review its dated origin explicitly.');
+  const proof = JSON.parse(evolusProof);
+  if (proof.liveInference !== false || proof.syntheticOnly !== true || !validateModelCandidate(proof.context.modelInput, proof.candidate).formatValid) throw new Error('Recorded Evolus proof failed its candidate checks.');
   const content = new Map(files), generated = new Map(COPY.map(name => [name, content.get(name)]));
   generated.set('styles.css', content.get('styles.css') + `\n/* Recorded execution is a separate reading surface, not a live AI answer. */\n.recorded-amd-reading.section{padding:24px;margin-top:28px;border-top:1px solid var(--line);border-radius:10px;background:var(--surface-subtle);min-width:0;overflow-wrap:anywhere}.recorded-amd-reading .section-title-row h3{font:400 18px/1.35 Georgia,"Times New Roman",serif;letter-spacing:-.02em}.recorded-amd-reading h4{font-size:14px;margin:20px 0 10px}.recorded-amd-reading .evidence-excerpt{background:var(--white)}.recorded-amd-reading .evidence-excerpt>strong{font-size:11px}.recorded-amd-reading .evidence-receipts .caption{overflow-wrap:anywhere}.recorded-amd-reading .caption{line-height:1.6}.recorded-amd-reading .callout{line-height:1.65}@media(max-width:480px){.recorded-amd-reading.section{padding:18px}}\n`);
   generated.set('browser-api.mjs', browserCareAdapter(adapter));
   generated.set('amd-runs.json',JSON.stringify(archive,null,2)+'\n');
   generated.set('gemma-runs.json',JSON.stringify(gemmaRaw,null,2)+'\n');
+  generated.set('evolus-app-pilot-20261016.json',evolusProof);
+  generated.set('evolus-app-pilot-20261016.md',await readFile(path.join(root, 'docs/evolus-app-pilot-20261016.md'), 'utf8'));
   let evidenceClient=content.get('evidence-client.mjs');
   if (!evidenceClient.includes("from './recorded-amd-client.mjs'")) evidenceClient="import { mountRecordedAMDPanel } from './recorded-amd-client.mjs';\n"+evidenceClient;
   if (!evidenceClient.includes('mountRecordedAMDPanel(container,')) evidenceClient=replaceOnce(evidenceClient,'  mountModelPanel(container,','  mountRecordedAMDPanel(container, { item, revision, request, notify, onStale });\n  mountModelPanel(container,');
@@ -208,6 +217,7 @@ export async function buildPublicDemo({ root = ROOT, outputDir = path.join(root,
     .replaceAll('Consulta literal de fuentes disponible · IA/AMD aún no conectados.', 'Consulta literal de fuentes disponible · Ejecución AMD grabada · Sin inferencia en vivo.');
   generated.set('i18n.mjs', translations);
   generated.set('index.html', content.get('index.html').replaceAll('href="/care-journey.css"','href="./care-journey.css"').replaceAll('href="/selection-controls.css"','href="./selection-controls.css"').replaceAll('href="/recorded-gemma.css"','href="./recorded-gemma.css"').replaceAll('href="/styles.css"','href="./styles.css"').replaceAll('href="/favicon.svg"','href="./favicon.svg"').replaceAll('src="/client.mjs"','src="./client.mjs"').replaceAll('src="/theme-init.js"','src="./theme-init.js"').replaceAll('href="/"','href="./"').replaceAll('href="/api/export"','href="#export"').replace('Demonstração local','Demonstração isolada no navegador').replace('As alterações ficam neste computador.','As alterações ficam somente neste navegador. Limpar os dados do site apaga o progresso.').replace('Armazenamento local · IA/RAG ainda não conectados.','Armazenamento deste navegador · Execução AMD gravada · Sem inferência ao vivo.').replace('<button id="open-import"', '<button id="export-reviews" type="button">Exportar recibos de conferência</button><button id="open-import"').replace('<p class="caption" id="storage-status">','<p class="caption">A cópia do progresso não inclui os recibos de conferência. Exporte-os separadamente; reiniciar os casos preserva esses recibos neste navegador.</p><p class="caption" id="storage-status">').replace('Protótipo com dados fictícios. A equipe médica define as orientações e os prazos clínicos. Fontes conferíveis e revisão humana. Não envia mensagens nem altera consultas reais.', publicCopy.find(row=>row[0].startsWith('Protótipo administrativo'))[0]).replace('Protótipo administrativo com casos fictícios. A equipe define regras de contato e janelas clínicas. Consulta local com fontes; integração IA/AMD pendente. Não faz avaliação clínica, ranking da equipe ou envio automático.', publicCopy.find(row=>row[0].startsWith('Protótipo administrativo'))[0]));
+  generated.set('index.html', replaceOnce(generated.get('index.html'), '<footer>', EVOLUS_PROOF_DOWNLOAD + '<footer>'));
   generated.set('evidence.mjs', browserEvidence(content.get('evidence.mjs')));
   generated.set('fixtures.mjs', '// Public fictional fixtures only. Test expectations and local progress are excluded.\nexport const fixtures = ' + JSON.stringify(publicFixtures(JSON.parse(rawFixtures)), null, 2) + ';\n');
   generated.set('_headers', `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  X-Frame-Options: DENY\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'\n`);

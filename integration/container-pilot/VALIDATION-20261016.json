@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "validatedAtUtc": "2026-10-16T20:07:16.002587+00:00",
+  "state": "image_built_container_executed_internal_http_smoke_passed",
+  "imageBuilt": true,
+  "containerRun": true,
+  "health": "healthy",
+  "platform": "linux/arm64",
+  "hostEnvironment": "Docker Desktop on macOS Apple Silicon",
+  "nodeVersion": "v24.22.0",
+  "localImageTag": "patientkeeper-retorno:validated-20261016",
+  "imageId": "sha256:c70e6f4ab3ff13f7f98fc2fcbce32e174de13b32561d5373915d13f02990eb74",
+  "imageSizeBytes": 81033854,
+  "baseImage": "node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5",
+  "baseDigestVerifiedAtBuild": true,
+  "httpAndSecurityChecksPassed": 16,
+  "staticRoutesChecked": 23,
+  "runtimeInputCount": 35,
+  "runtimeFileHashesMatchSourceAllowlist": true,
+  "administrativeStateUnchanged": true,
+  "networkMode": "none",
+  "hostPortPublished": false,
+  "runAsUser": "node (uid 1000)",
+  "readOnlyRootfs": true,
+  "cpuLimit": 2,
+  "memoryLimitBytes": 268435456,
+  "tmpfsLimitBytes": 16777216,
+  "providerCalls": 0,
+  "modelInferenceEnabled": false,
+  "evolusEnabled": false,
+  "voiceTranscriptionEnabled": false,
+  "keysPackaged": false,
+  "imagePushed": false,
+  "probeReadinessWaitMs": 414,
+  "initialProbeStartupRaceCorrected": true,
+  "probeSha256": "9e033d630abbe06cd7cee049b5abfd44e437572fad1564322d27297feb7eb09c",
+  "checks": [
+    {
+      "name": "unprivileged Linux process with providers disabled",
+      "passed": true
+    },
+    {
+      "name": "root filesystem is read-only and temporary directory writable",
+      "passed": true
+    },
+    {
+      "name": "HTTP listener is loopback-only inside the container",
+      "passed": true
+    },
+    {
+      "name": "health and response policy",
+      "passed": true
+    },
+    {
+      "name": "synthetic queue and doctor journey load",
+      "passed": true
+    },
+    {
+      "name": "model, voice, Evolus status disabled",
+      "passed": true
+    },
+    {
+      "name": "model query refuses disabled integration without state mutation",
+      "passed": true
+    },
+    {
+      "name": "Evolus query refuses disabled integration without a workflow",
+      "passed": true
+    },
+    {
+      "name": "voice refuses transcription when disabled",
+      "passed": true
+    },
+    {
+      "name": "different Host rejected",
+      "passed": true
+    },
+    {
+      "name": "cross-origin write rejected",
+      "passed": true
+    },
+    {
+      "name": "stale source context rejected",
+      "passed": true
+    },
+    {
+      "name": "static shell and all declared assets load",
+      "passed": true
+    },
+    {
+      "name": "recorded Gemma evidence loads as replay only",
+      "passed": true
+    },
+    {
+      "name": "sensitive or non-allowlisted paths inaccessible",
+      "passed": true
+    },
+    {
+      "name": "failed integration requests preserve administrative state and counters",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Runtime validation is Linux/arm64 inside Docker Desktop. It does not establish Linux native host-network behavior or amd64 execution.",
+    "No browser UI inside a container, public backend, GPU, live model, voice runtime or prize eligibility was validated.",
+    "Container image remains local; no registry push or paid infrastructure."
+  ]
+}

@@ -19,9 +19,12 @@ test('the new journey is isolated from the saved return queue and concurrent sta
   const care = await (await fetch(app.url + '/api/care/state')).json();
   assert.equal(care.episodeId, 'SIM-CARE-01');
   assert.equal(care.clinicalProtocol.status, 'pending');
-  const make = id => ({ expectedRevision: care.revision, action: { type: 'plan', idempotencyKey: id, phase: 'preoperative', owner: 'MED-SIM-A', nextAction: 'Confirm receipt of team instructions in the fictional example.', dueAt: '2026-10-16T15:00:00.000Z' } });
+  // Keep this concurrency fixture future-dated when the real server clock moves.
+  const dueAt = new Date(Date.parse(care.updatedAt) + 24 * 60 * 60 * 1000).toISOString();
+  const make = id => ({ expectedRevision: care.revision, action: { type: 'plan', idempotencyKey: id, phase: 'preoperative', owner: 'MED-SIM-A', nextAction: 'Confirm receipt of team instructions in the fictional example.', dueAt } });
   const results = await Promise.all([post('/api/care/actions', make('PLAN-TEST-A')), post('/api/care/actions', make('PLAN-TEST-B'))]);
   assert.equal(results.filter(response => response.ok).length, 1);
+  assert.equal((await results.find(response => !response.ok).json()).error.code, 'CARE_STALE_CONTEXT');
   const saved = await (await fetch(app.url + '/api/care/state')).json();
   assert.equal(saved.revision, care.revision + 1);
   assert.equal(saved.owner, 'MED-SIM-A');

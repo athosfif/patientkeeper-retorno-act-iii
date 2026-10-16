@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 2,
+  "checkedAtUtc": "2026-10-16T20:09:48.825410+00:00",
+  "state": "static_context_verified",
+  "scope": "this_offline_source_check_only_not_a_runtime_assessment",
+  "staticContextVerified": true,
+  "dockerInvoked": false,
+  "imagePulled": false,
+  "imageBuilt": false,
+  "containerRun": false,
+  "modelCalls": 0,
+  "voiceEnabled": false,
+  "evolusEnabled": false,
+  "evolusRuntimePackaged": [
+    "integration/evolus-pilot/http-api.mjs",
+    "integration/evolus-pilot/preparation.mjs",
+    "integration/evolus-pilot/rest-client.mjs",
+    "integration/evolus-pilot/runtime-pilot.mjs"
+  ],
+  "runtimeTarget": "local Linux Docker Engine; host network; existing loopback-only server",
+  "baseImage": "node:24-bookworm-slim@sha256:a5f4366e834695d5f363b920c104953a535d3a9864d1bdf74566a0ebe01daee5",
+  "baseDigestPinned": true,
+  "baseDigestVerified": false,
+  "inputCount": 35,
+  "totalInputBytes": 511199,
+  "dockerfileSha256": "7f14da68a5a9c38eade280a77e5deed7d33280777b8aa9bb394f22e9da9ca81d",
+  "ignoreSha256": "d0d129ca4695353008c3bc53f33481fbd8d254abcdb98a4d0830fc6b7009be4c",
+  "verifierSha256": "91c060ab136c54b76e73d05b252fc6036e7c07961ca934a41d8d88982bbdda85",
+  "readmeSha256": "a668e232e084ff69f70ea0d16be401ce013b5353379d880372e47fc89af2315d",
+  "relativeImports": [
+    {
+      "from": "app/calendar-client.mjs",
+      "to": "app/calendar.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/care-journey-client.mjs",
+      "to": "app/care-journey.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/care-store.mjs",
+      "to": "app/care-journey.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/client.mjs",
+      "to": "app/i18n.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/client.mjs",
+      "to": "app/evidence-client.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/client.mjs",
+      "to": "app/source-reading.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/client.mjs",
+      "to": "app/theme.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/client.mjs",
+      "to": "app/calendar-client.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/client.mjs",
+      "to": "app/care-journey-client.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/client.mjs",
+      "to": "app/recorded-gemma-client.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/evidence-client.mjs",
+      "to": "app/i18n.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/evidence-client.mjs",
+      "to": "app/model-client.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/evidence-client.mjs",
+      "to": "app/source-reading.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/evidence.mjs",
+      "to": "app/engine.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/model-client.mjs",
+      "to": "app/source-reading.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/model-client.mjs",
+      "to": "app/i18n.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/model-transport.mjs",
+      "to": "app/ai-contract.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/recorded-gemma-client.mjs",
+      "to": "app/source-reading.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/recorded-gemma-client.mjs",
+      "to": "app/recorded-gemma.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/recorded-gemma.mjs",
+      "to": "app/ai-contract.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/server.mjs",
+      "to": "app/engine.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/server.mjs",
+      "to": "app/evidence.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/server.mjs",
+      "to": "app/model-transport.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/server.mjs",
+      "to": "app/model-budget.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/server.mjs",
+      "to": "app/ai-contract.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/server.mjs",
+      "to": "app/care-store.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/server.mjs",
+      "to": "app/voice-transcription.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/server.mjs",
+      "to": "integration/evolus-pilot/http-api.mjs",
+      "kind": "dynamic"
+    },
+    {
+      "from": "app/server.mjs",
+      "to": "integration/evolus-pilot/http-api.mjs",
+      "kind": "dynamic"
+    },
+    {
+      "from": "app/source-reading.mjs",
+      "to": "app/i18n.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "app/source-reading.mjs",
+      "to": "app/source-translations.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/http-api.mjs",
+      "to": "integration/evolus-pilot/preparation.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/http-api.mjs",
+      "to": "integration/evolus-pilot/runtime-pilot.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/preparation.mjs",
+      "to": "app/engine.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/preparation.mjs",
+      "to": "app/evidence.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/preparation.mjs",
+      "to": "app/ai-contract.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/rest-client.mjs",
+      "to": "integration/evolus-pilot/preparation.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/rest-client.mjs",
+      "to": "app/ai-contract.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/runtime-pilot.mjs",
+      "to": "integration/evolus-pilot/preparation.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/runtime-pilot.mjs",
+      "to": "integration/evolus-pilot/rest-client.mjs",
+      "kind": "static"
+    },
+    {
+      "from": "integration/evolus-pilot/runtime-pilot.mjs",
+      "to": "app/ai-contract.mjs",
+      "kind": "static"
+    }
+  ],
+  "dynamicImportCount": 2,
+  "inputs": [
+    {
+      "path": "CASOS-SINTETICOS.json",
+      "bytes": 24690,
+      "sha256": "ed64497b692923fe42595ae47886aa4431dbd87e42d13b9c95702c6e397211cd"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1069,
+      "sha256": "0349e9253b68201f6014356cc9c3e13578fdc3e098f2f8f110ab14ebee05167d"
+    },
+    {
+      "path": "app/ai-contract.mjs",
+      "bytes": 11162,
+      "sha256": "7eaa02dc6cfe39140a07b013e7331ea701a098853d68a398fa6be73577fa3cef"
+    },
+    {
+      "path": "app/calendar-client.mjs",
+      "bytes": 8857,
+      "sha256": "d9211edacc9c81608c4339acd4abc763a330f225ca875e29804e262a71e280b8"
+    },
+    {
+      "path": "app/calendar.mjs",
+      "bytes": 15250,
+      "sha256": "5c5dfe5e95d5b5f8baff16da8da83db0e24e41f8803d6d5f886cd878dfe93ccf"
+    },
+    {
+      "path": "app/care-journey-client.mjs",
+      "bytes": 48521,
+      "sha256": "4e26981ba5cb5f5d2c29d5ef668591233926917bf1fcf15c449c15f2b120b6e8"
+    },
+    {
+      "path": "app/care-journey.css",
+      "bytes": 9467,
+      "sha256": "9c33ae64e24df67c84752958d4ee24b55a4f4c37d2cfc05dfe25ec713d098009"
+    },
+    {
+      "path": "app/care-journey.mjs",
+      "bytes": 25858,
+      "sha256": "43922833055a681718b5f6832769bc70cbaf0b31bb78343f5606785142f16f60"
+    },
+    {
+      "path": "app/care-store.mjs",
+      "bytes": 2292,
+      "sha256": "d4847304ccd630c438b8e12f586ca311a16ec3d708232a46828105b17edf1937"
+    },
+    {
+      "path": "app/client.mjs",
+      "bytes": 30208,
+      "sha256": "ef46ce6cd5b8473bafabf6627aac9f8e06c1f43a6792811704a61efcd58efb7d"
+    },
+    {
+      "path": "app/engine.mjs",
+      "bytes": 28368,
+      "sha256": "017d17fdb67995cff32b532d5f1a98fd3498c3e19002f81248f440bb6a28e637"
+    },
+    {
+      "path": "app/evidence-client.mjs",
+      "bytes": 14724,
+      "sha256": "16f2ad16f98cf1a307cfaf866776108efaaf84edb7d8048b546e8d20fcd52671"
+    },
+    {
+      "path": "app/evidence.mjs",
+      "bytes": 15181,
+      "sha256": "8df4188fba473e6ca60d9ae0e31ac7b120dad4c9221d308276fd4933bb02ae72"
+    },
+    {
+      "path": "app/favicon.svg",
+      "bytes": 274,
+      "sha256": "e70dd602b5e76de29ccbeeef1a384ecdd88e8056879de89a742e559e68bc4889"
+    },
+    {
+      "path": "app/i18n.mjs",
+      "bytes": 53330,
+      "sha256": "8b615739433bc54a7aac7d41c8b3e4b5497883b1e68d6305ffb0315facbdbe18"
+    },
+    {
+      "path": "app/index.html",
+      "bytes": 7977,
+      "sha256": "f0c7ece336ef5dcf57d02a9273f5cc5d470d1a4497f30a0dfa576a6b6f025603"
+    },
+    {
+      "path": "app/model-budget.mjs",
+      "bytes": 3635,
+      "sha256": "e004da435179fe562828d66072012d8c610adaabc6493671b6fae241d91d327f"
+    },
+    {
+      "path": "app/model-client.mjs",
+      "bytes": 19341,
+      "sha256": "b25f244ebf3b02601c7d94cea4beb3d19ef1faf9a16c17fb60fb533e50157e84"
+    },
+    {
+      "path": "app/model-transport.mjs",
+      "bytes": 16633,
+      "sha256": "098386b7f16eaf6d8b43f0ae0f9e87299351e5c1cdbff5d75a12313770959aa9"
+    },
+    {
+      "path": "app/recorded-gemma-client.mjs",
+      "bytes": 15960,
+      "sha256": "d404593f2567541123bd147050d0dfaa9e3560abe509400d979814d934aab90c"
+    },
+    {
+      "path": "app/recorded-gemma.css",
+      "bytes": 3644,
+      "sha256": "2da41caca09d03b03dc071a0d83683d0a9a96e9a42ba3de5c9d1b58e6a627bfb"
+    },
+    {
+      "path": "app/recorded-gemma.mjs",
+      "bytes": 9807,
+      "sha256": "597600ae439ab7eb38301200934eedc54daf62b6f75e570cbd40cae5256f4ec3"
+    },
+    {
+      "path": "app/selection-controls.css",
+      "bytes": 866,
+      "sha256": "10e32dcaa82bb99adddbd92e777c5ead00e538400c9439ad73a0efc464ff2a71"
+    },
+    {
+      "path": "app/server.mjs",
+      "bytes": 28232,
+      "sha256": "fdb7b4a3f947c728046859f8912ba2a8ea12dde607ee6b532f0002bebeac1b79"
+    },
+    {
+      "path": "app/source-reading.mjs",
+      "bytes": 2383,
+      "sha256": "b3f93a27b0186de0fff9c8a3f7e23eaca1e58c2f27a4ee210ceafc7f71b6b10f"
+    },
+    {
+      "path": "app/source-translations.mjs",
+      "bytes": 12548,
+      "sha256": "cb9b94694365b43d4642466db896a97d403ddf0c00b34013f05069d4ae1bb3b1"
+    },
+    {
+      "path": "app/styles.css",
+      "bytes": 27120,
+      "sha256": "f695079e075133f3f07e1fd864c55340cd7a80eca3223ddbed52809817dd04e8"
+    },
+    {
+      "path": "app/theme-init.js",
+      "bytes": 519,
+      "sha256": "fc6be17dc111820e89ae359d132ddf70b5224137419f679a5ab48149e506d2cc"
+    },
+    {
+      "path": "app/theme.mjs",
+      "bytes": 2667,
+      "sha256": "1532f4f0e44ca9d86a17f1c8a5e2f110ca713ec4c3fd9b464b8d353f65dce4b6"
+    },
+    {
+      "path": "app/voice-transcription.mjs",
+      "bytes": 13518,
+      "sha256": "64d48322ab4731cff9f38425f400e20878ff70e078640d78b7e1ce7e087c7e49"
+    },
+    {
+      "path": "docs/recorded-gemma-runs.json",
+      "bytes": 13440,
+      "sha256": "ad399e1c04385052ab8eb273d2ed46b699434ed1e5e6dbde20ece2b876ec4fd2"
+    },
+    {
+      "path": "integration/evolus-pilot/http-api.mjs",
+      "bytes": 11783,
+      "sha256": "8c503a6d8bbc38fa4594eae1c21105b3cf67b449de802be53c75b98d66df8d7b"
+    },
+    {
+      "path": "integration/evolus-pilot/preparation.mjs",
+      "bytes": 4261,
+      "sha256": "489758b8ba52524b0e8c8e947593c88d85bf4d6a75e07e48cb183ca666370b84"
+    },
+    {
+      "path": "integration/evolus-pilot/rest-client.mjs",
+      "bytes": 15021,
+      "sha256": "74fd7be9a41bf4026ebf19c4961fbce75575d7fd1f43b3647527547a8dfd0897"
+    },
+    {
+      "path": "integration/evolus-pilot/runtime-pilot.mjs",
+      "bytes": 12593,
+      "sha256": "4e69e2ae4dc12b24c997f91fa0ad447766a03bcecd7dd7ee6fc3cdf908a21842"
+    }
+  ],
+  "limitations": [
+    "Static inspection does not verify Docker parsing, image availability or runtime behavior.",
+    "Optional Evolus client modules are packaged, disabled; no Evolus/AMD model server or credential is included.",
+    "Voice worker, Python runtime and weights are excluded; voice stays disabled.",
+    "No prize eligibility is established by this package."
+  ]
+}

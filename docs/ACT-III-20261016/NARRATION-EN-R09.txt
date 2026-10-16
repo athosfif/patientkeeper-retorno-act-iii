@@ -1,0 +1,53 @@
+Hi, I’m Athos, from Figueira.
+
+PatientKeeper Retorno grew from problems I see while working with medical practices: scattered conversations, unanswered messages, and follow-ups that never reach a clear conclusion.
+
+A canceled appointment should not become a forgotten patient.
+
+Our goal is to help the doctor understand what remains open, who is responsible, and which record supports the next step.
+
+Everything in this demonstration uses fictional data. The system organizes the work, while the doctor remains responsible for decisions.
+
+The doctor workspace brings the patient journey, consultation material, and contact history together.
+
+Our fictional example follows a bunion and bunionette surgery episode. The doctor records the phase, responsibility, next administrative action, and a date to check progress.
+
+The system does not invent surgical instructions or decide clinical timing.
+
+Search, a fictional calendar, three interface languages, and light or dark appearance help make navigation straightforward.
+
+The workflow centers on the doctor, while giving reception staff a clearer handoff and fewer scattered instructions.
+
+In the configured local version, a short fictional audio file can be transcribed on the computer.
+
+The doctor reviews the transcript and selects literal passages to prepare a source-linked draft. This is an extract for review, not an automatically generated diagnosis or a signed medical record.
+
+The contact workflow checks the recorded preference and requires review of the exact source and message.
+
+WhatsApp contact is simulated. No message is sent.
+
+A refusal blocks contact, and changing the source invalidates the previous review. Preparing a message does not mean the follow-up is complete.
+
+We tested Gemma through AMD Token Factory and connected PatientKeeper to an Evolus workflow using that configured Gemma connection.
+
+One real application-to-API execution returned an administrative candidate in about eight seconds, with two exact source citations and mandatory human review.
+
+The administrative state remained unchanged.
+
+The application checks the current context and blocks outdated results. The doctor can inspect the original sources before deciding what to do.
+
+This was a small synthetic pilot. The public demonstration displays recorded evidence, without live inference or audio transcription.
+
+What could this mean for a doctor’s day?
+
+The routine reported to us involves six records per day, with fifteen minutes of documentation each. That represents ninety minutes of daily documentation.
+
+If an assisted workflow reduced each record to ten minutes, including preparation, review, and corrections, the difference would be thirty minutes a day.
+
+That is an illustrative scenario, not a measured PatientKeeper result.
+
+Our next step is to test that assumption in a controlled practice pilot.
+
+The administrative scaffold predates the hackathon. Source review, AMD experiments, and the doctor workspace were added during the event.
+
+PatientKeeper Retorno: a source, a responsible doctor, and a clear next step.

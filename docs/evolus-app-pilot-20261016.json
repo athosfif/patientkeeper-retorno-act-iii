@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "kind": "recorded_evolus_local_application_pilot",
+  "recordedAt": "2026-10-16T18:58:18.878Z",
+  "syntheticOnly": true,
+  "liveInference": false,
+  "scope": {
+    "caseId": "SIM-RET-02",
+    "question": "Qual pendência continua aberta e quem é o responsável?",
+    "revision": 0
+  },
+  "context": {
+    "caseId": "SIM-RET-02",
+    "revision": 0,
+    "sourceDigest": "5b2626d06dff9bfbec813d6ce70ed20d41813d52550faf6517c0bbcb122b2774",
+    "inputDigest": "29207da81763de0878c44df541221922252e377e019cef38a1610e2bc5c77c77",
+    "modelInput": {
+      "caseId": "SIM-RET-02",
+      "question": "Qual pendência continua aberta e quem é o responsável?",
+      "sources": [
+        {
+          "id": "SIM02-CANCELAMENTO",
+          "trecho": "Ha um cancelamento de retorno sem reposicao."
+        },
+        {
+          "id": "SIM02-HANDOFF",
+          "trecho": "A pendencia foi criada sem responsavel e sem proxima acao registrada."
+        }
+      ]
+    }
+  },
+  "candidate": {
+    "answer": "There is a cancellation of a return without replacement, and the pending item was created without an assigned responsible person.",
+    "citations": [
+      {
+        "sourceId": "SIM02-CANCELAMENTO",
+        "trecho": "Ha um cancelamento de retorno sem reposicao."
+      },
+      {
+        "sourceId": "SIM02-HANDOFF",
+        "trecho": "A pendencia foi criada sem responsavel e sem proxima acao registrada."
+      }
+    ],
+    "abstention": false,
+    "reason": null,
+    "humanReviewRequired": true
+  },
+  "validation": {
+    "formatValid": true,
+    "exactCurrentCitations": true,
+    "requiresSemanticHumanReview": true,
+    "semanticApproved": false,
+    "clinicalValidation": false
+  },
+  "observedExecution": {
+    "applicationUiSubmitted": true,
+    "explicitResultPoll": true,
+    "languageChangedWhilePending": {
+      "from": "en",
+      "to": "pt"
+    },
+    "candidateDisplayedInUi": true,
+    "providerStatus": "Completed",
+    "providerDurationMs": 8149,
+    "localTransportRequests": 3,
+    "providerReportedConsumption": {
+      "evolusCredits": 0,
+      "pendingCreditEntries": 0
+    },
+    "applicationStateUnchanged": true,
+    "stateSha256Before": "646d7092723324fa890f34574d00d393a4c0c247fbfbf2e32047186b7cc461f9",
+    "stateSha256After": "646d7092723324fa890f34574d00d393a4c0c247fbfbf2e32047186b7cc461f9",
+    "applicationStateWritesByRunner": 0,
+    "patientContactPerformed": false,
+    "outputFraming": {
+      "rawSha256": "8cf2f33aeb807d6d38e9061baa190eb082d13026c453628fec7ebc8ca6fb739d",
+      "bodySha256": "8cf2f33aeb807d6d38e9061baa190eb082d13026c453628fec7ebc8ca6fb739d",
+      "framingRemoved": false
+    }
+  },
+  "modelProvenance": {
+    "provider": "evolus",
+    "configuredAlias": "own/gemma-4-31b-it",
+    "connection": "AMD Token Factory",
+    "fallbackConfigured": false,
+    "modelIdentityVerifiedByExecutionResponse": false,
+    "amdVerifiedByExecutionResponse": false,
+    "explanation": "The configured alias, connection test and AMD usage observation were recorded separately. The workflow result does not independently identify its underlying model or hardware."
+  },
+  "pilotBoundary": {
+    "authorizedWorkflowExecutions": 2,
+    "portalExecutions": 1,
+    "applicationExecutions": 1,
+    "remainingAuthorizedExecutions": 0,
+    "firstPortalRawOutputAcceptedByApp": false,
+    "internalInferenceCallsBounded": false,
+    "remoteCancellationConfirmed": false,
+    "generalBenchmark": false
+  },
+  "closure": {
+    "observedAt": "2026-10-16T18:59:38.328Z",
+    "workflowActive": false,
+    "serverStopped": true
+  },
+  "origin": {
+    "method": "Positive field selection from retained application, runtime, context, provider readback and closure receipts; no raw provider envelope, credentials, external object IDs or private screen captures are included.",
+    "sourceArtifactSha256": {
+      "LOCAL-APP-PILOT-RECEIPT.json": "421b056a3e9cb6550c2f943b548d20de74bc1167e92515f8a322dc6a6c79b3af",
+      "LOCAL-APP-RUNTIME-OBSERVATIONS.json": "bc5d74c7dc6b21bdb284f41984796f23fe2ff554a19b5a8432e508458786444e",
+      "PILOT-INPUT.synthetic.json": "91330acacfb773af46cbfef9f01fe19946233de8b26b3d9dfae36039a890aea1",
+      "EVOLUS-APP-RUN-API-READBACK.json": "24138b9e1d8d7a1720d28cec2c2788b21c444a41ccbee7b30e9c829358bc6994",
+      "EVOLUS-PILOT-CLOSED-RECEIPT.json": "bb376e1617110d41cda8b43e9ad9d245476f13671299b5aa368daa04fd35f115"
+    }
+  },
+  "limitations": [
+    "One successful local application case, separate from the October 14 recorded Gemma attempts and October 12 Qwen attempts.",
+    "The complete synthetic excerpts were included in the input. An attached read-only library was verified separately; this receipt does not prove an independent library-read tool trace.",
+    "Exact schema and literal citations do not establish semantic approval, clinical accuracy, prompt-injection resistance or measured time savings.",
+    "Reported zero Evolus credits is a dated provider observation, not a promise of future free usage or zero AMD resource consumption.",
+    "The static public demo cannot submit or poll a live Evolus workflow. This file is an archived result, not an answer to a new question.",
+    "No claim of award eligibility, acceptance or judging result is made."
+  ]
+}

@@ -1,0 +1,250 @@
+1
+00:00:01,420 --> 00:00:05,780
+Hi, I’m Athos, from Figueira.
+
+2
+00:00:06,540 --> 00:00:12,800
+PatientKeeper Retorno grew from problems I
+see while working with medical practices:
+
+3
+00:00:13,260 --> 00:00:19,925
+scattered conversations, unanswered messages,
+and follow-ups that never reach
+
+4
+00:00:19,940 --> 00:00:21,065
+a clear conclusion.
+
+5
+00:00:21,080 --> 00:00:26,080
+A canceled appointment should not become a
+forgotten patient.
+
+6
+00:00:26,500 --> 00:00:31,220
+Our goal is to help the doctor understand
+what remains open,
+
+7
+00:00:31,500 --> 00:00:37,340
+who is responsible, and which record supports
+the next step.
+
+8
+00:00:37,920 --> 00:00:41,680
+Everything in this demonstration uses
+fictional data.
+
+9
+00:00:42,080 --> 00:00:47,200
+The system organizes the work, while the
+doctor remains responsible for decisions.
+
+10
+00:00:47,766 --> 00:00:53,526
+The doctor workspace brings the patient
+journey, consultation material,
+
+11
+00:00:53,706 --> 00:00:55,366
+and contact history together.
+
+12
+00:00:55,686 --> 00:01:00,946
+Our fictional example follows a bunion and
+bunionette surgery episode.
+
+13
+00:01:01,486 --> 00:01:08,026
+The doctor records the phase, responsibility,
+next administrative action,
+
+14
+00:01:08,206 --> 00:01:10,626
+and a date to check progress.
+
+15
+00:01:11,047 --> 00:01:17,752
+The system does not invent surgical
+instructions or decide clinical timing.
+
+16
+00:01:17,767 --> 00:01:24,192
+Search, a fictional calendar, three interface
+languages, and light or dark appearance
+
+17
+00:01:24,206 --> 00:01:27,166
+help make navigation straightforward.
+
+18
+00:01:27,886 --> 00:01:33,972
+The workflow centers on the doctor, while
+giving reception staff a clearer
+
+19
+00:01:33,986 --> 00:01:37,486
+handoff and fewer scattered instructions.
+
+20
+00:01:39,733 --> 00:01:45,438
+In the configured local version, a short
+fictional audio file can be
+
+21
+00:01:45,453 --> 00:01:47,113
+transcribed on the computer.
+
+22
+00:01:47,373 --> 00:01:52,578
+The doctor reviews the transcript and selects
+literal passages to prepare
+
+23
+00:01:52,593 --> 00:01:54,013
+a source-linked draft.
+
+24
+00:01:54,433 --> 00:01:56,973
+This is an extract for review,
+
+25
+00:01:57,253 --> 00:02:03,198
+not an automatically generated diagnosis or a
+signed medical record.
+
+26
+00:02:03,213 --> 00:02:09,218
+The contact workflow checks the recorded
+preference and requires review of the
+
+27
+00:02:09,233 --> 00:02:11,253
+exact source and message.
+
+28
+00:02:11,693 --> 00:02:14,233
+WhatsApp contact is simulated.
+
+29
+00:02:14,673 --> 00:02:16,373
+No message is sent.
+
+30
+00:02:16,913 --> 00:02:23,553
+A refusal blocks contact, and changing the
+source invalidates the previous review.
+
+31
+00:02:24,173 --> 00:02:29,353
+Preparing a message does not mean the
+follow-up is complete.
+
+32
+00:02:30,200 --> 00:02:38,365
+We tested Gemma through AMD Token Factory and
+connected PatientKeeper to an
+
+33
+00:02:38,380 --> 00:02:42,600
+Evolus workflow using that configured Gemma
+connection.
+
+34
+00:02:43,360 --> 00:02:50,784
+One real application-to-API execution
+returned an administrative candidate in about
+
+35
+00:02:50,800 --> 00:02:56,680
+eight seconds, with two exact source
+citations and mandatory human review.
+
+36
+00:02:57,400 --> 00:03:00,120
+The administrative state remained unchanged.
+
+37
+00:03:00,500 --> 00:03:06,200
+The application checks the current context
+and blocks outdated results.
+
+38
+00:03:06,500 --> 00:03:11,580
+The doctor can inspect the original sources
+before deciding what to do.
+
+39
+00:03:12,100 --> 00:03:15,279
+This was a small synthetic pilot.
+
+40
+00:03:15,800 --> 00:03:19,444
+The public demonstration displays recorded
+evidence,
+
+41
+00:03:19,460 --> 00:03:22,340
+without live inference or audio
+transcription.
+
+42
+00:03:24,286 --> 00:03:26,746
+What could this mean for a doctor’s day?
+
+43
+00:03:27,166 --> 00:03:32,066
+The routine reported to us involves six
+records per day,
+
+44
+00:03:32,706 --> 00:03:35,546
+with fifteen minutes of documentation each.
+
+45
+00:03:35,766 --> 00:03:40,106
+That represents ninety minutes of daily
+documentation.
+
+46
+00:03:40,626 --> 00:03:47,186
+If an assisted workflow reduced each record
+to ten minutes, including preparation,
+
+47
+00:03:47,486 --> 00:03:52,426
+review, and corrections, the difference would
+be thirty minutes a day.
+
+48
+00:03:53,026 --> 00:03:58,111
+That is an illustrative scenario, not a
+measured PatientKeeper result.
+
+49
+00:03:58,126 --> 00:04:02,691
+Our next step is to test that assumption in a
+
+50
+00:04:02,706 --> 00:04:04,506
+controlled practice pilot.
+
+51
+00:04:05,316 --> 00:04:09,051
+The administrative scaffold predates the
+hackathon.
+
+52
+00:04:09,066 --> 00:04:15,231
+Source review, AMD experiments, and the
+doctor workspace were added
+
+53
+00:04:15,246 --> 00:04:16,571
+during the event.
+
+54
+00:04:16,586 --> 00:04:24,806
+PatientKeeper Retorno: a source, a
+responsible doctor, and a clear next step.

@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "state": "static_context_checked_container_unbuilt_unexecuted",
+  "dockerInvoked": false,
+  "imagePulled": false,
+  "imageBuilt": false,
+  "containerRun": false,
+  "modelCalls": 0,
+  "voiceEnabled": false,
+  "runtimeTarget": "local Linux Docker Engine; host network; existing loopback-only server",
+  "baseImage": "node:24-bookworm-slim",
+  "baseDigestVerified": false,
+  "inputCount": 31,
+  "totalInputBytes": 453877,
+  "dockerfileSha256": "70fe6e09099073b79f195ec01dddcc6a56e5e150206a2ba2bd0a0e9fb14d64ff",
+  "ignoreSha256": "21a014e6a9cd29bde0fcf0a41f5c01a839f19599db99cb1f62e3883f5d536131",
+  "inputs": [
+    {
+      "path": "CASOS-SINTETICOS.json",
+      "bytes": 24690,
+      "sha256": "ed64497b692923fe42595ae47886aa4431dbd87e42d13b9c95702c6e397211cd"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1069,
+      "sha256": "0349e9253b68201f6014356cc9c3e13578fdc3e098f2f8f110ab14ebee05167d"
+    },
+    {
+      "path": "app/ai-contract.mjs",
+      "bytes": 11162,
+      "sha256": "7eaa02dc6cfe39140a07b013e7331ea701a098853d68a398fa6be73577fa3cef"
+    },
+    {
+      "path": "app/calendar-client.mjs",
+      "bytes": 8857,
+      "sha256": "d9211edacc9c81608c4339acd4abc763a330f225ca875e29804e262a71e280b8"
+    },
+    {
+      "path": "app/calendar.mjs",
+      "bytes": 15250,
+      "sha256": "5c5dfe5e95d5b5f8baff16da8da83db0e24e41f8803d6d5f886cd878dfe93ccf"
+    },
+    {
+      "path": "app/care-journey-client.mjs",
+      "bytes": 48521,
+      "sha256": "4e26981ba5cb5f5d2c29d5ef668591233926917bf1fcf15c449c15f2b120b6e8"
+    },
+    {
+      "path": "app/care-journey.css",
+      "bytes": 9467,
+      "sha256": "9c33ae64e24df67c84752958d4ee24b55a4f4c37d2cfc05dfe25ec713d098009"
+    },
+    {
+      "path": "app/care-journey.mjs",
+      "bytes": 25858,
+      "sha256": "43922833055a681718b5f6832769bc70cbaf0b31bb78343f5606785142f16f60"
+    },
+    {
+      "path": "app/care-store.mjs",
+      "bytes": 2292,
+      "sha256": "d4847304ccd630c438b8e12f586ca311a16ec3d708232a46828105b17edf1937"
+    },
+    {
+      "path": "app/client.mjs",
+      "bytes": 30208,
+      "sha256": "ef46ce6cd5b8473bafabf6627aac9f8e06c1f43a6792811704a61efcd58efb7d"
+    },
+    {
+      "path": "app/engine.mjs",
+      "bytes": 28368,
+      "sha256": "017d17fdb67995cff32b532d5f1a98fd3498c3e19002f81248f440bb6a28e637"
+    },
+    {
+      "path": "app/evidence-client.mjs",
+      "bytes": 14724,
+      "sha256": "16f2ad16f98cf1a307cfaf866776108efaaf84edb7d8048b546e8d20fcd52671"
+    },
+    {
+      "path": "app/evidence.mjs",
+      "bytes": 15181,
+      "sha256": "8df4188fba473e6ca60d9ae0e31ac7b120dad4c9221d308276fd4933bb02ae72"
+    },
+    {
+      "path": "app/favicon.svg",
+      "bytes": 274,
+      "sha256": "e70dd602b5e76de29ccbeeef1a384ecdd88e8056879de89a742e559e68bc4889"
+    },
+    {
+      "path": "app/i18n.mjs",
+      "bytes": 53330,
+      "sha256": "8b615739433bc54a7aac7d41c8b3e4b5497883b1e68d6305ffb0315facbdbe18"
+    },
+    {
+      "path": "app/index.html",
+      "bytes": 7977,
+      "sha256": "f0c7ece336ef5dcf57d02a9273f5cc5d470d1a4497f30a0dfa576a6b6f025603"
+    },
+    {
+      "path": "app/model-budget.mjs",
+      "bytes": 3635,
+      "sha256": "e004da435179fe562828d66072012d8c610adaabc6493671b6fae241d91d327f"
+    },
+    {
+      "path": "app/model-client.mjs",
+      "bytes": 8069,
+      "sha256": "760fe52d97bdab4a2e4e385c9f32acccf9ceb35c5cf3d04a315fb0e80971323f"
+    },
+    {
+      "path": "app/model-transport.mjs",
+      "bytes": 16633,
+      "sha256": "098386b7f16eaf6d8b43f0ae0f9e87299351e5c1cdbff5d75a12313770959aa9"
+    },
+    {
+      "path": "app/recorded-gemma-client.mjs",
+      "bytes": 15960,
+      "sha256": "d404593f2567541123bd147050d0dfaa9e3560abe509400d979814d934aab90c"
+    },
+    {
+      "path": "app/recorded-gemma.css",
+      "bytes": 3644,
+      "sha256": "2da41caca09d03b03dc071a0d83683d0a9a96e9a42ba3de5c9d1b58e6a627bfb"
+    },
+    {
+      "path": "app/recorded-gemma.mjs",
+      "bytes": 9807,
+      "sha256": "597600ae439ab7eb38301200934eedc54daf62b6f75e570cbd40cae5256f4ec3"
+    },
+    {
+      "path": "app/selection-controls.css",
+      "bytes": 866,
+      "sha256": "10e32dcaa82bb99adddbd92e777c5ead00e538400c9439ad73a0efc464ff2a71"
+    },
+    {
+      "path": "app/server.mjs",
+      "bytes": 25840,
+      "sha256": "d502395c36488a9574d2af45813ce38b0f083ba765afc04201a8771a98f5342c"
+    },
+    {
+      "path": "app/source-reading.mjs",
+      "bytes": 2383,
+      "sha256": "b3f93a27b0186de0fff9c8a3f7e23eaca1e58c2f27a4ee210ceafc7f71b6b10f"
+    },
+    {
+      "path": "app/source-translations.mjs",
+      "bytes": 12548,
+      "sha256": "cb9b94694365b43d4642466db896a97d403ddf0c00b34013f05069d4ae1bb3b1"
+    },
+    {
+      "path": "app/styles.css",
+      "bytes": 27120,
+      "sha256": "f695079e075133f3f07e1fd864c55340cd7a80eca3223ddbed52809817dd04e8"
+    },
+    {
+      "path": "app/theme-init.js",
+      "bytes": 519,
+      "sha256": "fc6be17dc111820e89ae359d132ddf70b5224137419f679a5ab48149e506d2cc"
+    },
+    {
+      "path": "app/theme.mjs",
+      "bytes": 2667,
+      "sha256": "1532f4f0e44ca9d86a17f1c8a5e2f110ca713ec4c3fd9b464b8d353f65dce4b6"
+    },
+    {
+      "path": "app/voice-transcription.mjs",
+      "bytes": 13518,
+      "sha256": "64d48322ab4731cff9f38425f400e20878ff70e078640d78b7e1ce7e087c7e49"
+    },
+    {
+      "path": "docs/recorded-gemma-runs.json",
+      "bytes": 13440,
+      "sha256": "ad399e1c04385052ab8eb273d2ed46b699434ed1e5e6dbde20ece2b876ec4fd2"
+    }
+  ],
+  "limitations": [
+    "Static inspection does not verify Docker parsing, image availability or runtime behavior.",
+    "No public backend or Evolus/AMD model server is packaged.",
+    "Voice worker, Python runtime and weights are excluded; voice stays disabled.",
+    "No prize eligibility is established by this package."
+  ],
+  "checkedAt": "2026-10-15T13:56:17-03:00"
+}
